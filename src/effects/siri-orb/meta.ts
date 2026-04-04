@@ -1,0 +1,36 @@
+export const meta = {
+  slug: "siri-orb",
+  name: "Siri Orb",
+  description:
+    "Animated Siri-style audio visualizer orb with reactive wave animations and glowing effects. Built with CSS conic-gradients and blend modes.",
+  category: "orb" as const,
+  tags: ["orb", "siri", "apple", "gradient", "conic", "animation", "glow", "glass"],
+  keywords: [
+    "floating sphere", "glowing ball", "energy orb", "plasma ball",
+    "layered gradient sphere", "glass orb", "luminous sphere",
+    "rotating color ball", "magical orb", "crystal ball effect",
+    "ambient light ball", "aurora sphere", "holographic orb",
+    "ai assistant avatar", "voice assistant indicator", "loading orb",
+    "music visualizer", "status indicator", "ai thinking animation",
+    "chat bot avatar", "virtual assistant ui", "smart speaker ui",
+    "processing indicator", "ambient decoration",
+    "siri animation", "apple siri", "homepod animation",
+    "ios siri effect", "voice ui", "conversational ai ui",
+    "시리 오브", "시리 애니메이션", "글로우 구체", "에너지 볼",
+    "AI 어시스턴트", "음성 비서 UI", "로딩 인디케이터",
+    "css @property", "conic-gradient layers", "blend mode",
+    "prefers-reduced-motion", "accessible animation",
+  ],
+  library: {
+    name: "Smooth UI",
+    packageName: "smoothui-cli",
+    url: "https://smoothui.dev/docs/components/siri-orb",
+    installType: "cli" as const,
+  },
+  packageMeta: {
+    bundleSize: "8.9 kB",
+    githubStars: 500,
+    weeklyDownloads: 5_000,
+    lastUpdated: "2025-02",
+  },
+};

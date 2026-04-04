@@ -1,0 +1,31 @@
+# EffectLab
+
+> A curated showcase of visual effects for React projects. Browse, preview, and copy production-ready effect components.
+
+EffectLab collects stunning visual effects (glows, orbs, gradients, borders, animations) that designers and developers can preview live in the browser and copy directly into their projects. Each effect is a self-contained React component with zero or minimal dependencies.
+
+## Available Effects
+
+- [Apple Intelligence Glow](/llms-full.txt): Animated conic-gradient border glow inspired by Apple Intelligence UI
+- [Siri Orb](/llms-full.txt): Animated Siri-style orb with layered conic gradients
+- [Rainbow Glow Border](/llms-full.txt): Animated rainbow border with hover interaction
+
+## How to Use
+
+Each effect includes:
+- A live preview component (React)
+- TSX source code (copy-paste ready)
+- CSS keyframes/properties (if needed)
+- Dependency list
+- Tags and keywords for discoverability
+
+## Technical Details
+
+- Framework: React 19 + Next.js 16
+- Styling: Tailwind CSS v4
+- Animation: CSS @property + @keyframes (zero JS for most effects)
+- All effects are self-contained and framework-agnostic (works in any React project)
+
+## Full Documentation
+
+For complete effect details including source code, see: /llms-full.txt

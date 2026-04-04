@@ -1,0 +1,861 @@
+# EffectLab — Full Effect Reference for LLMs
+
+> A curated showcase of visual effects for React. Each effect links to its original library.
+> Use this to recommend effects, libraries, and implementations to users.
+
+> Total effects: 15
+
+---
+
+## Animated Glow
+
+- **Slug**: rn-animated-glow
+- **Category**: glow
+- **Description**: Multi-layer animated glow with presets (Rainbow, Ocean Sunset). Web recreation of react-native-animated-glow which uses Skia under the hood.
+- **Library**: react-native-animated-glow (react-native-animated-glow)
+- **Library URL**: https://reactnativeglow.com/
+- **Install type**: npm
+- **Bundle size**: 15 kB
+- **GitHub stars**: 200
+- **Weekly downloads**: 2000
+- **Last updated**: 2025-03
+- **Tags**: glow, border, gradient, animation, skia, preset, interactive
+- **Keywords**: animated glow, multi-layer glow, glow preset, rainbow glow, ocean sunset glow, skia glow, react native glow, glow border, rotating gradient border, neon glow, custom glow colors, hover glow state, press glow state, interactive glow, glow layers, glow behind, glow infront, button glow, card glow effect, premium glow, animated border glow, multi-color glow, gradient glow border, apple style glow, ios glow, performant glow, 글로우 이펙트, 애니메이션 글로우, 무지개 글로우, 네온 글로우, 글로우 프리셋, 보더 글로우, Skia 글로우, conic-gradient, css glow, web glow effect
+
+### Install
+```bash
+bun add react-native-animated-glow
+```
+
+### Usage
+```tsx
+// React Native usage (requires RN + Skia)
+import { AnimatedGlow, glowPresets } from 'react-native-animated-glow';
+
+export default function Example() {
+  return (
+    <AnimatedGlow
+      preset={glowPresets.defaultRainbow}
+      initialState="default"
+      style={{ borderRadius: 30 }}
+    >
+      <Text>Glowing Button</Text>
+    </AnimatedGlow>
+  );
+}
+
+// Web alternative (CSS recreation):
+// See the demo component for a pure CSS version
+// that recreates the glow presets for web projects.
+```
+
+---
+
+## Siri Orb
+
+- **Slug**: siri-orb
+- **Category**: orb
+- **Description**: Animated Siri-style audio visualizer orb with reactive wave animations and glowing effects. Built with CSS conic-gradients and blend modes.
+- **Library**: Smooth UI (smoothui-cli)
+- **Library URL**: https://smoothui.dev/docs/components/siri-orb
+- **Install type**: cli
+- **Bundle size**: 8.9 kB
+- **GitHub stars**: 500
+- **Weekly downloads**: 5000
+- **Last updated**: 2025-02
+- **Tags**: orb, siri, apple, gradient, conic, animation, glow, glass
+- **Keywords**: floating sphere, glowing ball, energy orb, plasma ball, layered gradient sphere, glass orb, luminous sphere, rotating color ball, magical orb, crystal ball effect, ambient light ball, aurora sphere, holographic orb, ai assistant avatar, voice assistant indicator, loading orb, music visualizer, status indicator, ai thinking animation, chat bot avatar, virtual assistant ui, smart speaker ui, processing indicator, ambient decoration, siri animation, apple siri, homepod animation, ios siri effect, voice ui, conversational ai ui, 시리 오브, 시리 애니메이션, 글로우 구체, 에너지 볼, AI 어시스턴트, 음성 비서 UI, 로딩 인디케이터, css @property, conic-gradient layers, blend mode, prefers-reduced-motion, accessible animation
+
+### Install
+```bash
+npx smoothui-cli add siri-orb
+```
+
+### Usage
+```tsx
+import SiriOrb from "@/components/ui/smoothui/siri-orb";
+
+export default function Example() {
+  return (
+    <SiriOrb
+      size="192px"
+      colors={{
+        bg: "oklch(10% 0.02 264.695)",
+        c1: "oklch(75% 0.15 350)",    // Pastel pink
+        c2: "oklch(80% 0.12 200)",    // Pastel blue
+        c3: "oklch(78% 0.14 280)",    // Pastel purple
+      }}
+      animationDuration={20}
+    />
+  );
+}
+```
+
+---
+
+## 3D Shader Gradient
+
+- **Slug**: shader-gradient
+- **Category**: gradient
+- **Description**: Stunning 3D mesh gradients powered by WebGL shaders. Create animated, interactive gradient backgrounds with water, plane, and sphere styles reminiscent of Apple's design language.
+- **Library**: @shadergradient/react (@shadergradient/react)
+- **Library URL**: https://shadergradient.co
+- **Install type**: npm
+- **Bundle size**: ~150 kB
+- **GitHub stars**: 5200
+- **Weekly downloads**: 15000
+- **Last updated**: 2024-11
+- **Tags**: gradient, 3d, shader, mesh, webgl, three.js, background
+- **Keywords**: mesh gradient, 3d gradient, shader gradient, apple style gradient, animated gradient background, webgl gradient, three.js gradient, gradient mesh, gradient animation, gradient shader, 3d mesh gradient, animated mesh gradient, dynamic gradient, gradient background, glass gradient, liquid gradient, waterplane gradient, sphere gradient, fluid gradient, organic gradient, flowing gradient, iridescent gradient, holographic gradient, aurora gradient, smooth gradient, hero background, landing page gradient, app background, website gradient, card gradient, interactive background, immersive background, premium background, modern background, 메쉬 그라디언트, 3D 그라디언트, 셰이더 그라디언트, 애플 스타일 그라디언트, 애니메이션 배경, WebGL 그라디언트, 그라디언트 배경, 유체 그라디언트, 홀로그래픽 그라디언트, 인터랙티브 배경, @shadergradient/react, ShaderGradient, ShaderGradientCanvas, waterPlane, three.js mesh gradient, react three fiber gradient
+
+### Install
+```bash
+bun add @shadergradient/react
+```
+
+### Usage
+```tsx
+"use client";
+
+import { ShaderGradientCanvas, ShaderGradient } from "@shadergradient/react";
+
+export default function ShaderGradientDemo() {
+  return (
+    <div className="w-full h-64 rounded-xl overflow-hidden">
+      <ShaderGradientCanvas>
+        <ShaderGradient
+          type="waterPlane"
+          animate="on"
+          uTime={0.2}
+          uSpeed={0.4}
+          uStrength={2}
+          uDensity={1.2}
+          uFrequency={5.5}
+          color1="#ff5005"
+          color2="#dbba95"
+          color3="#d0bce1"
+        />
+      </ShaderGradientCanvas>
+    </div>
+  );
+}
+```
+
+---
+
+## Glow Particles
+
+- **Slug**: pixi-glow-particles
+- **Category**: particle
+- **Description**: Floating, pulsing particles with glow halos rendered via PixiJS WebGL. High-performance 2D particle system with smooth animations.
+- **Library**: PixiJS (pixi.js)
+- **Library URL**: https://pixijs.com/
+- **Install type**: npm
+- **Bundle size**: 150 kB
+- **GitHub stars**: 44000
+- **Weekly downloads**: 500000
+- **Last updated**: 2025-03
+- **Tags**: particle, glow, webgl, pixi, animation, ambient, background
+- **Keywords**: floating particles, glow particles, particle field, ambient particles, constellation effect, star field, firefly effect, floating lights, particle background, webgl particles, gpu particles, pixi.js effect, 2d webgl, canvas particle, html5 canvas, hero background particles, landing page particles, ambient decoration, interactive background, dark mode particles, space particles, glowing dots, pulsing lights, bokeh effect, soft glow dots, particle system, skia web alternative, high performance animation, 60fps animation, gpu accelerated, 파티클 이펙트, 글로우 파티클, 배경 파티클, 떠다니는 빛, WebGL 파티클, 캔버스 파티클, Skia 대안, pixi.js, webgl, canvas 2d, gpu rendering
+
+### Install
+```bash
+bun add pixi.js
+```
+
+### Usage
+```tsx
+"use client";
+import { useEffect, useRef } from "react";
+
+export default function GlowParticles() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let app: any;
+    async function init() {
+      const PIXI = await import("pixi.js");
+      if (!containerRef.current) return;
+
+      app = new PIXI.Application();
+      await app.init({
+        resizeTo: containerRef.current,
+        backgroundAlpha: 0,
+        antialias: true,
+      });
+      containerRef.current.appendChild(app.canvas);
+
+      const COLORS = [0x8b5cf6, 0xec4899, 0x3b82f6];
+      for (let i = 0; i < 40; i++) {
+        const gfx = new PIXI.Graphics();
+        const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+        const r = 2 + Math.random() * 6;
+
+        gfx.circle(0, 0, r * 4).fill({ color, alpha: 0.15 });
+        gfx.circle(0, 0, r).fill({ color, alpha: 0.8 });
+        gfx.x = Math.random() * app.screen.width;
+        gfx.y = Math.random() * app.screen.height;
+        app.stage.addChild(gfx);
+      }
+    }
+    init();
+    return () => app?.destroy(true);
+  }, []);
+
+  return <div ref={containerRef} className="w-full h-full" />;
+}
+```
+
+---
+
+## Layout Animation
+
+- **Slug**: framer-layout
+- **Category**: layout
+- **Description**: Smooth layout animations powered by Motion (Framer). Cards expand, collapse, and reflow with spring-based transitions using layoutId and the layout prop.
+- **Library**: Motion (Framer) (motion)
+- **Library URL**: https://motion.dev
+- **Install type**: npm
+- **Bundle size**: 45 kB
+- **GitHub stars**: 25000
+- **Weekly downloads**: 5000000
+- **Last updated**: 2025-03
+- **Tags**: layout, animation, transition, framer, motion, gesture, spring
+- **Keywords**: layout animation, framer motion, shared layout, expand collapse, reflow animation, react animation, layout transition, smooth reflow, card expand, grid animation, spring animation, layout shift, animate layout, motion layout, framer layout, auto animate, expanding cards, collapsing cards, smooth grid, card reflow, animated grid, fluid layout, resize animation, layout morph, shared element transition, dashboard cards, expandable list, photo gallery expand, accordion animation, masonry animation, card detail view, list to detail, grid reorder, drag reorder animation, 레이아웃 애니메이션, 프레이머 모션, 카드 확장, 그리드 애니메이션, 부드러운 전환, 레이아웃 전환, 카드 접기 펼치기, 스프링 애니메이션, 리플로우 효과, 공유 레이아웃, 모션 애니메이션, motion, AnimatePresence, layoutId, layout prop, framer-motion, motion component
+
+### Install
+```bash
+bun add motion
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+
+const cards = [
+  { id: 1, color: "bg-blue-500", label: "Card A" },
+  { id: 2, color: "bg-emerald-500", label: "Card B" },
+  { id: 3, color: "bg-amber-500", label: "Card C" },
+  { id: 4, color: "bg-rose-500", label: "Card D" },
+];
+
+export default function LayoutAnimation() {
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+
+  return (
+    <div className="relative w-full max-w-md mx-auto">
+      <div className="grid grid-cols-2 gap-3">
+        {cards.map((card) => (
+          <motion.div
+            key={card.id}
+            layoutId={`card-${card.id}`}
+            onClick={() =>
+              setExpandedId(expandedId === card.id ? null : card.id)
+            }
+            className={`${card.color} rounded-xl cursor-pointer flex items-center justify-center text-white font-semibold ${
+              expandedId === card.id
+                ? "col-span-2 h-40"
+                : "h-20"
+            }`}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          >
+            <motion.span layout="position">{card.label}</motion.span>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## Spring Physics Animation
+
+- **Slug**: react-spring
+- **Category**: transition
+- **Description**: Physics-based spring animations that feel natural and alive. Stagger cards, bounce elements, and create fluid transitions powered by real spring dynamics.
+- **Library**: react-spring (@react-spring/web)
+- **Library URL**: https://react-spring.dev
+- **Install type**: npm
+- **Bundle size**: 16.3 kB
+- **GitHub stars**: 28000
+- **Weekly downloads**: 1200000
+- **Last updated**: 2024-10
+- **Tags**: spring, physics, animation, transition, gesture, stagger
+- **Keywords**: spring animation, physics animation, bounce animation, stagger animation, trail animation, react animation library, spring physics, physics-based animation, natural animation, elastic animation, spring transition, bounce in, spring motion, fluid animation, organic animation, spring effect, physics motion, dynamic animation, bouncing cards, staggered entrance, sliding cards, cascading animation, sequential entrance, spring bounce, elastic entrance, wobbly animation, springy cards, card entrance, list animation, staggered list, page transition, mount animation, entrance effect, reveal animation, animated layout, motion design, interactive animation, gesture animation, drag animation, 스프링 애니메이션, 물리 애니메이션, 바운스 효과, 스태거 애니메이션, 트레일 애니메이션, 리액트 애니메이션, 탄성 애니메이션, 자연스러운 애니메이션, 물리 기반 효과, 카드 입장 효과, react-spring, @react-spring/web, useSpring, useTrail, animated.div, spring config, tension friction
+
+### Install
+```bash
+bun add @react-spring/web
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState, useCallback } from "react";
+import { useTrail, animated } from "@react-spring/web";
+
+const items = ["Design", "Develop", "Deploy", "Deliver"];
+
+export default function SpringTrail() {
+  const [show, setShow] = useState(true);
+
+  const trail = useTrail(items.length, {
+    from: { opacity: 0, transform: "translateX(-40px)" },
+    to: {
+      opacity: show ? 1 : 0,
+      transform: show ? "translateX(0px)" : "translateX(-40px)",
+    },
+    config: { mass: 1, tension: 200, friction: 20 },
+  });
+
+  const handleReset = useCallback(() => {
+    setShow(false);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => setShow(true));
+    });
+  }, []);
+
+  return (
+    <div className="flex flex-col gap-3">
+      {trail.map((style, i) => (
+        <animated.div key={items[i]} style={style} className="rounded-xl border p-4">
+          <p className="text-lg font-semibold">{items[i]}</p>
+        </animated.div>
+      ))}
+      <button onClick={handleReset}>Reset</button>
+    </div>
+  );
+}
+```
+
+---
+
+## Auto Animate
+
+- **Slug**: auto-animate
+- **Category**: layout
+- **Description**: Zero-config automatic animations for adding, removing, and reordering list items. Drop-in smooth transitions with a single hook -- no keyframes or spring configs needed.
+- **Library**: AutoAnimate (@formkit/auto-animate)
+- **Library URL**: https://auto-animate.formkit.com
+- **Install type**: npm
+- **Bundle size**: 3.8 kB
+- **GitHub stars**: 13000
+- **Weekly downloads**: 350000
+- **Last updated**: 2024-08
+- **Tags**: auto, animate, list, transition, layout, reorder
+- **Keywords**: automatic animation, list animation, add remove animate, layout transition, auto animate, automate animation, list reorder animation, smooth list, animated list, zero config animation, drop in animation, simple animation, layout animation, element animation, dom animation, auto transition, magic animation, effortless animation, smooth add remove, animated insert, animated delete, slide in animation, fade in list, reorder transition, shuffle animation, move animation, position animation, todo list animation, cart item animation, notification animation, table row animation, kanban animation, sortable list, dynamic list, crud animation, item transition, 자동 애니메이션, 리스트 애니메이션, 레이아웃 트랜지션, 요소 추가 애니메이션, 요소 삭제 애니메이션, 리스트 정렬 애니메이션, 자동 트랜지션, 간편 애니메이션, 드롭인 애니메이션, 리스트 효과, @formkit/auto-animate, useAutoAnimate, autoAnimate, formkit auto-animate, auto-animate react
+
+### Install
+```bash
+bun add @formkit/auto-animate
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+
+export default function AutoAnimateDemo() {
+  const [items, setItems] = useState(["Apple", "Banana", "Cherry"]);
+  const [parent] = useAutoAnimate();
+
+  const addItem = () => {
+    const fruits = ["Mango", "Grape", "Peach", "Kiwi", "Lemon", "Melon"];
+    const pick = fruits[Math.floor(Math.random() * fruits.length)];
+    setItems((prev) => [...prev, pick]);
+  };
+
+  const removeItem = (index: number) => {
+    setItems((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const shuffle = () => {
+    setItems((prev) => [...prev].sort(() => Math.random() - 0.5));
+  };
+
+  return (
+    <div className="space-y-4">
+      <ul ref={parent} className="space-y-2">
+        {items.map((item, i) => (
+          <li
+            key={item + i}
+            className="flex items-center justify-between px-4 py-2 rounded-lg bg-white/10"
+          >
+            {item}
+            <button onClick={() => removeItem(i)}>Remove</button>
+          </li>
+        ))}
+      </ul>
+      <div className="flex gap-2">
+        <button onClick={addItem}>Add</button>
+        <button onClick={shuffle}>Shuffle</button>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## Scroll Parallax
+
+- **Slug**: scroll-parallax
+- **Category**: scroll
+- **Description**: Multi-layer parallax scrolling effect where elements move at different speeds as you scroll, creating an immersive depth illusion. Powered by react-scroll-parallax.
+- **Library**: react-scroll-parallax (react-scroll-parallax)
+- **Library URL**: https://react-scroll-parallax.damnthat.tv
+- **Install type**: npm
+- **Bundle size**: 5.8 kB
+- **GitHub stars**: 4200
+- **Weekly downloads**: 200000
+- **Last updated**: 2024-09
+- **Tags**: parallax, scroll, animation, depth, layer, interactive
+- **Keywords**: scroll parallax, parallax scrolling, depth effect, scroll animation, layered scroll, parallax effect, multi layer parallax, scroll depth, parallax layers, smooth parallax, scroll driven animation, parallax section, floating layers, depth illusion, layered movement, speed differential, foreground background, 3d scroll, immersive scroll, visual depth, moving layers, hero parallax, landing page parallax, storytelling scroll, portfolio parallax, product showcase scroll, scroll experience, onboarding scroll, narrative scroll, interactive scroll page, scroll reveal layers, scroll storytelling, immersive landing, 스크롤 패럴랙스, 패럴랙스 스크롤, 깊이 효과, 스크롤 애니메이션, 레이어 스크롤, 시차 효과, 패럴랙스 효과, 다층 스크롤, 스크롤 깊이감, 몰입형 스크롤, 시차 스크롤링, react-scroll-parallax, ParallaxProvider, Parallax component, parallax speed, scroll offset, parallax banner
+
+### Install
+```bash
+bun add react-scroll-parallax
+```
+
+### Usage
+```tsx
+"use client";
+
+import { Parallax, ParallaxProvider } from "react-scroll-parallax";
+
+export default function ScrollParallax() {
+  return (
+    <ParallaxProvider>
+      <div className="relative h-96 overflow-y-auto rounded-xl bg-slate-900">
+        <div className="h-[800px] relative">
+          <Parallax speed={-10} className="absolute inset-x-0 top-24">
+            <div className="mx-auto w-32 h-32 rounded-full bg-blue-500/30" />
+          </Parallax>
+
+          <Parallax speed={0} className="absolute inset-x-0 top-48">
+            <p className="text-center text-white text-2xl font-bold">
+              Scroll Parallax
+            </p>
+          </Parallax>
+
+          <Parallax speed={10} className="absolute inset-x-0 top-72">
+            <div className="mx-auto w-24 h-24 rounded-lg bg-emerald-500/40" />
+          </Parallax>
+
+          <Parallax speed={20} className="absolute inset-x-0 top-96">
+            <div className="mx-auto w-16 h-16 rounded-md bg-amber-500/50" />
+          </Parallax>
+        </div>
+      </div>
+    </ParallaxProvider>
+  );
+}
+```
+
+---
+
+## Text Typewriter
+
+- **Slug**: typewriter
+- **Category**: text
+- **Description**: Typewriter animation that cycles through phrases with a blinking cursor. Powered by react-type-animation.
+- **Library**: react-type-animation (react-type-animation)
+- **Library URL**: https://github.com/maxeth/react-type-animation
+- **Install type**: npm
+- **Bundle size**: 3.5 kB
+- **GitHub stars**: 800
+- **Weekly downloads**: 150000
+- **Last updated**: 2024-03
+- **Tags**: text, typewriter, typing, animation, terminal
+- **Keywords**: typewriter effect, typing animation, text typewriter, type animation, blinking cursor, auto typing, text cycle, phrase rotation, terminal typing, hero text typing, animated heading, text loop, sequential text, typewriter cursor, character by character, typing out text, words appearing, cursor blinking, letter by letter, progressive text reveal, text streaming, typing simulator, hero section typing, landing page tagline, rotating headlines, subtitle animation, chatbot typing, CLI simulation, loading text typing, splash screen text, 타이프라이터, 타이핑 효과, 텍스트 애니메이션, 자동 타이핑, 커서 깜빡임, 텍스트 루프, 타자기 효과, 히어로 타이핑, 문구 회전, 타이핑 시뮬레이션, 순차 텍스트, 글자 애니메이션, react-type-animation, type animation component, npm typewriter
+
+### Install
+```bash
+npm install react-type-animation
+```
+
+### Usage
+```tsx
+"use client";
+
+import { TypeAnimation } from "react-type-animation";
+
+export default function Typewriter() {
+  return (
+    <TypeAnimation
+      sequence={[
+        "Hello World",
+        2000,
+        "Welcome to my site",
+        2000,
+        "Let's build something great",
+        2000,
+      ]}
+      wrapper="h1"
+      speed={50}
+      repeat={Infinity}
+      cursor={true}
+      style={{
+        fontSize: "2rem",
+        fontWeight: 700,
+        color: "#ffffff",
+        fontFamily: "monospace",
+      }}
+    />
+  );
+}
+```
+
+---
+
+## 3D Card Tilt
+
+- **Slug**: parallax-tilt
+- **Category**: 3d
+- **Description**: Interactive 3D tilt effect with glare on hover. Powered by react-parallax-tilt.
+- **Library**: react-parallax-tilt (react-parallax-tilt)
+- **Library URL**: https://github.com/mkosir/react-parallax-tilt
+- **Install type**: npm
+- **Bundle size**: 4.2 kB
+- **GitHub stars**: 1000
+- **Weekly downloads**: 120000
+- **Last updated**: 2025-04
+- **Tags**: 3d, tilt, parallax, hover, card, interactive
+- **Keywords**: 3d card, tilt effect, parallax card, hover tilt, card tilt, 3d hover, interactive card, perspective card, glare effect, tilt on hover, mouse follow, gyroscope tilt, card rotation, depth effect, 3d transform, tilt animation, floating card, card with depth, tilting element, glossy card, shine effect, reflection card, glass card hover, pricing card, team member card, portfolio card, product card, feature card hover, testimonial card, NFT card, dashboard widget, profile card 3d, hero card effect, 3D 카드, 틸트 효과, 패럴랙스, 호버 틸트, 카드 기울기, 3D 호버 효과, 인터랙티브 카드, 원근감 카드, 글레어 효과, 마우스 따라가기, 카드 회전, 부유 카드, react-parallax-tilt, tilt component, npm parallax tilt
+
+### Install
+```bash
+npm install react-parallax-tilt
+```
+
+### Usage
+```tsx
+"use client";
+
+import Tilt from "react-parallax-tilt";
+
+export default function TiltCard() {
+  return (
+    <Tilt
+      tiltMaxAngleX={15}
+      tiltMaxAngleY={15}
+      perspective={500}
+      glareEnable={true}
+      glareMaxOpacity={0.3}
+      scale={1.02}
+    >
+      <div
+        style={{
+          width: 280,
+          height: 180,
+          borderRadius: 16,
+          background: "linear-gradient(135deg, #667eea, #764ba2)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "#fff",
+          fontSize: "1.25rem",
+          fontWeight: 700,
+        }}
+      >
+        Hover me!
+      </div>
+    </Tilt>
+  );
+}
+```
+
+---
+
+## Infinite Marquee
+
+- **Slug**: marquee
+- **Category**: scroll
+- **Description**: Smoothly scrolling infinite marquee with pause-on-hover and gradient edges. Powered by react-fast-marquee.
+- **Library**: react-fast-marquee (react-fast-marquee)
+- **Library URL**: https://github.com/justin-chu/react-fast-marquee
+- **Install type**: npm
+- **Bundle size**: 2.1 kB
+- **GitHub stars**: 1500
+- **Weekly downloads**: 200000
+- **Last updated**: 2024-01
+- **Tags**: marquee, scroll, infinite, loop, ticker, animation
+- **Keywords**: marquee, infinite scroll, scrolling text, ticker, logo ticker, brand marquee, scrolling banner, auto scroll, continuous scroll, horizontal scroll, text carousel, logo carousel, endless scroll, scroll loop, marquee animation, news ticker, scrolling badges, moving text, sliding logos, rolling text, flowing content, seamless loop, smooth scroll ticker, client logos, tech stack banner, partner logos, sponsor ticker, testimonial scroll, social proof marquee, skill badges scroll, announcement bar, breaking news ticker, featured brands, 무한 스크롤, 마퀴, 로고 티커, 스크롤 배너, 자동 스크롤, 수평 스크롤, 로고 캐러셀, 끝없는 스크롤, 텍스트 티커, 브랜드 마퀴, 뉴스 티커, 무한 루프 스크롤, react-fast-marquee, marquee component, npm marquee
+
+### Install
+```bash
+npm install react-fast-marquee
+```
+
+### Usage
+```tsx
+"use client";
+
+import Marquee from "react-fast-marquee";
+
+export default function InfiniteMarquee() {
+  const items = ["React", "Next.js", "Tailwind", "TypeScript", "Prisma"];
+
+  return (
+    <Marquee pauseOnHover={true} gradient={true} gradientColor="black" speed={40}>
+      {items.map((item) => (
+        <span
+          key={item}
+          style={{
+            padding: "0.5rem 1.25rem",
+            margin: "0 0.5rem",
+            borderRadius: 9999,
+            background: "linear-gradient(135deg, #667eea, #764ba2)",
+            color: "#fff",
+            fontSize: "0.875rem",
+            fontWeight: 600,
+          }}
+        >
+          {item}
+        </span>
+      ))}
+    </Marquee>
+  );
+}
+```
+
+---
+
+## Hand-drawn Annotation
+
+- **Slug**: rough-notation
+- **Category**: text
+- **Description**: Animate hand-drawn style annotations on text — underlines, circles, highlights, and brackets that feel sketchy and personal.
+- **Library**: react-rough-notation (react-rough-notation)
+- **Library URL**: https://github.com/linkstrifer/react-rough-notation
+- **Install type**: npm
+- **Bundle size**: 3.2 kB
+- **GitHub stars**: 900
+- **Weekly downloads**: 30000
+- **Last updated**: 2022-10
+- **Tags**: annotation, hand-drawn, underline, highlight, circle, sketch
+- **Keywords**: rough notation, hand-drawn annotation, sketch annotation, underline effect, circle text, highlight text, bracket annotation, text annotation, hand-drawn underline, sketch highlight, animated annotation, rough underline, rough highlight, text decoration animation, annotation group, sequential annotation, hand-drawn style, sketch style text, pencil underline, marker highlight, circle emphasis, bracket decoration, organic text decoration, imperfect lines, natural annotation, hero text annotation, landing page emphasis, callout text, key point highlight, text emphasis effect, reading highlight, content annotation, educational highlight, presentation text, 손그림 주석, 밑줄 효과, 하이라이트, 동그라미 강조, 스케치 스타일, 텍스트 주석, 손으로 그린 밑줄, 애니메이션 주석, 텍스트 강조 효과, 괄호 장식, react-rough-notation, RoughNotation, RoughNotationGroup, svg annotation, canvas-free annotation
+
+### Install
+```bash
+bun add react-rough-notation
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState, useEffect } from "react";
+import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
+
+export default function HandDrawnAnnotation() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    setShow(true);
+  }, []);
+
+  return (
+    <RoughNotationGroup show={show}>
+      <p className="text-2xl leading-relaxed">
+        <RoughNotation type="underline" color="#f59e0b" order={1}>
+          Underlined text
+        </RoughNotation>{" "}
+        and{" "}
+        <RoughNotation type="highlight" color="#3b82f6" order={2} multiline>
+          highlighted text
+        </RoughNotation>{" "}
+        and{" "}
+        <RoughNotation type="circle" color="#ef4444" padding={8} order={3}>
+          circled
+        </RoughNotation>{" "}
+        words.
+      </p>
+    </RoughNotationGroup>
+  );
+}
+```
+
+---
+
+## Animated Number
+
+- **Slug**: number-flow
+- **Category**: text
+- **Description**: Smoothly animated number transitions that morph digits in place. Perfect for dashboards, counters, and stats that update in real time.
+- **Library**: NumberFlow (@number-flow/react)
+- **Library URL**: https://number-flow.barvian.me/
+- **Install type**: npm
+- **Bundle size**: 8.5 kB
+- **GitHub stars**: 5500
+- **Weekly downloads**: 50000
+- **Last updated**: 2025-03
+- **Tags**: number, counter, animated, transition, digit, morphing
+- **Keywords**: number flow, animated number, number transition, digit morphing, counter animation, number counter, animated counter, smooth number, rolling number, number ticker, dashboard counter, stat animation, metric animation, number morph, digit animation, counting animation, sliding digits, morphing numbers, smooth counter, animated digits, rolling counter, flip number, odometer effect, number carousel, digit transition, dashboard metric, revenue counter, price animation, score counter, live stat, real-time number, analytics counter, kpi animation, progress number, 숫자 애니메이션, 카운터, 숫자 모핑, 숫자 전환 효과, 대시보드 카운터, 숫자 트랜지션, 실시간 숫자, 애니메이션 카운터, 숫자 슬라이드, 통계 애니메이션, @number-flow/react, NumberFlow, useGrouping, tabular-nums, digit morph transition
+
+### Install
+```bash
+bun add @number-flow/react
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState, useEffect } from "react";
+import NumberFlow from "@number-flow/react";
+
+export default function AnimatedNumber() {
+  const [value, setValue] = useState(12345);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setValue((prev) => prev + Math.floor(Math.random() * 200 + 50));
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="text-6xl font-bold tabular-nums">
+      $<NumberFlow
+        value={value}
+        format={{ useGrouping: true }}
+        transformTiming={{ duration: 750, easing: "ease-out" }}
+      />
+    </div>
+  );
+}
+```
+
+---
+
+## Animated Counter
+
+- **Slug**: countup
+- **Category**: text
+- **Description**: Smooth count-up animations that bring numbers to life. Perfect for dashboards, statistics sections, and landing pages that showcase impressive metrics.
+- **Library**: react-countup (react-countup)
+- **Library URL**: https://github.com/glennreyes/react-countup
+- **Install type**: npm
+- **Bundle size**: 4.2 kB
+- **GitHub stars**: 1800
+- **Weekly downloads**: 450000
+- **Last updated**: 2024-06
+- **Tags**: counter, number, countup, animation, dashboard, statistics
+- **Keywords**: count up, animated counter, number animation, dashboard metrics, statistics animation, counting number, number counter, count up animation, animated number, metric counter, stats counter, incrementing number, rising number, number reveal, counter animation, scroll counter, counting up effect, animated statistics, live counter, growing number, rolling count, dynamic counter, smooth counting, number climb, ascending number, dashboard stat, landing page metric, revenue counter, user count, download counter, visitor counter, achievement counter, milestone number, kpi counter, progress counter, sales counter, conversion counter, 카운트업, 숫자 카운터, 애니메이션 카운터, 통계 애니메이션, 대시보드 숫자, 숫자 증가 효과, 실시간 카운터, 숫자 올라가는 효과, 카운팅 애니메이션, 지표 애니메이션, react-countup, CountUp, enableScrollSpy, countup.js, scroll spy counter
+
+### Install
+```bash
+bun add react-countup
+```
+
+### Usage
+```tsx
+"use client";
+
+import CountUp from "react-countup";
+
+const stats = [
+  { end: 12847, label: "Users", prefix: "", suffix: "", decimals: 0 },
+  { end: 99.9, label: "Uptime %", prefix: "", suffix: "%", decimals: 1 },
+  { end: 2450000, label: "Revenue", prefix: "$", suffix: "", decimals: 0 },
+];
+
+export default function AnimatedCounter() {
+  return (
+    <div className="grid grid-cols-3 gap-6">
+      {stats.map((stat) => (
+        <div key={stat.label} className="flex flex-col items-center gap-2 p-6">
+          <span className="text-4xl font-bold tabular-nums">
+            <CountUp
+              end={stat.end}
+              prefix={stat.prefix}
+              suffix={stat.suffix}
+              decimals={stat.decimals}
+              duration={2.5}
+              separator=","
+              enableScrollSpy
+              scrollSpyOnce
+            />
+          </span>
+          <span className="text-sm text-muted-foreground">{stat.label}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+---
+
+## Confetti Rain
+
+- **Slug**: confetti
+- **Category**: particle
+- **Description**: Colorful confetti particles rain down to celebrate actions and milestones. Contained within any element, not just full-screen.
+- **Library**: react-confetti (react-confetti)
+- **Library URL**: https://github.com/alampros/react-confetti
+- **Install type**: npm
+- **Bundle size**: 4.8 kB
+- **GitHub stars**: 1500
+- **Weekly downloads**: 300000
+- **Last updated**: 2024-01
+- **Tags**: confetti, celebration, party, reward, animation, fun
+- **Keywords**: confetti, confetti rain, confetti animation, celebration effect, party effect, confetti explosion, confetti burst, reward animation, success confetti, achievement effect, confetti shower, falling confetti, confetti particles, celebration particles, victory animation, win animation, colorful confetti, rainbow confetti, falling paper, paper bits, confetti pieces, scattered confetti, floating confetti, raining confetti, confetti overlay, checkout success, form completion, level up, achievement unlocked, payment success, signup celebration, milestone reached, goal completion, game win screen, 콘페티, 축하 효과, 파티 이펙트, 축하 애니메이션, 색종이 효과, 폭죽 효과, 보상 애니메이션, 성공 이펙트, 승리 효과, 파티클 애니메이션, react-confetti, ReactConfetti, canvas confetti, confetti component, contained confetti
+
+### Install
+```bash
+bun add react-confetti
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState, useRef, useCallback, useEffect } from "react";
+import ReactConfetti from "react-confetti";
+
+export default function ConfettiRain() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      setDimensions({
+        width: containerRef.current.offsetWidth,
+        height: containerRef.current.offsetHeight,
+      });
+    }
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative w-full h-64 rounded-xl overflow-hidden"
+    >
+      {isActive && dimensions.width > 0 && (
+        <ReactConfetti
+          width={dimensions.width}
+          height={dimensions.height}
+          recycle={false}
+          numberOfPieces={200}
+        />
+      )}
+      <button onClick={() => setIsActive(true)}>
+        Celebrate!
+      </button>
+    </div>
+  );
+}
+```
+
+---

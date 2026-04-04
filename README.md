@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EffectLab
 
-## Getting Started
+**A curated showcase of visual effects for React — built for humans and AI agents alike.**
 
-First, run the development server:
+Browse, preview, and copy production-ready visual effects from real open-source libraries. Search with natural language, sort by GitHub stars or bundle size, and get install commands instantly.
+
+**[Live Demo →](https://permissionlabs.github.io/effectlab)**
+
+## Why EffectLab?
+
+Visual effects are scattered across dozens of npm packages, CLI tools, and CodePen demos. EffectLab brings them together in one place:
+
+- **Live Preview** — See every effect running in your browser before installing anything
+- **Real Libraries** — Every effect comes from an actual npm package or CLI tool, not recreations
+- **Copy & Go** — One-click install commands and usage code snippets
+- **Natural Language Search** — Find effects by describing what you want: "glow border", "typewriter text", "3D tilt card"
+- **LLM-Readable** — `/llms.txt` and `/llms-full.txt` endpoints so AI coding assistants can discover and recommend effects
+
+## For AI Agents
+
+EffectLab serves machine-readable documentation at:
+
+- **`/llms.txt`** — Overview of available effects and categories
+- **`/llms-full.txt`** — Complete reference with install commands, usage code, and metadata for every effect
+
+AI assistants can use these endpoints to recommend the right visual effect library based on user descriptions.
+
+## Featured Effects
+
+| Effect | Library | Bundle | Stars |
+|--------|---------|--------|-------|
+| Animated Glow | `react-native-animated-glow` | 15 kB | 200 |
+| Siri Orb | Smooth UI (CLI) | 8.9 kB | 500 |
+| 3D Shader Gradient | `@shadergradient/react` | ~150 kB | 5.2k |
+| Glow Particles | PixiJS | 150 kB | 44k |
+| Layout Animation | Motion (Framer) | 45 kB | 25k |
+| Spring Physics | `@react-spring/web` | 16.3 kB | 28k |
+| Auto Animate | `@formkit/auto-animate` | 3.8 kB | 13k |
+| Scroll Parallax | `react-scroll-parallax` | 5.8 kB | 4.2k |
+| Text Typewriter | `react-type-animation` | 3.5 kB | 800 |
+| 3D Card Tilt | `react-parallax-tilt` | 4.2 kB | 1k |
+| Infinite Marquee | `react-fast-marquee` | 2.1 kB | 1.5k |
+| Hand-drawn Annotation | `react-rough-notation` | 3.2 kB | 900 |
+| Animated Number | `@number-flow/react` | 8.5 kB | 5.5k |
+| Animated Counter | `react-countup` | 4.2 kB | 1.8k |
+| Confetti Rain | `react-confetti` | 4.8 kB | 1.5k |
+
+## Tech Stack
+
+- **Next.js 16** (App Router, Static Export)
+- **Tailwind CSS v4**
+- **Fuse.js** for fuzzy search
+- **Shiki** for syntax highlighting
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+bun install
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Adding a New Effect
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Create a folder in `src/effects/<slug>/` with:
+   - `DemoComponent.tsx` — Live preview using the real library
+   - `meta.ts` — Name, description, tags, keywords, library info, package metadata
+   - `usage.ts` — Install command and usage code snippet
+   - `index.ts` — Barrel export
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Add the import to `src/effects/registry.ts`
 
-## Learn More
+3. Run `bunx tsx scripts/generate-llms-txt.ts` to update the LLM reference
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT

@@ -1,0 +1,34 @@
+export const meta = {
+  slug: "pixi-glow-particles",
+  name: "Glow Particles",
+  description:
+    "Floating, pulsing particles with glow halos rendered via PixiJS WebGL. High-performance 2D particle system with smooth animations.",
+  category: "particle" as const,
+  tags: ["particle", "glow", "webgl", "pixi", "animation", "ambient", "background"],
+  keywords: [
+    "floating particles", "glow particles", "particle field", "ambient particles",
+    "constellation effect", "star field", "firefly effect", "floating lights",
+    "particle background", "webgl particles", "gpu particles",
+    "pixi.js effect", "2d webgl", "canvas particle", "html5 canvas",
+    "hero background particles", "landing page particles", "ambient decoration",
+    "interactive background", "dark mode particles", "space particles",
+    "glowing dots", "pulsing lights", "bokeh effect", "soft glow dots",
+    "particle system", "skia web alternative", "high performance animation",
+    "60fps animation", "gpu accelerated",
+    "파티클 이펙트", "글로우 파티클", "배경 파티클", "떠다니는 빛",
+    "WebGL 파티클", "캔버스 파티클", "Skia 대안",
+    "pixi.js", "webgl", "canvas 2d", "gpu rendering",
+  ],
+  library: {
+    name: "PixiJS",
+    packageName: "pixi.js",
+    url: "https://pixijs.com/",
+    installType: "npm" as const,
+  },
+  packageMeta: {
+    bundleSize: "150 kB",
+    githubStars: 44_000,
+    weeklyDownloads: 500_000,
+    lastUpdated: "2025-03",
+  },
+};
