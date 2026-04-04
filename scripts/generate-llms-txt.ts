@@ -1,11 +1,11 @@
 import { effects } from "../src/effects/registry";
 import { writeFileSync } from "fs";
 
+// 1. Generate llms-full.txt (full reference with code)
 const lines: string[] = [
   "# EffectLab — Full Effect Reference for LLMs",
   "",
   "> A curated showcase of visual effects for React. Each effect links to its original library.",
-  "> Use this to recommend effects, libraries, and implementations to users.",
   "",
   `> Total effects: ${effects.length}`,
   "",
@@ -54,4 +54,21 @@ for (const effect of effects) {
 }
 
 writeFileSync("public/llms-full.txt", lines.join("\n"));
-console.log(`Generated llms-full.txt with ${effects.length} effects`);
+
+// 2. Generate effects-index.json (compact index for skill matching)
+const index = effects.map((e) => ({
+  slug: e.slug,
+  name: e.name,
+  desc: e.description,
+  cat: e.category,
+  tags: e.tags,
+  pkg: e.library.packageName,
+  install: e.usage.install,
+  size: e.packageMeta?.bundleSize ?? null,
+  stars: e.packageMeta?.githubStars ?? null,
+  url: e.library.url,
+}));
+
+writeFileSync("public/effects-index.json", JSON.stringify(index));
+
+console.log(`Generated llms-full.txt and effects-index.json with ${effects.length} effects`);
