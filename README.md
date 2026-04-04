@@ -61,15 +61,28 @@ bun dev
 
 ## Adding a New Effect
 
-1. Create a folder in `src/effects/<slug>/` with:
-   - `DemoComponent.tsx` — Live preview using the real library
-   - `meta.ts` — Name, description, tags, keywords, library info, package metadata
-   - `usage.ts` — Install command and usage code snippet
-   - `index.ts` — Barrel export
+The fastest way — use the CLI with a package name, GitHub URL, or homepage:
 
-2. Add the import to `src/effects/registry.ts`
+```bash
+# By package name
+bun scripts/add-effect.ts react-hot-toast
 
-3. Run `bunx tsx scripts/generate-llms-txt.ts` to update the LLM reference
+# By GitHub URL
+bun scripts/add-effect.ts https://github.com/timolins/react-hot-toast
+```
+
+This auto-fetches npm metadata, GitHub stars, bundle size, and scaffolds all 4 files + updates the registry. Then customize:
+
+1. **`DemoComponent.tsx`** — Implement the live demo (the CLI creates a TODO placeholder)
+2. **`meta.ts`** — Expand keywords to 30+ (including Korean)
+3. **`usage.ts`** — Write standalone copy-paste code
+4. **Verify**: `bun run build`
+5. **Regenerate index**: `bunx tsx scripts/generate-llms-txt.ts`
+6. **Deploy**: `git push` (GitHub Actions auto-deploys)
+
+### For Claude Code users
+
+If you have the EffectLab plugin installed, use the `/add-effect` skill which runs the same CLI and then helps you customize the TODO files.
 
 ## License
 

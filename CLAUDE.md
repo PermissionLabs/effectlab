@@ -2,11 +2,28 @@
 
 # EffectLab
 
-Curated showcase of React visual effect libraries.
+Curated showcase of React visual effect libraries — for humans and AI agents.
 
-## Project skills
+## Adding new effects
 
-- `/add-effect <library>` — Add a new effect to the showcase. Creates all files (DemoComponent, meta, usage, index), updates registry, rebuilds index. Use this whenever adding a new effect.
+Use the `/add-effect` skill or the CLI directly:
+
+```bash
+# By package name
+bun scripts/add-effect.ts react-hot-toast
+
+# By GitHub URL
+bun scripts/add-effect.ts https://github.com/timolins/react-hot-toast
+
+# By homepage URL
+bun scripts/add-effect.ts https://react-hot-toast.com
+```
+
+This auto-scaffolds all files from npm/GitHub metadata. Then customize:
+1. `DemoComponent.tsx` — implement the actual live demo
+2. `meta.ts` — expand to 30+ keywords (including Korean)
+3. `usage.ts` — write standalone copy-paste code
+4. `bun run build` → `bunx tsx scripts/generate-llms-txt.ts` → commit & push
 
 ## Key conventions
 
@@ -14,7 +31,7 @@ Curated showcase of React visual effect libraries.
 - All demo components need `"use client"` and must look good on dark bg (#050510)
 - Libraries must be React 19 compatible (no bundled React copies)
 - If SSR breaks, use `next/dynamic({ ssr: false })`
-- After any effect change: `bunx tsx scripts/generate-llms-txt.ts` to rebuild the index
+- After any change: `bunx tsx scripts/generate-llms-txt.ts` to rebuild the index
 - Deploy: push to main → GitHub Actions auto-deploys to Pages
 
 ## Structure
@@ -26,3 +43,8 @@ src/effects/<slug>/
   usage.ts           — Install command + standalone usage code
   index.ts           — Barrel export
 ```
+
+## Skills
+
+- `/add-effect <pkg|url>` — Scaffold + customize new effect
+- `/effectlab <description>` — Search effects database (user-facing skill, in skills/ dir)
