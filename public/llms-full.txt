@@ -2,7 +2,7 @@
 
 > A curated showcase of visual effects for React. Each effect links to its original library.
 
-> Total effects: 15
+> Total effects: 25
 
 ---
 
@@ -855,6 +855,614 @@ export default function ConfettiRain() {
     </div>
   );
 }
+```
+
+---
+
+## Awesome Reveal
+
+- **Slug**: react-awesome-reveal
+- **Category**: scroll
+- **Description**: React components to add reveal animations using the Intersection Observer API and CSS Animations.
+- **Library**: react-awesome-reveal (react-awesome-reveal)
+- **Library URL**: https://react-awesome-reveal.morello.dev
+- **Install type**: npm
+- **Bundle size**: 5.6 kB
+- **GitHub stars**: 1193
+- **Weekly downloads**: 41979
+- **Last updated**: 2024-12
+- **Tags**: react, reveal, react-reveal, scroll, typescript, intersection, intersection-observer
+- **Keywords**: reveal animation, fade in, slide in, zoom in, bounce in, scroll reveal, entrance animation, staggered animation, cascade effect, reveal on scroll, appear animation, smooth reveal, element reveal, content reveal, landing page animation, section reveal, scroll triggered, intersection observer animation, lazy animation, on-scroll effect, page load animation, viewport animation, scroll interaction, progressive reveal, sequential animation, delayed entrance, 스크롤 애니메이션, 등장 효과, 페이드인 효과, 슬라이드 애니메이션, 줌 애니메이션, 바운스 효과, 스크롤 트리거, 화면 진입 효과, react-awesome-reveal, intersection-observer, css-animations, react, typescript, triggerOnce, cascade, damping
+
+### Install
+```bash
+bun add react-awesome-reveal
+```
+
+### Usage
+```tsx
+"use client";
+
+import { Fade, Slide, Zoom, Bounce } from "react-awesome-reveal";
+
+export default function RevealExample() {
+  return (
+    <div className="space-y-8 p-8">
+      <Fade triggerOnce>
+        <h1 className="text-4xl font-bold">Fade In</h1>
+      </Fade>
+
+      <Slide direction="left" triggerOnce>
+        <p className="text-lg">This slides in from the left.</p>
+      </Slide>
+
+      <Zoom delay={200} triggerOnce>
+        <div className="p-6 bg-blue-500 rounded-xl text-white">
+          Zoomed in with delay
+        </div>
+      </Zoom>
+
+      <Bounce cascade damping={0.1}>
+        <p>B</p>
+        <p>O</p>
+        <p>U</p>
+        <p>N</p>
+        <p>C</p>
+        <p>E</p>
+      </Bounce>
+    </div>
+  );
+}
+```
+
+---
+
+## Vaul
+
+- **Slug**: vaul
+- **Category**: interaction
+- **Description**: Drawer component for React.
+- **Library**: vaul (vaul)
+- **Library URL**: https://vaul.emilkowal.ski/
+- **Install type**: npm
+- **Bundle size**: 17.9 kB
+- **GitHub stars**: 8271
+- **Weekly downloads**: 23227851
+- **Last updated**: 2025-10
+- **Tags**: react, drawer, dialog, modal
+- **Keywords**: drawer, bottom sheet, slide up panel, pull up drawer, swipe drawer, spring animation drawer, smooth drawer, drag to dismiss, sheet component, overlay panel, mobile drawer, gesture drawer, snap point drawer, mobile menu, action sheet, bottom navigation, settings panel, filter drawer, cart drawer, navigation drawer, content panel, modal alternative, mobile dialog, touch drawer, responsive drawer, 드로어, 바텀시트, 모바일 메뉴, 슬라이드 패널, 스와이프 드로어, 터치 드로어, 모달 대안, vaul, radix-dialog, react-drawer, framer-motion, snap-points, spring-physics, gesture-based
+
+### Install
+```bash
+bun add vaul
+```
+
+### Usage
+```tsx
+"use client";
+
+import { Drawer } from "vaul";
+
+export default function DrawerExample() {
+  return (
+    <Drawer.Root>
+      <Drawer.Trigger asChild>
+        <button className="px-4 py-2 bg-white rounded-lg text-black">
+          Open Drawer
+        </button>
+      </Drawer.Trigger>
+      <Drawer.Portal>
+        <Drawer.Overlay className="fixed inset-0 bg-black/40" />
+        <Drawer.Content className="fixed bottom-0 left-0 right-0 rounded-t-2xl bg-white p-6">
+          <div className="mx-auto mb-4 h-1.5 w-12 rounded-full bg-gray-300" />
+          <Drawer.Title className="text-lg font-semibold mb-2">
+            Settings
+          </Drawer.Title>
+          <Drawer.Description className="text-gray-500">
+            Drag down to dismiss this drawer.
+          </Drawer.Description>
+        </Drawer.Content>
+      </Drawer.Portal>
+    </Drawer.Root>
+  );
+}
+```
+
+---
+
+## Sonner
+
+- **Slug**: sonner
+- **Category**: interaction
+- **Description**: An opinionated toast component for React.
+- **Library**: sonner (sonner)
+- **Library URL**: https://sonner.emilkowal.ski/
+- **Install type**: npm
+- **Bundle size**: 9.1 kB
+- **GitHub stars**: 12200
+- **Weekly downloads**: 32367752
+- **Last updated**: 2025-12
+- **Tags**: react, notifications, toast, snackbar, message
+- **Keywords**: toast notification, toast popup, notification bar, snackbar alert, floating message, stacked toasts, animated toast, slide-in notification, dismissable toast, success toast, error toast, info toast, promise toast, loading toast, toast queue, form feedback, action confirmation, error message, status notification, upload progress, save confirmation, real-time alert, user feedback, system notification, api response toast, clipboard toast, undo toast, 토스트 알림, 알림 메시지, 스낵바, 팝업 알림, 상태 메시지, 피드백 알림, 성공 알림, 에러 알림, sonner, react-toast, toast-component, toaster-provider, hot-toast, notification-system
+
+### Install
+```bash
+bun add sonner
+```
+
+### Usage
+```tsx
+"use client";
+
+import { Toaster, toast } from "sonner";
+
+export default function ToastExample() {
+  return (
+    <div>
+      <Toaster position="top-right" />
+
+      <button onClick={() => toast.success("Saved successfully!")}>
+        Success
+      </button>
+
+      <button onClick={() => toast.error("Something went wrong")}>
+        Error
+      </button>
+
+      <button onClick={() => toast.info("Tip: you can drag to dismiss")}>
+        Info
+      </button>
+
+      <button
+        onClick={() =>
+          toast.promise(fetch("/api/data"), {
+            loading: "Fetching data...",
+            success: "Data loaded!",
+            error: "Failed to load",
+          })
+        }
+      >
+        Promise
+      </button>
+    </div>
+  );
+}
+```
+
+---
+
+## Rewards
+
+- **Slug**: react-rewards
+- **Category**: particle
+- **Description**: This package lets you easily add micro-interactions to your app and reward users with the rain of confetti, emoji or balloons.
+- **Library**: react-rewards (react-rewards)
+- **Library URL**: https://github.com/thedevelobear/react-rewards
+- **Install type**: npm
+- **Bundle size**: 3.6 kB
+- **GitHub stars**: 1681
+- **Weekly downloads**: 64355
+- **Last updated**: 2025-01
+- **Tags**: react, react-rewards, confetti, emoji, balloons, cannon, microinteractions
+- **Keywords**: confetti burst, emoji rain, balloon animation, reward animation, celebration effect, micro-interaction, particle burst, confetti shower, floating emoji, colorful balloons, festive animation, joy animation, sprinkle effect, pop animation, firework effect, checkout celebration, form submission reward, achievement badge, gamification effect, like button reward, signup celebration, purchase confirmation, level up animation, streak reward, goal completion, button feedback, positive reinforcement, 콘페티 효과, 이모지 애니메이션, 풍선 효과, 보상 애니메이션, 축하 이펙트, 마이크로 인터랙션, 게이미피케이션, 파티클 효과, react-rewards, useReward, confetti-hook, micro-interactions, reward-system, canvas-animation
+
+### Install
+```bash
+bun add react-rewards
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useReward } from "react-rewards";
+
+export default function RewardsExample() {
+  const { reward: confettiReward, isAnimating: isConfetti } = useReward(
+    "confettiBtn",
+    "confetti"
+  );
+  const { reward: emojiReward, isAnimating: isEmoji } = useReward(
+    "emojiBtn",
+    "emoji",
+    { emoji: ["🎉", "🔥", "⭐"] }
+  );
+  const { reward: balloonsReward, isAnimating: isBalloons } = useReward(
+    "balloonsBtn",
+    "balloons"
+  );
+
+  return (
+    <div className="flex gap-4 p-8">
+      <button id="confettiBtn" onClick={confettiReward} disabled={isConfetti}>
+        Confetti 🎊
+      </button>
+      <button id="emojiBtn" onClick={emojiReward} disabled={isEmoji}>
+        Emoji 🎉
+      </button>
+      <button id="balloonsBtn" onClick={balloonsReward} disabled={isBalloons}>
+        Balloons 🎈
+      </button>
+    </div>
+  );
+}
+```
+
+---
+
+## Embla Carousel React
+
+- **Slug**: embla-carousel-react
+- **Category**: scroll
+- **Description**: A lightweight carousel library with fluid motion and great swipe precision
+- **Library**: embla-carousel-react (embla-carousel-react)
+- **Library URL**: https://www.embla-carousel.com
+- **Install type**: npm
+- **Bundle size**: 7.1 kB
+- **GitHub stars**: 8151
+- **Weekly downloads**: 22275385
+- **Last updated**: 2026-04
+- **Tags**: slider, carousel, slideshow, gallery, lightweight, touch, javascript
+- **Keywords**: carousel, slider, slideshow, image gallery, card carousel, content slider, smooth scroll carousel, drag carousel, snap carousel, infinite loop carousel, horizontal scroll, fluid motion slider, swipeable gallery, responsive carousel, auto-play slider, product gallery, hero carousel, testimonial slider, image viewer, portfolio gallery, feature showcase, banner slider, thumbnail carousel, onboarding slides, mobile swipe gallery, photo gallery, media carousel, 캐러셀, 슬라이더, 이미지 갤러리, 스와이프 슬라이더, 드래그 캐러셀, 무한 루프 슬라이더, 가로 스크롤, 터치 슬라이더, embla-carousel, useEmblaCarousel, embla-carousel-react, snap-scroll, touch-gesture, lightweight-carousel
+
+### Install
+```bash
+bun add embla-carousel-react
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+
+const slides = ["Slide 1", "Slide 2", "Slide 3", "Slide 4", "Slide 5"];
+
+export default function CarouselExample() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  return (
+    <div>
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {slides.map((label) => (
+            <div
+              key={label}
+              className="flex-[0_0_100%] min-w-0 flex items-center justify-center h-48 bg-gray-100 rounded-xl"
+            >
+              {label}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex gap-2 mt-4">
+        <button onClick={scrollPrev}>Prev</button>
+        <button onClick={scrollNext}>Next</button>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## Loading Skeleton
+
+- **Slug**: react-loading-skeleton
+- **Category**: interaction
+- **Description**: Make beautiful, animated loading skeletons that automatically adapt to your app.
+- **Library**: react-loading-skeleton (react-loading-skeleton)
+- **Library URL**: https://github.com/dvtng/react-loading-skeleton#readme
+- **Install type**: npm
+- **Bundle size**: 0.9 kB
+- **GitHub stars**: 4187
+- **Weekly downloads**: 1047335
+- **Last updated**: 2026-03
+- **Tags**: react, loading, skeleton, placeholder, shimmer
+- **Keywords**: skeleton, loading skeleton, shimmer effect, placeholder animation, pulse animation, skeleton loader, skeleton screen, content placeholder, skeleton shimmer, animated placeholder, glowing skeleton, loading placeholder, skeleton pulse, data loading, lazy loading, progressive loading, content loading state, loading indicator, loading UI, skeleton card, skeleton avatar, skeleton text, skeleton button, form skeleton, list skeleton, feed loading, dashboard loading, 스켈레톤, 로딩 스켈레톤, 스켈레톤 UI, 로딩 애니메이션, 플레이스홀더, 로딩 화면, 스켈레톤 로더, react-loading-skeleton, SkeletonTheme, baseColor, highlightColor, skeleton component
+
+### Install
+```bash
+bun add react-loading-skeleton
+```
+
+### Usage
+```tsx
+"use client";
+
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
+export default function LoadingCard() {
+  return (
+    <SkeletonTheme baseColor="#1a1a2e" highlightColor="#2a2a4a">
+      <div className="max-w-sm rounded-xl bg-gray-900 p-5">
+        {/* Avatar + Name */}
+        <div className="flex items-center gap-4 mb-4">
+          <Skeleton circle width={48} height={48} />
+          <div className="flex-1">
+            <Skeleton width="60%" height={16} />
+            <Skeleton width="40%" height={12} style={{ marginTop: 6 }} />
+          </div>
+        </div>
+
+        {/* Text lines */}
+        <Skeleton count={3} height={12} style={{ marginBottom: 6 }} />
+
+        {/* Action buttons */}
+        <div className="flex gap-3 mt-4">
+          <Skeleton width={80} height={32} borderRadius={8} />
+          <Skeleton width={80} height={32} borderRadius={8} />
+        </div>
+      </div>
+    </SkeletonTheme>
+  );
+}
+```
+
+---
+
+## Spinners
+
+- **Slug**: react-spinners
+- **Category**: interaction
+- **Description**: A collection of beautiful react loading spinners with smooth animations.
+- **Library**: react-spinners (react-spinners)
+- **Library URL**: https://www.davidhu.io/react-spinners/
+- **Install type**: npm
+- **Bundle size**: 6.3 kB
+- **GitHub stars**: 3339
+- **Weekly downloads**: 609517
+- **Last updated**: 2026-03
+- **Tags**: react-spinners, react-spinner, react, loader, loading, spinner
+- **Keywords**: spinner, loading spinner, pulse loader, beat loader, clip loader, ring loader, bar loader, moon loader, circle spinner, dot spinner, rotating spinner, animated spinner, spinning animation, loading ring, loading dots, loading bar, loading indicator, loading state, async loading, data fetching, button loading, page loading, submit loading, form processing, content loading, lazy load spinner, 스피너, 로딩 스피너, 로딩 인디케이터, 로딩 애니메이션, 로더, 로딩 상태, 비동기 로딩, react-spinners, PulseLoader, BeatLoader, ClipLoader, RingLoader, BarLoader, MoonLoader
+
+### Install
+```bash
+bun add react-spinners
+```
+
+### Usage
+```tsx
+"use client";
+
+import { PulseLoader, BeatLoader, ClipLoader, RingLoader, BarLoader, MoonLoader } from "react-spinners";
+
+export default function SpinnersShowcase() {
+  return (
+    <div className="grid grid-cols-3 gap-6 p-8">
+      <div className="flex flex-col items-center gap-2">
+        <PulseLoader color="#8b5cf6" size={12} />
+        <span className="text-sm text-gray-400">PulseLoader</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <BeatLoader color="#8b5cf6" size={12} />
+        <span className="text-sm text-gray-400">BeatLoader</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <ClipLoader color="#8b5cf6" size={40} />
+        <span className="text-sm text-gray-400">ClipLoader</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <RingLoader color="#8b5cf6" size={50} />
+        <span className="text-sm text-gray-400">RingLoader</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <BarLoader color="#8b5cf6" width={120} />
+        <span className="text-sm text-gray-400">BarLoader</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <MoonLoader color="#8b5cf6" size={40} />
+        <span className="text-sm text-gray-400">MoonLoader</span>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## Command Palette
+
+- **Slug**: cmdk
+- **Category**: interaction
+- **Description**: Fast, composable, unstyled command menu for React with built-in search and keyboard navigation.
+- **Library**: cmdk (cmdk)
+- **Library URL**: https://github.com/pacocoursey/cmdk#readme
+- **Install type**: npm
+- **Bundle size**: 14.6 kB
+- **GitHub stars**: 12444
+- **Weekly downloads**: 25046222
+- **Last updated**: 2025-10
+- **Tags**: cmdk, command-palette, search, keyboard, menu
+- **Keywords**: command palette, command menu, command bar, command k, cmd+k, spotlight search, quick actions, action menu, search dialog, search modal, fuzzy search, command dialog, command input, omnibar, keyboard navigation, keyboard shortcut, quick search, app launcher, file search, action search, command center, navigation menu, power user menu, shortcut menu, search overlay, global search, 커맨드 팔레트, 명령 메뉴, 검색 모달, 빠른 검색, 커맨드 바, 검색 팔레트, 키보드 단축키, cmdk, Command component, Command.Input, Command.List, Command.Item, command menu react
+
+### Install
+```bash
+bun add cmdk
+```
+
+### Usage
+```tsx
+"use client";
+
+import { Command } from "cmdk";
+import { useState } from "react";
+
+export default function CommandPalette() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button onClick={() => setOpen(true)}>
+        Open Command Palette (Cmd+K)
+      </button>
+
+      <Command.Dialog
+        open={open}
+        onOpenChange={setOpen}
+        label="Command Menu"
+        className="fixed inset-0 z-50"
+      >
+        <Command.Input
+          placeholder="Type a command or search..."
+          className="w-full px-4 py-3 bg-gray-900 text-white outline-none border-b border-gray-700"
+        />
+        <Command.List className="max-h-80 overflow-y-auto p-2 bg-gray-900">
+          <Command.Empty>No results found.</Command.Empty>
+
+          <Command.Group heading="Actions">
+            <Command.Item onSelect={() => console.log("New file")}>
+              Create New File
+            </Command.Item>
+            <Command.Item onSelect={() => console.log("Settings")}>
+              Open Settings
+            </Command.Item>
+          </Command.Group>
+
+          <Command.Group heading="Navigation">
+            <Command.Item onSelect={() => console.log("Home")}>
+              Go to Home
+            </Command.Item>
+            <Command.Item onSelect={() => console.log("Dashboard")}>
+              Go to Dashboard
+            </Command.Item>
+          </Command.Group>
+        </Command.List>
+      </Command.Dialog>
+    </>
+  );
+}
+```
+
+---
+
+## Drei 3D Effects
+
+- **Slug**: react-three-drei
+- **Category**: 3d
+- **Description**: Useful helpers and abstractions for react-three-fiber: Stars, Float, MeshDistortMaterial, and more.
+- **Library**: @react-three/drei (@react-three/drei)
+- **Library URL**: https://github.com/pmndrs/drei
+- **Install type**: npm
+- **Bundle size**: 484.6 kB
+- **GitHub stars**: 9557
+- **Weekly downloads**: 3429545
+- **Last updated**: 2026-03
+- **Tags**: react, three, threejs, react-three-fiber, 3d, webgl
+- **Keywords**: 3d scene, three.js, 3d sphere, floating sphere, distorted mesh, starfield, star background, 3d orb, webgl scene, 3d animation, glowing sphere, metallic sphere, 3d particles, space background, 3d hero section, 3d landing page, 3d background, interactive 3d, webgl effects, 3d visualization, immersive background, product showcase 3d, 3d web experience, creative coding, 3D 효과, 쓰리디 씬, 별 배경, 플로팅 구체, 웹지엘, 3D 랜딩페이지, 3D 인터랙션, react-three-fiber, @react-three/drei, Canvas, Stars, Float, MeshDistortMaterial, drei helpers
+
+### Install
+```bash
+bun add @react-three/fiber @react-three/drei three
+```
+
+### Usage
+```tsx
+"use client";
+
+import { Canvas } from "@react-three/fiber";
+import { Stars, Float, MeshDistortMaterial } from "@react-three/drei";
+
+function FloatingOrb() {
+  return (
+    <Float speed={2} rotationIntensity={1.5} floatIntensity={2}>
+      <mesh scale={1.8}>
+        <icosahedronGeometry args={[1, 16]} />
+        <MeshDistortMaterial
+          color="#8b5cf6"
+          emissive="#4c1d95"
+          emissiveIntensity={0.5}
+          roughness={0.2}
+          metalness={0.8}
+          distort={0.4}
+          speed={3}
+        />
+      </mesh>
+    </Float>
+  );
+}
+
+// IMPORTANT: Use next/dynamic with { ssr: false } to wrap this component
+// in Next.js to prevent SSR errors with Three.js
+export default function DreiScene() {
+  return (
+    <Canvas
+      camera={{ position: [0, 0, 5], fov: 60 }}
+      style={{ width: "100%", height: "400px", background: "#050510" }}
+    >
+      <ambientLight intensity={0.3} />
+      <pointLight position={[10, 10, 10]} intensity={1} color="#8b5cf6" />
+      <Stars radius={80} depth={60} count={2000} factor={5} fade speed={1.5} />
+      <FloatingOrb />
+    </Canvas>
+  );
+}
+```
+
+---
+
+## Lottie Animations
+
+- **Slug**: lottie-react
+- **Category**: interaction
+- **Description**: Render After Effects animations natively in React using the Lottie format for lightweight, scalable vector animations.
+- **Library**: lottie-react (lottie-react)
+- **Library URL**: https://github.com/Gamote/lottie-react
+- **Install type**: npm
+- **Bundle size**: 58.3 kB
+- **GitHub stars**: 1100
+- **Weekly downloads**: 450000
+- **Last updated**: 2025-06
+- **Tags**: lottie, animation, after-effects, motion, vector
+- **Keywords**: lottie animation, lottie player, vector animation, json animation, motion graphics, after effects animation, bodymovin, animated icon, animated illustration, micro animation, lottie web, scalable animation, lightweight animation, smooth animation, loading animation, onboarding animation, success animation, error animation, empty state animation, splash screen, animated logo, hero animation, celebration animation, transition animation, interactive animation, ui animation, 로티 애니메이션, 벡터 애니메이션, 모션 그래픽, 로티 플레이어, 애프터이펙트 애니메이션, UI 애니메이션, 제이슨 애니메이션, lottie-react, animationData, Lottie component, lottie-web, bodymovin json
+
+### Install
+```bash
+bun add lottie-react
+```
+
+### Usage
+```tsx
+"use client";
+
+import Lottie from "lottie-react";
+// Import your animation JSON (exported from After Effects via Bodymovin)
+import animationData from "./my-animation.json";
+
+export default function LottieExample() {
+  return (
+    <div className="w-64 h-64">
+      <Lottie
+        animationData={animationData}
+        loop={true}
+        autoplay={true}
+        style={{ width: "100%", height: "100%" }}
+      />
+    </div>
+  );
+}
+
+// You can also control playback:
+//
+// import { useRef } from "react";
+// import Lottie, { LottieRefCurrentProps } from "lottie-react";
+//
+// function ControlledLottie() {
+//   const lottieRef = useRef<LottieRefCurrentProps>(null);
+//
+//   return (
+//     <>
+//       <Lottie lottieRef={lottieRef} animationData={animationData} />
+//       <button onClick={() => lottieRef.current?.pause()}>Pause</button>
+//       <button onClick={() => lottieRef.current?.play()}>Play</button>
+//     </>
+//   );
+// }
 ```
 
 ---
