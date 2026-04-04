@@ -3,6 +3,25 @@
 import { useState, useRef, useCallback } from "react";
 import type { EffectDefinition } from "@/effects/types";
 import CodeViewer from "./CodeViewer";
+import { copyToClipboard } from "@/lib/utils";
+
+function buildAIPrompt(effect: EffectDefinition): string {
+  const meta = effect.packageMeta;
+  return `Apply this visual effect to my project:
+
+**${effect.name}**
+- Library: ${effect.library.packageName}${meta?.bundleSize ? ` (${meta.bundleSize})` : ""}
+- Description: ${effect.description}
+- Install: ${effect.usage.install}
+
+Usage:
+\`\`\`tsx
+${effect.usage.tsx}
+\`\`\`
+${effect.usage.css ? `\nCSS:\n\`\`\`css\n${effect.usage.css}\n\`\`\`\n` : ""}
+Docs: ${effect.library.url}
+Preview: https://permissionlabs.github.io/effectlab`;
+}
 
 interface EffectCardProps {
   effect: EffectDefinition;
@@ -10,6 +29,7 @@ interface EffectCardProps {
 
 export default function EffectCard({ effect }: EffectCardProps) {
   const [showCode, setShowCode] = useState(false);
+  const [copiedAI, setCopiedAI] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -98,20 +118,42 @@ export default function EffectCard({ effect }: EffectCardProps) {
             <h3 className="text-sm font-semibold">{effect.name}</h3>
             <p className="text-xs text-muted line-clamp-2">{effect.description}</p>
           </div>
-          <button
-            onClick={() => setShowCode(!showCode)}
-            className={`shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium transition-all ${
-              showCode
-                ? "bg-accent/20 text-accent"
-                : "bg-surface-alt border border-border text-muted hover:text-fg"
-            }`}
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="16 18 22 12 16 6" />
-              <polyline points="8 6 2 12 8 18" />
-            </svg>
-            Code
-          </button>
+          <div className="flex gap-1.5 shrink-0">
+            <button
+              onClick={async () => {
+                await copyToClipboard(buildAIPrompt(effect));
+                setCopiedAI(true);
+                setTimeout(() => setCopiedAI(false), 2000);
+              }}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium transition-all ${
+                copiedAI
+                  ? "bg-green-500/20 text-green-400"
+                  : "bg-surface-alt border border-border text-muted hover:text-fg"
+              }`}
+              title="Copy LLM-friendly prompt with install & usage instructions"
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2a4 4 0 0 0-4 4c0 2 1 3 2 4l2 2 2-2c1-1 2-2 2-4a4 4 0 0 0-4-4z" />
+                <path d="M12 12v6" />
+                <path d="M8 18h8" />
+              </svg>
+              {copiedAI ? "Copied!" : "AI"}
+            </button>
+            <button
+              onClick={() => setShowCode(!showCode)}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium transition-all ${
+                showCode
+                  ? "bg-accent/20 text-accent"
+                  : "bg-surface-alt border border-border text-muted hover:text-fg"
+              }`}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+              Code
+            </button>
+          </div>
         </div>
 
         {/* Package meta stats */}
