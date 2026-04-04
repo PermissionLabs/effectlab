@@ -13,7 +13,6 @@ import { roughNotation } from "./rough-notation";
 import { numberFlow } from "./number-flow";
 import { countup } from "./countup";
 import { confetti } from "./confetti";
-import { gradientTextWave } from "./gradient-text-wave";
 import type { EffectDefinition } from "./types";
 
 export const effects: EffectDefinition[] = [
@@ -32,7 +31,6 @@ export const effects: EffectDefinition[] = [
   numberFlow,
   countup,
   confetti,
-  gradientTextWave,
 ];
 
 export const categories = [...new Set(effects.map((e) => e.category))];

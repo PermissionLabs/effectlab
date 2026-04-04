@@ -23,7 +23,6 @@
         "react-rough-notation": "^1.0.8",
         "react-scroll-parallax": "^3.5.0",
         "react-spring": "^10.0.3",
-        "react-text-gradients-and-animations": "^1.1.7",
         "react-type-animation": "^3.2.0",
         "shiki": "^4.0.2",
         "tailwind-merge": "^3.5.0",
@@ -1354,8 +1353,6 @@
     "react-scroll-parallax": ["react-scroll-parallax@3.5.0", "", { "dependencies": { "parallax-controller": "^1.7.1" }, "peerDependencies": { "react": "^16.8.0-0 || >=17.0.1 || ^18.0.0 || ^19.0.0", "react-dom": "^16.8.0-0 || >=17.0.1 || ^18.0.0 || ^19.0.0" } }, "sha512-cUyBTFfTMA/4jweZB4j06LQnUQdZlGgVKX2hmZ5a/BuHZsnp85MEo6ygD2otCQH734VJ9xXPVZ3WfiAiF2TesQ=="],
 
     "react-spring": ["react-spring@10.0.3", "", { "dependencies": { "@react-spring/core": "~10.0.3", "@react-spring/konva": "~10.0.3", "@react-spring/native": "~10.0.3", "@react-spring/three": "~10.0.3", "@react-spring/web": "~10.0.3", "@react-spring/zdog": "~10.0.3" }, "peerDependencies": { "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-opangIUqCLmkf7+AJZAlM4fLlvzdzWOG/yqAzylKjUoe97Tsjgouz1PsDLu6C9uckvcaMfb4wS/VXiU6dULz5A=="],
-
-    "react-text-gradients-and-animations": ["react-text-gradients-and-animations@1.1.7", "", { "peerDependencies": { "react": "^18.2.0" }, "bin": { "react-text-gradients-and-animations": "dist/index.d.ts" } }, "sha512-WFxk/GuFKWppDP4NWf3cHyac/ZonQDOSMeqLfL5WFicBuhZouVyQ8CnhMAoYS8i/aPLodSi7tCR8fo7qAfr7ZA=="],
 
     "react-type-animation": ["react-type-animation@3.2.0", "", { "peerDependencies": { "prop-types": "^15.5.4", "react": ">= 15.0.0", "react-dom": ">= 15.0.0" } }, "sha512-WXTe0i3rRNKjmggPvT5ntye1QBt0ATGbijeW6V3cQe2W0jaMABXXlPPEdtofnS9tM7wSRHchEvI9SUw+0kUohw=="],
 
