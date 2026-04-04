@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import type { EffectDefinition } from "@/effects/types";
 import CodeViewer from "./CodeViewer";
 
@@ -10,10 +10,34 @@ interface EffectCardProps {
 
 export default function EffectCard({ effect }: EffectCardProps) {
   const [showCode, setShowCode] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
   const Component = effect.component;
 
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  }, []);
+
   return (
-    <div className="group flex flex-col rounded-2xl border border-border bg-surface overflow-hidden transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5">
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="group relative flex flex-col rounded-2xl border border-border bg-surface overflow-hidden transition-all duration-200 hover:scale-[1.02] hover:border-accent/30"
+    >
+      {/* Hover glow overlay — powered by motion (framer) */}
+      <div
+        className="pointer-events-none absolute inset-0 z-10 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        style={{
+          background: isHovered
+            ? `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(139,92,246,0.12), transparent 60%)`
+            : "none",
+        }}
+      />
       {/* Live preview */}
       <div className="relative w-full aspect-[4/3] bg-[#050505] overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
