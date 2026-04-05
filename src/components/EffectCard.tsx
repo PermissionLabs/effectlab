@@ -62,7 +62,7 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
 
         {/* Preview */}
         <div className="relative w-full aspect-[4/5] min-h-[360px] bg-[#0a0a0a] dark:bg-[#0a0a0a] overflow-auto">
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 flex items-center justify-center">
             <Component />
           </div>
 
