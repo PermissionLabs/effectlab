@@ -74,6 +74,9 @@ const initialEdges: Edge[] = [
   { id: "e3-4", source: "3", target: "4", style: { stroke: "rgba(244, 63, 94, 0.4)" } },
 ];
 
+const nodeTypes = {};
+const edgeTypes = {};
+
 export default function ReactflowInner() {
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
@@ -84,12 +87,11 @@ export default function ReactflowInner() {
   );
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-full bg-[#050510] rounded-2xl p-6">
-      <p className="text-white/40 text-xs uppercase tracking-widest mb-4">
-        Interactive node graph
-      </p>
-      <div className="w-full max-w-sm h-80 rounded-xl border border-white/10 overflow-hidden">
+    <div className="w-full h-full bg-[#050510] rounded-2xl overflow-hidden">
+      <div className="w-full h-full">
         <ReactFlow
+          nodeTypes={nodeTypes}
+          edgeTypes={edgeTypes}
           nodes={nodes}
           edges={edges}
           onNodesChange={onNodesChange}
