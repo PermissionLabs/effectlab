@@ -53,6 +53,16 @@ import { smastromReactRating } from "./smastrom-react-rating";
 import { reactWrapBalancer } from "./react-wrap-balancer";
 import { reactActivityCalendar } from "./react-activity-calendar";
 import { uidotdevUsehooks } from "./uidotdev-usehooks";
+import { radixUiReactDialog } from "./radix-ui-react-dialog";
+import { dndKitCore } from "./dnd-kit-core";
+import { radixUiReactSlider } from "./radix-ui-react-slider";
+import { reactResponsiveMasonry } from "./react-responsive-masonry";
+import { tippyjsReact } from "./tippyjs-react";
+import { reactCircularProgressbar } from "./react-circular-progressbar";
+import { prismReactRenderer } from "./prism-react-renderer";
+import { yetAnotherReactLightbox } from "./yet-another-react-lightbox";
+import { rcSteps } from "./rc-steps";
+import { reactCopyToClipboard } from "./react-copy-to-clipboard";
 import type { EffectDefinition } from "./types";
 
 export const effects: EffectDefinition[] = [
@@ -111,6 +121,16 @@ export const effects: EffectDefinition[] = [
   reactWrapBalancer,
   reactActivityCalendar,
   uidotdevUsehooks,
+  radixUiReactDialog,
+  dndKitCore,
+  radixUiReactSlider,
+  reactResponsiveMasonry,
+  tippyjsReact,
+  reactCircularProgressbar,
+  prismReactRenderer,
+  yetAnotherReactLightbox,
+  rcSteps,
+  reactCopyToClipboard,
 ];
 export const categories = [...new Set(effects.map((e) => e.category))];
 export const allTags = [...new Set(effects.flatMap((e) => e.tags))].sort();
