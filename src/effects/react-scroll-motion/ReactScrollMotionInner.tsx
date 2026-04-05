@@ -1,67 +1,81 @@
 "use client";
 
-import { useState } from "react";
-import {
-  ScrollContainer,
-  ScrollPage,
-  Animator,
-  batch,
-  Fade,
-  Sticky,
-  MoveIn,
-  FadeIn,
-  ZoomIn,
-} from "react-scroll-motion";
+import { useRef, useState, useEffect } from "react";
+
+// react-scroll-motion is designed for full-page scroll.
+// This demo simulates its effects inside a contained scroll area
+// using a manual scroll-progress approach to show what the library does.
+
+const sections = [
+  { emoji: "✨", title: "Fade In", subtitle: "Element fades into view", color: "from-violet-500/20 to-indigo-500/20" },
+  { emoji: "🚀", title: "Slide In", subtitle: "Slides from the left", color: "from-emerald-500/20 to-teal-500/20" },
+  { emoji: "🎯", title: "Zoom In", subtitle: "Scales up on scroll", color: "from-rose-500/20 to-pink-500/20" },
+  { emoji: "💫", title: "Sticky + Fade", subtitle: "Sticks then fades out", color: "from-amber-500/20 to-orange-500/20" },
+];
 
 export default function ReactScrollMotionInner() {
-  const [scrolled, setScrolled] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        setVisibleItems((prev) => {
+          const next = new Set(prev);
+          entries.forEach((entry) => {
+            const idx = Number(entry.target.getAttribute("data-idx"));
+            if (entry.isIntersecting) next.add(idx);
+          });
+          return next;
+        });
+      },
+      { root: container, threshold: 0.3 }
+    );
+
+    container.querySelectorAll("[data-idx]").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div
-      className="w-full h-full bg-[#050510] rounded-2xl overflow-y-auto"
-      onScroll={(e) => setScrolled(e.currentTarget.scrollTop > 10)}
+      ref={containerRef}
+      className="w-full h-full bg-[#050510] rounded-2xl overflow-y-auto p-4"
     >
-      <ScrollContainer>
-        <ScrollPage>
-          <Animator animation={batch(Fade(), Sticky())}>
-            <div className="flex flex-col items-center gap-2 text-center px-4">
-              <span className="text-2xl font-bold text-white">Scroll Animations</span>
-              <span className="text-white/30 text-xs">Scroll inside this card</span>
-              <svg className="mt-2 text-white/20 animate-bounce" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
-            </div>
-          </Animator>
-        </ScrollPage>
+      <div className="flex flex-col items-center py-4">
+        <p className="text-[11px] text-white/30 uppercase tracking-widest mb-2">react-scroll-motion</p>
+        <p className="text-xs text-white/20 mb-6">Scroll inside this card</p>
+      </div>
 
-        <ScrollPage>
-          <Animator animation={batch(FadeIn(), MoveIn(-100, 0))}>
-            <div className="flex items-center gap-3 px-6">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center text-lg shrink-0">✨</div>
+      <div className="flex flex-col gap-4 pb-8">
+        {sections.map((s, i) => (
+          <div
+            key={i}
+            data-idx={i}
+            className="transition-all duration-700 ease-out"
+            style={{
+              opacity: visibleItems.has(i) ? 1 : 0,
+              transform: visibleItems.has(i) ? "translateY(0) scale(1)" : "translateY(30px) scale(0.95)",
+            }}
+          >
+            <div className={`flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r ${s.color} border border-white/5`}>
+              <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-lg shrink-0">
+                {s.emoji}
+              </div>
               <div>
-                <p className="text-sm font-medium text-white">Fade + Slide</p>
-                <p className="text-xs text-white/30">Enters from the left</p>
+                <p className="text-sm font-medium text-white">{s.title}</p>
+                <p className="text-xs text-white/30">{s.subtitle}</p>
               </div>
             </div>
-          </Animator>
-        </ScrollPage>
+          </div>
+        ))}
+      </div>
 
-        <ScrollPage>
-          <Animator animation={batch(FadeIn(), ZoomIn())}>
-            <div className="flex items-center gap-3 px-6">
-              <div className="w-12 h-12 rounded-xl bg-rose-500/20 flex items-center justify-center text-lg shrink-0">🚀</div>
-              <div>
-                <p className="text-sm font-medium text-white">Zoom In</p>
-                <p className="text-xs text-white/30">Scales up with fade</p>
-              </div>
-            </div>
-          </Animator>
-        </ScrollPage>
-
-        <ScrollPage>
-          <Animator animation={batch(Fade(), Sticky())}>
-            <p className="text-sm text-white/20 text-center">End — scroll up to replay</p>
-          </Animator>
-        </ScrollPage>
-      </ScrollContainer>
+      <div className="text-center pb-6">
+        <p className="text-[10px] text-white/15">Scroll up to replay</p>
+      </div>
     </div>
   );
 }
