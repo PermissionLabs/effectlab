@@ -1,6 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+import NumberFlow from "@number-flow/react";
 import { effects } from "@/effects/registry";
 import { createSearch } from "@/lib/search";
 import type { EffectDefinition } from "@/effects/types";
@@ -52,6 +54,7 @@ export default function EffectGrid() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [sortKey, setSortKey] = useState<SortKey>("default");
+  const [gridRef] = useAutoAnimate({ duration: 300 });
 
   const fuse = useMemo(() => createSearch(effects), []);
 
@@ -64,15 +67,16 @@ export default function EffectGrid() {
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Tabs row — before.click style */}
+      {/* Tabs row */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <button className="text-[14px] font-semibold text-fg flex items-center gap-1.5">
             <span>🔥</span> All Effects
           </button>
-          <span className="text-[14px] text-muted/50">{filtered.length} libraries</span>
+          <span className="text-[14px] text-muted/50 font-mono tabular-nums">
+            <NumberFlow value={filtered.length} /> libraries
+          </span>
         </div>
-        {/* Sort tabs — right side */}
         <div className="hidden sm:flex items-center gap-1">
           {(["default", "stars", "downloads", "size"] as SortKey[]).map((k) => (
             <button
@@ -90,7 +94,7 @@ export default function EffectGrid() {
         </div>
       </div>
 
-      {/* Category pills — before.click style with emoji */}
+      {/* Category pills */}
       <div className="flex flex-wrap items-center gap-2">
         <button
           onClick={() => setActiveCategory(null)}
@@ -121,9 +125,9 @@ export default function EffectGrid() {
       {/* Search */}
       <SearchBar value={query} onChange={setQuery} />
 
-      {/* Grid */}
+      {/* Grid — auto-animated */}
       {filtered.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {filtered.map((effect) => (
             <EffectCard key={effect.slug} effect={effect} />
           ))}

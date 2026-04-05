@@ -4,6 +4,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import type { EffectDefinition } from "@/effects/types";
 import CodeViewer from "./CodeViewer";
 import { copyToClipboard } from "@/lib/utils";
+import { toast } from "sonner";
 
 function buildAIPrompt(effect: EffectDefinition): string {
   const meta = effect.packageMeta;
@@ -88,6 +89,9 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
                 e.stopPropagation();
                 await copyToClipboard(buildAIPrompt(effect));
                 setCopiedAI(true);
+                toast.success(`Copied ${effect.name}`, {
+                  description: "Paste into Claude Code or your AI assistant",
+                });
                 setTimeout(() => setCopiedAI(false), 2000);
               }}
               className={`px-2.5 py-1 rounded-lg text-[11px] font-medium backdrop-blur-xl transition-all ${

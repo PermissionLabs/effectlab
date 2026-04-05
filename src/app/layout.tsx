@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -38,6 +39,16 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              style: {
+                background: "var(--surface)",
+                border: "1px solid var(--border-color)",
+                color: "var(--fg)",
+              },
+            }}
+          />
         </ThemeProvider>
       </body>
     </html>
