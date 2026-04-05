@@ -2,7 +2,7 @@
 
 > A curated showcase of visual effects for React. Each effect links to its original library.
 
-> Total effects: 67
+> Total effects: 100
 
 ---
 
@@ -4030,6 +4030,2036 @@ export default function Example() {
       </button>
       <Tooltip id="my-tip" place="top" />
     </>
+  );
+}
+```
+
+---
+
+## Resizable Panels
+
+- **Slug**: react-resizable-panels
+- **Category**: layout
+- **Description**: <img src="https://react-resizable-panels.vercel.app/og.png" alt="react-resizable-panels logo" width="400" height="210" />
+- **Library**: react-resizable-panels (react-resizable-panels)
+- **Library URL**: https://react-resizable-panels.vercel.app/
+- **Install type**: npm
+- **Bundle size**: 10.4 kB
+- **GitHub stars**: 5208
+- **Weekly downloads**: 21704046
+- **Last updated**: 2026-04
+- **Tags**: react, resizable, panels, split, layout, drag, resize
+- **Keywords**: resizable panels, split pane, draggable divider, panel layout, adjustable columns, flexible grid, collapsible sidebar, split view, panel resize handle, horizontal split, vertical split, nested panels, responsive panels, dynamic layout, panel group, IDE layout, code editor panels, dashboard layout, file explorer sidebar, inspector panel, settings layout, email client layout, admin panel layout, multi-pane editor, workspace layout, dev tools panels, 리사이즈 패널, 분할 레이아웃, 패널 크기 조절, 드래그 분할, 사이드바 레이아웃, 패널 그룹, 유연한 레이아웃, react-resizable-panels, PanelGroup, PanelResizeHandle, Panel, split-pane component
+
+### Install
+```bash
+bun add react-resizable-panels
+```
+
+### Usage
+```tsx
+"use client";
+
+import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
+
+export default function ResizablePanelsExample() {
+  return (
+    <PanelGroup direction="horizontal" className="h-screen">
+      <Panel defaultSize={25} minSize={10}>
+        <div className="h-full p-4 bg-gray-900">
+          <h2 className="text-sm font-semibold text-gray-400">Sidebar</h2>
+        </div>
+      </Panel>
+
+      <PanelResizeHandle className="w-1 bg-gray-700 hover:bg-blue-500 transition-colors" />
+
+      <Panel defaultSize={50} minSize={20}>
+        <div className="h-full p-4 bg-gray-950">
+          <h2 className="text-sm font-semibold text-gray-400">Main Content</h2>
+        </div>
+      </Panel>
+
+      <PanelResizeHandle className="w-1 bg-gray-700 hover:bg-blue-500 transition-colors" />
+
+      <Panel defaultSize={25} minSize={10}>
+        <div className="h-full p-4 bg-gray-900">
+          <h2 className="text-sm font-semibold text-gray-400">Inspector</h2>
+        </div>
+      </Panel>
+    </PanelGroup>
+  );
+}
+```
+
+---
+
+## Joyride
+
+- **Slug**: react-joyride
+- **Category**: interaction
+- **Description**: Create guided tours for your apps
+- **Library**: react-joyride (react-joyride)
+- **Library URL**: https://react-joyride.com/
+- **Install type**: npm
+- **Bundle size**: unknown
+- **GitHub stars**: 7685
+- **Weekly downloads**: 711641
+- **Last updated**: 2026-04
+- **Tags**: react, react-component, tooltips, joyride, walkthroughs, tour
+- **Keywords**: guided tour, step-by-step walkthrough, tooltip overlay, spotlight highlight, onboarding flow, feature tour, tooltip sequence, highlight element, tour beacon, overlay guide, step indicator, progress dots, floating tooltip, contextual help, animated spotlight, user onboarding, feature discovery, product tour, new user guide, interactive tutorial, app walkthrough, help system, first-time experience, UI tutorial, contextual onboarding, SaaS onboarding, 가이드 투어, 온보딩 흐름, 단계별 안내, 기능 투어, 사용자 가이드, 도움말 툴팁, 인터랙티브 튜토리얼, react-joyride, Joyride, Step, spotlight, tour callback, continuous tour
+
+### Install
+```bash
+bun add react-joyride
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import Joyride, { type Step } from "react-joyride";
+
+const steps: Step[] = [
+  {
+    target: ".step-welcome",
+    content: "Welcome! This is your dashboard.",
+    placement: "bottom",
+  },
+  {
+    target: ".step-create",
+    content: "Click here to create a new item.",
+    placement: "left",
+  },
+];
+
+export default function JoyrideExample() {
+  const [run, setRun] = useState(false);
+
+  return (
+    <div>
+      <Joyride
+        steps={steps}
+        run={run}
+        continuous
+        showSkipButton
+        showProgress
+        styles={{
+          options: {
+            primaryColor: "#8b5cf6",
+            zIndex: 1000,
+          },
+        }}
+        callback={(data) => {
+          if (data.status === "finished" || data.status === "skipped") {
+            setRun(false);
+          }
+        }}
+      />
+
+      <nav className="step-welcome p-4 bg-gray-900">
+        <span>My App</span>
+      </nav>
+
+      <main className="p-8">
+        <button
+          className="step-create px-4 py-2 bg-violet-600 text-white rounded"
+          onClick={() => {}}
+        >
+          + New Item
+        </button>
+
+        <button
+          onClick={() => setRun(true)}
+          className="ml-4 px-4 py-2 border border-violet-500 text-violet-400 rounded"
+        >
+          Start Tour
+        </button>
+      </main>
+    </div>
+  );
+}
+```
+
+---
+
+## Input Otp
+
+- **Slug**: input-otp
+- **Category**: interaction
+- **Description**: One-time password input component for React.
+- **Library**: input-otp (input-otp)
+- **Library URL**: https://input-otp.rodz.dev/
+- **Install type**: npm
+- **Bundle size**: 3.8 kB
+- **GitHub stars**: 3058
+- **Weekly downloads**: 20132647
+- **Last updated**: 2026-04
+- **Tags**: react, otp, input, accessible, verification, code
+- **Keywords**: OTP input, one-time password, verification code input, digit input boxes, code entry field, pin input, segmented input, split digit input, animated caret, focus highlight, grouped input slots, number code field, passcode input, token input, auth code input, two-factor authentication, SMS verification, email verification, login confirmation, payment verification, phone number verify, account recovery code, secure code entry, MFA input, identity verification, sign-up confirmation, OTP 입력, 인증 코드, 일회용 비밀번호, 본인 인증, 인증번호 입력, 보안 코드, 2단계 인증, input-otp, OTPInput, SlotProps, accessible OTP, headless OTP input
+
+### Install
+```bash
+bun add input-otp
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import { OTPInput, type SlotProps } from "input-otp";
+
+function Slot(props: SlotProps) {
+  return (
+    <div
+      className={`w-12 h-14 flex items-center justify-center rounded-lg border text-xl font-mono ${
+        props.isActive
+          ? "border-violet-500 bg-violet-500/10"
+          : "border-gray-700 bg-gray-900"
+      }`}
+    >
+      {props.char ?? (props.hasFakeCaret && <div className="w-px h-6 bg-violet-400 animate-pulse" />)}
+    </div>
+  );
+}
+
+export default function OTPExample() {
+  const [value, setValue] = useState("");
+
+  return (
+    <div className="flex flex-col items-center gap-4 p-8">
+      <p className="text-sm text-gray-400">Enter your 6-digit code</p>
+      <OTPInput
+        maxLength={6}
+        value={value}
+        onChange={setValue}
+        render={({ slots }) => (
+          <div className="flex gap-2">
+            {slots.map((slot, idx) => (
+              <Slot key={idx} {...slot} />
+            ))}
+          </div>
+        )}
+      />
+      {value.length === 6 && (
+        <p className="text-emerald-400 text-sm">Code: {value}</p>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## Next Themes
+
+- **Slug**: next-themes
+- **Category**: interaction
+- **Description**: An abstraction for themes in your React app.
+- **Library**: next-themes (next-themes)
+- **Library URL**: https://github.com/pacocoursey/next-themes#readme
+- **Install type**: npm
+- **Bundle size**: 1.5 kB
+- **GitHub stars**: 6244
+- **Weekly downloads**: 23900344
+- **Last updated**: 2026-02
+- **Tags**: react, nextjs, theme, dark-mode, light-mode, toggle
+- **Keywords**: theme toggle, dark mode switch, light mode toggle, sun moon icon, theme switcher, color scheme toggle, mode selector, dark light button, theme transition, animated toggle, system theme, theme indicator, brightness toggle, appearance switch, night mode, dark mode support, user preference theme, system color scheme, theme persistence, Next.js theming, multi-theme app, accessibility theming, SSR theme sync, flash-free theme, color mode management, responsive theming, 다크 모드, 라이트 모드, 테마 전환, 색상 테마, 다크 모드 토글, 테마 설정, 야간 모드, next-themes, ThemeProvider, useTheme, resolvedTheme, system theme detection
+
+### Install
+```bash
+bun add next-themes
+```
+
+### Usage
+```tsx
+"use client";
+
+import { ThemeProvider, useTheme } from "next-themes";
+
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+
+  return (
+    <button
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="p-3 rounded-xl border border-gray-700 hover:bg-gray-800 transition-colors"
+    >
+      {theme === "dark" ? "Switch to Light" : "Switch to Dark"}
+    </button>
+  );
+}
+
+// Wrap your app layout with ThemeProvider:
+// <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+//   <App />
+// </ThemeProvider>
+
+export default function ThemeExample() {
+  return (
+    <ThemeProvider attribute="class" defaultTheme="dark">
+      <div className="flex items-center justify-center p-8">
+        <ThemeToggle />
+      </div>
+    </ThemeProvider>
+  );
+}
+```
+
+---
+
+## Textarea Autosize
+
+- **Slug**: react-textarea-autosize
+- **Category**: interaction
+- **Description**: textarea component for React which grows with content
+- **Library**: react-textarea-autosize (react-textarea-autosize)
+- **Library URL**: https://github.com/Andarist/react-textarea-autosize#readme
+- **Install type**: npm
+- **Bundle size**: 1.6 kB
+- **GitHub stars**: 2408
+- **Weekly downloads**: 5943946
+- **Last updated**: 2025-03
+- **Tags**: autosize, grow, react, react-component, textarea
+- **Keywords**: auto-growing textarea, expandable text field, dynamic height textarea, self-sizing input, elastic textarea, auto-resize text area, smooth expand input, growing text box, flexible height textarea, content-aware textarea, animated resize, adaptive text field, stretchy input, vertical grow textarea, multiline auto input, comment box, chat message input, form text area, content editor, notes field, bio input, description field, feedback form, markdown editor input, review text area, message composer, 자동 크기 조절 텍스트, 자동 확장 입력, 텍스트 영역 자동 크기, 댓글 입력창, 메시지 입력 필드, 채팅 입력창, 자동 높이 조절, react-textarea-autosize, TextareaAutosize, minRows, maxRows, auto height textarea
+
+### Install
+```bash
+bun add react-textarea-autosize
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import TextareaAutosize from "react-textarea-autosize";
+
+export default function TextareaAutosizeExample() {
+  const [value, setValue] = useState("");
+
+  return (
+    <div className="p-8 max-w-md mx-auto">
+      <TextareaAutosize
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Start typing... The textarea grows with your content."
+        minRows={3}
+        maxRows={12}
+        className="w-full resize-none rounded-lg bg-gray-900 border border-gray-700 px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:border-violet-500 transition-colors"
+      />
+      <p className="mt-2 text-sm text-gray-500">{value.length} characters</p>
+    </div>
+  );
+}
+```
+
+---
+
+## Dropzone
+
+- **Slug**: react-dropzone
+- **Category**: interaction
+- **Description**: Simple HTML5 drag-drop zone with React.js
+- **Library**: react-dropzone (react-dropzone)
+- **Library URL**: https://github.com/react-dropzone/react-dropzone
+- **Install type**: npm
+- **Bundle size**: 15.9 kB
+- **GitHub stars**: 10978
+- **Weekly downloads**: 8596536
+- **Last updated**: 2026-02
+- **Tags**: react-component, react, drag, drop, upload, file
+- **Keywords**: drag and drop zone, file drop area, dashed border drop, upload zone, drag over highlight, file upload area, drop target, file picker zone, drag indicator, upload box, hover drop effect, file landing zone, active drop highlight, upload placeholder, drop overlay, file upload form, image uploader, document upload, attachment picker, bulk file upload, media uploader, profile picture upload, CSV import, resume upload, asset manager upload, gallery uploader, 드래그 앤 드롭, 파일 업로드, 파일 드롭 영역, 이미지 업로드, 파일 첨부, 드래그 업로드, 파일 선택기, react-dropzone, useDropzone, getRootProps, getInputProps, onDrop callback, accept MIME types
+
+### Install
+```bash
+bun add react-dropzone
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useCallback, useState } from "react";
+import { useDropzone } from "react-dropzone";
+
+export default function DropzoneExample() {
+  const [files, setFiles] = useState<File[]>([]);
+
+  const onDrop = useCallback((acceptedFiles: File[]) => {
+    setFiles((prev) => [...prev, ...acceptedFiles]);
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: { "image/*": [".png", ".jpg", ".jpeg", ".webp"] },
+  });
+
+  return (
+    <div className="p-8 max-w-md mx-auto">
+      <div
+        {...getRootProps()}
+        className={`rounded-xl border-2 border-dashed p-10 text-center cursor-pointer transition-colors ${
+          isDragActive
+            ? "border-violet-500 bg-violet-500/10"
+            : "border-gray-700 hover:border-gray-500"
+        }`}
+      >
+        <input {...getInputProps()} />
+        <p className="text-gray-400">
+          {isDragActive
+            ? "Drop the files here..."
+            : "Drag & drop files here, or click to select"}
+        </p>
+      </div>
+
+      {files.length > 0 && (
+        <ul className="mt-4 space-y-1 text-sm text-gray-300">
+          {files.map((f, i) => (
+            <li key={i}>{f.name} — {(f.size / 1024).toFixed(1)} KB</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## Virtuoso
+
+- **Slug**: react-virtuoso
+- **Category**: scroll
+- **Description**: A virtual scroll React component for efficiently rendering large scrollable lists, grids, tables, and feeds
+- **Library**: react-virtuoso (react-virtuoso)
+- **Library URL**: https://virtuoso.dev/
+- **Install type**: npm
+- **Bundle size**: unknown
+- **GitHub stars**: 6255
+- **Weekly downloads**: 2224285
+- **Last updated**: 2026-04
+- **Tags**: chat, endless, feed, grid, infinite, list, load more
+- **Keywords**: virtual scroll, chat list, message feed, smooth scroll, infinite list, endless feed, scrollable chat, dynamic list, large dataset, auto scroll, reverse scroll, grouped list, chat application, social feed, news feed, comment thread, notification list, log viewer, email inbox, activity feed, search results, product catalog, 가상 스크롤, 채팅 목록, 무한 피드, 대용량 리스트, 메시지 목록, 가상화 컴포넌트, 무한 로딩, Virtuoso, react-virtuoso, virtualizer, overscan, prepend items, grouped mode
+
+### Install
+```bash
+bun add react-virtuoso
+```
+
+### Usage
+```tsx
+"use client";
+
+import { Virtuoso } from "react-virtuoso";
+
+export default function ChatList() {
+  return (
+    <Virtuoso
+      style={{ height: 400 }}
+      totalCount={1000}
+      itemContent={(index) => (
+        <div className="flex gap-3 px-4 py-2">
+          <div className="w-8 h-8 rounded-full bg-violet-500/20 flex items-center justify-center text-xs text-violet-400">
+            U
+          </div>
+          <div className="bg-white/5 rounded-lg px-3 py-2 text-sm text-white/70">
+            Message {index + 1}
+          </div>
+        </div>
+      )}
+    />
+  );
+}
+```
+
+---
+
+## Grid Layout
+
+- **Slug**: react-grid-layout
+- **Category**: layout
+- **Description**: A draggable and resizable grid layout with responsive breakpoints, for React.
+- **Library**: react-grid-layout (react-grid-layout)
+- **Library URL**: https://github.com/react-grid-layout/react-grid-layout
+- **Install type**: npm
+- **Bundle size**: 18.5 kB
+- **GitHub stars**: 22163
+- **Weekly downloads**: 2018747
+- **Last updated**: 2026-03
+- **Tags**: react, grid, drag, draggable, resize, resizable, fluid
+- **Keywords**: draggable grid, resizable cards, dashboard layout, grid tiles, responsive grid, fluid layout, card grid, movable panels, drag and drop grid, interactive layout, dynamic grid, tile layout, dashboard builder, widget layout, admin panel, analytics dashboard, kanban layout, page builder, grid editor, layout manager, content organizer, widget arranger, 드래그 그리드, 반응형 레이아웃, 대시보드 레이아웃, 크기 조절 카드, 위젯 배치, 그리드 에디터, 패널 레이아웃, react-grid-layout, Responsive, WidthProvider, breakpoints, rowHeight, draggableHandle
+
+### Install
+```bash
+bun add react-grid-layout
+```
+
+### Usage
+```tsx
+"use client";
+
+import { Responsive, WidthProvider } from "react-grid-layout";
+
+const ResponsiveGridLayout = WidthProvider(Responsive);
+
+const layouts = {
+  lg: [
+    { i: "a", x: 0, y: 0, w: 2, h: 2 },
+    { i: "b", x: 2, y: 0, w: 2, h: 2 },
+    { i: "c", x: 0, y: 2, w: 2, h: 2 },
+    { i: "d", x: 2, y: 2, w: 2, h: 2 },
+  ],
+};
+
+export default function DashboardGrid() {
+  return (
+    <ResponsiveGridLayout
+      className="layout"
+      layouts={layouts}
+      breakpoints={{ lg: 1200, md: 996, sm: 768 }}
+      cols={{ lg: 4, md: 3, sm: 2 }}
+      rowHeight={100}
+    >
+      <div key="a" className="bg-white/5 rounded-xl p-4">Card A</div>
+      <div key="b" className="bg-white/5 rounded-xl p-4">Card B</div>
+      <div key="c" className="bg-white/5 rounded-xl p-4">Card C</div>
+      <div key="d" className="bg-white/5 rounded-xl p-4">Card D</div>
+    </ResponsiveGridLayout>
+  );
+}
+```
+
+---
+
+## Easy Crop
+
+- **Slug**: react-easy-crop
+- **Category**: interaction
+- **Description**: A React component to crop images/videos with easy interactions
+- **Library**: react-easy-crop (react-easy-crop)
+- **Library URL**: https://ValentinH.github.io/react-easy-crop/
+- **Install type**: npm
+- **Bundle size**: 6.7 kB
+- **GitHub stars**: 2704
+- **Weekly downloads**: 1463541
+- **Last updated**: 2026-03
+- **Tags**: react, crop, cropper, image crop
+- **Keywords**: image cropper, crop overlay, zoom slider, crop area, drag to crop, aspect ratio crop, circular crop, rectangular crop, crop preview, image editor, zoom and crop, crop handles, profile picture crop, avatar editor, photo editor, thumbnail crop, image upload crop, cover photo editor, media crop, banner crop, social media crop, image resize, 이미지 자르기, 사진 크롭, 프로필 사진 편집, 이미지 편집기, 줌 슬라이더, 영역 선택, 사진 자르기, react-easy-crop, Cropper, onCropComplete, aspect ratio, cropArea, mediaProps
+
+### Install
+```bash
+bun add react-easy-crop
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState, useCallback } from "react";
+import Cropper from "react-easy-crop";
+import type { Area } from "react-easy-crop";
+
+export default function ImageCropper() {
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+
+  const onCropComplete = useCallback(
+    (_croppedArea: Area, croppedAreaPixels: Area) => {
+      console.log("Cropped pixels:", croppedAreaPixels);
+    },
+    []
+  );
+
+  return (
+    <div style={{ position: "relative", width: 400, height: 300 }}>
+      <Cropper
+        image="/your-image.jpg"
+        crop={crop}
+        zoom={zoom}
+        aspect={4 / 3}
+        onCropChange={setCrop}
+        onZoomChange={setZoom}
+        onCropComplete={onCropComplete}
+      />
+    </div>
+  );
+}
+```
+
+---
+
+## Zoom Pan Pinch
+
+- **Slug**: react-zoom-pan-pinch
+- **Category**: interaction
+- **Description**: Zoom and pan html elements in easy way
+- **Library**: react-zoom-pan-pinch (react-zoom-pan-pinch)
+- **Library URL**: https://github.com/prc5/react-zoom-pan-pinch#readme
+- **Install type**: npm
+- **Bundle size**: 9.9 kB
+- **GitHub stars**: 1853
+- **Weekly downloads**: 1071969
+- **Last updated**: 2025-06
+- **Tags**: react, zoom, pan, pinch, animation, velocity, css
+- **Keywords**: zoomable area, pannable view, pinch to zoom, scroll zoom, interactive zoom, zoom controls, pan and drag, magnify content, zoomable image, smooth zoom, zoom in out, scalable view, image viewer, map zoom, diagram viewer, blueprint viewer, photo gallery zoom, document viewer, canvas zoom, floor plan viewer, infographic viewer, zoomable UI, 줌 인 아웃, 확대 축소, 드래그 이동, 핀치 줌, 이미지 확대, 뷰어 줌, 패닝 기능, TransformWrapper, TransformComponent, react-zoom-pan-pinch, useControls, initialScale, centerOnInit
+
+### Install
+```bash
+bun add react-zoom-pan-pinch
+```
+
+### Usage
+```tsx
+"use client";
+
+import {
+  TransformWrapper,
+  TransformComponent,
+  useControls,
+} from "react-zoom-pan-pinch";
+
+function Controls() {
+  const { zoomIn, zoomOut, resetTransform } = useControls();
+  return (
+    <div className="flex gap-2 mb-2">
+      <button onClick={() => zoomIn()}>+</button>
+      <button onClick={() => zoomOut()}>-</button>
+      <button onClick={() => resetTransform()}>Reset</button>
+    </div>
+  );
+}
+
+export default function ZoomableViewer() {
+  return (
+    <TransformWrapper initialScale={1} minScale={0.5} maxScale={4}>
+      <Controls />
+      <TransformComponent>
+        <img src="/your-image.jpg" alt="Zoomable content" />
+      </TransformComponent>
+    </TransformWrapper>
+  );
+}
+```
+
+---
+
+## Archer
+
+- **Slug**: react-archer
+- **Category**: interaction
+- **Description**: Draw arrows between DOM elements in React
+- **Library**: react-archer (react-archer)
+- **Library URL**: https://github.com/pierpo/react-archer
+- **Install type**: npm
+- **Bundle size**: 8.4 kB
+- **GitHub stars**: 1278
+- **Weekly downloads**: 156567
+- **Last updated**: 2025-01
+- **Tags**: arrow, connector, flow, diagram, relation
+- **Keywords**: arrow connector, flow diagram, element connections, directed arrows, curved arrows, line between boxes, relationship arrows, flow lines, connecting lines, svg arrows, anchor points, arrow overlay, data flow diagram, process flow, org chart, dependency graph, pipeline visualization, step indicator, architecture diagram, workflow arrows, connection visualization, relation mapping, 화살표 연결, 플로우 다이어그램, 요소 연결선, 관계 화살표, 흐름도, 프로세스 흐름, 연결 다이어그램, ArcherContainer, ArcherElement, react-archer, sourceAnchor, targetAnchor, strokeColor
+
+### Install
+```bash
+bun add react-archer
+```
+
+### Usage
+```tsx
+"use client";
+
+import { ArcherContainer, ArcherElement } from "react-archer";
+
+export default function FlowDiagram() {
+  return (
+    <ArcherContainer strokeColor="rgba(139, 92, 246, 0.5)" strokeWidth={2}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 80, alignItems: "center" }}>
+        <ArcherElement
+          id="start"
+          relations={[{
+            targetId: "end",
+            targetAnchor: "top",
+            sourceAnchor: "bottom",
+          }]}
+        >
+          <div className="px-4 py-2 bg-violet-500/20 rounded-lg text-violet-400">
+            Start
+          </div>
+        </ArcherElement>
+
+        <ArcherElement id="end">
+          <div className="px-4 py-2 bg-emerald-500/20 rounded-lg text-emerald-400">
+            End
+          </div>
+        </ArcherElement>
+      </div>
+    </ArcherContainer>
+  );
+}
+```
+
+---
+
+## Xarrows
+
+- **Slug**: react-xarrows
+- **Category**: interaction
+- **Description**: Draw arrows (or lines) between components in React!
+- **Library**: react-xarrows (react-xarrows)
+- **Library URL**: https://eliav2.github.io/react-xarrows/
+- **Install type**: npm
+- **Bundle size**: 32.0 kB
+- **GitHub stars**: 605
+- **Weekly downloads**: 62255
+- **Last updated**: 2024-02
+- **Tags**: react, reactjs, line, lines, arrow, arrows, xarrows
+- **Keywords**: arrow lines, element connector, svg arrows, curved connections, directional arrows, dashed lines, animated arrows, path connector, line drawing, bezier curves, arrow heads, connection paths, flowchart, network diagram, mind map, tree diagram, pipeline graph, entity relationship, state machine, process map, data flow, dependency visualization, 화살표 그리기, 요소 연결, 선 그리기, 플로우차트, 다이어그램 연결, 네트워크 그래프, 연결선, Xarrow, react-xarrows, curveness, headSize, strokeWidth, start end
+
+### Install
+```bash
+bun add react-xarrows
+```
+
+### Usage
+```tsx
+"use client";
+
+import Xarrow from "react-xarrows";
+
+export default function ArrowDiagram() {
+  return (
+    <div style={{ position: "relative", width: 400, height: 300 }}>
+      <div id="box-a" className="absolute top-0 left-10 px-4 py-2 bg-violet-500/20 rounded-lg text-violet-400">
+        Box A
+      </div>
+      <div id="box-b" className="absolute bottom-0 right-10 px-4 py-2 bg-emerald-500/20 rounded-lg text-emerald-400">
+        Box B
+      </div>
+      <Xarrow
+        start="box-a"
+        end="box-b"
+        color="rgba(139, 92, 246, 0.5)"
+        strokeWidth={2}
+        headSize={4}
+      />
+    </div>
+  );
+}
+```
+
+---
+
+## Reactflow
+
+- **Slug**: reactflow
+- **Category**: interaction
+- **Description**: A highly customizable React library for building node-based editors and interactive flow charts
+- **Library**: reactflow (reactflow)
+- **Library URL**: https://github.com/xyflow/xyflow#readme
+- **Install type**: npm
+- **Bundle size**: 46.7 kB
+- **GitHub stars**: 35966
+- **Weekly downloads**: 1443800
+- **Last updated**: 2026-04
+- **Tags**: react, node-based UI, graph, diagram, workflow, react-flow
+- **Keywords**: node graph, flow chart, connected nodes, edge connections, interactive diagram, draggable nodes, animated edges, graph editor, node editor, visual graph, pipeline builder, data flow, workflow editor, state machine, mind map builder, pipeline editor, automation flow, logic builder, process designer, API flow, integration builder, visual programming, 노드 그래프, 플로우 차트, 워크플로우 에디터, 다이어그램 편집기, 노드 연결, 시각적 프로그래밍, 흐름도 빌더, ReactFlow, useNodesState, useEdgesState, addEdge, Background, Controls
+
+### Install
+```bash
+bun add reactflow
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useCallback } from "react";
+import ReactFlow, {
+  addEdge,
+  useNodesState,
+  useEdgesState,
+  Background,
+  Controls,
+  type Connection,
+} from "reactflow";
+// Import CSS in globals.css: @import "reactflow/dist/style.css";
+
+const initialNodes = [
+  { id: "1", position: { x: 0, y: 0 }, data: { label: "Input" } },
+  { id: "2", position: { x: 0, y: 150 }, data: { label: "Output" } },
+];
+const initialEdges = [{ id: "e1-2", source: "1", target: "2" }];
+
+export default function FlowEditor() {
+  const [nodes, , onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const onConnect = useCallback(
+    (params: Connection) => setEdges((eds) => addEdge(params, eds)),
+    [setEdges]
+  );
+
+  return (
+    <div style={{ width: "100%", height: 500 }}>
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+        fitView
+      >
+        <Background />
+        <Controls />
+      </ReactFlow>
+    </div>
+  );
+}
+```
+
+---
+
+## Json View Lite
+
+- **Slug**: react-json-view-lite
+- **Category**: text
+- **Description**: JSON viewer component for React focused on performance for large volume input while still providing few customiziation features
+- **Library**: react-json-view-lite (react-json-view-lite)
+- **Library URL**: https://github.com/AnyRoad/react-json-view-lite
+- **Install type**: npm
+- **Bundle size**: 2.2 kB
+- **GitHub stars**: 238
+- **Weekly downloads**: 992859
+- **Last updated**: 2026-02
+- **Tags**: react, json, component, view, json-view, json-tree, lite
+- **Keywords**: json tree view, collapsible json, json syntax highlighting, nested json display, expandable tree, json data viewer, dark theme json, code viewer, structured data display, json formatter, tree node toggle, json pretty print, api response viewer, debug json data, config file viewer, json payload inspector, rest api debugger, data explorer, log viewer, json schema browser, object inspector, state debugger, json diff viewer, JSON 뷰어, 트리 뷰, 데이터 뷰어, 코드 뷰어, 접을 수 있는 트리, 구조화된 데이터, API 응답 보기, react-json-view-lite, JsonView, darkStyles, shouldExpandNode, json tree component, lightweight json viewer
+
+### Install
+```bash
+bun add react-json-view-lite
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import { JsonView, darkStyles } from "react-json-view-lite";
+
+const data = {
+  user: { name: "Alice", role: "admin" },
+  settings: { theme: "dark", notifications: true },
+  items: [1, 2, 3],
+};
+
+export default function JsonViewExample() {
+  const [collapsed, setCollapsed] = useState(false);
+
+  return (
+    <div className="p-6">
+      <button onClick={() => setCollapsed((c) => !c)}>
+        {collapsed ? "Expand" : "Collapse"}
+      </button>
+      <JsonView
+        data={data}
+        shouldExpandNode={() => !collapsed}
+        style={darkStyles}
+      />
+    </div>
+  );
+}
+```
+
+---
+
+## Error Boundary
+
+- **Slug**: react-error-boundary
+- **Category**: interaction
+- **Description**: Simple reusable React error boundary component
+- **Library**: react-error-boundary (react-error-boundary)
+- **Library URL**: https://react-error-boundary-lib.vercel.app/
+- **Install type**: npm
+- **Bundle size**: 1.0 kB
+- **GitHub stars**: 7906
+- **Weekly downloads**: 10858249
+- **Last updated**: 2026-04
+- **Tags**: react, error-boundary, error-handling, fallback, recovery
+- **Keywords**: error fallback UI, error recovery screen, crash boundary, red error message, error alert card, fallback component, error state display, broken component handler, retry button, graceful degradation, error notification panel, crash recovery, catch runtime errors, component crash recovery, API failure fallback, graceful error handling, production error boundary, error logging, reset after error, retry failed component, error state management, fault tolerance, error isolation, 에러 바운더리, 에러 처리, 폴백 UI, 에러 복구, 컴포넌트 에러, 에러 핸들링, 런타임 에러 처리, react-error-boundary, ErrorBoundary, FallbackComponent, resetErrorBoundary, onReset, resetKeys
+
+### Install
+```bash
+bun add react-error-boundary
+```
+
+### Usage
+```tsx
+"use client";
+
+import { ErrorBoundary } from "react-error-boundary";
+
+function ErrorFallback({ error, resetErrorBoundary }: {
+  error: Error;
+  resetErrorBoundary: () => void;
+}) {
+  return (
+    <div role="alert" className="p-4 bg-red-100 rounded-lg">
+      <p className="text-red-800 font-bold">Something went wrong:</p>
+      <pre className="text-red-600 text-sm">{error.message}</pre>
+      <button onClick={resetErrorBoundary} className="mt-2 px-3 py-1 bg-red-500 text-white rounded">
+        Try again
+      </button>
+    </div>
+  );
+}
+
+function MyComponent() {
+  // This component may throw an error
+  return <div>Content that might fail</div>;
+}
+
+export default function Example() {
+  return (
+    <ErrorBoundary
+      FallbackComponent={ErrorFallback}
+      onReset={() => { /* reset app state */ }}
+    >
+      <MyComponent />
+    </ErrorBoundary>
+  );
+}
+```
+
+---
+
+## Intersection Observer
+
+- **Slug**: react-intersection-observer
+- **Category**: scroll
+- **Description**: Monitor if a component is inside the viewport, using IntersectionObserver API
+- **Library**: react-intersection-observer (react-intersection-observer)
+- **Library URL**: https://github.com/thebuilder/react-intersection-observer#readme
+- **Install type**: npm
+- **Bundle size**: 1.9 kB
+- **GitHub stars**: 5534
+- **Weekly downloads**: 3758576
+- **Last updated**: 2026-02
+- **Tags**: react, component, hooks, viewport, intersection, observer, lazy load
+- **Keywords**: scroll reveal animation, viewport detection, fade in on scroll, scroll-triggered effect, element visibility, in-view detection, lazy load trigger, scroll spy, appear on scroll, visibility observer, scroll animation trigger, viewport tracking, infinite scroll loading, lazy image loading, scroll analytics, animate on scroll, load more on scroll, sticky header trigger, ad impression tracking, content visibility tracking, scroll-based navigation, progressive content loading, 스크롤 감지, 뷰포트 관찰, 스크롤 애니메이션, 지연 로딩, 화면 진입 감지, 무한 스크롤, react-intersection-observer, useInView, IntersectionObserver, threshold, triggerOnce, rootMargin
+
+### Install
+```bash
+bun add react-intersection-observer
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useInView } from "react-intersection-observer";
+
+export default function InViewExample() {
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+    triggerOnce: false,
+  });
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        padding: "2rem",
+        background: inView ? "rgba(139,92,246,0.2)" : "rgba(255,255,255,0.05)",
+        borderRadius: "1rem",
+        transition: "all 0.5s ease",
+        opacity: inView ? 1 : 0.3,
+        transform: inView ? "scale(1)" : "scale(0.9)",
+      }}
+    >
+      <p>{inView ? "In viewport!" : "Scroll to see me"}</p>
+    </div>
+  );
+}
+```
+
+---
+
+## Use Gesture
+
+- **Slug**: use-gesture-react
+- **Category**: interaction
+- **Description**: React hook for handling drag, pinch, scroll and other gestures
+- **Library**: @use-gesture/react (@use-gesture/react)
+- **Library URL**: https://use-gesture.netlify.app
+- **Install type**: npm
+- **Bundle size**: 8.7 kB
+- **GitHub stars**: 9598
+- **Weekly downloads**: 4634780
+- **Last updated**: 2024-07
+- **Tags**: react, hook, gesture, mouse, trackpad, touch, drag
+- **Keywords**: draggable card, drag and drop, swipeable element, pinch to zoom, gesture animation, touch interaction, drag coordinates, smooth dragging, elastic drag, drag handle, swipe gesture, drag indicator, drag to reorder, swipe to dismiss, image pan and zoom, slider control, carousel swipe, canvas interaction, movable widget, resizable panel, scroll gesture override, touch-friendly UI, mobile gesture handling, 드래그 제스처, 터치 인터랙션, 스와이프 제스처, 드래그 앤 드롭, 핀치 줌, 제스처 훅, @use-gesture/react, useDrag, usePinch, useScroll, useWheel, useGesture
+
+### Install
+```bash
+bun add @use-gesture/react
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import { useDrag } from "@use-gesture/react";
+
+export default function DraggableCard() {
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+
+  const bind = useDrag(({ movement: [mx, my], first, memo }) => {
+    if (first) memo = { x: pos.x, y: pos.y };
+    const start = memo || { x: 0, y: 0 };
+    setPos({ x: start.x + mx, y: start.y + my });
+    return memo;
+  });
+
+  return (
+    <div
+      {...bind()}
+      style={{
+        transform: `translate(${pos.x}px, ${pos.y}px)`,
+        touchAction: "none",
+        width: 150,
+        height: 150,
+        background: "rgba(139,92,246,0.2)",
+        borderRadius: 16,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "grab",
+        userSelect: "none",
+      }}
+    >
+      Drag me
+    </div>
+  );
+}
+```
+
+---
+
+## Icons
+
+- **Slug**: react-icons
+- **Category**: interaction
+- **Description**: SVG React icons of popular icon packs using ES6 imports
+- **Library**: react-icons (react-icons)
+- **Library URL**: https://github.com/react-icons/react-icons#readme
+- **Install type**: npm
+- **Bundle size**: 2.2 kB
+- **GitHub stars**: 12536
+- **Weekly downloads**: 10899928
+- **Last updated**: 2026-04
+- **Tags**: react, icons, svg, icon-pack, feather, material, bootstrap
+- **Keywords**: svg icon grid, icon library, icon set collection, feather icons, material design icons, bootstrap icons, ant design icons, outlined icons, filled icons, icon hover effect, icon gallery, scalable vector icons, navigation icons, action button icons, social media icons, toolbar icons, menu icons, status indicator icons, dashboard icons, form field icons, sidebar icons, tab bar icons, badge icons, 아이콘 라이브러리, SVG 아이콘, 아이콘 팩, 리액트 아이콘, 아이콘 그리드, 머터리얼 아이콘, react-icons, FiGithub, AiFillThunderbolt, BsFire, MdAutoAwesome, tree-shakeable icons
+
+### Install
+```bash
+bun add react-icons
+```
+
+### Usage
+```tsx
+"use client";
+
+import { FiGithub, FiHeart, FiStar } from "react-icons/fi";
+import { AiFillThunderbolt } from "react-icons/ai";
+import { BsFire } from "react-icons/bs";
+import { MdAutoAwesome } from "react-icons/md";
+
+const icons = [
+  { Icon: FiGithub, label: "GitHub" },
+  { Icon: FiHeart, label: "Heart" },
+  { Icon: FiStar, label: "Star" },
+  { Icon: AiFillThunderbolt, label: "Bolt" },
+  { Icon: BsFire, label: "Fire" },
+  { Icon: MdAutoAwesome, label: "Sparkle" },
+];
+
+export default function IconsExample() {
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, padding: 24 }}>
+      {icons.map(({ Icon, label }) => (
+        <div key={label} style={{ textAlign: "center" }}>
+          <Icon size={24} />
+          <p style={{ fontSize: 12, marginTop: 4 }}>{label}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+---
+
+## Toastify
+
+- **Slug**: react-toastify
+- **Category**: interaction
+- **Description**: React notification made easy
+- **Library**: react-toastify (react-toastify)
+- **Library URL**: https://github.com/fkhadra/react-toastify#readme
+- **Install type**: npm
+- **Bundle size**: 9.0 kB
+- **GitHub stars**: 13430
+- **Weekly downloads**: 3351114
+- **Last updated**: 2025-08
+- **Tags**: react, notification, toast, react-component, react-toastify, push, alert
+- **Keywords**: toast notification, sliding toast, progress bar toast, stacked notifications, auto-dismiss toast, colored toast, dark theme toast, notification popup, animated notification, toast with icon, close button toast, toast container, form submission feedback, API response notification, file upload status, error message display, success confirmation, warning alert, info notification, promise toast, auto-close notification, queue notifications, 토스트 알림, 알림 메시지, 팝업 알림, 성공 토스트, 에러 토스트, 경고 알림, 알림 컴포넌트, react-toastify, ToastContainer, toast.success, toast.error, toast.promise, toast.warning
+
+### Install
+```bash
+bun add react-toastify
+```
+
+### Usage
+```tsx
+"use client";
+
+import { ToastContainer, toast } from "react-toastify";
+// Import CSS in your globals.css: @import "react-toastify/dist/ReactToastify.css";
+
+export default function ToastifyExample() {
+  return (
+    <div className="p-8 flex gap-3">
+      <ToastContainer position="top-right" theme="dark" />
+      <button onClick={() => toast.success("Saved!")}>Success</button>
+      <button onClick={() => toast.error("Failed!")}>Error</button>
+      <button onClick={() => toast.info("FYI")}>Info</button>
+      <button
+        onClick={() =>
+          toast.promise(
+            new Promise((res) => setTimeout(res, 2000)),
+            { pending: "Loading...", success: "Done!", error: "Error" }
+          )
+        }
+      >
+        Promise
+      </button>
+    </div>
+  );
+}
+```
+
+---
+
+## Modal
+
+- **Slug**: react-modal
+- **Category**: interaction
+- **Description**: Accessible modal dialog component for React.JS
+- **Library**: react-modal (react-modal)
+- **Library URL**: https://github.com/reactjs/react-modal
+- **Install type**: npm
+- **Bundle size**: 7.3 kB
+- **GitHub stars**: 7414
+- **Weekly downloads**: 2403591
+- **Last updated**: 2026-03
+- **Tags**: react, react-component, modal, dialog, overlay, popup
+- **Keywords**: modal dialog, dark overlay modal, animated modal, popup dialog, centered modal, fullscreen overlay, blur backdrop, modal with animation, sliding modal, floating dialog, modal card, overlay panel, confirmation dialog, form modal, login popup, image lightbox modal, settings panel, delete confirmation, alert dialog, terms and conditions, cookie consent modal, onboarding modal, share dialog, 모달 다이얼로그, 팝업 창, 오버레이 모달, 확인 대화상자, 모달 컴포넌트, 다크 오버레이, react-modal, Modal.setAppElement, isOpen, onRequestClose, ReactModal.Styles, aria-modal
+
+### Install
+```bash
+bun add react-modal
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState, useEffect } from "react";
+import Modal from "react-modal";
+
+export default function ModalExample() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    Modal.setAppElement(document.body);
+  }, []);
+
+  return (
+    <div>
+      <button onClick={() => setIsOpen(true)}>Open Modal</button>
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={() => setIsOpen(false)}
+        style={{
+          overlay: { backgroundColor: "rgba(0,0,0,0.75)" },
+          content: {
+            maxWidth: 400,
+            margin: "auto",
+            borderRadius: 16,
+            background: "#1a1a2e",
+            border: "1px solid rgba(255,255,255,0.1)",
+          },
+        }}
+      >
+        <h2>Modal Title</h2>
+        <p>Modal content goes here.</p>
+        <button onClick={() => setIsOpen(false)}>Close</button>
+      </Modal>
+    </div>
+  );
+}
+```
+
+---
+
+## Day Picker
+
+- **Slug**: react-day-picker
+- **Category**: interaction
+- **Description**: Customizable Date Picker for React
+- **Library**: react-day-picker (react-day-picker)
+- **Library URL**: https://daypicker.dev
+- **Install type**: npm
+- **Bundle size**: 2.4 kB
+- **GitHub stars**: 6765
+- **Weekly downloads**: 25747740
+- **Last updated**: 2026-04
+- **Tags**: react, date-picker, calendar, day-picker, date, datepicker
+- **Keywords**: date picker calendar, month navigation, day selector grid, highlighted today, selected date, calendar dropdown, date range picker, dark theme calendar, inline calendar, month year header, weekday labels, date cell hover, booking date selection, event date picker, birthday picker, appointment scheduler, travel date selector, deadline picker, date range filter, form date input, reservation calendar, schedule planner, 날짜 선택기, 달력 컴포넌트, 캘린더 UI, 날짜 입력, 일정 선택, 예약 날짜 선택, react-day-picker, DayPicker, mode single, onSelect, selected date, date-fns compatible
+
+### Install
+```bash
+bun add react-day-picker
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import { DayPicker } from "react-day-picker";
+
+export default function DayPickerExample() {
+  const [selected, setSelected] = useState<Date | undefined>(new Date());
+
+  return (
+    <div className="p-6">
+      <DayPicker
+        mode="single"
+        selected={selected}
+        onSelect={setSelected}
+      />
+      {selected && (
+        <p className="mt-4 text-sm">
+          Selected: {selected.toLocaleDateString()}
+        </p>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## Calendar
+
+- **Slug**: react-calendar
+- **Category**: interaction
+- **Description**: Ultimate calendar for your React app.
+- **Library**: react-calendar (react-calendar)
+- **Library URL**: https://github.com/wojtekmaj/react-calendar
+- **Install type**: npm
+- **Bundle size**: 9.3 kB
+- **GitHub stars**: 3782
+- **Weekly downloads**: 1088737
+- **Last updated**: 2026-03
+- **Tags**: calendar, date, date-picker, month-picker, react
+- **Keywords**: calendar grid, month view calendar, year navigation, date tile calendar, dark calendar theme, calendar with navigation, highlighted date, date range calendar, compact calendar, month picker, year picker, calendar header, event scheduling, booking calendar, date selection form, appointment calendar, deadline tracker, availability calendar, date range selection, task calendar, meeting scheduler, birthday reminder, holiday calendar, 캘린더 컴포넌트, 달력 UI, 날짜 선택 달력, 월간 달력, 이벤트 캘린더, 예약 달력, react-calendar, Calendar component, onChange, value Date, month-view, decade-view
+
+### Install
+```bash
+bun add react-calendar
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import Calendar from "react-calendar";
+// Import CSS in your globals.css: @import "react-calendar/dist/Calendar.css";
+
+type Value = Date | null | [Date | null, Date | null];
+
+export default function CalendarExample() {
+  const [value, setValue] = useState<Value>(new Date());
+
+  return (
+    <div className="p-6">
+      <Calendar onChange={setValue} value={value} />
+      {value instanceof Date && (
+        <p className="mt-4 text-sm">
+          Selected: {value.toLocaleDateString()}
+        </p>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## Datepicker
+
+- **Slug**: react-datepicker
+- **Category**: interaction
+- **Description**: A simple and reusable datepicker component for React
+- **Library**: react-datepicker (react-datepicker)
+- **Library URL**: https://github.com/Hacker0x01/react-datepicker
+- **Install type**: npm
+- **Bundle size**: 43.9 kB
+- **GitHub stars**: 8364
+- **Weekly downloads**: 3849847
+- **Last updated**: 2026-04
+- **Tags**: react, datepicker, calendar, date, react-component
+- **Keywords**: date picker, calendar popup, inline calendar, date selector, calendar widget, date input, month navigation, day grid, highlighted date, selected date indicator, dark calendar, date range picker, booking form, event scheduling, appointment picker, birthday input, travel dates, deadline selector, reservation date, check-in date, form date field, schedule planner, 날짜 선택기, 달력, 캘린더 위젯, 날짜 입력, 일정 선택, 예약 날짜, 폼 날짜, react-datepicker, DatePicker, dateFormat, inline calendar, onChange date, showPopperArrow
+
+### Install
+```bash
+bun add react-datepicker
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+
+export default function DatepickerExample() {
+  const [date, setDate] = useState<Date | null>(new Date());
+
+  return (
+    <div className="flex flex-col items-center gap-4 p-8">
+      <DatePicker
+        selected={date}
+        onChange={(d) => setDate(d)}
+        dateFormat="yyyy/MM/dd"
+        className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
+        inline
+      />
+      <p className="text-white/60 text-sm">
+        Selected: {date?.toLocaleDateString()}
+      </p>
+    </div>
+  );
+}
+```
+
+### CSS
+```css
+/* Add to your globals.css */
+@import "react-datepicker/dist/react-datepicker.css";
+```
+
+---
+
+## Select
+
+- **Slug**: react-select
+- **Category**: interaction
+- **Description**: A Select control built with and for ReactJS
+- **Library**: react-select (react-select)
+- **Library URL**: https://github.com/JedWatson/react-select/tree/master#readme
+- **Install type**: npm
+- **Bundle size**: 29.1 kB
+- **GitHub stars**: 0
+- **Weekly downloads**: 7482571
+- **Last updated**: 2026-04
+- **Tags**: combobox, form, input, multiselect, react, react-component, select
+- **Keywords**: dropdown menu, select input, multi-select chips, tag picker, searchable dropdown, custom styled select, dark dropdown, option list, clearable select, filter dropdown, selected tags, combo box, form select field, filter selection, category picker, tag assignment, role selector, framework chooser, language picker, preference selector, multi-choice input, 셀렉트 드롭다운, 다중 선택, 검색 가능 선택, 태그 선택기, 폼 선택 필드, 드롭다운 메뉴, 옵션 목록, react-select, isMulti, StylesConfig, Select component, closeMenuOnSelect, custom styles
+
+### Install
+```bash
+bun add react-select
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import Select from "react-select";
+
+const options = [
+  { value: "react", label: "React" },
+  { value: "vue", label: "Vue.js" },
+  { value: "angular", label: "Angular" },
+  { value: "svelte", label: "Svelte" },
+];
+
+export default function SelectExample() {
+  const [selected, setSelected] = useState<typeof options>([]);
+
+  return (
+    <Select
+      isMulti
+      options={options}
+      value={selected}
+      onChange={(val) => setSelected([...val])}
+      placeholder="Choose frameworks..."
+      styles={{
+        control: (base) => ({
+          ...base,
+          backgroundColor: "rgba(255,255,255,0.05)",
+          borderColor: "rgba(255,255,255,0.1)",
+        }),
+        menu: (base) => ({
+          ...base,
+          backgroundColor: "#0a0a1a",
+        }),
+        option: (base, state) => ({
+          ...base,
+          backgroundColor: state.isFocused ? "rgba(139,92,246,0.15)" : "transparent",
+          color: "#fff",
+        }),
+        multiValue: (base) => ({
+          ...base,
+          backgroundColor: "rgba(139,92,246,0.2)",
+        }),
+        multiValueLabel: (base) => ({ ...base, color: "#c4b5fd" }),
+        input: (base) => ({ ...base, color: "#fff" }),
+        placeholder: (base) => ({ ...base, color: "rgba(255,255,255,0.3)" }),
+      }}
+    />
+  );
+}
+```
+
+---
+
+## Downshift
+
+- **Slug**: downshift
+- **Category**: interaction
+- **Description**: A set of primitives to build simple, flexible, WAI-ARIA compliant React autocomplete, combobox or select dropdown components.
+- **Library**: downshift (downshift)
+- **Library URL**: https://downshift-js.com
+- **Install type**: npm
+- **Bundle size**: 14.3 kB
+- **GitHub stars**: 12297
+- **Weekly downloads**: 3134007
+- **Last updated**: 2026-03
+- **Tags**: enhanced input, react, autocomplete, autosuggest, typeahead, dropdown, select
+- **Keywords**: autocomplete input, combobox dropdown, search suggestions, type-ahead results, filtered list, highlighted option, searchable dropdown, suggestion popup, input with menu, accessible combobox, keyboard navigable list, auto-filter, language picker, search box, command palette input, city autocomplete, tag search, user lookup, product search, mention picker, emoji search, 자동완성, 검색 입력, 콤보박스, 타입어헤드, 드롭다운 검색, 접근성 선택, 필터 목록, downshift, useCombobox, useSelect, WAI-ARIA, getInputProps, getMenuProps, highlightedIndex
+
+### Install
+```bash
+bun add downshift
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import { useCombobox } from "downshift";
+
+const items = ["TypeScript", "JavaScript", "Python", "Rust", "Go", "Swift"];
+
+export default function AutocompleteExample() {
+  const [inputItems, setInputItems] = useState(items);
+
+  const {
+    isOpen,
+    getMenuProps,
+    getInputProps,
+    highlightedIndex,
+    getItemProps,
+    selectedItem,
+  } = useCombobox({
+    items: inputItems,
+    onInputValueChange: ({ inputValue }) => {
+      setInputItems(
+        items.filter((item) =>
+          item.toLowerCase().includes((inputValue ?? "").toLowerCase())
+        )
+      );
+    },
+  });
+
+  return (
+    <div className="relative w-64">
+      <input
+        {...getInputProps()}
+        placeholder="Search languages..."
+        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
+      />
+      <ul
+        {...getMenuProps()}
+        className="absolute w-full mt-1 bg-gray-900 border border-white/10 rounded-lg overflow-hidden"
+      >
+        {isOpen &&
+          inputItems.map((item, index) => (
+            <li
+              key={item}
+              {...getItemProps({ item, index })}
+              className={`px-4 py-2 text-sm cursor-pointer ${
+                highlightedIndex === index ? "bg-violet-500/20 text-violet-300" : "text-white/70"
+              }`}
+            >
+              {item}
+            </li>
+          ))}
+      </ul>
+      {selectedItem && <p className="text-white/60 mt-2 text-sm">Selected: {selectedItem}</p>}
+    </div>
+  );
+}
+```
+
+---
+
+## Table
+
+- **Slug**: tanstack-react-table
+- **Category**: interaction
+- **Description**: Headless UI for building powerful tables & datagrids for React.
+- **Library**: @tanstack/react-table (@tanstack/react-table)
+- **Library URL**: https://tanstack.com/table
+- **Install type**: npm
+- **Bundle size**: 14.6 kB
+- **GitHub stars**: 27863
+- **Weekly downloads**: 10129422
+- **Last updated**: 2026-04
+- **Tags**: react, table, react-table, datagrid
+- **Keywords**: data table, sortable columns, table header, row highlight, striped table, dark table, status badges, column sorting, table grid, data rows, table border, responsive table, user list, admin dashboard, data management, employee directory, order history, analytics table, inventory list, log viewer, report table, leaderboard, 데이터 테이블, 정렬 가능 표, 사용자 목록, 관리자 대시보드, 테이블 컴포넌트, 데이터 그리드, 표 정렬, tanstack-react-table, useReactTable, getCoreRowModel, getSortedRowModel, createColumnHelper, flexRender
+
+### Install
+```bash
+bun add @tanstack/react-table
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import {
+  useReactTable,
+  getCoreRowModel,
+  getSortedRowModel,
+  flexRender,
+  createColumnHelper,
+  type SortingState,
+} from "@tanstack/react-table";
+
+interface User {
+  name: string;
+  email: string;
+  role: string;
+}
+
+const data: User[] = [
+  { name: "Alice", email: "alice@example.com", role: "Engineer" },
+  { name: "Bob", email: "bob@example.com", role: "Designer" },
+  { name: "Charlie", email: "charlie@example.com", role: "PM" },
+];
+
+const columnHelper = createColumnHelper<User>();
+
+const columns = [
+  columnHelper.accessor("name", { header: "Name" }),
+  columnHelper.accessor("email", { header: "Email" }),
+  columnHelper.accessor("role", { header: "Role" }),
+];
+
+export default function TableExample() {
+  const [sorting, setSorting] = useState<SortingState>([]);
+
+  const table = useReactTable({
+    data,
+    columns,
+    state: { sorting },
+    onSortingChange: setSorting,
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+  });
+
+  return (
+    <table className="w-full text-sm">
+      <thead>
+        {table.getHeaderGroups().map((hg) => (
+          <tr key={hg.id}>
+            {hg.headers.map((h) => (
+              <th
+                key={h.id}
+                onClick={h.column.getToggleSortingHandler()}
+                className="px-4 py-2 text-left cursor-pointer text-white/60"
+              >
+                {flexRender(h.column.columnDef.header, h.getContext())}
+              </th>
+            ))}
+          </tr>
+        ))}
+      </thead>
+      <tbody>
+        {table.getRowModel().rows.map((row) => (
+          <tr key={row.id} className="border-t border-white/10">
+            {row.getVisibleCells().map((cell) => (
+              <td key={cell.id} className="px-4 py-2 text-white">
+                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+```
+
+---
+
+## Hook Form
+
+- **Slug**: react-hook-form
+- **Category**: interaction
+- **Description**: Performant, flexible and extensible forms library for React Hooks
+- **Library**: react-hook-form (react-hook-form)
+- **Library URL**: https://react-hook-form.com
+- **Install type**: npm
+- **Bundle size**: unknown
+- **GitHub stars**: 44639
+- **Weekly downloads**: 37066338
+- **Last updated**: 2026-04
+- **Tags**: react, hooks, form, forms, form-validation, validation, typescript
+- **Keywords**: form validation, error messages, input fields, login form, email field, password field, animated errors, form states, submit button, inline validation, dark form, form feedback, sign in form, registration form, contact form, settings form, checkout form, profile edit, survey form, authentication, newsletter signup, search form, 폼 유효성 검사, 입력 필드, 로그인 폼, 회원가입, 에러 메시지, 폼 상태 관리, 비밀번호 검증, react-hook-form, useForm, register, handleSubmit, formState errors, validation mode, onBlur validation
+
+### Install
+```bash
+bun add react-hook-form
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useForm } from "react-hook-form";
+
+interface FormData {
+  email: string;
+  password: string;
+}
+
+export default function LoginForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({ mode: "onBlur" });
+
+  const onSubmit = (data: FormData) => {
+    console.log(data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 max-w-xs">
+      <div>
+        <input
+          {...register("email", {
+            required: "Email is required",
+            pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Invalid email" },
+          })}
+          placeholder="Email"
+          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
+        />
+        {errors.email && <p className="text-rose-400 text-xs mt-1">{errors.email.message}</p>}
+      </div>
+
+      <div>
+        <input
+          type="password"
+          {...register("password", {
+            required: "Password is required",
+            minLength: { value: 8, message: "Min 8 characters" },
+          })}
+          placeholder="Password"
+          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
+        />
+        {errors.password && <p className="text-rose-400 text-xs mt-1">{errors.password.message}</p>}
+      </div>
+
+      <button type="submit" className="bg-violet-600 text-white px-4 py-2 rounded-lg">
+        Sign In
+      </button>
+    </form>
+  );
+}
+```
+
+---
+
+## Dnd
+
+- **Slug**: react-dnd
+- **Category**: interaction
+- **Description**: Drag and Drop for React
+- **Library**: react-dnd (react-dnd)
+- **Library URL**: https://github.com/react-dnd/react-dnd
+- **Install type**: npm
+- **Bundle size**: 8.7 kB
+- **GitHub stars**: 21634
+- **Weekly downloads**: 4102072
+- **Last updated**: 2025-07
+- **Tags**: drag, drop, dnd, kanban, react, sortable
+- **Keywords**: drag and drop, draggable cards, drop zones, two columns, card transfer, grab cursor, drag overlay, drop highlight, kanban columns, card movement, drag indicator, column layout, kanban board, task management, file organizer, card sorting, workflow builder, priority reorder, board columns, project board, status update drag, lane management, 드래그 앤 드롭, 카드 이동, 칸반 보드, 작업 관리, 드래그 카드, 컬럼 이동, 드롭 영역, react-dnd, useDrag, useDrop, DndProvider, HTML5Backend, collect monitor, drag item type
+
+### Install
+```bash
+bun add react-dnd react-dnd-html5-backend
+```
+
+### Usage
+```tsx
+"use client";
+
+import { DndProvider, useDrag, useDrop } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+
+const ITEM_TYPE = "CARD";
+
+function DraggableCard({ label }: { label: string }) {
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type: ITEM_TYPE,
+    item: { label },
+    collect: (monitor) => ({ isDragging: monitor.isDragging() }),
+  }));
+
+  return (
+    <div
+      ref={drag as any}
+      className={`px-4 py-2 bg-white/5 border border-white/10 rounded-lg cursor-grab ${
+        isDragging ? "opacity-30" : ""
+      }`}
+    >
+      <span className="text-white text-sm">{label}</span>
+    </div>
+  );
+}
+
+function DropZone({ onDrop }: { onDrop: (label: string) => void }) {
+  const [{ isOver }, drop] = useDrop(() => ({
+    accept: ITEM_TYPE,
+    drop: (item: { label: string }) => onDrop(item.label),
+    collect: (monitor) => ({ isOver: monitor.isOver() }),
+  }));
+
+  return (
+    <div
+      ref={drop as any}
+      className={`min-h-[120px] border border-dashed rounded-xl p-4 ${
+        isOver ? "border-violet-500/50 bg-violet-500/5" : "border-white/10"
+      }`}
+    >
+      <p className="text-white/30 text-sm">Drop here</p>
+    </div>
+  );
+}
+
+export default function DndExample() {
+  return (
+    <DndProvider backend={HTML5Backend}>
+      <div className="flex gap-4">
+        <DraggableCard label="Drag me" />
+        <DropZone onDrop={(label) => console.log("Dropped:", label)} />
+      </div>
+    </DndProvider>
+  );
+}
+```
+
+---
+
+## Dnd
+
+- **Slug**: hello-pangea-dnd
+- **Category**: interaction
+- **Description**: Beautiful and accessible drag and drop for lists with React
+- **Library**: @hello-pangea/dnd (@hello-pangea/dnd)
+- **Library URL**: https://github.com/hello-pangea/dnd#readme
+- **Install type**: npm
+- **Bundle size**: 28.1 kB
+- **GitHub stars**: 3881
+- **Weekly downloads**: 1866373
+- **Last updated**: 2026-04
+- **Tags**: drag and drop, dnd, sortable, reorder, reorderable, react, react.js
+- **Keywords**: sortable list, drag handle, reorderable items, vertical list, drag indicator dots, smooth reorder, list sorting, drag shadow, ordered list, draggable rows, grip handle, animated reorder, task prioritization, todo reorder, playlist ordering, menu item reorder, step reorder, layer ordering, bookmark sorting, queue management, checklist reorder, 정렬 가능 목록, 드래그 핸들, 순서 변경, 리스트 정렬, 재정렬, 드래그 리스트, 목록 관리, hello-pangea-dnd, DragDropContext, Droppable, Draggable, dragHandleProps, DropResult, onDragEnd
+
+### Install
+```bash
+bun add @hello-pangea/dnd
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import {
+  DragDropContext,
+  Droppable,
+  Draggable,
+  type DropResult,
+} from "@hello-pangea/dnd";
+
+const initialItems = [
+  { id: "1", label: "First item" },
+  { id: "2", label: "Second item" },
+  { id: "3", label: "Third item" },
+];
+
+export default function SortableList() {
+  const [items, setItems] = useState(initialItems);
+
+  const handleDragEnd = (result: DropResult) => {
+    if (!result.destination) return;
+    const reordered = Array.from(items);
+    const [removed] = reordered.splice(result.source.index, 1);
+    reordered.splice(result.destination.index, 0, removed);
+    setItems(reordered);
+  };
+
+  return (
+    <DragDropContext onDragEnd={handleDragEnd}>
+      <Droppable droppableId="list">
+        {(provided) => (
+          <div ref={provided.innerRef} {...provided.droppableProps} className="space-y-2">
+            {items.map((item, index) => (
+              <Draggable key={item.id} draggableId={item.id} index={index}>
+                {(prov, snap) => (
+                  <div
+                    ref={prov.innerRef}
+                    {...prov.draggableProps}
+                    {...prov.dragHandleProps}
+                    className={`px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white ${
+                      snap.isDragging ? "shadow-lg" : ""
+                    }`}
+                  >
+                    {item.label}
+                  </div>
+                )}
+              </Draggable>
+            ))}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </DragDropContext>
+  );
+}
+```
+
+---
+
+## Zustand
+
+- **Slug**: zustand
+- **Category**: interaction
+- **Description**: Bear necessities for state management in React
+- **Library**: zustand (zustand)
+- **Library URL**: https://github.com/pmndrs/zustand
+- **Install type**: npm
+- **Bundle size**: 0.5 kB
+- **GitHub stars**: 57640
+- **Weekly downloads**: 29540819
+- **Last updated**: 2026-03
+- **Tags**: react, state, manager, management, redux, store
+- **Keywords**: live counter, reactive state, state indicator, count display, increment button, decrement button, state value, real-time update, animated counter, interactive buttons, state badge, reactive label, global state, shopping cart count, notification badge, theme toggle, user preferences, form state, app settings, feature flags, session state, shared state, 상태 관리, 전역 상태, 리액티브 상태, 카운터, 스토어, 상태 저장소, 상태 업데이트, zustand, create store, useStore, set state, selector, middleware, persist, devtools
+
+### Install
+```bash
+bun add zustand
+```
+
+### Usage
+```tsx
+"use client";
+
+import { create } from "zustand";
+
+interface CounterStore {
+  count: number;
+  increment: () => void;
+  decrement: () => void;
+}
+
+const useCounter = create<CounterStore>((set) => ({
+  count: 0,
+  increment: () => set((s) => ({ count: s.count + 1 })),
+  decrement: () => set((s) => ({ count: s.count - 1 })),
+}));
+
+export default function CounterExample() {
+  const { count, increment, decrement } = useCounter();
+
+  return (
+    <div className="flex items-center gap-4">
+      <button onClick={decrement} className="px-3 py-1 bg-white/10 rounded text-white">
+        -
+      </button>
+      <span className="text-2xl font-bold text-white tabular-nums">{count}</span>
+      <button onClick={increment} className="px-3 py-1 bg-violet-600 rounded text-white">
+        +
+      </button>
+    </div>
+  );
+}
+```
+
+---
+
+## Jotai
+
+- **Slug**: jotai
+- **Category**: interaction
+- **Description**: Primitive and flexible state management for React
+- **Library**: jotai (jotai)
+- **Library URL**: https://github.com/pmndrs/jotai
+- **Install type**: npm
+- **Bundle size**: 3.8 kB
+- **GitHub stars**: 21100
+- **Weekly downloads**: 3360782
+- **Last updated**: 2026-04
+- **Tags**: react, state, manager, management, recoil, store
+- **Keywords**: atomic state, independent atoms, reactive counter, state toggle, live input, derived value, state indicator, atom display, minimal state, composable atoms, state cards, interactive atoms, global state, theme toggle, user preferences, form state, feature flags, derived state, computed values, shared state, app config, component state, 원자적 상태, 상태 관리, 전역 상태, 파생 상태, 아톰, 리액티브 상태, 상태 토글, jotai, atom, useAtom, Provider, derived atom, atomWithStorage, primitive atom, writable atom
+
+### Install
+```bash
+bun add jotai
+```
+
+### Usage
+```tsx
+"use client";
+
+import { atom, useAtom, Provider } from "jotai";
+
+const countAtom = atom(0);
+const nameAtom = atom("World");
+
+// Derived atom (read-only)
+const greetingAtom = atom((get) => `Hello, ${get(nameAtom)}! Count: ${get(countAtom)}`);
+
+function Counter() {
+  const [count, setCount] = useAtom(countAtom);
+  return (
+    <div className="flex items-center gap-3">
+      <button onClick={() => setCount((c) => c - 1)} className="px-2 py-1 bg-white/10 rounded text-white">-</button>
+      <span className="text-white text-xl font-bold">{count}</span>
+      <button onClick={() => setCount((c) => c + 1)} className="px-2 py-1 bg-violet-600 rounded text-white">+</button>
+    </div>
+  );
+}
+
+function NameInput() {
+  const [name, setName] = useAtom(nameAtom);
+  return (
+    <input
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+      className="bg-white/5 border border-white/10 rounded px-3 py-1 text-white"
+    />
+  );
+}
+
+function Greeting() {
+  const [greeting] = useAtom(greetingAtom);
+  return <p className="text-white/60 text-sm">{greeting}</p>;
+}
+
+export default function JotaiExample() {
+  return (
+    <Provider>
+      <div className="flex flex-col gap-4 items-center">
+        <Counter />
+        <NameInput />
+        <Greeting />
+      </div>
+    </Provider>
+  );
+}
+```
+
+---
+
+## Player
+
+- **Slug**: react-player
+- **Category**: interaction
+- **Description**: A React component for playing a variety of URLs, including file paths, Mux, YouTube, Vimeo, and Wistia
+- **Library**: react-player (react-player)
+- **Library URL**: https://github.com/cookpete/react-player
+- **Install type**: npm
+- **Bundle size**: 2.2 kB
+- **GitHub stars**: 10211
+- **Weekly downloads**: 1738663
+- **Last updated**: 2025-11
+- **Tags**: react, media, player, video, audio, youtube, vimeo
+- **Keywords**: react, media, player, video, audio, youtube, vimeo, wistia, hls, dash, react-component
+
+### Install
+```bash
+bun add react-player
+```
+
+### Usage
+```tsx
+// TODO: Add standalone usage example
+import { /* Component */ } from "react-player";
+
+export default function Example() {
+  return (
+    <div>
+      {/* TODO: Render the library component */}
+    </div>
+  );
+}
+```
+
+---
+
+## Swr
+
+- **Slug**: swr
+- **Category**: interaction
+- **Description**: React Hooks library for remote data fetching
+- **Library**: swr (swr)
+- **Library URL**: https://swr.vercel.app
+- **Install type**: npm
+- **Bundle size**: 4.7 kB
+- **GitHub stars**: 32351
+- **Weekly downloads**: 9153576
+- **Last updated**: 2026-02
+- **Tags**: swr, react, hooks, request, cache, fetch
+- **Keywords**: swr, react, hooks, request, cache, fetch
+
+### Install
+```bash
+bun add swr
+```
+
+### Usage
+```tsx
+// TODO: Add standalone usage example
+import { /* Component */ } from "swr";
+
+export default function Example() {
+  return (
+    <div>
+      {/* TODO: Render the library component */}
+    </div>
   );
 }
 ```

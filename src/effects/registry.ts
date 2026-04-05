@@ -65,6 +65,39 @@ import { rcSteps } from "./rc-steps";
 import { reactCopyToClipboard } from "./react-copy-to-clipboard";
 import { reactAnimateHeight } from "./react-animate-height";
 import { reactTooltip } from "./react-tooltip";
+import { reactResizablePanels } from "./react-resizable-panels";
+import { reactJoyride } from "./react-joyride";
+import { inputOtp } from "./input-otp";
+import { nextThemes } from "./next-themes";
+import { reactTextareaAutosize } from "./react-textarea-autosize";
+import { reactDropzone } from "./react-dropzone";
+import { reactVirtuoso } from "./react-virtuoso";
+import { reactGridLayout } from "./react-grid-layout";
+import { reactEasyCrop } from "./react-easy-crop";
+import { reactZoomPanPinch } from "./react-zoom-pan-pinch";
+import { reactArcher } from "./react-archer";
+import { reactXarrows } from "./react-xarrows";
+import { reactflow } from "./reactflow";
+import { reactJsonViewLite } from "./react-json-view-lite";
+import { reactErrorBoundary } from "./react-error-boundary";
+import { reactIntersectionObserver } from "./react-intersection-observer";
+import { useGestureReact } from "./use-gesture-react";
+import { reactIcons } from "./react-icons";
+import { reactToastify } from "./react-toastify";
+import { reactModal } from "./react-modal";
+import { reactDayPicker } from "./react-day-picker";
+import { reactCalendar } from "./react-calendar";
+import { reactDatepicker } from "./react-datepicker";
+import { reactSelect } from "./react-select";
+import { downshift } from "./downshift";
+import { tanstackReactTable } from "./tanstack-react-table";
+import { reactHookForm } from "./react-hook-form";
+import { reactDnd } from "./react-dnd";
+import { helloPangeaDnd } from "./hello-pangea-dnd";
+import { zustand } from "./zustand";
+import { jotai } from "./jotai";
+import { reactPlayer } from "./react-player";
+import { swr } from "./swr";
 import type { EffectDefinition } from "./types";
 
 export const effects: EffectDefinition[] = [
@@ -135,6 +168,39 @@ export const effects: EffectDefinition[] = [
   reactCopyToClipboard,
   reactAnimateHeight,
   reactTooltip,
+  reactResizablePanels,
+  reactJoyride,
+  inputOtp,
+  nextThemes,
+  reactTextareaAutosize,
+  reactDropzone,
+  reactVirtuoso,
+  reactGridLayout,
+  reactEasyCrop,
+  reactZoomPanPinch,
+  reactArcher,
+  reactXarrows,
+  reactflow,
+  reactJsonViewLite,
+  reactErrorBoundary,
+  reactIntersectionObserver,
+  useGestureReact,
+  reactIcons,
+  reactToastify,
+  reactModal,
+  reactDayPicker,
+  reactCalendar,
+  reactDatepicker,
+  reactSelect,
+  downshift,
+  tanstackReactTable,
+  reactHookForm,
+  reactDnd,
+  helloPangeaDnd,
+  zustand,
+  jotai,
+  reactPlayer,
+  swr,
 ];
 export const categories = [...new Set(effects.map((e) => e.category))];
 export const allTags = [...new Set(effects.flatMap((e) => e.tags))].sort();

@@ -6,6 +6,11 @@
 @import "react-vertical-timeline-component/style.min.css";
 @import "yet-another-react-lightbox/styles.css";
 @import "tippy.js/dist/tippy.css";
+@import "react-datepicker/dist/react-datepicker.css";
+@import "reactflow/dist/style.css";
+@import "react-toastify/dist/ReactToastify.css";
+@import "react-calendar/dist/Calendar.css";
+@import "react-grid-layout/css/styles.css";
 
 @theme inline {
   --color-bg: var(--bg);
@@ -120,4 +125,66 @@ body {
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 3px;
+}
+
+/* react-calendar dark theme */
+.react-calendar-dark .react-calendar {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: inherit;
+  line-height: 1.5;
+  padding: 8px;
+}
+.react-calendar-dark .react-calendar__navigation button {
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  border-radius: 8px;
+  min-width: 36px;
+  font-size: 14px;
+}
+.react-calendar-dark .react-calendar__navigation button:hover,
+.react-calendar-dark .react-calendar__navigation button:focus {
+  background: rgba(255, 255, 255, 0.08);
+}
+.react-calendar-dark .react-calendar__navigation button:disabled {
+  color: rgba(255, 255, 255, 0.2);
+}
+.react-calendar-dark .react-calendar__month-view__weekdays {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.react-calendar-dark .react-calendar__month-view__weekdays abbr {
+  text-decoration: none;
+}
+.react-calendar-dark .react-calendar__tile {
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 13px;
+}
+.react-calendar-dark .react-calendar__tile:hover,
+.react-calendar-dark .react-calendar__tile:focus {
+  background: rgba(255, 255, 255, 0.08);
+}
+.react-calendar-dark .react-calendar__tile--now {
+  background: rgba(139, 92, 246, 0.15);
+  color: #c4b5fd;
+  font-weight: 700;
+}
+.react-calendar-dark .react-calendar__tile--now:hover {
+  background: rgba(139, 92, 246, 0.25);
+}
+.react-calendar-dark .react-calendar__tile--active {
+  background: rgba(139, 92, 246, 0.3) !important;
+  color: #c4b5fd;
+}
+.react-calendar-dark .react-calendar__tile--active:hover {
+  background: rgba(139, 92, 246, 0.4) !important;
+}
+.react-calendar-dark .react-calendar__month-view__days__day--neighboringMonth {
+  color: rgba(255, 255, 255, 0.2);
 }
