@@ -64,6 +64,7 @@ import { yetAnotherReactLightbox } from "./yet-another-react-lightbox";
 import { rcSteps } from "./rc-steps";
 import { reactCopyToClipboard } from "./react-copy-to-clipboard";
 import { reactAnimateHeight } from "./react-animate-height";
+import { reactTooltip } from "./react-tooltip";
 import type { EffectDefinition } from "./types";
 
 export const effects: EffectDefinition[] = [
@@ -133,6 +134,7 @@ export const effects: EffectDefinition[] = [
   rcSteps,
   reactCopyToClipboard,
   reactAnimateHeight,
+  reactTooltip,
 ];
 export const categories = [...new Set(effects.map((e) => e.category))];
 export const allTags = [...new Set(effects.flatMap((e) => e.tags))].sort();

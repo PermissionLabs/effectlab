@@ -2,7 +2,7 @@
 
 > A curated showcase of visual effects for React. Each effect links to its original library.
 
-> Total effects: 66
+> Total effects: 67
 
 ---
 
@@ -3992,6 +3992,44 @@ export default function Accordion() {
         <p>This content smoothly expands and collapses.</p>
       </AnimateHeight>
     </div>
+  );
+}
+```
+
+---
+
+## React Tooltip
+
+- **Slug**: react-tooltip
+- **Category**: hover
+- **Description**: Feature-rich tooltip component with animations, multiple placements, and dark theme support. 1.8M weekly downloads.
+- **Library**: react-tooltip (react-tooltip)
+- **Library URL**: https://react-tooltip.com
+- **Install type**: npm
+- **Bundle size**: 13.4 kB
+- **GitHub stars**: 3795
+- **Weekly downloads**: 1804674
+- **Last updated**: 2025-11
+- **Tags**: tooltip, hover, popover, overlay, interactive, accessible
+- **Keywords**: tooltip, hover tooltip, popover, info bubble, help text, hint popup, contextual help, floating label, tooltip animation, hover popup, tooltip placement, tooltip arrow, dark tooltip, button tooltip, icon tooltip, form tooltip, link tooltip, navigation tooltip, settings tooltip, dashboard tooltip, data tooltip, chart tooltip, table tooltip, map tooltip, 툴팁, 호버 팝업, 도움말 텍스트, 정보 풍선, 컨텍스트 도움말, 툴팁 애니메이션, 호버 힌트, react-tooltip, data-tooltip, accessible tooltip, wai-aria tooltip, lightweight tooltip
+
+### Install
+```bash
+bun add react-tooltip
+```
+
+### Usage
+```tsx
+import { Tooltip } from "react-tooltip";
+
+export default function Example() {
+  return (
+    <>
+      <button data-tooltip-id="my-tip" data-tooltip-content="Hello!">
+        Hover me
+      </button>
+      <Tooltip id="my-tip" place="top" />
+    </>
   );
 }
 ```
