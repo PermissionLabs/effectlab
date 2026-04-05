@@ -31,6 +31,21 @@ function sortEffects(items: EffectDefinition[], sortKey: SortKey): EffectDefinit
   });
 }
 
+const categoryMeta: Record<string, string> = {
+  "3d": "🧊",
+  background: "🌌",
+  glow: "✨",
+  gradient: "🎨",
+  hover: "👆",
+  interaction: "⚡",
+  layout: "📐",
+  orb: "🔮",
+  particle: "💫",
+  scroll: "📜",
+  text: "✏️",
+  transition: "🔄",
+};
+
 const categories = [...new Set(effects.map((e) => e.category))].sort();
 
 export default function EffectGrid() {
@@ -48,60 +63,69 @@ export default function EffectGrid() {
   }, [query, activeCategory, fuse, sortKey]);
 
   return (
-    <div className="flex flex-col">
-      {/* Toolbar */}
-      <div className="sticky top-14 z-40 bg-black/80 backdrop-blur-xl border-b border-white/[0.04] px-4 sm:px-6 py-3">
-        <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-3">
-          <SearchBar value={query} onChange={setQuery} />
-          <div className="flex items-center gap-1 overflow-x-auto no-scrollbar flex-1">
+    <div className="flex flex-col gap-6">
+      {/* Tabs: Hot Picks / Latest style */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <span className="text-sm font-semibold text-white">All Effects</span>
+          <span className="text-sm text-white/30">{filtered.length} libraries</span>
+        </div>
+        <div className="flex items-center gap-3 text-[12px] text-white/25">
+          {(["default", "stars", "downloads", "size"] as SortKey[]).map((k) => (
             <button
-              onClick={() => setActiveCategory(null)}
-              className={`shrink-0 px-2 py-0.5 rounded text-[11px] transition-colors ${
-                !activeCategory ? "text-white/70" : "text-white/20 hover:text-white/40"
-              }`}
+              key={k}
+              onClick={() => setSortKey(k)}
+              className={`capitalize transition-colors ${sortKey === k ? "text-white/60" : "hover:text-white/40"}`}
             >
-              all
+              {k}
             </button>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
-                className={`shrink-0 px-2 py-0.5 rounded text-[11px] transition-colors ${
-                  activeCategory === cat ? "text-white/70" : "text-white/20 hover:text-white/40"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-          <div className="hidden sm:flex items-center gap-2 text-[10px] text-white/20 font-mono shrink-0">
-            {(["default", "stars", "downloads", "size"] as SortKey[]).map((k) => (
-              <button
-                key={k}
-                onClick={() => setSortKey(k)}
-                className={`transition-colors ${sortKey === k ? "text-white/50" : "hover:text-white/35"}`}
-              >
-                {k}
-              </button>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
 
-      {/* Grid */}
-      <div className="px-0">
-        {filtered.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 divide-x divide-y divide-white/[0.04]">
-            {filtered.map((effect) => (
-              <EffectCard key={effect.slug} effect={effect} />
-            ))}
-          </div>
-        ) : (
-          <div className="flex items-center justify-center py-32">
-            <p className="text-white/15 text-sm font-mono">no results</p>
-          </div>
-        )}
+      {/* Category pills with emoji */}
+      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+        <button
+          onClick={() => setActiveCategory(null)}
+          className={`shrink-0 px-3.5 py-1.5 rounded-full text-[12px] font-medium transition-all border ${
+            !activeCategory
+              ? "bg-white text-black border-white"
+              : "bg-transparent text-white/40 border-white/10 hover:border-white/20 hover:text-white/60"
+          }`}
+        >
+          All
+        </button>
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
+            className={`shrink-0 px-3.5 py-1.5 rounded-full text-[12px] font-medium transition-all border capitalize flex items-center gap-1.5 ${
+              activeCategory === cat
+                ? "bg-white text-black border-white"
+                : "bg-transparent text-white/40 border-white/10 hover:border-white/20 hover:text-white/60"
+            }`}
+          >
+            <span>{categoryMeta[cat] || "•"}</span>
+            {cat}
+          </button>
+        ))}
       </div>
+
+      {/* Search */}
+      <SearchBar value={query} onChange={setQuery} />
+
+      {/* Grid — 3 columns with comfortable gap */}
+      {filtered.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {filtered.map((effect) => (
+            <EffectCard key={effect.slug} effect={effect} />
+          ))}
+        </div>
+      ) : (
+        <div className="flex items-center justify-center py-32">
+          <p className="text-white/15 text-sm">No effects found</p>
+        </div>
+      )}
     </div>
   );
 }
