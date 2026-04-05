@@ -44,7 +44,7 @@ export default function RadixUiReactTabsDemo() {
 
   return (
     <div className="flex flex-col items-center justify-center w-full h-full bg-[#050510] rounded-2xl p-6">
-      <style>{`@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }`}</style>
+      {/* fadeIn keyframe in globals.css */}
       <Tabs.Root
         value={activeTab}
         onValueChange={setActiveTab}

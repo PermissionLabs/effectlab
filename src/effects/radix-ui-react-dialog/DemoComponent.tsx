@@ -5,25 +5,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 export default function RadixUiReactDialogDemo() {
   return (
     <div className="flex items-center justify-center w-full h-full bg-[#050510] rounded-2xl p-4">
-      <style>{`
-        @keyframes dialog-overlay-show {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes dialog-content-show {
-          from { opacity: 0; transform: translate(-50%, -50%) scale(0.92); }
-          to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        }
-        @keyframes dialog-overlay-hide {
-          from { opacity: 1; }
-          to { opacity: 0; }
-        }
-        @keyframes dialog-content-hide {
-          from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-          to { opacity: 0; transform: translate(-50%, -50%) scale(0.92); }
-        }
-      `}</style>
-
+      {/* CSS keyframes in globals.css */}
       <Dialog.Root>
         <Dialog.Trigger asChild>
           <button className="px-6 py-3 rounded-xl bg-violet-500/15 hover:bg-violet-500/25 text-violet-400 text-sm font-medium transition-all border border-violet-500/20 active:scale-95 cursor-pointer">
