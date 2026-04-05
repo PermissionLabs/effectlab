@@ -60,8 +60,8 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
           }}
         />
 
-        {/* Preview */}
-        <div className="relative w-full aspect-[4/3] bg-[#0a0a0a] overflow-hidden">
+        {/* Preview — tall like before.click app screenshots */}
+        <div className="relative w-full aspect-[3/4] bg-[#0a0a0a] overflow-hidden">
           <div className="absolute inset-0 flex items-center justify-center">
             <Component />
           </div>
