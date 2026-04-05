@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
-import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -39,9 +38,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <SmoothScroll>
-            {children}
-          </SmoothScroll>
+          {children}
           <Toaster
             position="bottom-right"
             toastOptions={{

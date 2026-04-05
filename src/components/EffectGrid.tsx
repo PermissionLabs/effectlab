@@ -3,7 +3,6 @@
 import { useState, useMemo } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import NumberFlow from "@number-flow/react";
-import { Fade } from "react-awesome-reveal";
 import { effects } from "@/effects/registry";
 import { createSearch } from "@/lib/search";
 import type { EffectDefinition } from "@/effects/types";
@@ -128,13 +127,11 @@ export default function EffectGrid() {
 
       {/* Grid — auto-animated */}
       {filtered.length > 0 ? (
-        <Fade cascade damping={0.05} triggerOnce>
-          <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {filtered.map((effect) => (
-              <EffectCard key={effect.slug} effect={effect} />
-            ))}
-          </div>
-        </Fade>
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {filtered.map((effect) => (
+            <EffectCard key={effect.slug} effect={effect} />
+          ))}
+        </div>
       ) : (
         <div className="flex items-center justify-center py-32">
           <p className="text-muted/30 text-sm">No effects found</p>
