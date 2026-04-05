@@ -2,7 +2,7 @@
 
 > A curated showcase of visual effects for React. Each effect links to its original library.
 
-> Total effects: 100
+> Total effects: 99
 
 ---
 
@@ -3603,63 +3603,6 @@ export default function MasonryExample() {
         ))}
       </Masonry>
     </ResponsiveMasonry>
-  );
-}
-```
-
----
-
-## Tippy.js React
-
-- **Slug**: tippyjs-react
-- **Category**: hover
-- **Description**: React component for Tippy.js — the complete tooltip, popover, dropdown, and menu solution
-- **Library**: @tippyjs/react (@tippyjs/react)
-- **Library URL**: https://github.com/atomiks/tippyjs-react#readme
-- **Install type**: npm
-- **Bundle size**: 13.7 kB
-- **GitHub stars**: 1813
-- **Weekly downloads**: 929847
-- **Last updated**: 2024-05
-- **Tags**: tooltip, popover, tippy, hover, dropdown
-- **Keywords**: tooltip popup, hover tooltip, animated tooltip, floating tooltip, dark tooltip, tooltip arrow, popover bubble, info tooltip, scale tooltip, shift tooltip, perspective tooltip, tooltip animation, button tooltip, icon hint, form field help, navigation tooltip, action description, feature hint, context tooltip, label tooltip, abbreviation tooltip, status tooltip, truncated text tooltip, onboarding tooltip, 툴팁, 팝오버, 호버 툴팁, 말풍선, 도움말 팝업, 힌트 메시지, 안내 툴팁, tippyjs, tippy-react, tooltip-component, popperjs, floating-ui-tooltip, accessible-tooltip
-
-### Install
-```bash
-bun add @tippyjs/react
-```
-
-### Usage
-```tsx
-"use client";
-
-import Tippy from "@tippyjs/react";
-import "tippy.js/dist/tippy.css";
-import "tippy.js/animations/shift-away.css";
-import "tippy.js/animations/scale.css";
-import "tippy.js/animations/perspective.css";
-
-export default function TooltipExample() {
-  return (
-    <div className="flex gap-4 p-8">
-      <Tippy content="Shift away animation" animation="shift-away">
-        <button className="px-4 py-2 bg-violet-600 text-white rounded-lg">
-          Shift Away
-        </button>
-      </Tippy>
-
-      <Tippy content="Scale animation" animation="scale">
-        <button className="px-4 py-2 bg-emerald-600 text-white rounded-lg">
-          Scale
-        </button>
-      </Tippy>
-
-      <Tippy content="Perspective animation" animation="perspective">
-        <button className="px-4 py-2 bg-amber-600 text-white rounded-lg">
-          Perspective
-        </button>
-      </Tippy>
-    </div>
   );
 }
 ```

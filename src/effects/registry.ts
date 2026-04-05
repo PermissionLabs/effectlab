@@ -57,7 +57,6 @@ import { radixUiReactDialog } from "./radix-ui-react-dialog";
 import { dndKitCore } from "./dnd-kit-core";
 import { radixUiReactSlider } from "./radix-ui-react-slider";
 import { reactResponsiveMasonry } from "./react-responsive-masonry";
-import { tippyjsReact } from "./tippyjs-react";
 import { reactCircularProgressbar } from "./react-circular-progressbar";
 import { prismReactRenderer } from "./prism-react-renderer";
 import { yetAnotherReactLightbox } from "./yet-another-react-lightbox";
@@ -160,7 +159,6 @@ export const effects: EffectDefinition[] = [
   dndKitCore,
   radixUiReactSlider,
   reactResponsiveMasonry,
-  tippyjsReact,
   reactCircularProgressbar,
   prismReactRenderer,
   yetAnotherReactLightbox,
