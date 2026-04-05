@@ -32,7 +32,7 @@ export default function SimplexNoiseInner() {
       if (!canvas || !ctx) return;
       const w = canvas.width;
       const h = canvas.height;
-      if (w === 0 || h === 0) { animRef.current = requestAnimationFrame(render); return; }
+      if (w === 0 || h === 0) { animationId = requestAnimationFrame(render); return; }
       const imageData = ctx.createImageData(w, h);
       const data = imageData.data;
 
