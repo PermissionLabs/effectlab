@@ -2,7 +2,7 @@
 
 > A curated showcase of visual effects for React. Each effect links to its original library.
 
-> Total effects: 35
+> Total effects: 44
 
 ---
 
@@ -2085,6 +2085,614 @@ export default function TextScrambleExample() {
     </div>
   );
 }
+```
+
+---
+
+## Floating UI
+
+- **Slug**: floating-ui-react
+- **Category**: hover
+- **Description**: Floating UI for React — tooltips, popovers, dropdowns with smart positioning
+- **Library**: @floating-ui/react (@floating-ui/react)
+- **Library URL**: https://floating-ui.com/docs/react
+- **Install type**: npm
+- **Bundle size**: 30.1 kB
+- **GitHub stars**: 32531
+- **Weekly downloads**: 13365333
+- **Last updated**: 2026-03
+- **Tags**: tooltip, popover, dropdown, menu, popup, positioning, react
+- **Keywords**: tooltip bubble, floating tooltip, hover popup, positioned overlay, arrow tooltip, dark tooltip, tooltip with arrow, contextual popup, tooltip placement, smart positioning, floating panel, button tooltip, help text popup, hover information, form field hint, icon tooltip, navigation tooltip, action description, accessibility tooltip, onboarding tooltip, user guidance popup, 툴팁, 팝업, 호버 팝업, 드롭다운 메뉴, 플로팅 UI, 위치 지정, 오버레이, 컨텍스트 메뉴, 툴팁 화살표, floating-ui, useFloating, useHover, useInteractions, flip, shift, offset, arrow, react-popper-alternative
+
+### Install
+```bash
+bun add @floating-ui/react
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState, useRef } from "react";
+import {
+  useFloating,
+  useHover,
+  useInteractions,
+  offset,
+  flip,
+  shift,
+  arrow,
+  FloatingArrow,
+} from "@floating-ui/react";
+
+function Tooltip({ children, content }: { children: React.ReactNode; content: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const arrowRef = useRef(null);
+
+  const { refs, floatingStyles, context } = useFloating({
+    open: isOpen,
+    onOpenChange: setIsOpen,
+    placement: "top",
+    middleware: [offset(8), flip(), shift(), arrow({ element: arrowRef })],
+  });
+
+  const hover = useHover(context);
+  const { getReferenceProps, getFloatingProps } = useInteractions([hover]);
+
+  return (
+    <>
+      <span ref={refs.setReference} {...getReferenceProps()}>
+        {children}
+      </span>
+      {isOpen && (
+        <div
+          ref={refs.setFloating}
+          style={floatingStyles}
+          {...getFloatingProps()}
+          role="tooltip"
+          className="bg-gray-900 text-white text-sm px-3 py-1.5 rounded-lg shadow-lg"
+        >
+          {content}
+          <FloatingArrow ref={arrowRef} context={context} fill="#111827" />
+        </div>
+      )}
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <div style={{ display: "flex", gap: 16, padding: 48 }}>
+      <Tooltip content="Save your work">
+        <button>Save</button>
+      </Tooltip>
+      <Tooltip content="Delete this item">
+        <button>Delete</button>
+      </Tooltip>
+    </div>
+  );
+}
+```
+
+---
+
+## Lucide React
+
+- **Slug**: lucide-react
+- **Category**: interaction
+- **Description**: A Lucide icon library package for React applications.
+- **Library**: lucide-react (lucide-react)
+- **Library URL**: https://lucide.dev
+- **Install type**: npm
+- **Bundle size**: 149.7 kB
+- **GitHub stars**: 21961
+- **Weekly downloads**: 67070115
+- **Last updated**: 2026-04
+- **Tags**: Lucide, React, Feather, Icons, Icon, SVG, Feather Icons
+- **Keywords**: animated icons, icon hover effect, scalable icon, colorful icons, icon grid, rotating icon, icon animation, glowing icon, icon transition, icon scale effect, icon color change, icon set, ui icons, navigation icons, action icons, toolbar icons, sidebar icons, button icons, status icons, open source icons, icon library, icon pack, 아이콘, 아이콘 라이브러리, 리액트 아이콘, 애니메이션 아이콘, SVG 아이콘, 아이콘 세트, UI 아이콘, 호버 아이콘, lucide-react, feather-icons, svg-icon-library, tree-shakeable-icons, react-icons-alternative, icon-component
+
+### Install
+```bash
+bun add lucide-react
+```
+
+### Usage
+```tsx
+"use client";
+
+import { Sparkles, Zap, Heart, Star, Rocket, Globe, Code, Palette } from "lucide-react";
+
+const icons = [
+  { Icon: Sparkles, label: "Sparkles", color: "#f59e0b" },
+  { Icon: Zap, label: "Zap", color: "#eab308" },
+  { Icon: Heart, label: "Heart", color: "#ef4444" },
+  { Icon: Star, label: "Star", color: "#8b5cf6" },
+  { Icon: Rocket, label: "Rocket", color: "#3b82f6" },
+  { Icon: Globe, label: "Globe", color: "#06b6d4" },
+  { Icon: Code, label: "Code", color: "#10b981" },
+  { Icon: Palette, label: "Palette", color: "#ec4899" },
+];
+
+export default function IconGrid() {
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, padding: 24 }}>
+      {icons.map(({ Icon, label, color }) => (
+        <div
+          key={label}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 8,
+            padding: 12,
+            cursor: "pointer",
+            transition: "transform 0.3s",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+        >
+          <Icon size={32} color={color} />
+          <span style={{ fontSize: 12, opacity: 0.6 }}>{label}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+---
+
+## Tabs
+
+- **Slug**: radix-ui-react-tabs
+- **Category**: interaction
+- **Description**: Radix UI Tabs primitive with animated sliding indicator and content transitions.
+- **Library**: @radix-ui/react-tabs (@radix-ui/react-tabs)
+- **Library URL**: https://radix-ui.com/primitives
+- **Install type**: npm
+- **Bundle size**: 4.9 kB
+- **GitHub stars**: 18692
+- **Weekly downloads**: 31494174
+- **Last updated**: 2026-02
+- **Tags**: tabs, radix, navigation, tab-panel, ui-primitive
+- **Keywords**: animated tabs, sliding indicator, tab underline animation, glowing tab bar, dark tab set, tab content fade, smooth tab transition, active tab highlight, tab panel switch, tab navigation bar, segmented control, settings tabs, dashboard tabs, content switcher, multi-panel layout, tabbed interface, page section tabs, product detail tabs, profile tabs, form step tabs, category filter tabs, 탭 메뉴, 탭 네비게이션, 애니메이션 탭, 슬라이딩 인디케이터, 탭 전환, 탭 패널, 탭 UI, 세그먼트 컨트롤, radix-ui-tabs, react-tabs, accessible-tabs, headless-tabs, aria-tabs, tab-primitives
+
+### Install
+```bash
+bun add @radix-ui/react-tabs
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState, useRef, useEffect } from "react";
+import * as Tabs from "@radix-ui/react-tabs";
+
+const tabs = [
+  { value: "tab1", label: "Tab 1", content: "Content for Tab 1" },
+  { value: "tab2", label: "Tab 2", content: "Content for Tab 2" },
+  { value: "tab3", label: "Tab 3", content: "Content for Tab 3" },
+];
+
+export default function AnimatedTabs() {
+  const [activeTab, setActiveTab] = useState("tab1");
+  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
+  const tabListRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!tabListRef.current) return;
+    const activeEl = tabListRef.current.querySelector(
+      `[data-state="active"]`
+    ) as HTMLElement | null;
+    if (activeEl) {
+      setIndicatorStyle({ left: activeEl.offsetLeft, width: activeEl.offsetWidth });
+    }
+  }, [activeTab]);
+
+  return (
+    <Tabs.Root value={activeTab} onValueChange={setActiveTab}>
+      <Tabs.List ref={tabListRef} style={{ display: "flex", position: "relative", borderBottom: "1px solid #333" }}>
+        {tabs.map((tab) => (
+          <Tabs.Trigger
+            key={tab.value}
+            value={tab.value}
+            style={{ flex: 1, padding: "8px 16px", background: "none", border: "none", color: "#999", cursor: "pointer" }}
+          >
+            {tab.label}
+          </Tabs.Trigger>
+        ))}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0,
+            height: 2,
+            background: "#8b5cf6",
+            transition: "all 0.3s ease",
+            left: indicatorStyle.left,
+            width: indicatorStyle.width,
+          }}
+        />
+      </Tabs.List>
+      {tabs.map((tab) => (
+        <Tabs.Content key={tab.value} value={tab.value} style={{ padding: 16 }}>
+          {tab.content}
+        </Tabs.Content>
+      ))}
+    </Tabs.Root>
+  );
+}
+```
+
+---
+
+## Rc Progress
+
+- **Slug**: rc-progress
+- **Category**: interaction
+- **Description**: Progress UI component for React with Line and Circle variants.
+- **Library**: rc-progress (rc-progress)
+- **Library URL**: http://github.com/react-component/progress
+- **Install type**: npm
+- **Bundle size**: 3.6 kB
+- **GitHub stars**: 707
+- **Weekly downloads**: 2307255
+- **Last updated**: 2025-11
+- **Tags**: react, react-component, react-progress, progress, loading
+- **Keywords**: progress bar, circular progress, linear progress, animated progress, percentage indicator, loading bar, progress ring, gradient progress, progress animation, filling bar, completion indicator, file upload progress, download progress, task completion, loading indicator, skill level bar, storage usage, form completion, step progress, data loading, score indicator, battery indicator, 프로그레스 바, 진행률 표시, 로딩 바, 원형 프로그레스, 진행 상태, 완료율 표시, 퍼센트 표시, 로딩 인디케이터, rc-progress, progress-line, progress-circle, ant-design-progress, react-progress-bar, svg-progress
+
+### Install
+```bash
+bun add rc-progress
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState, useEffect } from "react";
+import { Line, Circle } from "rc-progress";
+
+export default function ProgressDemo() {
+  const [percent, setPercent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setPercent((p) => {
+        if (p >= 85) { clearInterval(timer); return 85; }
+        return p + 1;
+      });
+    }, 25);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div style={{ display: "flex", gap: 32, padding: 24, alignItems: "center" }}>
+      <div style={{ flex: 1 }}>
+        <p>Line Progress</p>
+        <Line
+          percent={percent}
+          strokeWidth={4}
+          trailWidth={4}
+          strokeColor="#8b5cf6"
+          trailColor="#e5e7eb"
+          strokeLinecap="round"
+        />
+      </div>
+      <div style={{ width: 120, height: 120, position: "relative" }}>
+        <Circle
+          percent={percent}
+          strokeWidth={6}
+          trailWidth={6}
+          strokeColor="#8b5cf6"
+          trailColor="#e5e7eb"
+          strokeLinecap="round"
+        />
+        <span style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "bold" }}>
+          {percent}%
+        </span>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## Collapsible
+
+- **Slug**: radix-ui-react-collapsible
+- **Category**: interaction
+- **Description**: View docs [here](https://radix-ui.com/primitives/docs/components/collapsible).
+- **Library**: @radix-ui/react-collapsible (@radix-ui/react-collapsible)
+- **Library URL**: https://radix-ui.com/primitives
+- **Install type**: npm
+- **Bundle size**: 3.2 kB
+- **GitHub stars**: 18692
+- **Weekly downloads**: 29958338
+- **Last updated**: 2026-02
+- **Tags**: collapsible, accordion, expand, collapse, toggle, radix
+- **Keywords**: collapsible, collapsible panel, expandable section, accordion, accordion panel, expand collapse, toggle panel, fold unfold, smooth height animation, animated expand, sliding panel, height transition, content reveal, chevron rotate, FAQ section, settings panel, sidebar menu, dropdown section, disclosure widget, expandable list, collapsible card, show more content, hidden content toggle, read more section, nested menu, tree view, 접기 펼치기, 아코디언, 토글 패널, 확장 축소, 콘텐츠 접기, 드롭다운 섹션, 펼침 효과, 메뉴 토글, 섹션 확장, 리스트 접기, radix-ui, react-collapsible, CollapsibleRoot, CollapsibleTrigger, CollapsibleContent, grid-template-rows, css grid animation, headless collapsible
+
+### Install
+```bash
+bun add @radix-ui/react-collapsible
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import * as Collapsible from "@radix-ui/react-collapsible";
+
+export default function CollapsibleExample() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Collapsible.Root open={open} onOpenChange={setOpen}>
+      <Collapsible.Trigger className="flex w-full items-center justify-between rounded-lg bg-gray-800 px-4 py-3 text-white">
+        <span>Toggle Section</span>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+        >
+          <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </Collapsible.Trigger>
+      {/* CSS grid trick for smooth height animation */}
+      <div
+        className="grid transition-[grid-template-rows] duration-300 ease-out"
+        style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
+      >
+        <Collapsible.Content forceMount className="overflow-hidden">
+          <p className="px-4 pt-2 pb-3 text-gray-300">
+            Your collapsible content goes here. The height animates smoothly
+            using the CSS grid trick (grid-template-rows: 0fr to 1fr).
+          </p>
+        </Collapsible.Content>
+      </div>
+    </Collapsible.Root>
+  );
+}
+```
+
+---
+
+## Boring Avatars
+
+- **Slug**: boring-avatars
+- **Category**: interaction
+- **Description**: Boring avatars is a tiny JavaScript React library that generates custom, SVG-based, round avatars from any username and color palette.
+- **Library**: boring-avatars (boring-avatars)
+- **Library URL**: https://boringavatars.com/
+- **Install type**: npm
+- **Bundle size**: 2.8 kB
+- **GitHub stars**: 6206
+- **Weekly downloads**: 184156
+- **Last updated**: 2025-09
+- **Tags**: avatar, gravatar, profile picture, user avatar, avatar generator, avatar placeholder
+- **Keywords**: avatar, avatar generator, SVG avatar, round avatar, colorful avatar, geometric avatar, pixel avatar, marble avatar, beam avatar, sunset avatar, ring avatar, bauhaus avatar, abstract avatar, unique avatar, deterministic avatar, profile picture, user avatar, placeholder avatar, default avatar, gravatar alternative, user icon, avatar placeholder, team member avatar, comment avatar, chat avatar, anonymous avatar, identity icon, 아바타, 프로필 이미지, 사용자 아바타, 아바타 생성기, 기본 프로필, SVG 아바타, 플레이스홀더 아바타, 랜덤 아바타, 사용자 아이콘, 프로필 아이콘, boring-avatars, Avatar component, SVG generation, deterministic hash, color palette, react avatar
+
+### Install
+```bash
+bun add boring-avatars
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import Avatar from "boring-avatars";
+
+const variants = ["marble", "beam", "pixel", "sunset", "ring", "bauhaus"] as const;
+const colors = ["#264653", "#2a9d8f", "#e9c46a", "#f4a261", "#e76f51"];
+
+export default function BoringAvatarsExample() {
+  const [name, setName] = useState("Jane Doe");
+
+  return (
+    <div className="flex flex-col items-center gap-4 p-8">
+      <div className="flex gap-4">
+        {variants.map((variant) => (
+          <div key={variant} className="flex flex-col items-center gap-1">
+            <Avatar size={48} name={name} variant={variant} colors={colors} />
+            <span className="text-xs text-gray-400">{variant}</span>
+          </div>
+        ))}
+      </div>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Enter a name..."
+        className="px-3 py-2 rounded-lg bg-gray-800 text-white border border-gray-700"
+      />
+    </div>
+  );
+}
+```
+
+---
+
+## Hot Toast
+
+- **Slug**: react-hot-toast
+- **Category**: interaction
+- **Description**: Smoking hot React Notifications. Lightweight, customizable and beautiful by default.
+- **Library**: react-hot-toast (react-hot-toast)
+- **Library URL**: https://github.com/timolins/react-hot-toast#readme
+- **Install type**: npm
+- **Bundle size**: 4.7 kB
+- **GitHub stars**: 10886
+- **Weekly downloads**: 3290160
+- **Last updated**: 2025-08
+- **Tags**: react, notifications, toast, snackbar, alert, popup
+- **Keywords**: toast notification, toast popup, notification bar, snackbar, alert toast, floating notification, stacked toast, animated toast, slide-in notification, dismiss animation, toast icon, loading toast, success toast, error toast, custom toast, form submission feedback, API response alert, action confirmation, error message display, loading indicator, save notification, undo toast, network status alert, upload progress, copy confirmation, session expiry warning, real-time update, 토스트 알림, 알림 팝업, 스낵바, 토스트 메시지, 알림 컴포넌트, 성공 알림, 에러 알림, 로딩 알림, 피드백 알림, 실시간 알림, react-hot-toast, Toaster, toast.success, toast.error, toast.loading, toast.custom, toast.promise, headless toast
+
+### Install
+```bash
+bun add react-hot-toast
+```
+
+### Usage
+```tsx
+"use client";
+
+import { Toaster, toast } from "react-hot-toast";
+
+export default function HotToastExample() {
+  return (
+    <div className="p-8">
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: "#1a1a2e",
+            border: "1px solid rgba(255,255,255,0.1)",
+            color: "#fff",
+          },
+        }}
+      />
+      <div className="flex gap-3">
+        <button onClick={() => toast.success("Saved!")}>
+          Success
+        </button>
+        <button onClick={() => toast.error("Error!")}>
+          Error
+        </button>
+        <button
+          onClick={() =>
+            toast.promise(fetch("/api/data"), {
+              loading: "Loading...",
+              success: "Done!",
+              error: "Failed!",
+            })
+          }
+        >
+          Loading
+        </button>
+        <button
+          onClick={() =>
+            toast.custom((t) => (
+              <div className="bg-gray-800 text-white px-4 py-3 rounded-lg">
+                Custom toast content
+                <button onClick={() => toast.dismiss(t.id)}>Close</button>
+              </div>
+            ))
+          }
+        >
+          Custom
+        </button>
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## Use Ripple Hook
+
+- **Slug**: use-ripple-hook
+- **Category**: interaction
+- **Description**: Customizable, lightweight React hook for implementing Google's Material UI style ripple effect
+- **Library**: use-ripple-hook (use-ripple-hook)
+- **Library URL**: https://github.com/asplunds/use-ripple#readme
+- **Install type**: npm
+- **Bundle size**: 1.8 kB
+- **GitHub stars**: 33
+- **Weekly downloads**: 6796
+- **Last updated**: 2023-10
+- **Tags**: useripple, use-ripple, material, ripple, react, hook
+- **Keywords**: ripple effect, click ripple, material ripple, button ripple, water ripple, touch ripple, expanding circle, radial wave, ink splash, tap feedback, press animation, ripple wave, circular ripple, surface ripple, animated click, button click feedback, material design button, interactive button, touch feedback, click animation, press effect, card click effect, list item ripple, navigation tap, fab ripple, icon button feedback, menu item click, 리플 효과, 클릭 효과, 머티리얼 리플, 버튼 리플, 터치 피드백, 클릭 애니메이션, 물결 효과, 탭 피드백, 누름 효과, 잉크 효과, useRipple, use-ripple-hook, ripple hook, material-ui ripple, react ripple, css ripple
+
+### Install
+```bash
+bun add use-ripple-hook
+```
+
+### Usage
+```tsx
+"use client";
+
+import useRipple from "use-ripple-hook";
+
+export default function RippleExample() {
+  const [rippleRef, rippleEvent] = useRipple({
+    color: "rgba(255, 255, 255, 0.3)",
+  });
+
+  return (
+    <div className="flex gap-4 p-8">
+      <button
+        ref={rippleRef}
+        onPointerDown={rippleEvent}
+        className="relative overflow-hidden px-6 py-3 rounded-lg bg-indigo-600 text-white font-medium"
+      >
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
+---
+
+## Light Beam
+
+- **Slug**: stianlarsen-react-light-beam
+- **Category**: hover
+- **Description**: A customizable React component that creates a light beam effect using conic gradients. Supports dark mode and various customization options.
+- **Library**: @stianlarsen/react-light-beam (@stianlarsen/react-light-beam)
+- **Library URL**: https://github.com/stianalars1/react-light-beam#readme
+- **Install type**: npm
+- **Bundle size**: 35.7 kB
+- **GitHub stars**: 0
+- **Weekly downloads**: 57
+- **Last updated**: 2026-04
+- **Tags**: react, light beam, conic gradient, dark mode, framer-motion, animation
+- **Keywords**: light beam, light ray, beam effect, conic gradient beam, spotlight effect, glowing beam, radiant light, light streak, aurora beam, luminous ray, light cone, gradient beam, beam animation, animated light, pulsing beam, hero background, landing page effect, ambient lighting, cursor trail effect, interactive background, dark mode glow, header decoration, section divider glow, background accent, atmospheric effect, mood lighting, page highlight, 빛 효과, 빔 이펙트, 조명 효과, 그라디언트 빛, 배경 조명, 스포트라이트, 빛줄기, 오로라 효과, 커서 조명, 글로우 배경, react-light-beam, LightBeam, conic-gradient, framer-motion, css gradients, dark mode component
+
+### Install
+```bash
+bun add @stianlarsen/react-light-beam
+```
+
+### Usage
+```tsx
+"use client";
+
+import dynamic from "next/dynamic";
+
+// Use next/dynamic to avoid SSR issues with this component
+const LightBeamInner = dynamic(() => import("./LightBeamInner"), { ssr: false });
+
+export default function LightBeamExample() {
+  return <LightBeamInner />;
+}
+
+// --- LightBeamInner.tsx ---
+// "use client";
+// import { LightBeam } from "@stianlarsen/react-light-beam";
+//
+// export default function LightBeamInner() {
+//   return (
+//     <div className="relative w-full h-96 bg-black overflow-hidden">
+//       <LightBeam
+//         colorDarkmode="hsl(210, 100%, 60%)"
+//         fullWidth={0.8}
+//       />
+//       <div className="relative z-10 flex items-center justify-center h-full">
+//         <h1 className="text-white text-3xl font-bold">Your Content</h1>
+//       </div>
+//     </div>
+//   );
+// }
 ```
 
 ---

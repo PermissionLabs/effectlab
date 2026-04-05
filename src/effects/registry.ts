@@ -33,6 +33,15 @@ import { notistack } from "./notistack";
 import { reactMediumImageZoom } from "./react-medium-image-zoom";
 import { reactThreePostprocessing } from "./react-three-postprocessing";
 import { twistezoReactTextScramble } from "./twistezo-react-text-scramble";
+import { floatingUiReact } from "./floating-ui-react";
+import { lucideReact } from "./lucide-react";
+import { radixUiReactTabs } from "./radix-ui-react-tabs";
+import { rcProgress } from "./rc-progress";
+import { radixUiReactCollapsible } from "./radix-ui-react-collapsible";
+import { boringAvatars } from "./boring-avatars";
+import { reactHotToast } from "./react-hot-toast";
+import { useRippleHook } from "./use-ripple-hook";
+import { stianlarsenReactLightBeam } from "./stianlarsen-react-light-beam";
 import type { EffectDefinition } from "./types";
 
 export const effects: EffectDefinition[] = [
@@ -71,6 +80,15 @@ export const effects: EffectDefinition[] = [
   reactMediumImageZoom,
   reactThreePostprocessing,
   twistezoReactTextScramble,
+  floatingUiReact,
+  lucideReact,
+  radixUiReactTabs,
+  rcProgress,
+  radixUiReactCollapsible,
+  boringAvatars,
+  reactHotToast,
+  useRippleHook,
+  stianlarsenReactLightBeam,
 ];
 export const categories = [...new Set(effects.map((e) => e.category))];
 export const allTags = [...new Set(effects.flatMap((e) => e.tags))].sort();
