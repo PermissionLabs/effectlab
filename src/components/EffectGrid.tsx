@@ -64,33 +64,40 @@ export default function EffectGrid() {
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Tabs: Hot Picks / Latest style */}
+      {/* Tabs row — before.click style */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <span className="text-sm font-semibold text-white">All Effects</span>
-          <span className="text-sm text-white/30">{filtered.length} libraries</span>
+          <button className="text-[14px] font-semibold text-fg flex items-center gap-1.5">
+            <span>🔥</span> All Effects
+          </button>
+          <span className="text-[14px] text-muted/50">{filtered.length} libraries</span>
         </div>
-        <div className="flex items-center gap-3 text-[12px] text-white/25">
+        {/* Sort tabs — right side */}
+        <div className="hidden sm:flex items-center gap-1">
           {(["default", "stars", "downloads", "size"] as SortKey[]).map((k) => (
             <button
               key={k}
               onClick={() => setSortKey(k)}
-              className={`capitalize transition-colors ${sortKey === k ? "text-white/60" : "hover:text-white/40"}`}
+              className={`px-3 py-1.5 rounded-lg text-[13px] capitalize transition-colors ${
+                sortKey === k
+                  ? "font-semibold text-fg"
+                  : "text-muted/50 hover:text-muted"
+              }`}
             >
-              {k}
+              {k === "default" ? "Popular" : k === "stars" ? "Stars" : k === "downloads" ? "Downloads" : "Size"}
             </button>
           ))}
         </div>
       </div>
 
-      {/* Category pills with emoji */}
-      <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+      {/* Category pills — before.click style with emoji */}
+      <div className="flex flex-wrap items-center gap-2">
         <button
           onClick={() => setActiveCategory(null)}
-          className={`shrink-0 px-3.5 py-1.5 rounded-full text-[12px] font-medium transition-all border ${
+          className={`px-4 py-2 rounded-full text-[13px] font-medium transition-all border ${
             !activeCategory
-              ? "bg-white text-black border-white"
-              : "bg-transparent text-white/40 border-white/10 hover:border-white/20 hover:text-white/60"
+              ? "bg-fg text-bg border-fg shadow-sm"
+              : "bg-transparent text-muted border-border hover:border-fg/20 hover:text-fg"
           }`}
         >
           All
@@ -99,13 +106,13 @@ export default function EffectGrid() {
           <button
             key={cat}
             onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
-            className={`shrink-0 px-3.5 py-1.5 rounded-full text-[12px] font-medium transition-all border capitalize flex items-center gap-1.5 ${
+            className={`px-4 py-2 rounded-full text-[13px] font-medium transition-all border capitalize flex items-center gap-1.5 ${
               activeCategory === cat
-                ? "bg-white text-black border-white"
-                : "bg-transparent text-white/40 border-white/10 hover:border-white/20 hover:text-white/60"
+                ? "bg-fg text-bg border-fg shadow-sm"
+                : "bg-transparent text-muted border-border hover:border-fg/20 hover:text-fg"
             }`}
           >
-            <span>{categoryMeta[cat] || "•"}</span>
+            <span className="text-[12px]">{categoryMeta[cat] || "•"}</span>
             {cat}
           </button>
         ))}
@@ -114,16 +121,16 @@ export default function EffectGrid() {
       {/* Search */}
       <SearchBar value={query} onChange={setQuery} />
 
-      {/* Grid — 3 columns with comfortable gap */}
+      {/* Grid */}
       {filtered.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((effect) => (
             <EffectCard key={effect.slug} effect={effect} />
           ))}
         </div>
       ) : (
         <div className="flex items-center justify-center py-32">
-          <p className="text-white/15 text-sm">No effects found</p>
+          <p className="text-muted/30 text-sm">No effects found</p>
         </div>
       )}
     </div>

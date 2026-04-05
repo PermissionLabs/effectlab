@@ -48,7 +48,7 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="group relative rounded-2xl overflow-hidden bg-[#111] border border-white/[0.06] hover:border-white/[0.12] transition-all duration-200"
+        className="group relative rounded-2xl overflow-hidden bg-surface border border-border hover:border-fg/[0.12] transition-all duration-200"
       >
         {/* Hover glow */}
         <div
@@ -96,12 +96,12 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
       {/* Label below card — like before.click's app name */}
       <div className="flex items-center justify-between px-0.5">
         <div className="min-w-0">
-          <h3 className="text-[14px] font-semibold text-white truncate">{effect.name}</h3>
+          <h3 className="text-[14px] font-semibold text-fg truncate">{effect.name}</h3>
           <div className="flex items-center gap-2 mt-0.5">
-            <span className="text-[12px] text-white/30">{effect.library.packageName}</span>
-            {size && <span className="text-[11px] text-white/20">{size}</span>}
+            <span className="text-[12px] text-muted">{effect.library.packageName}</span>
+            {size && <span className="text-[11px] text-muted/60">{size}</span>}
             {stars != null && stars >= 1000 && (
-              <span className="text-[11px] text-white/20">{(stars / 1000).toFixed(1)}k stars</span>
+              <span className="text-[11px] text-muted/60">{(stars / 1000).toFixed(1)}k stars</span>
             )}
           </div>
         </div>
@@ -109,7 +109,7 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
           href={effect.library.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[11px] text-white/20 hover:text-white/50 transition-colors shrink-0"
+          className="text-[11px] text-muted/50 hover:text-muted transition-colors shrink-0"
         >
           docs →
         </a>
