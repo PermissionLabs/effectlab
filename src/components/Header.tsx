@@ -10,7 +10,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 flex items-center justify-between px-6 h-14 border-b border-border backdrop-blur-xl bg-bg/80">
       <Link href="/" className="flex items-center gap-3">
         <span className="text-[15px] font-semibold tracking-tight text-fg">effectlab</span>
-        <span className="text-[11px] text-muted font-mono">
+        <span className="text-[11px] text-muted font-mono tabular-nums">
           <NumberFlow value={effects.length} />
         </span>
       </Link>

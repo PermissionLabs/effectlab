@@ -5,6 +5,7 @@ import type { EffectDefinition } from "@/effects/types";
 import CodeViewer from "./CodeViewer";
 import { copyToClipboard } from "@/lib/utils";
 import { toast } from "sonner";
+import Skeleton from "react-loading-skeleton";
 
 function buildAIPrompt(effect: EffectDefinition): string {
   const meta = effect.packageMeta;
@@ -78,7 +79,11 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
         <div className="relative w-full aspect-[4/5] min-h-[360px] bg-[#0a0a0a] dark:bg-[#0a0a0a] overflow-auto">
           <div className="absolute inset-0 flex items-center justify-center">
             {isVisible ? <Component /> : (
-              <div className="text-muted/20 text-xs font-mono">{effect.name}</div>
+              <div className="w-full h-full p-6 flex flex-col gap-3 justify-center">
+                <Skeleton height={20} width="60%" baseColor="var(--surface-alt)" highlightColor="var(--surface)" />
+                <Skeleton height={14} count={2} baseColor="var(--surface-alt)" highlightColor="var(--surface)" />
+                <Skeleton height={40} borderRadius={12} baseColor="var(--surface-alt)" highlightColor="var(--surface)" />
+              </div>
             )}
           </div>
 
@@ -118,9 +123,9 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
           <h3 className="text-[14px] font-semibold text-fg truncate">{effect.name}</h3>
           <div className="flex items-center gap-2 mt-0.5">
             <span className="text-[12px] text-muted">{effect.library.packageName}</span>
-            {size && <span className="text-[11px] text-muted/60">{size}</span>}
+            {size && <span className="text-[11px] text-muted/60" title="Bundle size (minified + gzipped)">{size}</span>}
             {stars != null && stars >= 1000 && (
-              <span className="text-[11px] text-muted/60">{(stars / 1000).toFixed(1)}k stars</span>
+              <span className="text-[11px] text-muted/60" title={`${stars.toLocaleString()} GitHub stars`}>{(stars / 1000).toFixed(1)}k stars</span>
             )}
           </div>
         </div>
