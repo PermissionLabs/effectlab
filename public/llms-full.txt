@@ -2,7 +2,7 @@
 
 > A curated showcase of visual effects for React. Each effect links to its original library.
 
-> Total effects: 98
+> Total effects: 95
 
 ---
 
@@ -86,56 +86,6 @@ export default function Example() {
       }}
       animationDuration={20}
     />
-  );
-}
-```
-
----
-
-## 3D Shader Gradient
-
-- **Slug**: shader-gradient
-- **Category**: gradient
-- **Description**: Stunning 3D mesh gradients powered by WebGL shaders. Create animated, interactive gradient backgrounds with water, plane, and sphere styles reminiscent of Apple's design language.
-- **Library**: @shadergradient/react (@shadergradient/react)
-- **Library URL**: https://shadergradient.co
-- **Install type**: npm
-- **Bundle size**: ~150 kB
-- **GitHub stars**: 5200
-- **Weekly downloads**: 15000
-- **Last updated**: 2024-11
-- **Tags**: gradient, 3d, shader, mesh, webgl, three.js, background
-- **Keywords**: mesh gradient, 3d gradient, shader gradient, apple style gradient, animated gradient background, webgl gradient, three.js gradient, gradient mesh, gradient animation, gradient shader, 3d mesh gradient, animated mesh gradient, dynamic gradient, gradient background, glass gradient, liquid gradient, waterplane gradient, sphere gradient, fluid gradient, organic gradient, flowing gradient, iridescent gradient, holographic gradient, aurora gradient, smooth gradient, hero background, landing page gradient, app background, website gradient, card gradient, interactive background, immersive background, premium background, modern background, 메쉬 그라디언트, 3D 그라디언트, 셰이더 그라디언트, 애플 스타일 그라디언트, 애니메이션 배경, WebGL 그라디언트, 그라디언트 배경, 유체 그라디언트, 홀로그래픽 그라디언트, 인터랙티브 배경, @shadergradient/react, ShaderGradient, ShaderGradientCanvas, waterPlane, three.js mesh gradient, react three fiber gradient
-
-### Install
-```bash
-bun add @shadergradient/react
-```
-
-### Usage
-```tsx
-"use client";
-
-import { ShaderGradientCanvas, ShaderGradient } from "@shadergradient/react";
-
-export default function ShaderGradientDemo() {
-  return (
-    <div className="w-full h-64 rounded-xl overflow-hidden">
-      <ShaderGradientCanvas>
-        <ShaderGradient
-          type="waterPlane"
-          animate="on"
-          uTime={0.2}
-          uSpeed={0.4}
-          uStrength={2}
-          uDensity={1.2}
-          uFrequency={5.5}
-          color1="#ff5005"
-          color2="#dbba95"
-          color3="#d0bce1"
-        />
-      </ShaderGradientCanvas>
-    </div>
   );
 }
 ```
@@ -1341,71 +1291,6 @@ export default function CommandPalette() {
 
 ---
 
-## Drei 3D Effects
-
-- **Slug**: react-three-drei
-- **Category**: 3d
-- **Description**: Useful helpers and abstractions for react-three-fiber: Stars, Float, MeshDistortMaterial, and more.
-- **Library**: @react-three/drei (@react-three/drei)
-- **Library URL**: https://github.com/pmndrs/drei
-- **Install type**: npm
-- **Bundle size**: 484.6 kB
-- **GitHub stars**: 9557
-- **Weekly downloads**: 3429545
-- **Last updated**: 2026-03
-- **Tags**: react, three, threejs, react-three-fiber, 3d, webgl
-- **Keywords**: 3d scene, three.js, 3d sphere, floating sphere, distorted mesh, starfield, star background, 3d orb, webgl scene, 3d animation, glowing sphere, metallic sphere, 3d particles, space background, 3d hero section, 3d landing page, 3d background, interactive 3d, webgl effects, 3d visualization, immersive background, product showcase 3d, 3d web experience, creative coding, 3D 효과, 쓰리디 씬, 별 배경, 플로팅 구체, 웹지엘, 3D 랜딩페이지, 3D 인터랙션, react-three-fiber, @react-three/drei, Canvas, Stars, Float, MeshDistortMaterial, drei helpers
-
-### Install
-```bash
-bun add @react-three/fiber @react-three/drei three
-```
-
-### Usage
-```tsx
-"use client";
-
-import { Canvas } from "@react-three/fiber";
-import { Stars, Float, MeshDistortMaterial } from "@react-three/drei";
-
-function FloatingOrb() {
-  return (
-    <Float speed={2} rotationIntensity={1.5} floatIntensity={2}>
-      <mesh scale={1.8}>
-        <icosahedronGeometry args={[1, 16]} />
-        <MeshDistortMaterial
-          color="#8b5cf6"
-          emissive="#4c1d95"
-          emissiveIntensity={0.5}
-          roughness={0.2}
-          metalness={0.8}
-          distort={0.4}
-          speed={3}
-        />
-      </mesh>
-    </Float>
-  );
-}
-
-// IMPORTANT: Use next/dynamic with { ssr: false } to wrap this component
-// in Next.js to prevent SSR errors with Three.js
-export default function DreiScene() {
-  return (
-    <Canvas
-      camera={{ position: [0, 0, 5], fov: 60 }}
-      style={{ width: "100%", height: "400px", background: "#050510" }}
-    >
-      <ambientLight intensity={0.3} />
-      <pointLight position={[10, 10, 10]} intensity={1} color="#8b5cf6" />
-      <Stars radius={80} depth={60} count={2000} factor={5} fade speed={1.5} />
-      <FloatingOrb />
-    </Canvas>
-  );
-}
-```
-
----
-
 ## Lottie Animations
 
 - **Slug**: lottie-react
@@ -1974,70 +1859,6 @@ export default function ImageZoomExample() {
 ```css
 /* Add to your global CSS file */
 @import "react-medium-image-zoom/dist/styles.css";
-```
-
----
-
-## Postprocessing
-
-- **Slug**: react-three-postprocessing
-- **Category**: 3d
-- **Description**: postprocessing wrapper for React and @react-three/fiber
-- **Library**: @react-three/postprocessing (@react-three/postprocessing)
-- **Library URL**: https://github.com/pmndrs/react-postprocessing
-- **Install type**: npm
-- **Bundle size**: 183.5 kB
-- **GitHub stars**: 1309
-- **Weekly downloads**: 639896
-- **Last updated**: 2025-02
-- **Tags**: postprocessing, react, three, @react-three/fiber, webgl, 3d
-- **Keywords**: bloom effect, glow effect, noise filter, post-processing, screen effect, visual filter, light bloom, HDR bloom, cinematic effect, film grain, vignette effect, depth of field, 3d scene effects, webgl postprocessing, game visual effects, interactive 3d, product visualization, creative coding, immersive experience, shader effects, real-time effects, scene composition, effect pipeline, 블룸 효과, 포스트프로세싱, 3D 후처리, 글로우 효과, 시각 필터, 화면 효과, 노이즈 필터, 비네트 효과, 웹GL 이펙트, react-three-postprocessing, effect-composer, pmndrs, three-fiber-effects, webgl-postprocessing, bloom-shader
-
-### Install
-```bash
-bun add @react-three/postprocessing @react-three/fiber three
-```
-
-### Usage
-```tsx
-"use client";
-
-import { Canvas, useFrame } from "@react-three/fiber";
-import { EffectComposer, Bloom, Noise } from "@react-three/postprocessing";
-import { useRef } from "react";
-import type { Mesh } from "three";
-
-function GlowingSphere() {
-  const ref = useRef<Mesh>(null);
-  useFrame((_, delta) => {
-    if (ref.current) ref.current.rotation.y += delta * 0.5;
-  });
-
-  return (
-    <mesh ref={ref}>
-      <icosahedronGeometry args={[1, 16]} />
-      <meshStandardMaterial
-        color="#8b5cf6"
-        emissive="#7c3aed"
-        emissiveIntensity={2}
-      />
-    </mesh>
-  );
-}
-
-export default function PostprocessingExample() {
-  return (
-    <Canvas camera={{ position: [0, 0, 4] }} style={{ height: "100vh" }}>
-      <ambientLight intensity={0.3} />
-      <pointLight position={[10, 10, 10]} intensity={1.5} />
-      <GlowingSphere />
-      <EffectComposer>
-        <Bloom luminanceThreshold={0.2} intensity={1.5} />
-        <Noise opacity={0.05} />
-      </EffectComposer>
-    </Canvas>
-  );
-}
 ```
 
 ---

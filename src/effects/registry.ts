@@ -1,6 +1,5 @@
 import { rnAnimatedGlow } from "./rn-animated-glow";
 import { siriOrb } from "./siri-orb";
-import { shaderGradient } from "./shader-gradient";
 import { pixiGlowParticles } from "./pixi-glow-particles";
 import { framerLayout } from "./framer-layout";
 import { reactSpring } from "./react-spring";
@@ -21,7 +20,6 @@ import { emblaCarouselReact } from "./embla-carousel-react";
 import { reactLoadingSkeleton } from "./react-loading-skeleton";
 import { reactSpinners } from "./react-spinners";
 import { cmdk } from "./cmdk";
-import { reactThreeDrei } from "./react-three-drei";
 import { lottieReact } from "./lottie-react";
 import { reactHaiku } from "./react-haiku";
 import { reactTransitionState } from "./react-transition-state";
@@ -31,7 +29,6 @@ import { recharts } from "./recharts";
 import { reactCompareSlider } from "./react-compare-slider";
 import { notistack } from "./notistack";
 import { reactMediumImageZoom } from "./react-medium-image-zoom";
-import { reactThreePostprocessing } from "./react-three-postprocessing";
 import { twistezoReactTextScramble } from "./twistezo-react-text-scramble";
 import { floatingUiReact } from "./floating-ui-react";
 import { lucideReact } from "./lucide-react";
@@ -101,7 +98,6 @@ import type { EffectDefinition } from "./types";
 export const effects: EffectDefinition[] = [
   rnAnimatedGlow,
   siriOrb,
-  shaderGradient,
   pixiGlowParticles,
   framerLayout,
   reactSpring,
@@ -122,7 +118,6 @@ export const effects: EffectDefinition[] = [
   reactLoadingSkeleton,
   reactSpinners,
   cmdk,
-  reactThreeDrei,
   lottieReact,
   reactHaiku,
   reactTransitionState,
@@ -132,7 +127,6 @@ export const effects: EffectDefinition[] = [
   reactCompareSlider,
   notistack,
   reactMediumImageZoom,
-  reactThreePostprocessing,
   twistezoReactTextScramble,
   floatingUiReact,
   lucideReact,
