@@ -50,7 +50,6 @@ import { hamburgerReact } from "./hamburger-react";
 import { reactBlob } from "./react-blob";
 import { simplexNoise } from "./simplex-noise";
 import { smastromReactRating } from "./smastrom-react-rating";
-import { reactWrapBalancer } from "./react-wrap-balancer";
 import { reactActivityCalendar } from "./react-activity-calendar";
 import { uidotdevUsehooks } from "./uidotdev-usehooks";
 import { radixUiReactDialog } from "./radix-ui-react-dialog";
@@ -152,7 +151,6 @@ export const effects: EffectDefinition[] = [
   reactBlob,
   simplexNoise,
   smastromReactRating,
-  reactWrapBalancer,
   reactActivityCalendar,
   uidotdevUsehooks,
   radixUiReactDialog,

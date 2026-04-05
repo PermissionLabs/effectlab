@@ -2,7 +2,7 @@
 
 > A curated showcase of visual effects for React. Each effect links to its original library.
 
-> Total effects: 99
+> Total effects: 98
 
 ---
 
@@ -3134,54 +3134,6 @@ export default function StarRating() {
       />
       <p className="text-sm text-white/60">
         You rated: {rating} / 5
-      </p>
-    </div>
-  );
-}
-```
-
----
-
-## Wrap Balancer
-
-- **Slug**: react-wrap-balancer
-- **Category**: text
-- **Description**: Simple React component that makes titles more readable.
-- **Library**: react-wrap-balancer (react-wrap-balancer)
-- **Library URL**: https://react-wrap-balancer.vercel.app
-- **Install type**: npm
-- **Bundle size**: 1.2 kB
-- **GitHub stars**: 4213
-- **Weekly downloads**: 159425
-- **Last updated**: 2026-03
-- **Tags**: react, wrapping, text, typography
-- **Keywords**: text balancing, balanced text, balanced title, even text wrap, centered text wrap, readable title, text alignment, balanced heading, uniform text, smooth wrapping, elegant typography, clean text layout, title formatting, hero title, headline balancing, blog title, article heading, landing page heading, page title, section heading, card title, responsive title, narrow column text, ragged text fix, orphan prevention, widow prevention, 텍스트 균형, 제목 정렬, 텍스트 줄바꿈, 타이포그래피, 균형 잡힌 텍스트, 제목 레이아웃, react-wrap-balancer, Balancer component, text-wrap balance, CSS text-wrap, balanced wrapping
-
-### Install
-```bash
-bun add react-wrap-balancer
-```
-
-### Usage
-```tsx
-"use client";
-
-import Balancer from "react-wrap-balancer";
-
-export default function BalancedTitle() {
-  return (
-    <div className="max-w-md mx-auto p-8">
-      <h1 className="text-3xl font-bold">
-        <Balancer>
-          This long title will be balanced across
-          multiple lines for better readability
-        </Balancer>
-      </h1>
-      <p className="mt-4 text-gray-400">
-        <Balancer>
-          Body text can also benefit from balancing,
-          especially in narrow containers or card layouts.
-        </Balancer>
       </p>
     </div>
   );
