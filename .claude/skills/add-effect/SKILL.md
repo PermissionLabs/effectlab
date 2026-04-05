@@ -44,8 +44,10 @@ bun add <package-name>
 - Make it visually impressive on dark background (`bg-[#050510]`)
 - Must have `"use client"` directive
 - Must fill parent (`w-full h-full`)
-- If SSR breaks → `next/dynamic({ ssr: false })`
+- If SSR breaks → `next/dynamic({ ssr: false })` with a separate Inner file
 - Add interactive elements if possible (buttons, hover states)
+- **NEVER import CSS files in DemoComponent** — the build script (`generate-llms-txt.ts`) imports the registry at build time and CSS imports crash Node. Put all CSS imports in `src/app/globals.css` instead.
+- If the library provides demo secrets/keys in examples, use obviously fake values (no `sk_live_`, `pk_test_`, etc. — GitHub push protection will block)
 
 ### meta.ts — Expand keywords to 30+
 The CLI generates basic keywords from npm. You must add:

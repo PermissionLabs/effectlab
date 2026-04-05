@@ -46,6 +46,7 @@
     "rc-steps": "^6.0.1",
     "react": "19.2.4",
     "react-activity-calendar": "^3.1.1",
+    "react-animate-height": "^3.2.3",
     "react-awesome-reveal": "^4.3.1",
     "react-blob": "^2.1.0",
     "react-circular-progressbar": "^2.2.0",
