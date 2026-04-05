@@ -25,9 +25,9 @@
 }
 
 :root {
-  --bg: #050505;
-  --fg: #fafafa;
-  --surface: #111111;
+  --bg: #000000;
+  --fg: #e5e5e5;
+  --surface: #0a0a0a;
   --surface-alt: #1a1a1a;
   --border-color: rgba(255, 255, 255, 0.08);
   --muted: rgba(255, 255, 255, 0.5);
