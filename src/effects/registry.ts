@@ -42,6 +42,17 @@ import { boringAvatars } from "./boring-avatars";
 import { reactHotToast } from "./react-hot-toast";
 import { useRippleHook } from "./use-ripple-hook";
 import { stianlarsenReactLightBeam } from "./stianlarsen-react-light-beam";
+import { reactSwitch } from "./react-switch";
+import { reactColorful } from "./react-colorful";
+import { reactVerticalTimelineComponent } from "./react-vertical-timeline-component";
+import { reactContentLoader } from "./react-content-loader";
+import { hamburgerReact } from "./hamburger-react";
+import { reactBlob } from "./react-blob";
+import { simplexNoise } from "./simplex-noise";
+import { smastromReactRating } from "./smastrom-react-rating";
+import { reactWrapBalancer } from "./react-wrap-balancer";
+import { reactActivityCalendar } from "./react-activity-calendar";
+import { uidotdevUsehooks } from "./uidotdev-usehooks";
 import type { EffectDefinition } from "./types";
 
 export const effects: EffectDefinition[] = [
@@ -89,6 +100,17 @@ export const effects: EffectDefinition[] = [
   reactHotToast,
   useRippleHook,
   stianlarsenReactLightBeam,
+  reactSwitch,
+  reactColorful,
+  reactVerticalTimelineComponent,
+  reactContentLoader,
+  hamburgerReact,
+  reactBlob,
+  simplexNoise,
+  smastromReactRating,
+  reactWrapBalancer,
+  reactActivityCalendar,
+  uidotdevUsehooks,
 ];
 export const categories = [...new Set(effects.map((e) => e.category))];
 export const allTags = [...new Set(effects.flatMap((e) => e.tags))].sort();
