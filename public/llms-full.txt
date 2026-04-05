@@ -2,7 +2,7 @@
 
 > A curated showcase of visual effects for React. Each effect links to its original library.
 
-> Total effects: 25
+> Total effects: 35
 
 ---
 
@@ -1463,6 +1463,628 @@ export default function LottieExample() {
 //     </>
 //   );
 // }
+```
+
+---
+
+## Haiku
+
+- **Slug**: react-haiku
+- **Category**: hover
+- **Description**: React Hook & Utility Library — custom cursor follower with glowing trail that tracks mouse position with smooth delay.
+- **Library**: react-haiku (react-haiku)
+- **Library URL**: https://reacthaiku.dev/
+- **Install type**: npm
+- **Bundle size**: 7.2 kB
+- **GitHub stars**: 985
+- **Weekly downloads**: 2409
+- **Last updated**: 2025-08
+- **Tags**: reactjs, react, utility, components, javascript, hooks, cursor, mouse
+- **Keywords**: cursor follower, glowing cursor, custom cursor, mouse trail, cursor glow, neon cursor, floating cursor, trailing effect, cursor animation, cursor tracker, hover glow, mouse glow, radial glow cursor, soft cursor trail, smooth cursor, interactive landing page, portfolio hover effect, creative cursor, custom mouse pointer, cursor replacement, mouse position tracking, hover interaction, mouse coordinate display, cursor effect component, mouse follower widget, UI hover feedback, cursor spotlight, 커서 팔로워, 마우스 추적, 커서 효과, 글로우 커서, 마우스 포지션, 커서 애니메이션, 호버 이펙트, 마우스 트레일, 커스텀 커서, react-haiku, useMousePosition, requestAnimationFrame, lerp cursor, mouse event handler, pointer tracking
+
+### Install
+```bash
+bun add react-haiku
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useMousePosition } from "react-haiku";
+import { useState } from "react";
+
+export default function CursorFollower() {
+  const { x, y } = useMousePosition();
+  const [follower, setFollower] = useState({ x: 0, y: 0 });
+
+  // Smooth follow with CSS transition
+  return (
+    <div className="relative w-full h-screen bg-black cursor-none">
+      {/* Glow cursor */}
+      <div
+        className="pointer-events-none fixed"
+        style={{
+          left: (x ?? 0) - 30,
+          top: (y ?? 0) - 30,
+          width: 60,
+          height: 60,
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(139,92,246,0.8) 0%, transparent 70%)",
+          boxShadow: "0 0 40px 10px rgba(139,92,246,0.3)",
+          transition: "left 0.1s ease-out, top 0.1s ease-out",
+        }}
+      />
+
+      {/* Coordinate display */}
+      <div className="fixed bottom-4 left-4 text-white/50 text-xs font-mono">
+        x: {x ?? 0} y: {y ?? 0}
+      </div>
+    </div>
+  );
+}
+```
+
+---
+
+## Transition State
+
+- **Slug**: react-transition-state
+- **Category**: transition
+- **Description**: Zero dependency React transition state machine. Toggle elements with enter/exit animations using a simple hook-based API.
+- **Library**: react-transition-state (react-transition-state)
+- **Library URL**: https://szhsin.github.io/react-transition-state/
+- **Install type**: npm
+- **Bundle size**: 1.1 kB
+- **GitHub stars**: 487
+- **Weekly downloads**: 479313
+- **Last updated**: 2026-04
+- **Tags**: react, transition, animation, component, hook, state machine
+- **Keywords**: fade in, fade out, slide transition, enter animation, exit animation, mount animation, unmount animation, opacity transition, smooth appear, smooth disappear, card reveal, element toggle, visibility transition, modal transition, dropdown animation, tooltip enter exit, accordion animation, tab switch transition, menu open close, notification appear, dialog animation, popover transition, conditional render animation, mount unmount hook, show hide animation, toggle visibility, 트랜지션, 페이드 인, 페이드 아웃, 진입 애니메이션, 퇴장 애니메이션, 전환 효과, 마운트 애니메이션, 토글 애니메이션, 상태 머신, react-transition-state, useTransitionState, preEnter, mountOnEnter, unmountOnExit, transition hook, zero dependency transition
+
+### Install
+```bash
+bun add react-transition-state
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useTransitionState } from "react-transition-state";
+
+export default function TransitionExample() {
+  const [state, toggle] = useTransitionState({
+    timeout: 500,
+    preEnter: true,
+    mountOnEnter: true,
+    unmountOnExit: true,
+  });
+
+  return (
+    <div className="p-8">
+      <button
+        onClick={toggle}
+        className="px-4 py-2 rounded bg-violet-600 text-white mb-4"
+      >
+        {state.status === "entered" ? "Hide" : "Show"}
+      </button>
+
+      {state.isMounted && (
+        <div
+          style={{
+            opacity:
+              state.status === "preEnter" || state.status === "exiting"
+                ? 0
+                : 1,
+            transform:
+              state.status === "preEnter" || state.status === "exiting"
+                ? "translateY(20px)"
+                : "translateY(0)",
+            transition: "all 500ms ease",
+          }}
+        >
+          <div className="p-6 rounded-xl bg-white/10 border border-white/20">
+            <h3 className="text-lg font-semibold">Hello!</h3>
+            <p className="text-sm opacity-60">
+              I fade and slide in/out smoothly.
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## Scroll Motion
+
+- **Slug**: react-scroll-motion
+- **Category**: scroll
+- **Description**: Easy scroll-driven animations with React. Elements fade, slide, zoom, and stick as you scroll through pages.
+- **Library**: react-scroll-motion (react-scroll-motion)
+- **Library URL**: https://github.com/1000ship/react-scroll-motion
+- **Install type**: npm
+- **Bundle size**: 3.2 kB
+- **GitHub stars**: 447
+- **Weekly downloads**: 2888
+- **Last updated**: 2025-01
+- **Tags**: scroll, animation, react, animator, motion
+- **Keywords**: scroll animation, scroll fade, scroll zoom, scroll slide, parallax scroll, sticky scroll, scroll reveal, scroll transition, page scroll effect, scroll driven animation, scroll triggered, scroll snap animation, element appear on scroll, scroll page, landing page scroll, storytelling scroll, onboarding scroll, product showcase scroll, scroll presentation, fullpage scroll, scroll section animation, hero scroll effect, portfolio scroll, marketing page animation, scroll timeline, 스크롤 애니메이션, 스크롤 모션, 스크롤 효과, 페이지 스크롤, 스크롤 전환, 스크롤 페이드, 스크롤 줌, 스크롤 트리거, 스크롤 기반 애니메이션, react-scroll-motion, ScrollContainer, ScrollPage, Animator, batch, Fade, Sticky, MoveOut, scroll animation library
+
+### Install
+```bash
+bun add react-scroll-motion
+```
+
+### Usage
+```tsx
+"use client";
+
+import {
+  ScrollContainer,
+  ScrollPage,
+  Animator,
+  batch,
+  Fade,
+  Sticky,
+  MoveOut,
+  FadeIn,
+  ZoomIn,
+} from "react-scroll-motion";
+
+export default function ScrollMotionExample() {
+  return (
+    <ScrollContainer>
+      {/* Page 1: Sticky text that fades out and moves up */}
+      <ScrollPage>
+        <Animator animation={batch(Fade(), Sticky(), MoveOut(0, -200))}>
+          <h1 className="text-5xl font-bold">Welcome</h1>
+        </Animator>
+      </ScrollPage>
+
+      {/* Page 2: Fade and zoom in */}
+      <ScrollPage>
+        <Animator animation={batch(FadeIn(), ZoomIn())}>
+          <div className="text-center">
+            <h2 className="text-3xl font-semibold">Scroll Magic</h2>
+            <p className="mt-2 opacity-60">Elements animate as you scroll</p>
+          </div>
+        </Animator>
+      </ScrollPage>
+
+      {/* Page 3: Simple fade with sticky */}
+      <ScrollPage>
+        <Animator animation={batch(Fade(), Sticky())}>
+          <h2 className="text-4xl font-bold">The End</h2>
+        </Animator>
+      </ScrollPage>
+    </ScrollContainer>
+  );
+}
+```
+
+---
+
+## Lenis
+
+- **Slug**: lenis
+- **Category**: scroll
+- **Description**: How smooth scroll should be. Adds inertia-based smooth scrolling with natural momentum and buttery 60fps performance.
+- **Library**: lenis (lenis)
+- **Library URL**: https://github.com/darkroomengineering/lenis
+- **Install type**: npm
+- **Bundle size**: 5.0 kB
+- **GitHub stars**: 13518
+- **Weekly downloads**: 437295
+- **Last updated**: 2026-04
+- **Tags**: scroll, smooth, lenis, react, inertia
+- **Keywords**: smooth scroll, smooth scrolling, inertia scroll, momentum scroll, butter scroll, silky scroll, natural scroll, elastic scroll, fluid scroll, soft scroll, deceleration scroll, easing scroll, scroll physics, scroll interpolation, landing page smooth scroll, portfolio smooth scroll, parallax smooth scroll, scroll experience, scroll UX, page scroll enhancement, scroll library, scroll wrapper, smooth anchor scroll, infinite scroll smooth, scroll performance, locomotive scroll alternative, 스무스 스크롤, 부드러운 스크롤, 관성 스크롤, 스크롤 라이브러리, 자연스러운 스크롤, 스크롤 물리, 레니스, 스크롤 UX, 스크롤 성능, lenis, ReactLenis, lenis/react, smoothWheel, wheelMultiplier, scroll duration, lerp scroll
+
+### Install
+```bash
+bun add lenis
+```
+
+### Usage
+```tsx
+"use client";
+
+import { ReactLenis } from "lenis/react";
+
+export default function SmoothScrollPage() {
+  return (
+    <ReactLenis root options={{ duration: 1.2, smoothWheel: true }}>
+      <main>
+        <section className="h-screen flex items-center justify-center">
+          <h1 className="text-5xl font-bold">Welcome</h1>
+        </section>
+
+        <section className="h-screen flex items-center justify-center bg-gray-900">
+          <h2 className="text-3xl">Smooth Scrolling</h2>
+        </section>
+
+        <section className="h-screen flex items-center justify-center">
+          <h2 className="text-3xl">With Inertia</h2>
+        </section>
+
+        <section className="h-screen flex items-center justify-center bg-gray-900">
+          <p className="text-xl opacity-60">Powered by Lenis</p>
+        </section>
+      </main>
+    </ReactLenis>
+  );
+}
+```
+
+---
+
+## Recharts
+
+- **Slug**: recharts
+- **Category**: interaction
+- **Description**: React charting library built on D3. Animated AreaChart and BarChart with dark theme and randomize data animation.
+- **Library**: recharts (recharts)
+- **Library URL**: https://github.com/recharts/recharts
+- **Install type**: npm
+- **Bundle size**: 136.0 kB
+- **GitHub stars**: 26944
+- **Weekly downloads**: 35253644
+- **Last updated**: 2026-04
+- **Tags**: react, reactjs, chart, react-component, d3, data visualization
+- **Keywords**: area chart, bar chart, line chart, animated chart, data visualization, chart animation, gradient chart, dark theme chart, responsive chart, interactive chart, smooth chart animation, chart transition, real-time chart, dashboard chart, analytics chart, analytics dashboard, data dashboard, revenue chart, user growth chart, metrics visualization, KPI dashboard, sales chart, performance chart, statistics display, financial chart, report visualization, monitoring dashboard, 차트, 리차트, 데이터 시각화, 영역 차트, 막대 차트, 대시보드, 차트 애니메이션, 분석 차트, 그래프, 통계 차트, recharts, AreaChart, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid, react chart library, d3 react
+
+### Install
+```bash
+bun add recharts
+```
+
+### Usage
+```tsx
+"use client";
+
+import {
+  AreaChart,
+  Area,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
+
+const data = [
+  { name: "Jan", revenue: 4000, users: 2400 },
+  { name: "Feb", revenue: 3000, users: 1398 },
+  { name: "Mar", revenue: 2000, users: 9800 },
+  { name: "Apr", revenue: 2780, users: 3908 },
+  { name: "May", revenue: 1890, users: 4800 },
+  { name: "Jun", revenue: 2390, users: 3800 },
+];
+
+export default function ChartExample() {
+  return (
+    <div className="w-full space-y-8 p-4">
+      {/* Area Chart */}
+      <ResponsiveContainer width="100%" height={300}>
+        <AreaChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Area
+            type="monotone"
+            dataKey="revenue"
+            stroke="#8b5cf6"
+            fill="#8b5cf6"
+            fillOpacity={0.3}
+            animationDuration={1200}
+          />
+        </AreaChart>
+      </ResponsiveContainer>
+
+      {/* Bar Chart */}
+      <ResponsiveContainer width="100%" height={200}>
+        <BarChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Bar
+            dataKey="users"
+            fill="#06b6d4"
+            radius={[4, 4, 0, 0]}
+            animationDuration={1000}
+          />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+```
+
+---
+
+## Compare Slider
+
+- **Slug**: react-compare-slider
+- **Category**: interaction
+- **Description**: A slider component to compare any two React components in landscape or portrait orientation. It supports custom images, videos... and everything else.
+- **Library**: react-compare-slider (react-compare-slider)
+- **Library URL**: https://react-compare-slider.js.org
+- **Install type**: npm
+- **Bundle size**: 3.3 kB
+- **GitHub stars**: 369
+- **Weekly downloads**: 78217
+- **Last updated**: 2026-03
+- **Tags**: react, slider, comparison, compare, image, video, canvas
+- **Keywords**: before after slider, comparison slider, image comparison, split view, side by side, draggable divider, sliding overlay, before after overlay, visual diff, two-up comparison, horizontal slider, vertical slider, photo editing comparison, design before after, image filter comparison, product comparison, retouching showcase, portfolio comparison, responsive preview, dark mode comparison, theme comparison, video comparison, canvas comparison, 비교 슬라이더, 이미지 비교, 전후 비교, 드래그 슬라이더, 비포 애프터, 슬라이딩 오버레이, 시각적 비교, 사진 비교 컴포넌트, react-compare-slider, twentytwenty, image-diff, compare-component, slider-component, react-comparison
+
+### Install
+```bash
+bun add react-compare-slider
+```
+
+### Usage
+```tsx
+"use client";
+
+import {
+  ReactCompareSlider,
+  ReactCompareSliderImage,
+} from "react-compare-slider";
+
+export default function CompareSliderExample() {
+  return (
+    <div style={{ maxWidth: 600, margin: "0 auto" }}>
+      <ReactCompareSlider
+        itemOne={
+          <ReactCompareSliderImage
+            src="/before.jpg"
+            alt="Before"
+          />
+        }
+        itemTwo={
+          <ReactCompareSliderImage
+            src="/after.jpg"
+            alt="After"
+          />
+        }
+        style={{ width: "100%", height: 400 }}
+      />
+    </div>
+  );
+}
+```
+
+---
+
+## Notistack
+
+- **Slug**: notistack
+- **Category**: interaction
+- **Description**: Highly customizable notification snackbars (toasts) that can be stacked on top of each other
+- **Library**: notistack (notistack)
+- **Library URL**: https://www.notistack.com
+- **Install type**: npm
+- **Bundle size**: 8.2 kB
+- **GitHub stars**: 4077
+- **Weekly downloads**: 1452302
+- **Last updated**: 2026-03
+- **Tags**: notistack, enqueueSnackbar, snackbarprovider, useSnackbar, multiple, react, javascript
+- **Keywords**: stacked notifications, snackbar alert, toast notification, floating message, notification queue, dismissable snackbar, success notification, error notification, warning notification, info notification, notification bar, popup alert, form validation feedback, api error message, upload status, action confirmation, real-time notification, user feedback, system alert, batch notification, notification stacking, multiple toasts, notification management, undo notification, 스낵바 알림, 스택 알림, 토스트 메시지, 알림 큐, 푸시 알림 UI, 피드백 메시지, 에러 알림, 성공 메시지, 경고 알림, notistack, enqueueSnackbar, snackbar-provider, material-ui-snackbar, react-notification, toast-queue
+
+### Install
+```bash
+bun add notistack
+```
+
+### Usage
+```tsx
+"use client";
+
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
+
+function App() {
+  return (
+    <SnackbarProvider maxSnack={5} anchorOrigin={{ vertical: "top", horizontal: "right" }}>
+      <NotificationButtons />
+    </SnackbarProvider>
+  );
+}
+
+function NotificationButtons() {
+  return (
+    <div style={{ display: "flex", gap: 12, padding: 24 }}>
+      <button onClick={() => enqueueSnackbar("Success!", { variant: "success" })}>
+        Success
+      </button>
+      <button onClick={() => enqueueSnackbar("Error!", { variant: "error" })}>
+        Error
+      </button>
+      <button onClick={() => enqueueSnackbar("Warning!", { variant: "warning" })}>
+        Warning
+      </button>
+      <button onClick={() => enqueueSnackbar("Info!", { variant: "info" })}>
+        Info
+      </button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+---
+
+## Medium Image Zoom
+
+- **Slug**: react-medium-image-zoom
+- **Category**: interaction
+- **Description**: Accessible medium.com-style image zoom for React
+- **Library**: react-medium-image-zoom (react-medium-image-zoom)
+- **Library URL**: https://github.com/rpearce/react-medium-image-zoom
+- **Install type**: npm
+- **Bundle size**: unknown
+- **GitHub stars**: 2109
+- **Weekly downloads**: 696734
+- **Last updated**: 2026-04
+- **Tags**: react, medium, image, zoom, image-zoom, modal, react-component
+- **Keywords**: image zoom, medium zoom, click to zoom, zoom overlay, lightbox zoom, smooth zoom, image expand, fullscreen image, zoom animation, image magnify, photo zoom, zoom-in effect, product image zoom, gallery zoom, blog image zoom, portfolio lightbox, thumbnail preview, photo detail view, image modal, accessible image zoom, responsive image zoom, content image expand, article image zoom, 이미지 줌, 미디엄 스타일 줌, 클릭 확대, 이미지 확대, 사진 줌, 라이트박스, 이미지 모달, 썸네일 확대, react-medium-image-zoom, medium-zoom, image-zoom-component, react-lightbox, zoom-component, accessible-zoom
+
+### Install
+```bash
+bun add react-medium-image-zoom
+```
+
+### Usage
+```tsx
+"use client";
+
+import Zoom from "react-medium-image-zoom";
+// Import styles in your globals.css:
+// @import "react-medium-image-zoom/dist/styles.css";
+
+export default function ImageZoomExample() {
+  return (
+    <div style={{ padding: "2rem" }}>
+      <Zoom>
+        <img
+          src="/my-image.jpg"
+          alt="Zoomable"
+          width={400}
+          height={300}
+          style={{ borderRadius: 12, cursor: "zoom-in" }}
+        />
+      </Zoom>
+      <p style={{ color: "#888", fontSize: 12, marginTop: 8 }}>
+        Click the image to zoom
+      </p>
+    </div>
+  );
+}
+```
+
+### CSS
+```css
+/* Add to your global CSS file */
+@import "react-medium-image-zoom/dist/styles.css";
+```
+
+---
+
+## Postprocessing
+
+- **Slug**: react-three-postprocessing
+- **Category**: 3d
+- **Description**: postprocessing wrapper for React and @react-three/fiber
+- **Library**: @react-three/postprocessing (@react-three/postprocessing)
+- **Library URL**: https://github.com/pmndrs/react-postprocessing
+- **Install type**: npm
+- **Bundle size**: 183.5 kB
+- **GitHub stars**: 1309
+- **Weekly downloads**: 639896
+- **Last updated**: 2025-02
+- **Tags**: postprocessing, react, three, @react-three/fiber, webgl, 3d
+- **Keywords**: bloom effect, glow effect, noise filter, post-processing, screen effect, visual filter, light bloom, HDR bloom, cinematic effect, film grain, vignette effect, depth of field, 3d scene effects, webgl postprocessing, game visual effects, interactive 3d, product visualization, creative coding, immersive experience, shader effects, real-time effects, scene composition, effect pipeline, 블룸 효과, 포스트프로세싱, 3D 후처리, 글로우 효과, 시각 필터, 화면 효과, 노이즈 필터, 비네트 효과, 웹GL 이펙트, react-three-postprocessing, effect-composer, pmndrs, three-fiber-effects, webgl-postprocessing, bloom-shader
+
+### Install
+```bash
+bun add @react-three/postprocessing @react-three/fiber three
+```
+
+### Usage
+```tsx
+"use client";
+
+import { Canvas, useFrame } from "@react-three/fiber";
+import { EffectComposer, Bloom, Noise } from "@react-three/postprocessing";
+import { useRef } from "react";
+import type { Mesh } from "three";
+
+function GlowingSphere() {
+  const ref = useRef<Mesh>(null);
+  useFrame((_, delta) => {
+    if (ref.current) ref.current.rotation.y += delta * 0.5;
+  });
+
+  return (
+    <mesh ref={ref}>
+      <icosahedronGeometry args={[1, 16]} />
+      <meshStandardMaterial
+        color="#8b5cf6"
+        emissive="#7c3aed"
+        emissiveIntensity={2}
+      />
+    </mesh>
+  );
+}
+
+export default function PostprocessingExample() {
+  return (
+    <Canvas camera={{ position: [0, 0, 4] }} style={{ height: "100vh" }}>
+      <ambientLight intensity={0.3} />
+      <pointLight position={[10, 10, 10]} intensity={1.5} />
+      <GlowingSphere />
+      <EffectComposer>
+        <Bloom luminanceThreshold={0.2} intensity={1.5} />
+        <Noise opacity={0.05} />
+      </EffectComposer>
+    </Canvas>
+  );
+}
+```
+
+---
+
+## Text Scramble
+
+- **Slug**: twistezo-react-text-scramble
+- **Category**: text
+- **Description**: React text scramble effect
+- **Library**: @twistezo/react-text-scramble (@twistezo/react-text-scramble)
+- **Library URL**: https://github.com/twistezo/react-text-scramble
+- **Install type**: npm
+- **Bundle size**: 1.1 kB
+- **GitHub stars**: 14
+- **Weekly downloads**: 46
+- **Last updated**: 2026-02
+- **Tags**: text, scramble, effect, react, typescript
+- **Keywords**: text scramble, scramble animation, text shuffle, letter randomize, character scramble, glitch text, text decode, cipher animation, matrix text effect, hacker text, text reveal, scrambled letters, hero text animation, landing page title, rotating text, text transition, phrase switcher, text cycling, typewriter alternative, heading animation, slogan rotator, tagline animation, 텍스트 스크램블, 글자 섞기 애니메이션, 텍스트 셔플 효과, 문자 해독 효과, 텍스트 전환, 글리치 텍스트, 히어로 텍스트, 랜딩페이지 타이틀, react-text-scramble, twistezo, text-scramble-component, scramble-effect, text-animation-react
+
+### Install
+```bash
+bun add @twistezo/react-text-scramble
+```
+
+### Usage
+```tsx
+"use client";
+
+import { TextScramble } from "@twistezo/react-text-scramble";
+
+const phrases = ["Hello World", "Welcome", "React is awesome"];
+
+export default function TextScrambleExample() {
+  return (
+    <div style={{ padding: "2rem", background: "#050510", minHeight: "100vh" }}>
+      <h1 style={{ fontFamily: "monospace", fontSize: "3rem", color: "#34d399" }}>
+        <TextScramble
+          texts={phrases}
+          letterSpeed={50}
+          nextLetterSpeed={100}
+          pauseTime={2000}
+          characters="!@#$%^&*()_+"
+        />
+      </h1>
+    </div>
+  );
+}
 ```
 
 ---

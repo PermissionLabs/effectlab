@@ -23,6 +23,16 @@ import { reactSpinners } from "./react-spinners";
 import { cmdk } from "./cmdk";
 import { reactThreeDrei } from "./react-three-drei";
 import { lottieReact } from "./lottie-react";
+import { reactHaiku } from "./react-haiku";
+import { reactTransitionState } from "./react-transition-state";
+import { reactScrollMotion } from "./react-scroll-motion";
+import { lenis } from "./lenis";
+import { recharts } from "./recharts";
+import { reactCompareSlider } from "./react-compare-slider";
+import { notistack } from "./notistack";
+import { reactMediumImageZoom } from "./react-medium-image-zoom";
+import { reactThreePostprocessing } from "./react-three-postprocessing";
+import { twistezoReactTextScramble } from "./twistezo-react-text-scramble";
 import type { EffectDefinition } from "./types";
 
 export const effects: EffectDefinition[] = [
@@ -51,6 +61,16 @@ export const effects: EffectDefinition[] = [
   cmdk,
   reactThreeDrei,
   lottieReact,
+  reactHaiku,
+  reactTransitionState,
+  reactScrollMotion,
+  lenis,
+  recharts,
+  reactCompareSlider,
+  notistack,
+  reactMediumImageZoom,
+  reactThreePostprocessing,
+  twistezoReactTextScramble,
 ];
 export const categories = [...new Set(effects.map((e) => e.category))];
 export const allTags = [...new Set(effects.flatMap((e) => e.tags))].sort();
