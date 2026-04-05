@@ -1,0 +1,10 @@
+{
+  "name": "EffectLab",
+  "description": "Curated React visual effect libraries — search, preview, and copy code for 100+ effects",
+  "plugins": [
+    {
+      "name": "effectlab",
+      "path": "."
+    }
+  ]
+}
