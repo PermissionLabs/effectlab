@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { effects, allTags } from "@/effects/registry";
+import { effects } from "@/effects/registry";
 import { createSearch } from "@/lib/search";
 import type { EffectDefinition } from "@/effects/types";
 import SearchBar from "./ui/SearchBar";
@@ -48,61 +48,60 @@ export default function EffectGrid() {
   }, [query, activeCategory, fuse, sortKey]);
 
   return (
-    <div className="flex flex-col gap-4">
-      {/* Controls */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-        <SearchBar value={query} onChange={setQuery} />
-        <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
-          <button
-            onClick={() => setActiveCategory(null)}
-            className={`shrink-0 px-2.5 py-1 rounded text-[11px] font-medium transition-colors ${
-              !activeCategory ? "bg-white/[0.08] text-white/70" : "text-white/25 hover:text-white/40"
-            }`}
-          >
-            All
-          </button>
-          {categories.map((cat) => (
+    <div className="flex flex-col">
+      {/* Toolbar */}
+      <div className="sticky top-14 z-40 bg-black/80 backdrop-blur-xl border-b border-white/[0.04] px-4 sm:px-6 py-3">
+        <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-3">
+          <SearchBar value={query} onChange={setQuery} />
+          <div className="flex items-center gap-1 overflow-x-auto no-scrollbar flex-1">
             <button
-              key={cat}
-              onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
-              className={`shrink-0 px-2.5 py-1 rounded text-[11px] font-medium transition-colors capitalize ${
-                activeCategory === cat ? "bg-white/[0.08] text-white/70" : "text-white/25 hover:text-white/40"
+              onClick={() => setActiveCategory(null)}
+              className={`shrink-0 px-2 py-0.5 rounded text-[11px] transition-colors ${
+                !activeCategory ? "text-white/70" : "text-white/20 hover:text-white/40"
               }`}
             >
-              {cat}
+              all
             </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Sort + count */}
-      <div className="flex items-center justify-between text-[11px] text-white/25 font-mono">
-        <span>{filtered.length} results</span>
-        <div className="flex gap-2">
-          {(["default", "stars", "downloads", "size"] as SortKey[]).map((k) => (
-            <button
-              key={k}
-              onClick={() => setSortKey(k)}
-              className={`transition-colors ${sortKey === k ? "text-white/50" : "hover:text-white/40"}`}
-            >
-              {k}
-            </button>
-          ))}
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
+                className={`shrink-0 px-2 py-0.5 rounded text-[11px] transition-colors ${
+                  activeCategory === cat ? "text-white/70" : "text-white/20 hover:text-white/40"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+          <div className="hidden sm:flex items-center gap-2 text-[10px] text-white/20 font-mono shrink-0">
+            {(["default", "stars", "downloads", "size"] as SortKey[]).map((k) => (
+              <button
+                key={k}
+                onClick={() => setSortKey(k)}
+                className={`transition-colors ${sortKey === k ? "text-white/50" : "hover:text-white/35"}`}
+              >
+                {k}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Grid */}
-      {filtered.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-          {filtered.map((effect) => (
-            <EffectCard key={effect.slug} effect={effect} />
-          ))}
-        </div>
-      ) : (
-        <div className="flex items-center justify-center py-20">
-          <p className="text-white/20 text-sm font-mono">no results</p>
-        </div>
-      )}
+      <div className="px-0">
+        {filtered.length > 0 ? (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 divide-x divide-y divide-white/[0.04]">
+            {filtered.map((effect) => (
+              <EffectCard key={effect.slug} effect={effect} />
+            ))}
+          </div>
+        ) : (
+          <div className="flex items-center justify-center py-32">
+            <p className="text-white/15 text-sm font-mono">no results</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
