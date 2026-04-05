@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import type { EffectDefinition } from "@/effects/types";
 import CodeViewer from "./CodeViewer";
 import { copyToClipboard } from "@/lib/utils";
@@ -28,8 +28,21 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
   const [copiedAI, setCopiedAI] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const Component = effect.component;
+
+  // Lazy mount: only render Component when card enters viewport
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.disconnect(); } },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (!cardRef.current) return;
@@ -63,7 +76,9 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
         {/* Preview */}
         <div className="relative w-full aspect-[4/5] min-h-[360px] bg-[#0a0a0a] dark:bg-[#0a0a0a] overflow-auto">
           <div className="absolute inset-0 flex items-center justify-center">
-            <Component />
+            {isVisible ? <Component /> : (
+              <div className="text-muted/20 text-xs font-mono">{effect.name}</div>
+            )}
           </div>
 
           {/* Hover action buttons */}
