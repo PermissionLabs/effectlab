@@ -1,88 +1,118 @@
 # EffectLab
 
-**A curated showcase of visual effects for React — built for humans and AI agents alike.**
-
-Browse, preview, and copy production-ready visual effects from real open-source libraries. Search with natural language, sort by GitHub stars or bundle size, and get install commands instantly.
+**100+ curated visual effects for React — browse, preview, and apply with one click.**
 
 **[Live Demo →](https://permissionlabs.github.io/effectlab)**
 
+## Quick Start
+
+### For Designers & Developers
+
+1. Browse effects at [effectlab](https://permissionlabs.github.io/effectlab)
+2. Find an effect you like
+3. Click **"Copy for AI"** on the card
+4. Paste into Claude Code, Cursor, or your AI coding assistant
+5. Done — the AI installs the library and applies the effect to your project
+
+### For Claude Code Users
+
+Install the EffectLab plugin — your AI assistant will automatically find and recommend effects when you ask for animations, transitions, or visual effects.
+
+```
+/plugin marketplace add PermissionLabs/effectlab
+/plugin install effectlab
+```
+
+Then just ask naturally:
+
+```
+"Add a 3D tilt hover effect to the cards"
+→ EffectLab finds react-parallax-tilt (4.2 kB, 1k stars)
+→ Claude Code installs and applies it
+
+"I need a typewriter animation for the hero text"
+→ EffectLab finds react-type-animation (3.5 kB)
+→ Claude Code implements it
+```
+
+## How It Works
+
+```
+You: "add a glow border effect"
+         ↓
+EffectLab plugin searches 100+ curated libraries
+         ↓
+Match found → recommends library + install command
+         ↓
+Claude Code installs + applies to your project
+         ↓
+No match → Claude Code falls back to web search
+```
+
 ## Why EffectLab?
 
-Visual effects are scattered across dozens of npm packages, CLI tools, and CodePen demos. EffectLab brings them together in one place:
+Visual effects are scattered across dozens of npm packages. EffectLab brings them together:
 
-- **Live Preview** — See every effect running in your browser before installing anything
-- **Real Libraries** — Every effect comes from an actual npm package or CLI tool, not recreations
-- **Copy & Go** — One-click install commands and usage code snippets
-- **Natural Language Search** — Find effects by describing what you want: "glow border", "typewriter text", "3D tilt card"
-- **LLM-Readable** — `/llms.txt` and `/llms-full.txt` endpoints so AI coding assistants can discover and recommend effects
-
-## For AI Agents
-
-EffectLab serves machine-readable documentation at:
-
-- **`/llms.txt`** — Overview of available effects and categories
-- **`/llms-full.txt`** — Complete reference with install commands, usage code, and metadata for every effect
-
-AI assistants can use these endpoints to recommend the right visual effect library based on user descriptions.
+- **100+ Effects** — Animations, transitions, 3D, particles, text effects, and more
+- **Live Preview** — See every effect running before installing
+- **Real Libraries** — Every effect is from a real npm package, not a recreation
+- **Copy for AI** — One click copies an LLM-friendly prompt with install command + usage code
+- **Bundle Size & Stars** — Compare libraries at a glance
+- **LLM-Readable** — [`/llms.txt`](https://permissionlabs.github.io/effectlab/llms.txt) and [`/llms-full.txt`](https://permissionlabs.github.io/effectlab/llms-full.txt) for AI assistants
+- **Dark/Light Mode** — Toggle in the header
 
 ## Featured Effects
 
-| Effect | Library | Bundle | Stars |
-|--------|---------|--------|-------|
+| Effect | Library | Size | Stars |
+|--------|---------|------|-------|
 | Animated Glow | `react-native-animated-glow` | 15 kB | 200 |
-| Siri Orb | Smooth UI (CLI) | 8.9 kB | 500 |
+| Siri Orb | `smoothui-cli` | 8.9 kB | 500 |
 | 3D Shader Gradient | `@shadergradient/react` | ~150 kB | 5.2k |
-| Glow Particles | PixiJS | 150 kB | 44k |
-| Layout Animation | Motion (Framer) | 45 kB | 25k |
+| Layout Animation | `motion` (Framer) | 45 kB | 25k |
 | Spring Physics | `@react-spring/web` | 16.3 kB | 28k |
 | Auto Animate | `@formkit/auto-animate` | 3.8 kB | 13k |
-| Scroll Parallax | `react-scroll-parallax` | 5.8 kB | 4.2k |
-| Text Typewriter | `react-type-animation` | 3.5 kB | 800 |
 | 3D Card Tilt | `react-parallax-tilt` | 4.2 kB | 1k |
-| Infinite Marquee | `react-fast-marquee` | 2.1 kB | 1.5k |
-| Hand-drawn Annotation | `react-rough-notation` | 3.2 kB | 900 |
-| Animated Number | `@number-flow/react` | 8.5 kB | 5.5k |
-| Animated Counter | `react-countup` | 4.2 kB | 1.8k |
-| Confetti Rain | `react-confetti` | 4.8 kB | 1.5k |
+| Command Palette | `cmdk` | 14.6 kB | 12.4k |
+| Toast Notifications | `sonner` | 9.1 kB | 12.2k |
+| Drag & Drop | `@dnd-kit/core` | 12 kB | 13k |
+| ...and 90 more | | | |
+
+## Eating Our Own Dog Food
+
+The EffectLab homepage itself uses 6 of its own showcased libraries:
+
+| Library | Where |
+|---------|-------|
+| `react-type-animation` | Hero subtitle typing effect |
+| `@number-flow/react` | Animated effect count |
+| `@formkit/auto-animate` | Grid filter transitions |
+| `sonner` | Copy toast notifications |
+| `react-loading-skeleton` | Card lazy-load placeholders |
+
+## Contributing
+
+### Add a new effect
+
+```bash
+bun scripts/add-effect.ts react-hot-toast
+# or
+bun scripts/add-effect.ts https://github.com/user/repo
+```
+
+This auto-fetches metadata from npm + GitHub and scaffolds all files. Then:
+
+1. Implement `DemoComponent.tsx`
+2. Expand `meta.ts` keywords to 30+
+3. Write `usage.ts` standalone code
+4. `bun run build` → `bunx tsx scripts/generate-llms-txt.ts` → `git push`
+
+### For Claude Code contributors
+
+Use the `/add-effect` skill — it runs the CLI and helps complete the files.
 
 ## Tech Stack
 
-- **Next.js 16** (App Router, Static Export)
-- **Tailwind CSS v4**
-- **Fuse.js** for fuzzy search
-- **Shiki** for syntax highlighting
-
-## Development
-
-```bash
-bun install
-bun dev
-```
-
-## Adding a New Effect
-
-The fastest way — use the CLI with a package name, GitHub URL, or homepage:
-
-```bash
-# By package name
-bun scripts/add-effect.ts react-hot-toast
-
-# By GitHub URL
-bun scripts/add-effect.ts https://github.com/timolins/react-hot-toast
-```
-
-This auto-fetches npm metadata, GitHub stars, bundle size, and scaffolds all 4 files + updates the registry. Then customize:
-
-1. **`DemoComponent.tsx`** — Implement the live demo (the CLI creates a TODO placeholder)
-2. **`meta.ts`** — Expand keywords to 30+ (including Korean)
-3. **`usage.ts`** — Write standalone copy-paste code
-4. **Verify**: `bun run build`
-5. **Regenerate index**: `bunx tsx scripts/generate-llms-txt.ts`
-6. **Deploy**: `git push` (GitHub Actions auto-deploys)
-
-### For Claude Code users
-
-If you have the EffectLab plugin installed, use the `/add-effect` skill which runs the same CLI and then helps you customize the TODO files.
+Next.js 16 · Tailwind CSS v4 · Fuse.js · Shiki · Static Export · GitHub Pages
 
 ## License
 
