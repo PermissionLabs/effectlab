@@ -76,8 +76,8 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
         />
 
         {/* Preview */}
-        <div className="relative w-full aspect-[4/5] min-h-[360px] bg-[#0a0a0a] dark:bg-[#0a0a0a] overflow-auto">
-          <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative w-full aspect-[4/5] min-h-[360px] bg-[#0a0a0a] dark:bg-[#0a0a0a] overflow-hidden">
+          <div className="absolute inset-0">
             {isVisible ? <Component /> : (
               <div className="w-full h-full p-6 flex flex-col gap-3 justify-center">
                 <Skeleton height={20} width="60%" baseColor="var(--surface-alt)" highlightColor="var(--surface)" />
