@@ -39,7 +39,6 @@ import { gsap } from "./gsap";
 import { animejs } from "./animejs";
 import { tsparticlesReact } from "./tsparticles-react";
 import { reactTypeAnimation } from "./react-type-animation";
-import { reactTextTransition } from "./react-text-transition";
 import { reactAnimatedCursor } from "./react-animated-cursor";
 import { cursorEffects } from "./cursor-effects";
 import { partycles } from "./partycles";
@@ -89,7 +88,6 @@ export const effects: EffectDefinition[] = [
   animejs,
   tsparticlesReact,
   reactTypeAnimation,
-  reactTextTransition,
   reactAnimatedCursor,
   cursorEffects,
   partycles,
