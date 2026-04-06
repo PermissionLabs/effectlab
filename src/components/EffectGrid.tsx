@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useDeferredValue } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import NumberFlow from "@number-flow/react";
 import { effects } from "@/effects/registry";
@@ -56,14 +56,15 @@ export default function EffectGrid() {
   const [sortKey, setSortKey] = useState<SortKey>("default");
   const [gridRef] = useAutoAnimate({ duration: 300 });
 
+  const deferredQuery = useDeferredValue(query);
   const fuse = useMemo(() => createSearch(effects), []);
 
   const filtered = useMemo(() => {
     let results = effects;
-    if (query.trim()) results = fuse.search(query).map((r) => r.item);
+    if (deferredQuery.trim()) results = fuse.search(deferredQuery).map((r) => r.item);
     if (activeCategory) results = results.filter((e) => e.category === activeCategory);
     return sortEffects(results, sortKey);
-  }, [query, activeCategory, fuse, sortKey]);
+  }, [deferredQuery, activeCategory, fuse, sortKey]);
 
   return (
     <div className="flex flex-col gap-6">

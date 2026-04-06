@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useCallback, useEffect, memo } from "react";
 import type { EffectDefinition } from "@/effects/types";
 import CodeViewer from "./CodeViewer";
 import { copyToClipboard } from "@/lib/utils";
@@ -29,7 +29,7 @@ Docs: ${effect.library.url}
 Preview: https://permissionlabs.github.io/effectlab`;
 }
 
-export default function EffectCard({ effect }: { effect: EffectDefinition }) {
+export default memo(function EffectCard({ effect }: { effect: EffectDefinition }) {
   const [showCode, setShowCode] = useState(false);
   const [copiedAI, setCopiedAI] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -40,12 +40,12 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const Component = effect.component;
 
-  // Lazy mount: only render Component when card enters viewport
+  // Bidirectional observer: mount when entering viewport, unmount when leaving
   useEffect(() => {
     const el = cardRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.disconnect(); } },
+      ([entry]) => { setIsVisible(entry.isIntersecting); },
       { rootMargin: "200px" }
     );
     observer.observe(el);
@@ -62,7 +62,7 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
   const size = effect.packageMeta?.bundleSize;
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="effect-card flex flex-col gap-3">
       {/* Card */}
       <div
         ref={cardRef}
@@ -184,4 +184,4 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
       )}
     </div>
   );
-}
+}, (prev, next) => prev.effect.slug === next.effect.slug)
