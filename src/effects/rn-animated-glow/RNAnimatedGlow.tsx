@@ -273,11 +273,13 @@ export default function RNAnimatedGlow() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const parent = canvas.parentElement!;
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = parent.clientWidth * dpr;
-    canvas.height = parent.clientHeight * dpr;
-    canvas.style.width = parent.clientWidth + "px";
-    canvas.style.height = parent.clientHeight + "px";
+    const w = parent.clientWidth;
+    const h = parent.clientHeight;
+    if (w === 0 || h === 0) return;
+    canvas.width = w;
+    canvas.height = h;
+    canvas.style.width = w + "px";
+    canvas.style.height = h + "px";
     initGL(canvas);
 
     return () => { cancelAnimationFrame(animRef.current); };
@@ -306,10 +308,9 @@ export default function RNAnimatedGlow() {
       gl.clearColor(0, 0, 0, 0);
       gl.clear(gl.COLOR_BUFFER_BIT);
 
-      // Rect must fit inside canvas WITH room for glow (glow extends ~50px out)
-      const glowPadding = 80;
-      const rectW = W - glowPadding * 2;
-      const rectH = Math.min(H * 0.3, rectW * 0.45);
+      // Rect proportional to canvas, with room for glow spread
+      const rectW = W * 0.5;
+      const rectH = rectW * 0.5;
       const speedFactor = 0.166;
 
       borderProgressRef.current = (borderProgressRef.current + dt * speedFactor * preset.animationSpeed * preset.borderSpeedMultiplier) % 1;
