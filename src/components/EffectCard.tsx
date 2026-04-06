@@ -9,6 +9,9 @@ import Skeleton from "react-loading-skeleton";
 import Tippy from "@tippyjs/react";
 import { RotateCw } from "lucide-react";
 
+const overlayBtnCls =
+  "px-2.5 py-1 rounded-lg text-[11px] font-medium bg-black/50 text-white/60 hover:text-white border border-white/10 backdrop-blur-xl transition-all";
+
 function buildAIPrompt(effect: EffectDefinition): string {
   const meta = effect.packageMeta;
   return `Apply this visual effect to my project:
@@ -34,7 +37,7 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [replayKey, setReplayKey] = useState(0);
-  const [spinning, setSpinning] = useState(false);
+  const replayRef = useRef<SVGSVGElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const Component = effect.component;
 
@@ -80,8 +83,8 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
         />
 
         {/* Preview */}
-        <div className="relative w-full aspect-[4/5] min-h-[360px] bg-[#0a0a0a] dark:bg-[#0a0a0a] overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative w-full aspect-[4/5] min-h-[360px] bg-[#0a0a0a] overflow-hidden">
+          <div className="absolute inset-0">
             {isVisible ? <Component key={replayKey} /> : (
               <div className="w-full h-full p-6 flex flex-col gap-3 justify-center">
                 <Skeleton height={20} width="60%" baseColor="var(--surface-alt)" highlightColor="var(--surface)" />
@@ -97,7 +100,7 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
               href={effect.library.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-black/50 text-white/60 hover:text-white border border-white/10 backdrop-blur-xl transition-all"
+              className={overlayBtnCls}
             >
               {effect.library.packageName}
             </a>
@@ -109,13 +112,17 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  setSpinning(true);
                   setReplayKey((k) => k + 1);
-                  setTimeout(() => setSpinning(false), 500);
+                  const icon = replayRef.current;
+                  if (icon) {
+                    icon.classList.remove("animate-spin");
+                    void icon.getBoundingClientRect();
+                    icon.classList.add("animate-spin");
+                  }
                 }}
-                className="p-1.5 rounded-lg bg-black/50 text-white/60 hover:text-white border border-white/10 backdrop-blur-xl transition-all"
+                className={`p-1.5 ${overlayBtnCls}`}
               >
-                <RotateCw size={14} className={spinning ? "animate-spin" : ""} />
+                <RotateCw ref={replayRef} size={14} onAnimationEnd={() => replayRef.current?.classList.remove("animate-spin")} />
               </button>
             </Tippy>
             <button
@@ -138,7 +145,7 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); setShowCode(!showCode); }}
-              className="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-black/50 text-white/60 hover:text-white border border-white/10 backdrop-blur-xl transition-all"
+              className={overlayBtnCls}
             >
               Code
             </button>
