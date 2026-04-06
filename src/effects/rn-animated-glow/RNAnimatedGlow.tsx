@@ -25,26 +25,28 @@ export default function RNAnimatedGlow() {
   const glowGradient = `conic-gradient(from var(--glow-angle, 0deg), ${preset.glowColors.join(", ")}, ${preset.glowColors[0]})`;
 
   return (
-    <div className="relative flex flex-col items-center justify-center gap-4 w-full h-full overflow-hidden">
-      <div className="relative w-[70%] max-w-[300px] aspect-[2/1]">
-        {/* Outer glow — soft spread */}
-        <div
-          className="absolute -inset-6 rounded-[40px]"
-          style={{ background: glowGradient, animation: "glow-rotate 4s linear infinite", filter: "blur(30px)", opacity: 0.3 }}
-        />
-        {/* Medium glow */}
-        <div
-          className="absolute -inset-2 rounded-[34px]"
-          style={{ background: glowGradient, animation: "glow-rotate 4s linear infinite", filter: "blur(10px)", opacity: 0.5 }}
-        />
-        {/* Sharp border */}
+    <div className="relative w-full h-full flex flex-col items-center justify-center gap-4">
+      {/* Full-bleed background glow — fills entire card preview */}
+      <div
+        className="absolute inset-0"
+        style={{ background: glowGradient, animation: "glow-rotate 4s linear infinite", filter: "blur(60px)", opacity: 0.2 }}
+      />
+
+      {/* Centered card with glow border */}
+      <div className="relative w-[70%] max-w-[280px] aspect-[2/1]">
+        {/* Mid glow — contained within parent, no negative inset */}
         <div
           className="absolute inset-0 rounded-[30px]"
-          style={{ background: borderGradient, animation: "glow-rotate 4s linear infinite" }}
+          style={{ background: glowGradient, animation: "glow-rotate 4s linear infinite", filter: "blur(15px)", opacity: 0.6 }}
         />
-        {/* Text overlay — no background box, just text floating on the glow */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-sm font-semibold text-white drop-shadow-lg">{preset.name}</span>
+        {/* Border */}
+        <div
+          className="absolute inset-0 rounded-[30px] p-[3px]"
+          style={{ background: borderGradient, animation: "glow-rotate 4s linear infinite" }}
+        >
+          <div className="flex items-center justify-center w-full h-full rounded-[27px] bg-[#0a0a0a]">
+            <span className="text-sm font-medium text-white/80">{preset.name}</span>
+          </div>
         </div>
       </div>
 
