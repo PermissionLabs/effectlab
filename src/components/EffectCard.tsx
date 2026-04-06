@@ -6,7 +6,6 @@ import CodeViewer from "./CodeViewer";
 import { copyToClipboard } from "@/lib/utils";
 import { toast } from "sonner";
 import Skeleton from "react-loading-skeleton";
-import Tippy from "@tippyjs/react";
 import { RotateCw } from "lucide-react";
 
 const overlayBtnCls =
@@ -84,7 +83,7 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
 
         {/* Preview */}
         <div className="relative w-full aspect-[4/5] min-h-[360px] bg-[#0a0a0a] overflow-hidden">
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 grid place-items-center">
             {isVisible ? <Component key={replayKey} /> : (
               <div className="w-full h-full p-6 flex flex-col gap-3 justify-center">
                 <Skeleton height={20} width="60%" baseColor="var(--surface-alt)" highlightColor="var(--surface)" />
@@ -108,23 +107,22 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
 
           {/* Hover action buttons */}
           <div className="absolute top-2.5 right-2.5 z-20 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            <Tippy content="Replay" placement="bottom" delay={[200, 0]}>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setReplayKey((k) => k + 1);
-                  const icon = replayRef.current;
-                  if (icon) {
-                    icon.classList.remove("animate-spin");
-                    void icon.getBoundingClientRect();
-                    icon.classList.add("animate-spin");
-                  }
-                }}
-                className={`p-1.5 ${overlayBtnCls}`}
-              >
-                <RotateCw ref={replayRef} size={14} onAnimationEnd={() => replayRef.current?.classList.remove("animate-spin")} />
-              </button>
-            </Tippy>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setReplayKey((k) => k + 1);
+                const icon = replayRef.current;
+                if (icon) {
+                  icon.classList.remove("animate-spin-once");
+                  void icon.getBoundingClientRect();
+                  icon.classList.add("animate-spin-once");
+                }
+              }}
+              className={`p-1.5 ${overlayBtnCls}`}
+              title="Replay"
+            >
+              <RotateCw ref={replayRef} size={14} onAnimationEnd={() => replayRef.current?.classList.remove("animate-spin-once")} />
+            </button>
             <button
               onClick={async (e) => {
                 e.stopPropagation();

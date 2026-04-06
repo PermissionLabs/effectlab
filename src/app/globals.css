@@ -1,16 +1,15 @@
 @import "tailwindcss";
 @import "react-loading-skeleton/dist/skeleton.css";
-@import "react-medium-image-zoom/dist/styles.css";
-@import "@smastrom/react-rating/style.css";
 @import "react-circular-progressbar/dist/styles.css";
 @import "react-vertical-timeline-component/style.min.css";
-@import "yet-another-react-lightbox/styles.css";
-@import "tippy.js/dist/tippy.css";
-@import "react-datepicker/dist/react-datepicker.css";
-@import "reactflow/dist/style.css";
-@import "react-toastify/dist/ReactToastify.css";
-@import "react-calendar/dist/Calendar.css";
-@import "react-grid-layout/css/styles.css";
+
+@keyframes spin-once {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-once {
+  animation: spin-once 0.4s ease-in-out forwards;
+}
 
 @theme inline {
   --color-bg: var(--bg);
