@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import HowToUse from "@/components/HowToUse";
 import EffectGrid from "@/components/EffectGrid";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <HowToUse />
         <EffectGrid />
       </main>
+      <ScrollToTop />
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 > A curated showcase of visual effects for React. Each effect links to its original library.
 
-> Total effects: 95
+> Total effects: 94
 
 ---
 
@@ -1859,53 +1859,6 @@ export default function ImageZoomExample() {
 ```css
 /* Add to your global CSS file */
 @import "react-medium-image-zoom/dist/styles.css";
-```
-
----
-
-## Text Scramble
-
-- **Slug**: twistezo-react-text-scramble
-- **Category**: text
-- **Description**: React text scramble effect
-- **Library**: @twistezo/react-text-scramble (@twistezo/react-text-scramble)
-- **Library URL**: https://github.com/twistezo/react-text-scramble
-- **Install type**: npm
-- **Bundle size**: 1.1 kB
-- **GitHub stars**: 14
-- **Weekly downloads**: 46
-- **Last updated**: 2026-02
-- **Tags**: text, scramble, effect, react, typescript
-- **Keywords**: text scramble, scramble animation, text shuffle, letter randomize, character scramble, glitch text, text decode, cipher animation, matrix text effect, hacker text, text reveal, scrambled letters, hero text animation, landing page title, rotating text, text transition, phrase switcher, text cycling, typewriter alternative, heading animation, slogan rotator, tagline animation, 텍스트 스크램블, 글자 섞기 애니메이션, 텍스트 셔플 효과, 문자 해독 효과, 텍스트 전환, 글리치 텍스트, 히어로 텍스트, 랜딩페이지 타이틀, react-text-scramble, twistezo, text-scramble-component, scramble-effect, text-animation-react
-
-### Install
-```bash
-bun add @twistezo/react-text-scramble
-```
-
-### Usage
-```tsx
-"use client";
-
-import { TextScramble } from "@twistezo/react-text-scramble";
-
-const phrases = ["Hello World", "Welcome", "React is awesome"];
-
-export default function TextScrambleExample() {
-  return (
-    <div style={{ padding: "2rem", background: "#050510", minHeight: "100vh" }}>
-      <h1 style={{ fontFamily: "monospace", fontSize: "3rem", color: "#34d399" }}>
-        <TextScramble
-          texts={phrases}
-          letterSpeed={50}
-          nextLetterSpeed={100}
-          pauseTime={2000}
-          characters="!@#$%^&*()_+"
-        />
-      </h1>
-    </div>
-  );
-}
 ```
 
 ---

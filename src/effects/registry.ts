@@ -29,7 +29,6 @@ import { recharts } from "./recharts";
 import { reactCompareSlider } from "./react-compare-slider";
 import { notistack } from "./notistack";
 import { reactMediumImageZoom } from "./react-medium-image-zoom";
-import { twistezoReactTextScramble } from "./twistezo-react-text-scramble";
 import { floatingUiReact } from "./floating-ui-react";
 import { lucideReact } from "./lucide-react";
 import { radixUiReactTabs } from "./radix-ui-react-tabs";
@@ -127,7 +126,6 @@ export const effects: EffectDefinition[] = [
   reactCompareSlider,
   notistack,
   reactMediumImageZoom,
-  twistezoReactTextScramble,
   floatingUiReact,
   lucideReact,
   radixUiReactTabs,
