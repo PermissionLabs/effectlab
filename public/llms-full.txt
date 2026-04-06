@@ -2,7 +2,7 @@
 
 > A curated showcase of visual effects for React. Each effect links to its original library.
 
-> Total effects: 40
+> Total effects: 47
 
 ---
 
@@ -2302,6 +2302,373 @@ export default function ParticleBackground() {
       }}
       className="absolute inset-0"
     />
+  );
+}
+```
+
+---
+
+## Type Animation
+
+- **Slug**: react-type-animation
+- **Category**: text
+- **Description**: Customizable React typing animation component based on typical.
+- **Library**: react-type-animation (react-type-animation)
+- **Library URL**: https://github.com/maxeth/react-type-animation#readme
+- **Install type**: npm
+- **Bundle size**: 3.1 kB
+- **GitHub stars**: 481
+- **Weekly downloads**: 171281
+- **Last updated**: 2024-07
+- **Tags**: react, reactjs, animation, typing, typewriter, react typewriter, typing animation
+- **Keywords**: typing effect, typewriter effect, text typing, cursor blinking, letter by letter, character animation, sequential typing, auto typing, animated text, text reveal, typing cursor, blinking cursor, text appear animation, hero text, landing page typing, terminal effect, code typing, chat typing indicator, dynamic text, rotating text, text loop, headline animation, intro animation, 타이핑, 타자기, 텍스트 애니메이션, 커서 깜빡임, 타이핑 효과, 자동 타이핑, 글자 애니메이션, 텍스트 입력 효과, 타자 효과, react, react-type-animation, typical.js, type animation component, typing animation react, typewriter react component
+
+### Install
+```bash
+bun add react-type-animation
+```
+
+### Usage
+```tsx
+import { TypeAnimation } from "react-type-animation";
+
+export default function TypingDemo() {
+  return (
+    <TypeAnimation
+      sequence={[
+        "Hello, world!",
+        2000,
+        "Welcome to my site",
+        2000,
+        "Built with React",
+        2000,
+      ]}
+      wrapper="h1"
+      speed={50}
+      repeat={Infinity}
+      style={{ fontSize: "2rem", fontWeight: "bold" }}
+    />
+  );
+}
+```
+
+---
+
+## Text Transition
+
+- **Slug**: react-text-transition
+- **Category**: text
+- **Description**: A React plugin that animates your text when it changes.
+- **Library**: react-text-transition (react-text-transition)
+- **Library URL**: https://github.com/WinterCore/react-text-transition#readme
+- **Install type**: npm
+- **Bundle size**: 56.7 kB
+- **GitHub stars**: 637
+- **Weekly downloads**: 18180
+- **Last updated**: 2026-03
+- **Tags**: react, text, transition, animation, motion, spring
+- **Keywords**: text transition, animated text, text swap, text slide, slide up text, text change animation, rotating text, cycling text, spring text animation, smooth text transition, text morph, word transition, word swap, word rotate, text flip, hero text animation, headline animation, dynamic heading, tagline animation, landing page text, text carousel, phrase rotation, text ticker, announcement text, marketing headline, 텍스트 전환, 슬라이드 텍스트, 단어 교체, 텍스트 애니메이션, 스프링 텍스트, 텍스트 순환, 텍스트 모션, react-text-transition, react-spring, spring physics, inline text animation, text component
+
+### Install
+```bash
+bun add react-text-transition
+```
+
+### Usage
+```tsx
+"use client";
+import { useState, useEffect } from "react";
+import TextTransition, { presets } from "react-text-transition";
+
+const WORDS = ["Brilliant", "Stunning", "Powerful", "Elegant"];
+
+export default function Example() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(
+      () => setIndex((i) => (i + 1) % WORDS.length),
+      2000,
+    );
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>
+      Make it{" "}
+      <TextTransition inline springConfig={presets.wobbly}>
+        {WORDS[index]}
+      </TextTransition>
+    </h1>
+  );
+}
+```
+
+---
+
+## Animated Cursor
+
+- **Slug**: react-animated-cursor
+- **Category**: interaction
+- **Description**: An animated custom cursor component in React with a trailing dot and ring that scales on hover.
+- **Library**: react-animated-cursor (react-animated-cursor)
+- **Library URL**: https://stephenscaff.github.io/react-animated-cursor/
+- **Install type**: npm
+- **Bundle size**: 2.4 kB
+- **GitHub stars**: 341
+- **Weekly downloads**: 1881
+- **Last updated**: 2024-06
+- **Tags**: react cursor, custom cursor, animated cursor, trailing cursor
+- **Keywords**: animated cursor, custom cursor, cursor dot, cursor ring, trailing cursor, cursor follow, cursor glow, cursor scale, cursor hover effect, smooth cursor, cursor animation, cursor trail, interactive cursor, portfolio cursor, creative cursor, cursor replacement, mouse pointer, mouse follower, cursor customization, ui cursor, web cursor effect, cursor feedback, hover indicator, 커서, 마우스, 포인터, 커스텀 커서, 마우스 커서, 애니메이션 커서, 커서 효과, 마우스 포인터, 커서 따라다니기, react-animated-cursor, cursor component, css cursor, pointer events
+
+### Install
+```bash
+bun add react-animated-cursor
+```
+
+### Usage
+```tsx
+import AnimatedCursor from "react-animated-cursor";
+
+export default function App() {
+  return (
+    <div>
+      <AnimatedCursor
+        innerSize={8}
+        outerSize={35}
+        innerScale={1}
+        outerScale={1.7}
+        outerAlpha={0.3}
+        innerStyle={{ backgroundColor: "#a78bfa" }}
+        outerStyle={{ border: "2px solid #a78bfa" }}
+        showSystemCursor={false}
+        trailingSpeed={8}
+        clickables={["a", "button", ".link"]}
+      />
+      <h1>Hover around the page!</h1>
+      <button>Click me</button>
+    </div>
+  );
+}
+```
+
+---
+
+## Cursor Effects
+
+- **Slug**: cursor-effects
+- **Category**: interaction
+- **Description**: Old-school cursor effects for your browser built in modern JavaScript.
+- **Library**: cursor-effects (cursor-effects)
+- **Library URL**: https://github.com/tholman/cursor-effects#readme
+- **Install type**: npm
+- **Bundle size**: 7.4 kB
+- **GitHub stars**: 3951
+- **Weekly downloads**: 990
+- **Last updated**: 2026-02
+- **Tags**: cursor, trail, mouse, animation, particle
+- **Keywords**: cursor trail, mouse trail, fairy dust, rainbow cursor, sparkle trail, cursor particles, glitter cursor, cursor animation, mouse sparkle, trailing effect, cursor glow, mouse particles, interactive cursor, fun mouse effect, cursor decoration, pointer effect, mouse follower, cursor feedback, hover trail, click effect, playful cursor, whimsical interaction, retro cursor, nostalgia web effect, 커서 트레일, 마우스 효과, 페어리 더스트, 무지개 커서, 커서 애니메이션, 마우스 파티클, 커서 꾸미기, 마우스 트레일, 커서 반짝임, canvas cursor, cursor-effects, mouse event animation, pointer trail
+
+### Install
+```bash
+bun add cursor-effects
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useEffect, useRef } from "react";
+import { fairyDustCursor } from "cursor-effects";
+
+export default function CursorTrailDemo() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const fx = new fairyDustCursor({ element: ref.current });
+    return () => fx.destroy();
+  }, []);
+
+  return (
+    <div ref={ref} style={{ width: "100%", height: "400px", position: "relative" }}>
+      <p>Move your cursor here</p>
+    </div>
+  );
+}
+```
+
+---
+
+## Partycles
+
+- **Slug**: partycles
+- **Category**: particle
+- **Description**: Delightful particle reward animations for React — confetti, stars, hearts, fireworks and more via a simple hook
+- **Library**: partycles (partycles)
+- **Library URL**: https://github.com/jonathanleane/partycles#readme
+- **Install type**: npm
+- **Bundle size**: 10.5 kB
+- **GitHub stars**: 153
+- **Weekly downloads**: 2721
+- **Last updated**: 2025-08
+- **Tags**: react, animations, effects, rewards, confetti, sparkles, particles
+- **Keywords**: confetti, sparkles, fireworks, hearts, stars, bubbles, snow, petals, coins, emoji, glitter, burst, explosion, particle shower, floating, celebration animation, reward animation, success feedback, like button effect, gamification, achievement unlock, checkout celebration, form submit reward, social reaction, engagement feedback, micro-interaction, delight, party effect, 파티클, 축하, 보상, 별, 하트, 폭죽, 컨페티, 애니메이션, 리액트 파티클, 축하 효과, 보상 애니메이션, 불꽃놀이, react-hook, useReward, typescript, lightweight, particle-effects, canvas-free, dom-particles
+
+### Install
+```bash
+bun add partycles
+```
+
+### Usage
+```tsx
+"use client";
+import { useReward } from "partycles";
+
+export default function CelebrateButton() {
+  const { reward, isAnimating } = useReward(
+    "reward-btn",
+    "confetti",
+    {
+      particleCount: 40,
+      spread: 60,
+      colors: ["#ff6b6b", "#feca57", "#48dbfb", "#ff9ff3", "#54a0ff"],
+    }
+  );
+
+  return (
+    <button
+      id="reward-btn"
+      onClick={() => !isAnimating && reward()}
+      style={{
+        padding: "12px 32px",
+        fontSize: 18,
+        borderRadius: 12,
+        background: "linear-gradient(135deg, #7c3aed, #d946ef)",
+        color: "#fff",
+        border: "none",
+        cursor: "pointer",
+      }}
+    >
+      {isAnimating ? "🎉" : "Celebrate!"}
+    </button>
+  );
+}
+```
+
+---
+
+## Particle Morph
+
+- **Slug**: particle-morph
+- **Category**: 3d
+- **Description**: WebGL particle engine that morphs thousands of particles into text, images, and shapes with interactive mouse effects and smooth transitions.
+- **Library**: particle-morph (particle-morph)
+- **Library URL**: https://tbpatj.github.io/Particle-Morph-Engine/demo/
+- **Install type**: npm
+- **Bundle size**: 12.8 kB
+- **GitHub stars**: 2
+- **Weekly downloads**: 36
+- **Last updated**: 2025-08
+- **Tags**: particles, morph, webgl, 3d, interactive, canvas, animation
+- **Keywords**: particle morphing, particle animation, particle transition, particle text, particle image, particle shape, webgl particles, floating particles, particle swarm, particle cloud, particle dissolve, morphing effect, hero animation, background effect, interactive particles, text to particles, image to particles, mouse interaction, click effect, hover effect, particle system, visual effect, canvas animation, webgl animation, 파티클 모핑, 3D 입자, 형태 변환, 메시 파티클, 입자 애니메이션, 파티클 시스템, 웹지엘 파티클, 인터랙티브 파티클, webgl2, gpu accelerated, high performance, particle engine
+
+### Install
+```bash
+bun add particle-morph
+```
+
+### Usage
+```tsx
+import { useEffect, useRef } from "react";
+import "particle-morph";
+
+export default function ParticleDemo() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const p = (globalThis as any).particles;
+    if (!p) return;
+
+    p.init("particle-box", {
+      particleCount: 20000,
+      backgroundParticleCount: 200,
+      mouseInteractionType: "push",
+    });
+    p.start();
+
+    if (p.ready) {
+      p.addInputGroup({
+        group: 0,
+        xPos: "50%",
+        yPos: "50%",
+        inputs: [
+          { text: "HELLO", color: "#a855f7", align: "center",
+            fontSize: "64px", fontWeight: "bold" },
+        ],
+        allocatedParticles: 8000,
+        radius: 2,
+        enabled: true,
+      });
+    }
+
+    return () => { try { p.deleteAllGroups(); } catch {} };
+  }, []);
+
+  return <div id="particle-box" ref={ref} style={{ width: "100%", height: 400 }} />;
+}
+```
+
+---
+
+## Moving Text
+
+- **Slug**: react-moving-text
+- **Category**: text
+- **Description**: CSS text motion presets for React — fade, bounce, slide, swing, jelly, and more with zero config.
+- **Library**: react-moving-text (react-moving-text)
+- **Library URL**: https://yidaoj.github.io/react-moving-text
+- **Install type**: npm
+- **Bundle size**: 20.6 kB
+- **GitHub stars**: 0
+- **Weekly downloads**: 276
+- **Last updated**: 2026-04
+- **Tags**: text, animation, motion, css
+- **Keywords**: animated text, text animation, moving text, text motion, bounce text, fade in text, swing text, jelly text, pulse text, glowing text, flash text, spin text, blur text, flip text, shake text, hero text animation, heading animation, title effect, landing page text, attention grabber, text entrance, typography animation, text transition, scroll reveal text, animated heading, 텍스트 모션, CSS 애니메이션, 바운스, 페이드, 슬라이드, 텍스트 효과, 움직이는 글자, 타이포그래피 애니메이션, styled-components, css animation presets, react text animation, zero config animation
+
+### Install
+```bash
+bun add react-moving-text
+```
+
+### Usage
+```tsx
+import MovingText from "react-moving-text";
+
+export default function AnimatedHeading() {
+  return (
+    <div style={{ display: "flex", gap: "1rem" }}>
+      <MovingText
+        type="bounce"
+        duration="1000ms"
+        delay="0s"
+        direction="alternate"
+        timing="ease"
+        iteration="infinite"
+      >
+        Bounce
+      </MovingText>
+      <MovingText
+        type="fadeIn"
+        duration="1200ms"
+        delay="0.2s"
+        direction="alternate"
+        timing="ease-in-out"
+        iteration="infinite"
+      >
+        Fade In
+      </MovingText>
+    </div>
   );
 }
 ```

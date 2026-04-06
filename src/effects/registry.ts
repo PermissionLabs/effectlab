@@ -38,6 +38,13 @@ import { motion } from "./motion";
 import { gsap } from "./gsap";
 import { animejs } from "./animejs";
 import { tsparticlesReact } from "./tsparticles-react";
+import { reactTypeAnimation } from "./react-type-animation";
+import { reactTextTransition } from "./react-text-transition";
+import { reactAnimatedCursor } from "./react-animated-cursor";
+import { cursorEffects } from "./cursor-effects";
+import { partycles } from "./partycles";
+import { particleMorph } from "./particle-morph";
+import { reactMovingText } from "./react-moving-text";
 import type { EffectDefinition } from "./types";
 
 export const effects: EffectDefinition[] = [
@@ -81,6 +88,13 @@ export const effects: EffectDefinition[] = [
   gsap,
   animejs,
   tsparticlesReact,
+  reactTypeAnimation,
+  reactTextTransition,
+  reactAnimatedCursor,
+  cursorEffects,
+  partycles,
+  particleMorph,
+  reactMovingText,
 ];
 export const categories = [...new Set(effects.map((e) => e.category))];
 export const allTags = [...new Set(effects.flatMap((e) => e.tags))].sort();
