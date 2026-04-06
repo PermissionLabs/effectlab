@@ -25,7 +25,7 @@ export default function RNAnimatedGlow() {
   const glowGradient = `conic-gradient(from var(--glow-angle, 0deg), ${preset.glowColors.join(", ")}, ${preset.glowColors[0]})`;
 
   return (
-    <div className="relative flex flex-col items-center justify-center gap-4 w-full h-full bg-[#050505] overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center gap-4 w-full h-full overflow-hidden">
       <div className="relative w-[65%] max-w-[280px] aspect-[2/1]">
         {/* Outer glow */}
         <div
