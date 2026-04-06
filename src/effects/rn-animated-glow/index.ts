@@ -1,7 +1,8 @@
 import type { EffectDefinition } from "../types";
 import { meta } from "./meta";
 import { usage } from "./usage";
-import RNAnimatedGlow from "./RNAnimatedGlow";
+import dynamic from "next/dynamic";
+const RNAnimatedGlow = dynamic(() => import("./RNAnimatedGlow"), { ssr: false });
 
 export const rnAnimatedGlow: EffectDefinition = {
   ...meta,
