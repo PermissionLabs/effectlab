@@ -26,25 +26,25 @@ export default function RNAnimatedGlow() {
 
   return (
     <div className="relative flex flex-col items-center justify-center gap-4 w-full h-full overflow-hidden">
-      <div className="relative w-[65%] max-w-[280px] aspect-[2/1]">
-        {/* Outer glow */}
+      <div className="relative w-[70%] max-w-[300px] aspect-[2/1]">
+        {/* Outer glow — soft spread */}
         <div
-          className="absolute -inset-4 rounded-[34px] opacity-25"
-          style={{ background: glowGradient, animation: "glow-rotate 4s linear infinite", filter: "blur(20px)" }}
+          className="absolute -inset-6 rounded-[40px]"
+          style={{ background: glowGradient, animation: "glow-rotate 4s linear infinite", filter: "blur(30px)", opacity: 0.3 }}
         />
-        {/* Tight glow */}
+        {/* Medium glow */}
         <div
-          className="absolute -inset-1 rounded-[32px] opacity-50"
-          style={{ background: glowGradient, animation: "glow-rotate 4s linear infinite", filter: "blur(6px)" }}
+          className="absolute -inset-2 rounded-[34px]"
+          style={{ background: glowGradient, animation: "glow-rotate 4s linear infinite", filter: "blur(10px)", opacity: 0.5 }}
         />
-        {/* Border */}
+        {/* Sharp border */}
         <div
-          className="absolute inset-0 rounded-[30px] p-[3px]"
+          className="absolute inset-0 rounded-[30px]"
           style={{ background: borderGradient, animation: "glow-rotate 4s linear infinite" }}
-        >
-          <div className="flex items-center justify-center w-full h-full rounded-[27px] bg-[#0a0a0a]">
-            <span className="text-sm font-medium text-white/80">{preset.name}</span>
-          </div>
+        />
+        {/* Text overlay — no background box, just text floating on the glow */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="text-sm font-semibold text-white drop-shadow-lg">{preset.name}</span>
         </div>
       </div>
 
