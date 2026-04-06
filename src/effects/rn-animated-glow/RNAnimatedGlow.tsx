@@ -306,11 +306,10 @@ export default function RNAnimatedGlow() {
       gl.clearColor(0, 0, 0, 0);
       gl.clear(gl.COLOR_BUFFER_BIT);
 
-      // Scale rect to fit inside card with glow margin
-      const maxRectW = W * 0.55;
-      const maxRectH = H * 0.4;
-      const rectW = Math.min(maxRectW, 400);
-      const rectH = Math.min(maxRectH, 200);
+      // Rect must fit inside canvas WITH room for glow (glow extends ~50px out)
+      const glowPadding = 80;
+      const rectW = W - glowPadding * 2;
+      const rectH = Math.min(H * 0.3, rectW * 0.45);
       const speedFactor = 0.166;
 
       borderProgressRef.current = (borderProgressRef.current + dt * speedFactor * preset.animationSpeed * preset.borderSpeedMultiplier) % 1;
