@@ -2,7 +2,7 @@
 
 > A curated showcase of visual effects for React. Each effect links to its original library.
 
-> Total effects: 46
+> Total effects: 47
 
 ---
 
@@ -2617,6 +2617,62 @@ export default function AnimatedHeading() {
         Fade In
       </MovingText>
     </div>
+  );
+}
+```
+
+---
+
+## Flip Toolkit
+
+- **Slug**: react-flip-toolkit
+- **Category**: transition
+- **Description**: Configurable FLIP animation helpers for React
+- **Library**: react-flip-toolkit (react-flip-toolkit)
+- **Library URL**: https://github.com/aholachek/react-flip-toolkit#readme
+- **Install type**: npm
+- **Bundle size**: 7.3 kB
+- **GitHub stars**: 4196
+- **Weekly downloads**: 117787
+- **Last updated**: 2024-09
+- **Tags**: react-component, FLIP, transition, animation
+- **Keywords**: flip animation, layout animation, smooth transition, card shuffle, grid animation, reorder animation, position animation, element transition, morph animation, stagger animation, spring animation, wobbly animation, list reorder, grid layout, card sorting, drag and drop, filter animation, route transition, shared element, page transition, tab animation, accordion animation, expand collapse, gallery animation, 플립 애니메이션, 레이아웃 애니메이션, 셔플, 카드 정렬, 리스트 전환, 그리드 애니메이션, 위치 전환, 스프링 애니메이션, react-flip-toolkit, FLIP technique, First Last Invert Play, react-component, layout transition, animateLayout
+
+### Install
+```bash
+bun add react-flip-toolkit
+```
+
+### Usage
+```tsx
+"use client";
+import { useState } from "react";
+import { Flipper, Flipped } from "react-flip-toolkit";
+
+const colors = ["#ff6b6b", "#feca57", "#48dbfb", "#ff9ff3"];
+
+function shuffle<T>(a: T[]) {
+  const b = [...a];
+  for (let i = b.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [b[i], b[j]] = [b[j], b[i]];
+  }
+  return b;
+}
+
+export default function FlipDemo() {
+  const [items, setItems] = useState(colors);
+  return (
+    <Flipper flipKey={items.join()}>
+      <button onClick={() => setItems(shuffle)}>Shuffle</button>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 8 }}>
+        {items.map((c) => (
+          <Flipped key={c} flipId={c}>
+            <div style={{ background: c, height: 80, borderRadius: 8 }} />
+          </Flipped>
+        ))}
+      </div>
+    </Flipper>
   );
 }
 ```

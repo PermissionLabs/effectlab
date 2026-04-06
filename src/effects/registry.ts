@@ -44,6 +44,7 @@ import { cursorEffects } from "./cursor-effects";
 import { partycles } from "./partycles";
 import { particleMorph } from "./particle-morph";
 import { reactMovingText } from "./react-moving-text";
+import { reactFlipToolkit } from "./react-flip-toolkit";
 import type { EffectDefinition } from "./types";
 
 export const effects: EffectDefinition[] = [
@@ -93,6 +94,7 @@ export const effects: EffectDefinition[] = [
   partycles,
   particleMorph,
   reactMovingText,
+  reactFlipToolkit,
 ];
 export const categories = [...new Set(effects.map((e) => e.category))];
 export const allTags = [...new Set(effects.flatMap((e) => e.tags))].sort();
