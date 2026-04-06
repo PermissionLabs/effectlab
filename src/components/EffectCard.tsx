@@ -40,12 +40,11 @@ export default memo(function EffectCard({ effect }: { effect: EffectDefinition }
   const cardRef = useRef<HTMLDivElement>(null);
   const Component = effect.component;
 
-  // Bidirectional observer: mount when entering viewport, unmount when leaving
   useEffect(() => {
     const el = cardRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { setIsVisible(entry.isIntersecting); },
+      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.disconnect(); } },
       { rootMargin: "200px" }
     );
     observer.observe(el);
@@ -184,4 +183,4 @@ export default memo(function EffectCard({ effect }: { effect: EffectDefinition }
       )}
     </div>
   );
-}, (prev, next) => prev.effect.slug === next.effect.slug)
+})
