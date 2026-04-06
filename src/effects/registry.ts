@@ -34,6 +34,10 @@ import { reactThreePostprocessing } from "./react-three-postprocessing";
 import { shaderGradient } from "./shader-gradient";
 import { reactCircularProgressbar } from "./react-circular-progressbar";
 import { reactVerticalTimelineComponent } from "./react-vertical-timeline-component";
+import { motion } from "./motion";
+import { gsap } from "./gsap";
+import { animejs } from "./animejs";
+import { tsparticlesReact } from "./tsparticles-react";
 import type { EffectDefinition } from "./types";
 
 export const effects: EffectDefinition[] = [
@@ -73,6 +77,10 @@ export const effects: EffectDefinition[] = [
   shaderGradient,
   reactCircularProgressbar,
   reactVerticalTimelineComponent,
+  motion,
+  gsap,
+  animejs,
+  tsparticlesReact,
 ];
 export const categories = [...new Set(effects.map((e) => e.category))];
 export const allTags = [...new Set(effects.flatMap((e) => e.tags))].sort();

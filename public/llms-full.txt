@@ -2,7 +2,7 @@
 
 > A curated showcase of visual effects for React. Each effect links to its original library.
 
-> Total effects: 34
+> Total effects: 40
 
 ---
 
@@ -1969,6 +1969,339 @@ export default function ShaderGradientDemo() {
         />
       </ShaderGradientCanvas>
     </div>
+  );
+}
+```
+
+---
+
+## Circular Progressbar
+
+- **Slug**: react-circular-progressbar
+- **Category**: interaction
+- **Description**: A circular progress indicator component with customizable styles, colors, and animations. Perfect for dashboards and stats displays.
+- **Library**: react-circular-progressbar (react-circular-progressbar)
+- **Library URL**: https://github.com/kevinsqi/react-circular-progressbar#readme
+- **Install type**: npm
+- **Bundle size**: 1.7 kB
+- **GitHub stars**: 1115
+- **Weekly downloads**: 436031
+- **Last updated**: 2025-02
+- **Tags**: progressbar, react, react-component, svg, circular, dashboard
+- **Keywords**: circular progress, circular progressbar, round progress, radial progress, donut chart, ring indicator, progress ring, circular gauge, arc progress, animated progress, percentage circle, progress wheel, dashboard stats, loading indicator, upload progress, skill level, completion rate, score display, storage usage, cpu usage, battery level, download progress, task completion, goal tracker, 원형 프로그레스바, 원형 게이지, 진행률 표시, 대시보드 차트, 원형 차트, 진행 상태, 로딩 인디케이터, react-circular-progressbar, CircularProgressbar, buildStyles, svg progress, progress component
+
+### Install
+```bash
+bun add react-circular-progressbar
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState, useEffect } from "react";
+import {
+  CircularProgressbar,
+  buildStyles,
+} from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+
+export default function CircularProgressExample() {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setValue(72), 300);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return (
+    <div style={{ width: 120, height: 120 }}>
+      <CircularProgressbar
+        value={value}
+        text={`${value}%`}
+        styles={buildStyles({
+          textSize: "18px",
+          pathTransitionDuration: 1.5,
+          pathColor: "#8b5cf6",
+          textColor: "#fff",
+          trailColor: "rgba(139,92,246,0.15)",
+        })}
+      />
+    </div>
+  );
+}
+```
+
+---
+
+## Vertical Timeline Component
+
+- **Slug**: react-vertical-timeline-component
+- **Category**: interaction
+- **Description**: Vertical timeline for React.js
+- **Library**: react-vertical-timeline-component (react-vertical-timeline-component)
+- **Library URL**: https://www.npmjs.com/package/react-vertical-timeline-component
+- **Install type**: npm
+- **Bundle size**: 2.5 kB
+- **GitHub stars**: 0
+- **Weekly downloads**: 65794
+- **Last updated**: 2026-04
+- **Tags**: react, vertical-timeline, react-vertical-timeline-component, react-19, react-19-support
+- **Keywords**: vertical timeline, timeline, timeline component, event timeline, history timeline, chronological timeline, scrollable timeline, animated timeline, timeline entries, timeline cards, timeline with icons, colored timeline, milestone timeline, project history, company timeline, career timeline, changelog timeline, product roadmap, event history, work experience timeline, resume timeline, portfolio timeline, process steps, order tracking, progress timeline, 타임라인, 세로 타임라인, 이벤트 타임라인, 연혁, 프로젝트 히스토리, 경력 타임라인, 진행 과정, react-vertical-timeline-component, VerticalTimeline, VerticalTimelineElement, timeline react component, vertical timeline react
+
+### Install
+```bash
+bun add react-vertical-timeline-component
+```
+
+### Usage
+```tsx
+"use client";
+
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+
+export default function TimelineExample() {
+  return (
+    <VerticalTimeline lineColor="#e5e7eb">
+      <VerticalTimelineElement
+        contentStyle={{ background: "#f3f4f6", boxShadow: "none" }}
+        date="2024 Q1"
+        iconStyle={{ background: "#8b5cf6", color: "#fff" }}
+      >
+        <h3 className="font-semibold">Project Launch</h3>
+        <p className="text-sm text-gray-600">Initial release.</p>
+      </VerticalTimelineElement>
+
+      <VerticalTimelineElement
+        contentStyle={{ background: "#f3f4f6", boxShadow: "none" }}
+        date="2024 Q2"
+        iconStyle={{ background: "#3b82f6", color: "#fff" }}
+      >
+        <h3 className="font-semibold">Feature Update</h3>
+        <p className="text-sm text-gray-600">Major improvements.</p>
+      </VerticalTimelineElement>
+    </VerticalTimeline>
+  );
+}
+```
+
+---
+
+## Motion
+
+- **Slug**: motion
+- **Category**: transition
+- **Description**: The most popular React animation library — spring physics, layout animations, gestures, exit transitions, and scroll-triggered effects.
+- **Library**: motion (motion)
+- **Library URL**: https://motion.dev
+- **Install type**: npm
+- **Bundle size**: 41.6 kB
+- **GitHub stars**: 31415
+- **Weekly downloads**: 9879561
+- **Last updated**: 2026-04
+- **Tags**: animation, spring, layout, gesture, transition, exit
+- **Keywords**: spring animation, bounce effect, smooth transition, layout morph, card flip, staggered entrance, exit animation, fade in out, scale animation, rotate animation, slide animation, elastic motion, page transition, modal animation, list reorder, tab switch, hover effect, tap feedback, scroll animation, shared layout, drag gesture, swipe dismiss, accordion expand, toast enter exit, 애니메이션, 모션, 전환 효과, 스프링 물리, 레이아웃 애니메이션, 제스처, 드래그, 페이지 전환, framer motion, motion/react, AnimatePresence, whileHover, whileTap, layoutId, spring physics, WAAPI, popmotion
+
+### Install
+```bash
+bun add motion
+```
+
+### Usage
+```tsx
+import { motion, AnimatePresence } from "motion/react";
+
+function AnimatedCard({ isVisible }: { isVisible: boolean }) {
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.8, y: -20 }}
+          transition={{ type: "spring", stiffness: 300, damping: 25 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="w-48 h-48 bg-purple-500 rounded-2xl"
+        />
+      )}
+    </AnimatePresence>
+  );
+}
+```
+
+---
+
+## GSAP
+
+- **Slug**: gsap
+- **Category**: transition
+- **Description**: Professional-grade JavaScript animation library for high-performance tweens, timelines, and complex sequenced animations.
+- **Library**: gsap (gsap)
+- **Library URL**: https://gsap.com
+- **Install type**: npm
+- **Bundle size**: 26.6 kB
+- **GitHub stars**: 24235
+- **Weekly downloads**: 2285879
+- **Last updated**: 2025-12
+- **Tags**: GSAP, GreenSock, animation, timeline, tween, easing, stagger
+- **Keywords**: GSAP, GreenSock, animation, timeline, tween, stagger, easing, elastic, bounce, spring, morph, transform, rotate, scale, fade, sequence, keyframe, interpolation, scroll animation, page transition, loading animation, hover effect, entrance animation, exit animation, motion graphics, micro-interaction, choreography, orchestration, parallax, SVG animation, 애니메이션, 타임라인, 트윈, 모션 그래픽, 시퀀스, 이징, 전환 효과, 스태거, 회전, 스크롤 애니메이션, gsap.to, gsap.from, gsap.timeline, ScrollTrigger, useGSAP, CustomEase, MotionPathPlugin
+
+### Install
+```bash
+bun add gsap @gsap/react
+```
+
+### Usage
+```tsx
+"use client";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
+
+export default function GsapExample() {
+  const container = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    gsap.timeline()
+      .from(".box", {
+        opacity: 0,
+        y: 40,
+        rotation: -90,
+        stagger: 0.15,
+        ease: "back.out(1.7)",
+        duration: 0.6,
+      })
+      .to(".box", {
+        scale: 1.2,
+        duration: 0.3,
+        stagger: 0.08,
+        yoyo: true,
+        repeat: 1,
+      });
+  }, { scope: container });
+
+  return (
+    <div ref={container} className="flex gap-4 p-8">
+      {["#8b5cf6", "#06b6d4", "#f43f5e"].map((c, i) => (
+        <div key={i} className="box w-16 h-16 rounded-lg" style={{ backgroundColor: c }} />
+      ))}
+    </div>
+  );
+}
+```
+
+---
+
+## Anime.js
+
+- **Slug**: animejs
+- **Category**: transition
+- **Description**: Lightweight JavaScript animation engine with stagger, timeline, and spring physics
+- **Library**: animejs (animejs)
+- **Library URL**: https://animejs.com
+- **Install type**: npm
+- **Bundle size**: 35.7 kB
+- **GitHub stars**: 67019
+- **Weekly downloads**: 663834
+- **Last updated**: 2026-02
+- **Tags**: anime, animejs, anime.js, animation, stagger, timeline, spring
+- **Keywords**: stagger grid, ripple animation, wave effect, dot matrix, scale animation, fade animation, color morph, shape morph, spring physics, elastic easing, smooth transition, particle grid, page transition, loading animation, micro interaction, scroll animation, SVG animation, CSS animation, canvas animation, timeline sequencing, keyframe animation, entrance animation, exit animation, hover effect, 애니메이션, 스태거, 웨이브, CSS 애니메이션, SVG 애니메이션, 타임라인, 전환 효과, 물결 효과, 도트 매트릭스, 스프링 물리, anime.js, animejs, WAAPI, Web Animations API, easing functions, cubic-bezier, requestAnimationFrame
+
+### Install
+```bash
+bun add animejs
+```
+
+### Usage
+```tsx
+import { useEffect, useRef } from "react";
+import { animate, stagger } from "animejs";
+
+export default function StaggerGrid() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const dots = ref.current.querySelectorAll(".dot");
+    animate(dots, {
+      scale: [{ to: 0.2, duration: 400 }, { to: 1, duration: 600 }],
+      opacity: [{ to: 1, duration: 400 }, { to: 0.3, duration: 600 }],
+      delay: stagger(50, { grid: [10, 6], from: "center" }),
+      loop: true,
+      ease: "inOutQuad",
+    });
+  }, []);
+
+  return (
+    <div ref={ref} style={{ display: "grid", gridTemplateColumns: "repeat(10, 1fr)", gap: 6 }}>
+      {Array.from({ length: 60 }).map((_, i) => (
+        <div key={i} className="dot" style={{ width: 12, height: 12, borderRadius: "50%", background: "#8b5cf6", opacity: 0.3 }} />
+      ))}
+    </div>
+  );
+}
+```
+
+---
+
+## tsParticles
+
+- **Slug**: tsparticles-react
+- **Category**: background
+- **Description**: Highly configurable particle animations with interactive links and physics
+- **Library**: @tsparticles/react (@tsparticles/react)
+- **Library URL**: https://www.npmjs.com/package/@tsparticles/react
+- **Install type**: npm
+- **Bundle size**: 0.4 kB
+- **GitHub stars**: 0
+- **Weekly downloads**: 155193
+- **Last updated**: 2026-04
+- **Tags**: particle, background, animation, interactive, canvas
+- **Keywords**: particle animation, floating particles, connected particles, particle network, particle links, particle background, ambient particles, glowing particles, interactive particles, particle system, particle mesh, particle web, hero background, landing page effect, dark background animation, network visualization, ambient animation, decorative background, portfolio background, interactive background, science visualization, tech background, 파티클, 입자, 배경 효과, 불꽃, 연결선, 입자 애니메이션, 배경 애니메이션, 인터랙티브 배경, tsparticles, canvas animation, physics simulation, particle engine
+
+### Install
+```bash
+bun add @tsparticles/react @tsparticles/slim @tsparticles/engine
+```
+
+### Usage
+```tsx
+"use client";
+import { useEffect, useState } from "react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+
+export default function ParticleBackground() {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    initParticlesEngine((e) => loadSlim(e)).then(() => setReady(true));
+  }, []);
+
+  if (!ready) return null;
+
+  return (
+    <Particles
+      id="particles"
+      options={{
+        fullScreen: { enable: false },
+        particles: {
+          number: { value: 50 },
+          color: { value: "#a855f7" },
+          links: { enable: true, color: "#a855f7", opacity: 0.3 },
+          move: { enable: true, speed: 1 },
+          size: { value: { min: 1, max: 3 } },
+        },
+      }}
+      className="absolute inset-0"
+    />
   );
 }
 ```
