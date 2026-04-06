@@ -23,12 +23,12 @@ export default function ReactCircularProgressbarDemo() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center w-full h-full bg-[#050510] rounded-2xl p-6">
-      <div className="flex items-end gap-8">
+    <div className="flex items-center justify-center w-full h-full p-4">
+      <div className="flex items-end gap-4">
         {items.map((item, i) => (
-          <div key={item.label} className="flex flex-col items-center gap-3">
+          <div key={item.label} className="flex flex-col items-center gap-2">
             <div
-              style={{ width: 100 + i * 20, height: 100 + i * 20 }}
+              style={{ width: 72 + i * 16, height: 72 + i * 16 }}
             >
               <CircularProgressbar
                 value={values[i]}

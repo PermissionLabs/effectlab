@@ -6,6 +6,8 @@ import CodeViewer from "./CodeViewer";
 import { copyToClipboard } from "@/lib/utils";
 import { toast } from "sonner";
 import Skeleton from "react-loading-skeleton";
+import Tippy from "@tippyjs/react";
+import { RotateCw } from "lucide-react";
 
 function buildAIPrompt(effect: EffectDefinition): string {
   const meta = effect.packageMeta;
@@ -31,6 +33,8 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [replayKey, setReplayKey] = useState(0);
+  const [spinning, setSpinning] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const Component = effect.component;
 
@@ -77,8 +81,8 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
 
         {/* Preview */}
         <div className="relative w-full aspect-[4/5] min-h-[360px] bg-[#0a0a0a] dark:bg-[#0a0a0a] overflow-hidden">
-          <div className="absolute inset-0">
-            {isVisible ? <Component /> : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            {isVisible ? <Component key={replayKey} /> : (
               <div className="w-full h-full p-6 flex flex-col gap-3 justify-center">
                 <Skeleton height={20} width="60%" baseColor="var(--surface-alt)" highlightColor="var(--surface)" />
                 <Skeleton height={14} count={2} baseColor="var(--surface-alt)" highlightColor="var(--surface)" />
@@ -87,8 +91,33 @@ export default function EffectCard({ effect }: { effect: EffectDefinition }) {
             )}
           </div>
 
+          {/* Library badge — bottom left on hover */}
+          <div className="absolute bottom-2.5 left-2.5 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <a
+              href={effect.library.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-black/50 text-white/60 hover:text-white border border-white/10 backdrop-blur-xl transition-all"
+            >
+              {effect.library.packageName}
+            </a>
+          </div>
+
           {/* Hover action buttons */}
           <div className="absolute top-2.5 right-2.5 z-20 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <Tippy content="Replay" placement="bottom" delay={[200, 0]}>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSpinning(true);
+                  setReplayKey((k) => k + 1);
+                  setTimeout(() => setSpinning(false), 500);
+                }}
+                className="p-1.5 rounded-lg bg-black/50 text-white/60 hover:text-white border border-white/10 backdrop-blur-xl transition-all"
+              >
+                <RotateCw size={14} className={spinning ? "animate-spin" : ""} />
+              </button>
+            </Tippy>
             <button
               onClick={async (e) => {
                 e.stopPropagation();
