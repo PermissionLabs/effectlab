@@ -375,8 +375,8 @@ export default function RNAnimatedGlow() {
   }, [active]);
 
   return (
-    <div className="relative flex flex-col items-center justify-center gap-3 w-full h-full bg-[#050505]">
-      <div className="relative w-full flex-1 min-h-0">
+    <div className="relative flex flex-col items-center justify-center gap-3 w-full h-full bg-[#050505] overflow-hidden">
+      <div className="relative w-full flex-1 min-h-0 overflow-hidden">
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <span className="text-sm font-medium text-white/70">
