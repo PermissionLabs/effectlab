@@ -62,6 +62,7 @@ import { reactParallax } from "./react-parallax";
 import { reactParallaxMouse } from "./react-parallax-mouse";
 import { swipeParallaxTransition } from "./swipe-parallax-transition";
 import { floatingReactions } from "./floating-reactions";
+import { dockBounce } from "./dock-bounce";
 import type { EffectDefinition } from "./types";
 
 export const effects: EffectDefinition[] = [
@@ -128,6 +129,7 @@ export const effects: EffectDefinition[] = [
   reactParallaxMouse,
   swipeParallaxTransition,
   floatingReactions,
+  dockBounce,
   rnAnimatedGlow,
 ];
 export const categories = [...new Set(effects.map((e) => e.category))];

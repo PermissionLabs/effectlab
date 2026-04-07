@@ -2,7 +2,7 @@
 
 > A curated showcase of visual effects for React. Each effect links to its original library.
 
-> Total effects: 64
+> Total effects: 65
 
 ---
 
@@ -3730,6 +3730,53 @@ export default function FloatingElements({ visible = true }) {
     </div>
   );
 }
+```
+
+---
+
+## Dock Bounce
+
+- **Slug**: dock-bounce
+- **Category**: interaction
+- **Description**: macOS dock-style attention bounce — elements spring up and down with squash-and-stretch physics. Perfect for notifications, highlights, and attention-grabbing UI.
+- **Library**: motion (motion)
+- **Library URL**: https://motion.dev
+- **Install type**: npm
+- **Bundle size**: 41.6 kB
+- **GitHub stars**: 31415
+- **Weekly downloads**: 9879561
+- **Last updated**: 2026-04
+- **Tags**: bounce, spring, animation, attention, interaction, notification, dock
+- **Keywords**: dock bounce, attention bounce, spring bounce, bounce animation, dock notification, macOS dock bounce, squash and stretch, spring physics bounce, bounce effect, attention animation, notification bounce, icon bounce, element bouncing up and down, spring up and settle, icon jumping, bouncy landing, elastic bounce, overshoot and settle, damped spring bounce, jelly bounce, notification attention, highlight element, new item bounce, dock icon bounce, app notification, badge bounce, alert animation, focus attention, call to action bounce, tab notification, unread indicator, active state bounce, 독 바운스, 통통 튀는 효과, 주목 애니메이션, 바운스 알림, 맥 독 바운스, 스프링 바운스, 튕기는 효과, 주의 끌기 애니메이션, 알림 바운스, 맥에서 독 아이콘 통통 튀는거, 알림오면 아이콘 튀는거, 뭔가 눌렀을때 통통 튀는, 주목시킬때 위아래로 튕기는, 독에서 노티오면 통통튀는거, 앱 아이콘이 점프하는, motion, useSpring, spring bounce, type spring, bounce parameter, damped oscillation, attention request
+
+### Install
+```bash
+bun add motion
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useAnimate } from "motion/react";
+
+export function useDockBounce() {
+  const [scope, animate] = useAnimate();
+
+  const bounce = async () => {
+    await animate(
+      scope.current,
+      { y: [0, -24, 0, -14, 0, -6, 0] },
+      { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+    );
+  };
+
+  return { scope, bounce };
+}
+
+// Usage:
+// const { scope, bounce } = useDockBounce();
+// <div ref={scope} onClick={bounce}>Bounce me</div>
 ```
 
 ---

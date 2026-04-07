@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo, useDeferredValue, useEffect } from "react";
+import { useState, useMemo, useDeferredValue, useEffect, useCallback } from "react";
+import { animate } from "motion";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import NumberFlow from "@number-flow/react";
 import { effects } from "@/effects/registry";
@@ -61,18 +62,22 @@ export default function EffectGrid() {
   const deferredQuery = useDeferredValue(query);
   const fuse = useMemo(() => createSearch(effects), []);
 
-  // Scroll to card on hash (e.g. #scroll-parallax)
+  // Scroll to card on hash + dock bounce highlight
   useEffect(() => {
     const hash = window.location.hash.slice(1);
     if (!hash) return;
-    // Wait for cards to render
     const timer = setTimeout(() => {
       const el = document.getElementById(hash);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "center" });
-        el.classList.add("ring-2", "ring-fg/30", "rounded-2xl");
-        setTimeout(() => el.classList.remove("ring-2", "ring-fg/30", "rounded-2xl"), 3000);
-      }
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      // Dock bounce after scroll settles
+      setTimeout(() => {
+        animate(
+          el,
+          { y: [0, -20, 0, -12, 0, -4, 0] },
+          { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+        );
+      }, 600);
     }, 500);
     return () => clearTimeout(timer);
   }, []);
