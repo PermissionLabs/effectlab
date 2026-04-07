@@ -6,7 +6,7 @@ import CodeViewer from "./CodeViewer";
 import { copyToClipboard } from "@/lib/utils";
 import { toast } from "sonner";
 import Skeleton from "react-loading-skeleton";
-import { RotateCw } from "lucide-react";
+import { RotateCw, Link2 } from "lucide-react";
 
 const overlayBtnCls =
   "px-2.5 py-1 rounded-lg text-[11px] font-medium bg-black/50 text-white/60 hover:text-white border border-white/10 backdrop-blur-xl transition-all";
@@ -61,7 +61,7 @@ export default memo(function EffectCard({ effect }: { effect: EffectDefinition }
   const size = effect.packageMeta?.bundleSize;
 
   return (
-    <div className="effect-card flex flex-col gap-3">
+    <div id={effect.slug} className="effect-card flex flex-col gap-3 scroll-mt-24">
       {/* Card */}
       <div
         ref={cardRef}
@@ -106,6 +106,20 @@ export default memo(function EffectCard({ effect }: { effect: EffectDefinition }
 
           {/* Hover action buttons */}
           <div className="absolute top-2.5 right-2.5 z-20 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+            <button
+              onClick={async (e) => {
+                e.stopPropagation();
+                const url = `${window.location.origin}${window.location.pathname}#${effect.slug}`;
+                await copyToClipboard(url);
+                toast.success("Link copied", {
+                  description: "Share this effect with anyone",
+                });
+              }}
+              className={`p-1.5 ${overlayBtnCls}`}
+              title="Copy link"
+            >
+              <Link2 size={14} />
+            </button>
             <button
               onClick={(e) => {
                 e.stopPropagation();

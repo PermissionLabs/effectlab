@@ -135,6 +135,7 @@
     "react-zoom-pan-pinch": "^3.7.0",
     "reactflow": "^11.11.4",
     "recharts": "^3.8.1",
+    "shaders": "^2.5.92",
     "shiki": "^4.0.2",
     "simple-parallax-js": "^6.3.3",
     "simplex-noise": "^4.0.3",

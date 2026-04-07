@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useDeferredValue } from "react";
+import { useState, useMemo, useDeferredValue, useEffect } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import NumberFlow from "@number-flow/react";
 import { effects } from "@/effects/registry";
@@ -60,6 +60,22 @@ export default function EffectGrid() {
 
   const deferredQuery = useDeferredValue(query);
   const fuse = useMemo(() => createSearch(effects), []);
+
+  // Scroll to card on hash (e.g. #scroll-parallax)
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    // Wait for cards to render
+    const timer = setTimeout(() => {
+      const el = document.getElementById(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        el.classList.add("ring-2", "ring-fg/30", "rounded-2xl");
+        setTimeout(() => el.classList.remove("ring-2", "ring-fg/30", "rounded-2xl"), 3000);
+      }
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const filtered = useMemo(() => {
     let results = effects;
