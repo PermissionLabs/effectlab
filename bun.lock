@@ -38,6 +38,7 @@
         "boring-avatars": "^2.0.4",
         "clsx": "^2.1.1",
         "cmdk": "^1.1.1",
+        "cursor-effects": "^1.0.18",
         "downshift": "^9.3.2",
         "embla-carousel-react": "^8.6.0",
         "flubber": "^0.4.2",
@@ -1335,6 +1336,8 @@
     "css-to-react-native": ["css-to-react-native@2.3.2", "", { "dependencies": { "camelize": "^1.0.0", "css-color-keywords": "^1.0.0", "postcss-value-parser": "^3.3.0" } }, "sha512-VOFaeZA053BqvvvqIA8c9n0+9vFppVBAHCp6JgFTtTMU3Mzi+XnelJ9XC9ul3BqFzZyQ5N+H0SnwsWT2Ebchxw=="],
 
     "csstype": ["csstype@3.2.3", "", {}, "sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ=="],
+
+    "cursor-effects": ["cursor-effects@1.0.18", "", {}, "sha512-GCmSfiuoBjcOq2e4IewxYvOTAjPVVy0MSxhiyQ1Rz+Obsy9mG5NAd4+utIPhu8RxvlrjjDD/d1XSFY0BL3fp7g=="],
 
     "custom-media-element": ["custom-media-element@1.4.6", "", {}, "sha512-/HRYqJOa1ob5ik4q7FIJVYxTJCFs/FL3+cQPAJjUf2uiqrDEzbTgB315gQ2rG8oK3w094W9m5tcB8S5Qah+caA=="],
 
