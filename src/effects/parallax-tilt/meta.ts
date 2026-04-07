@@ -24,6 +24,10 @@ export const meta = {
     "마우스 따라가기", "카드 회전", "부유 카드",
     // Technical
     "react-parallax-tilt", "tilt component", "npm parallax tilt",
+    // Natural language — how people actually describe it
+    "마우스 올리면 카드가 기울어지는", "호버하면 입체적으로 기울어지는",
+    "카드에 마우스 대면 3D로 움직이는", "마우스 따라 살짝 기울어지는",
+    "올려놓으면 반짝거리면서 기울어지는", "카드가 따라오는 느낌",
   ],
   library: {
     name: "react-parallax-tilt",

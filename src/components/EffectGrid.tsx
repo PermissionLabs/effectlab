@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo, useDeferredValue } from "react";
+import { useState, useMemo, useDeferredValue, useEffect } from "react";
+import { animate } from "motion";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import NumberFlow from "@number-flow/react";
 import { effects } from "@/effects/registry";
@@ -8,6 +9,7 @@ import { createSearch } from "@/lib/search";
 import type { EffectDefinition } from "@/effects/types";
 import SearchBar from "./ui/SearchBar";
 import EffectCard from "./EffectCard";
+import CompareView from "./CompareView";
 
 type SortKey = "default" | "stars" | "downloads" | "size";
 
@@ -54,10 +56,31 @@ export default function EffectGrid() {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [sortKey, setSortKey] = useState<SortKey>("default");
+  const [viewMode, setViewMode] = useState<"grid" | "compare">("grid");
   const [gridRef] = useAutoAnimate({ duration: 300 });
 
   const deferredQuery = useDeferredValue(query);
   const fuse = useMemo(() => createSearch(effects), []);
+
+  // Scroll to card on hash + dock bounce highlight
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const timer = setTimeout(() => {
+      const el = document.getElementById(hash);
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      // Dock bounce after scroll settles
+      setTimeout(() => {
+        animate(
+          el,
+          { y: [0, -20, 0, -12, 0, -4, 0] },
+          { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+        );
+      }, 600);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const filtered = useMemo(() => {
     let results = effects;
@@ -71,8 +94,21 @@ export default function EffectGrid() {
       {/* Tabs row */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <button className="text-[14px] font-semibold text-fg flex items-center gap-1.5">
+          <button
+            onClick={() => setViewMode("grid")}
+            className={`text-[14px] font-semibold flex items-center gap-1.5 transition-colors ${
+              viewMode === "grid" ? "text-fg" : "text-muted/50 hover:text-muted"
+            }`}
+          >
             <span>🔥</span> All Effects
+          </button>
+          <button
+            onClick={() => setViewMode("compare")}
+            className={`text-[14px] font-semibold flex items-center gap-1.5 transition-colors ${
+              viewMode === "compare" ? "text-fg" : "text-muted/50 hover:text-muted"
+            }`}
+          >
+            <span>⚖️</span> Compare
           </button>
           <span className="text-[14px] text-muted/50 font-mono tabular-nums">
             <NumberFlow value={filtered.length} /> libraries
@@ -126,13 +162,17 @@ export default function EffectGrid() {
       {/* Search */}
       <SearchBar value={query} onChange={setQuery} />
 
-      {/* Grid — auto-animated */}
+      {/* Grid or Compare view */}
       {filtered.length > 0 ? (
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {filtered.map((effect) => (
-            <EffectCard key={effect.slug} effect={effect} />
-          ))}
-        </div>
+        viewMode === "compare" ? (
+          <CompareView effects={filtered} />
+        ) : (
+          <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {filtered.map((effect) => (
+              <EffectCard key={effect.slug} effect={effect} />
+            ))}
+          </div>
+        )
       ) : (
         <div className="flex items-center justify-center py-32">
           <p className="text-muted/30 text-sm">No effects found</p>
