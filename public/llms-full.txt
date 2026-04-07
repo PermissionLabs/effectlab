@@ -6,50 +6,6 @@
 
 ---
 
-## Animated Glow
-
-- **Slug**: rn-animated-glow
-- **Category**: glow
-- **Description**: Multi-layer animated glow with presets (Rainbow, Ocean Sunset). Web recreation of react-native-animated-glow which uses Skia under the hood.
-- **Library**: react-native-animated-glow (react-native-animated-glow)
-- **Library URL**: https://reactnativeglow.com/
-- **Install type**: npm
-- **Bundle size**: 15 kB
-- **GitHub stars**: 200
-- **Weekly downloads**: 2000
-- **Last updated**: 2025-03
-- **Tags**: glow, border, gradient, animation, skia, preset, interactive
-- **Keywords**: animated glow, multi-layer glow, glow preset, rainbow glow, ocean sunset glow, skia glow, react native glow, glow border, rotating gradient border, neon glow, custom glow colors, hover glow state, press glow state, interactive glow, glow layers, glow behind, glow infront, button glow, card glow effect, premium glow, animated border glow, multi-color glow, gradient glow border, apple style glow, ios glow, performant glow, 글로우 이펙트, 애니메이션 글로우, 무지개 글로우, 네온 글로우, 글로우 프리셋, 보더 글로우, Skia 글로우, conic-gradient, css glow, web glow effect
-
-### Install
-```bash
-bun add react-native-animated-glow
-```
-
-### Usage
-```tsx
-// React Native usage (requires RN + Skia)
-import { AnimatedGlow, glowPresets } from 'react-native-animated-glow';
-
-export default function Example() {
-  return (
-    <AnimatedGlow
-      preset={glowPresets.defaultRainbow}
-      initialState="default"
-      style={{ borderRadius: 30 }}
-    >
-      <Text>Glowing Button</Text>
-    </AnimatedGlow>
-  );
-}
-
-// Web alternative (CSS recreation):
-// See the demo component for a pure CSS version
-// that recreates the glow presets for web projects.
-```
-
----
-
 ## Siri Orb
 
 - **Slug**: siri-orb
@@ -3696,11 +3652,11 @@ export default function SwipeParallax() {
 
 ---
 
-## Floating Reactions
+## Floating Elements
 
 - **Slug**: floating-reactions
-- **Category**: particle
-- **Description**: Live-stream style floating reactions — emojis rise from the bottom with a fade-in, gently bob in place, then quickly slide up and disappear. Seen in Instagram Live, TikTok, and chat apps.
+- **Category**: transition
+- **Description**: Decorative elements float up with a fade-in, gently bob in place while idle, then slide up and disappear on exit. Perfect for landing page icons, emoji decorations, and ambient visual accents.
 - **Library**: motion (motion)
 - **Library URL**: https://motion.dev
 - **Install type**: npm
@@ -3708,8 +3664,8 @@ export default function SwipeParallax() {
 - **GitHub stars**: 31415
 - **Weekly downloads**: 9879561
 - **Last updated**: 2026-04
-- **Tags**: emoji, reaction, float, animation, particle, interactive, transition
-- **Keywords**: floating reactions, floating emoji, live reactions, rising emoji, bubble reactions, emoji float up, live stream reactions, floating hearts, emoji bubbles, reaction animation, emoji rise fade, float up animation, emojis rising from bottom, hearts floating up, bubbles going up, fade in float up, gentle bobbing emoji, emoji slide up exit, reactions floating upward, soft rising particles, emoji entrance exit, instagram live hearts, tiktok reactions, chat reactions, live stream emoji, social media reactions, real-time reactions, audience reactions, like button animation, engagement animation, celebration emoji, feedback animation, interactive reactions, 플로팅 리액션, 떠오르는 이모지, 라이브 리액션, 이모지 올라가는, 플로팅 하트, 반응 애니메이션, 이모지 버블, 실시간 리액션, 떠다니는 이모지, 이모지가 밑에서 위로 올라오는, 하트가 둥둥 떠다니는, 밑에서 올라오면서 페이드인되는, 이모지가 떠있다가 위로 사라지는, 인스타 라이브처럼 하트 올라가는, 틱톡처럼 이모지 둥둥 뜨는, 밑에서 살짝 올라와서 둥둥 떠있는, 반응 누르면 이모지가 올라가는, motion, AnimatePresence, float animation, staggered entrance, opacity transition, y-axis animation
+- **Tags**: float, animation, transition, reveal, hover, scroll, interactive, emoji
+- **Keywords**: floating elements, float animation, floating icons, bobbing animation, hover float, gentle float, enter idle exit, reveal float, floating decoration, ambient animation, floating emoji, rising elements, elements rising from bottom, gentle bobbing in place, fade in float up, slide up and disappear, hovering elements, soft floating motion, entrance idle exit pattern, decorative floating, ambient floating icons, landing page decoration, hero floating icons, section reveal float, scroll reveal float, onboarding floating elements, product page accent, feature section emoji, ambient background decoration, idle animation, floating sticker, decorative reveal, page accent animation, 플로팅 요소, 떠다니는 아이콘, 둥둥 떠있는 애니메이션, 부유 효과, 플로팅 이모지, 장식 애니메이션, 등장 애니메이션, 유휴 애니메이션, 퇴장 애니메이션, 밑에서 올라오면서 나타나는, 둥둥 떠다니다가 사라지는, 살짝 올라와서 떠있는, 조건되면 위로 쓱 사라지는, 이모지가 떠있다가 올라가는, 아이콘이 둥둥 떠다니는, 나타나서 둥둥 떠있다가 사라지는, 스크롤하면 올라오는 아이콘, motion, whileInView, float animation, bob keyframes, staggered entrance, opacity transition, y-axis animation
 
 ### Install
 ```bash
@@ -3720,76 +3676,104 @@ bun add motion
 ```tsx
 "use client";
 
-import { useState, useCallback } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState } from "react";
+import { motion } from "motion/react";
 
-const EMOJIS = ["❤️", "🔥", "😂", "👏", "🎉", "✨"];
+const items = [
+  { emoji: "⚡", x: 15, y: 20, delay: 0 },
+  { emoji: "🎨", x: 70, y: 15, delay: 0.1 },
+  { emoji: "🚀", x: 40, y: 50, delay: 0.2 },
+  { emoji: "✨", x: 80, y: 55, delay: 0.05 },
+  { emoji: "💎", x: 25, y: 65, delay: 0.15 },
+];
 
-interface Reaction {
-  id: number;
-  emoji: string;
-  x: number;
-}
-
-let nextId = 0;
-
-export default function FloatingReactions() {
-  const [reactions, setReactions] = useState<Reaction[]>([]);
-
-  const addReaction = useCallback((emoji?: string) => {
-    const picked = emoji || EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
-    const x = 30 + Math.random() * 40;
-    const id = nextId++;
-
-    setReactions((prev) => [...prev, { id, emoji: picked, x }]);
-    setTimeout(() => {
-      setReactions((prev) => prev.filter((r) => r.id !== id));
-    }, 3000);
-  }, []);
-
+export default function FloatingElements({ visible = true }) {
   return (
-    <div className="relative w-full h-96 overflow-hidden bg-black">
-      {/* Floating reactions */}
-      <AnimatePresence>
-        {reactions.map((r) => (
-          <motion.div
-            key={r.id}
-            initial={{ opacity: 0, y: 40, scale: 0.5 }}
-            animate={{
-              opacity: [0, 1, 1, 0],
-              y: [40, -20, -40, -120],
-              scale: [0.5, 1.2, 1, 0.8],
-              x: [0, Math.random() * 20 - 10, Math.random() * 16 - 8, 0],
-            }}
-            transition={{
-              duration: 2.8,
-              times: [0, 0.2, 0.7, 1],
-              ease: "easeOut",
-            }}
-            className="absolute text-3xl pointer-events-none"
-            style={{ left: `${r.x}%`, bottom: "20%" }}
+    <div className="relative w-full h-96 overflow-hidden">
+      {items.map((item, i) => (
+        {/* Outer: enter/exit animation */}
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 30, scale: 0.5 }}
+          animate={
+            visible
+              ? { opacity: 1, y: 0, scale: 1 }
+              : { opacity: 0, y: -40, scale: 0.7 }
+          }
+          transition={{
+            duration: visible ? 0.6 : 0.35,
+            delay: visible ? item.delay : 0,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="absolute"
+          style={{ left: `${item.x}%`, top: `${item.y}%` }}
+        >
+          {/* Inner: idle bob animation */}
+          <motion.span
+            className="text-3xl block"
+            animate={visible ? { y: [0, -14, 0] } : { y: 0 }}
+            transition={
+              visible
+                ? {
+                    duration: 2 + i * 0.2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: item.delay + 0.6,
+                  }
+                : { duration: 0.2 }
+            }
           >
-            {r.emoji}
-          </motion.div>
-        ))}
-      </AnimatePresence>
-
-      {/* Trigger buttons */}
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-        {EMOJIS.map((emoji) => (
-          <button
-            key={emoji}
-            onClick={() => addReaction(emoji)}
-            className="w-10 h-10 rounded-full bg-white/10 text-lg
-                       hover:bg-white/20 transition-colors"
-          >
-            {emoji}
-          </button>
-        ))}
-      </div>
+            {item.emoji}
+          </motion.span>
+        </motion.div>
+      ))}
     </div>
   );
 }
+```
+
+---
+
+## Animated Glow Border
+
+- **Slug**: rn-animated-glow
+- **Category**: glow
+- **Description**: Rotating multi-color conic gradient border with layered glow. CSS-only implementation inspired by react-native-animated-glow (Skia). No external library required.
+- **Library**: CSS Pattern (self-implemented) (css-only)
+- **Library URL**: https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/conic-gradient
+- **Install type**: npm
+- **Bundle size**: 0 kB
+- **GitHub stars**: N/A
+- **Weekly downloads**: N/A
+- **Last updated**: 2026-04
+- **Tags**: glow, border, gradient, animation, preset, interactive
+- **Keywords**: animated glow, multi-layer glow, glow preset, rainbow glow, ocean sunset glow, glow border, rotating gradient border, neon glow, custom glow colors, interactive glow, button glow, card glow effect, premium glow, animated border glow, multi-color glow, gradient glow border, apple style glow, ios glow, apple intelligence glow, 글로우 이펙트, 애니메이션 글로우, 무지개 글로우, 네온 글로우, 글로우 프리셋, 보더 글로우, 회전하는 보더, conic-gradient, css glow, web glow effect
+
+### Install
+```bash
+bun add react-native-animated-glow
+```
+
+### Usage
+```tsx
+// React Native usage (requires RN + Skia)
+import { AnimatedGlow, glowPresets } from 'react-native-animated-glow';
+
+export default function Example() {
+  return (
+    <AnimatedGlow
+      preset={glowPresets.defaultRainbow}
+      initialState="default"
+      style={{ borderRadius: 30 }}
+    >
+      <Text>Glowing Button</Text>
+    </AnimatedGlow>
+  );
+}
+
+// Web alternative (CSS recreation):
+// See the demo component for a pure CSS version
+// that recreates the glow presets for web projects.
 ```
 
 ---

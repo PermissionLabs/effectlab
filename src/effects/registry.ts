@@ -65,7 +65,6 @@ import { floatingReactions } from "./floating-reactions";
 import type { EffectDefinition } from "./types";
 
 export const effects: EffectDefinition[] = [
-  rnAnimatedGlow,
   siriOrb,
   pixiGlowParticles,
   framerLayout,
@@ -129,6 +128,7 @@ export const effects: EffectDefinition[] = [
   reactParallaxMouse,
   swipeParallaxTransition,
   floatingReactions,
+  rnAnimatedGlow,
 ];
 export const categories = [...new Set(effects.map((e) => e.category))];
 export const allTags = [...new Set(effects.flatMap((e) => e.tags))].sort();
