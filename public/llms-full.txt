@@ -2,7 +2,7 @@
 
 > A curated showcase of visual effects for React. Each effect links to its original library.
 
-> Total effects: 59
+> Total effects: 64
 
 ---
 
@@ -367,7 +367,7 @@ export default function AutoAnimateDemo() {
 - **Weekly downloads**: 200000
 - **Last updated**: 2024-09
 - **Tags**: parallax, scroll, animation, depth, layer, interactive
-- **Keywords**: scroll parallax, parallax scrolling, depth effect, scroll animation, layered scroll, parallax effect, multi layer parallax, scroll depth, parallax layers, smooth parallax, scroll driven animation, parallax section, floating layers, depth illusion, layered movement, speed differential, foreground background, 3d scroll, immersive scroll, visual depth, moving layers, hero parallax, landing page parallax, storytelling scroll, portfolio parallax, product showcase scroll, scroll experience, onboarding scroll, narrative scroll, interactive scroll page, scroll reveal layers, scroll storytelling, immersive landing, 스크롤 패럴랙스, 패럴랙스 스크롤, 깊이 효과, 스크롤 애니메이션, 레이어 스크롤, 시차 효과, 패럴랙스 효과, 다층 스크롤, 스크롤 깊이감, 몰입형 스크롤, 시차 스크롤링, react-scroll-parallax, ParallaxProvider, Parallax component, parallax speed, scroll offset, parallax banner
+- **Keywords**: scroll parallax, parallax scrolling, depth effect, scroll animation, layered scroll, parallax effect, multi layer parallax, scroll depth, parallax layers, smooth parallax, scroll driven animation, parallax section, floating layers, depth illusion, layered movement, speed differential, foreground background, 3d scroll, immersive scroll, visual depth, moving layers, hero parallax, landing page parallax, storytelling scroll, portfolio parallax, product showcase scroll, scroll experience, onboarding scroll, narrative scroll, interactive scroll page, scroll reveal layers, scroll storytelling, immersive landing, 스크롤 패럴랙스, 패럴랙스 스크롤, 깊이 효과, 스크롤 애니메이션, 레이어 스크롤, 시차 효과, 패럴랙스 효과, 다층 스크롤, 스크롤 깊이감, 몰입형 스크롤, 시차 스크롤링, react-scroll-parallax, ParallaxProvider, Parallax component, parallax speed, scroll offset, parallax banner, 스크롤하면 뒤에것도 움직이는, 배경이 느리게 따라오는, 스크롤할때 겹겹이 움직이는, 위아래로 넘기면 뒤에가 느린, 스크롤하면 앞뒤 속도가 다른, 배경이랑 앞에가 따로 움직이는
 
 ### Install
 ```bash
@@ -478,7 +478,7 @@ export default function Typewriter() {
 - **Weekly downloads**: 120000
 - **Last updated**: 2025-04
 - **Tags**: 3d, tilt, parallax, hover, card, interactive
-- **Keywords**: 3d card, tilt effect, parallax card, hover tilt, card tilt, 3d hover, interactive card, perspective card, glare effect, tilt on hover, mouse follow, gyroscope tilt, card rotation, depth effect, 3d transform, tilt animation, floating card, card with depth, tilting element, glossy card, shine effect, reflection card, glass card hover, pricing card, team member card, portfolio card, product card, feature card hover, testimonial card, NFT card, dashboard widget, profile card 3d, hero card effect, 3D 카드, 틸트 효과, 패럴랙스, 호버 틸트, 카드 기울기, 3D 호버 효과, 인터랙티브 카드, 원근감 카드, 글레어 효과, 마우스 따라가기, 카드 회전, 부유 카드, react-parallax-tilt, tilt component, npm parallax tilt
+- **Keywords**: 3d card, tilt effect, parallax card, hover tilt, card tilt, 3d hover, interactive card, perspective card, glare effect, tilt on hover, mouse follow, gyroscope tilt, card rotation, depth effect, 3d transform, tilt animation, floating card, card with depth, tilting element, glossy card, shine effect, reflection card, glass card hover, pricing card, team member card, portfolio card, product card, feature card hover, testimonial card, NFT card, dashboard widget, profile card 3d, hero card effect, 3D 카드, 틸트 효과, 패럴랙스, 호버 틸트, 카드 기울기, 3D 호버 효과, 인터랙티브 카드, 원근감 카드, 글레어 효과, 마우스 따라가기, 카드 회전, 부유 카드, react-parallax-tilt, tilt component, npm parallax tilt, 마우스 올리면 카드가 기울어지는, 호버하면 입체적으로 기울어지는, 카드에 마우스 대면 3D로 움직이는, 마우스 따라 살짝 기울어지는, 올려놓으면 반짝거리면서 기울어지는, 카드가 따라오는 느낌
 
 ### Install
 ```bash
@@ -3387,7 +3387,7 @@ export default function StatsCounter() {
 - **Weekly downloads**: 1331
 - **Last updated**: 2023-03
 - **Tags**: parallax, scroll, mouse, animation, depth
-- **Keywords**: parallax effect, mouse parallax, scroll parallax, depth effect, layered parallax, floating elements, 3d depth, perspective effect, mouse tracking, cursor parallax, parallax layers, depth composition, floating shapes, mouse-driven animation, interactive depth, hero parallax, landing page parallax, parallax background, mouse follow effect, interactive background, parallax section, scroll animation, depth hover effect, layered hero, parallax portfolio, creative parallax, immersive parallax, 패럴랙스 효과, 마우스 패럴랙스, 스크롤 패럴랙스, 깊이 효과, 마우스 추적, 레이어 애니메이션, 인터랙티브 배경, 시차 효과, 마우스 반응 효과, 패럴랙스 레이어, 3D 깊이 효과, react-just-parallax, npm react-just-parallax, MouseParallax, ScrollParallax, react parallax library, mouse move parallax react
+- **Keywords**: parallax effect, mouse parallax, scroll parallax, depth effect, layered parallax, floating elements, 3d depth, perspective effect, mouse tracking, cursor parallax, parallax layers, depth composition, floating shapes, mouse-driven animation, interactive depth, hero parallax, landing page parallax, parallax background, mouse follow effect, interactive background, parallax section, scroll animation, depth hover effect, layered hero, parallax portfolio, creative parallax, immersive parallax, 패럴랙스 효과, 마우스 패럴랙스, 스크롤 패럴랙스, 깊이 효과, 마우스 추적, 레이어 애니메이션, 인터랙티브 배경, 시차 효과, 마우스 반응 효과, 패럴랙스 레이어, 3D 깊이 효과, react-just-parallax, npm react-just-parallax, MouseParallax, ScrollParallax, react parallax library, mouse move parallax react, 마우스 움직이면 배경이 살짝 따라오는, 커서 따라 뒤에가 움직이는, 마우스 대면 레이어가 둥둥 떠다니는, 포인터 따라 배경이 미세하게 반응하는, 마우스로 화면이 약간씩 움직이는, 커서 위치에 따라 흔들리는
 
 ### Install
 ```bash
@@ -3460,6 +3460,333 @@ export default function ParallaxScene() {
           }}
         />
       </MouseParallax>
+    </div>
+  );
+}
+```
+
+---
+
+## Simple Parallax
+
+- **Slug**: simple-parallax-js
+- **Category**: scroll
+- **Description**: Lightweight image parallax effect that applies smooth CSS transforms to images on scroll. Zero dependencies, works with any img element.
+- **Library**: simple-parallax-js (simple-parallax-js)
+- **Library URL**: https://simpleparallax.com
+- **Install type**: npm
+- **Bundle size**: 3.6 kB
+- **GitHub stars**: 1800
+- **Weekly downloads**: 35400
+- **Last updated**: 2025-09
+- **Tags**: parallax, scroll, image, animation, transform, lightweight
+- **Keywords**: simple parallax, image parallax, scroll parallax image, parallax scrolling, parallax effect, lightweight parallax, css transform parallax, image scroll effect, parallax background, smooth parallax, scroll driven animation, parallax section, floating image, depth illusion, image movement, scroll transform, sliding image, image offset scroll, viewport parallax, visual depth, image shift, hero image parallax, landing page parallax, product image scroll, portfolio parallax image, background parallax, photo parallax, gallery parallax, image showcase scroll, visual storytelling, 심플 패럴랙스, 이미지 패럴랙스, 스크롤 이미지 효과, 패럴랙스 스크롤링, 이미지 스크롤, 가벼운 패럴랙스, 이미지 변환 효과, 스크롤 패럴랙스 이미지, 시차 이미지, simple-parallax-js, simpleParallax, image transform scroll, parallax orientation, overflow hidden parallax, scale parallax, 스크롤하면 이미지가 천천히 올라오는, 사진이 스크롤보다 느리게 움직이는, 이미지가 고정된것처럼 천천히 지나가는, 스크롤할때 사진이 살짝 밀리는, 배경사진이 느리게 따라오는, 이미지가 떠있는것처럼 스크롤되는
+
+### Install
+```bash
+bun add simple-parallax-js
+```
+
+### Usage
+```tsx
+"use client";
+
+import SimpleParallax from "simple-parallax-js";
+
+export default function ParallaxImage() {
+  return (
+    <SimpleParallax scale={1.5} orientation="down" overflow>
+      <img
+        src="/your-image.jpg"
+        alt="Parallax"
+        className="w-full h-auto rounded-xl"
+      />
+    </SimpleParallax>
+  );
+}
+```
+
+---
+
+## React Parallax
+
+- **Slug**: react-parallax
+- **Category**: scroll
+- **Description**: Classic background parallax sections with configurable scroll strength, blur effects, and multi-layer support. Perfect for hero banners and landing pages.
+- **Library**: react-parallax (react-parallax)
+- **Library URL**: https://github.com/rrutsche/react-parallax
+- **Install type**: npm
+- **Bundle size**: 4.1 kB
+- **GitHub stars**: 871
+- **Weekly downloads**: 10100
+- **Last updated**: 2025-03
+- **Tags**: parallax, scroll, background, hero, animation, section
+- **Keywords**: react parallax, background parallax, parallax hero, parallax section, scroll parallax background, parallax banner, hero parallax, background scroll effect, parallax container, landing page parallax, section parallax, background depth, background movement, hero depth, scroll background shift, layered background, depth background, moving background, fixed background scroll, background offset, visual depth section, hero banner parallax, product landing parallax, fullscreen parallax, portfolio hero, marketing page parallax, showcase parallax, story section parallax, immersive hero, scroll section effect, 리액트 패럴랙스, 배경 패럴랙스, 히어로 패럴랙스, 패럴랙스 섹션, 배경 스크롤 효과, 랜딩페이지 패럴랙스, 패럴랙스 배너, 섹션 패럴랙스, 배경 깊이 효과, react-parallax, Parallax component, bgImage, parallax strength, blur parallax, parallax renderLayer, 배경이미지가 고정되면서 느리게 움직이는, 히어로 배경이 스크롤보다 느린, 배경 깔고 스크롤하면 뒤에가 천천히, 풀스크린 배경이 살짝만 움직이는, 랜딩페이지 배경이 따로 움직이는, 배경화면이 느리게 지나가는
+
+### Install
+```bash
+bun add react-parallax
+```
+
+### Usage
+```tsx
+"use client";
+
+import { Parallax } from "react-parallax";
+
+export default function HeroParallax() {
+  return (
+    <Parallax
+      bgImage="/hero-background.jpg"
+      strength={400}
+      blur={{ min: -1, max: 3 }}
+    >
+      <div className="h-screen flex items-center justify-center">
+        <h1 className="text-white text-5xl font-bold">
+          Your Hero Content
+        </h1>
+      </div>
+    </Parallax>
+  );
+}
+```
+
+---
+
+## Parallax Mouse
+
+- **Slug**: react-parallax-mouse
+- **Category**: interaction
+- **Description**: Mouse cursor-driven parallax layers where elements follow your cursor at different speeds, creating a fluid depth effect. Lightweight and easy to set up.
+- **Library**: react-parallax-mouse (react-parallax-mouse)
+- **Library URL**: https://github.com/nicobrinkkemper/react-parallax-mouse
+- **Install type**: npm
+- **Bundle size**: 1.8 kB
+- **GitHub stars**: 150
+- **Weekly downloads**: 5360
+- **Last updated**: 2023-11
+- **Tags**: parallax, mouse, cursor, depth, animation, interactive, hover
+- **Keywords**: mouse parallax, cursor parallax, parallax mouse movement, mouse driven parallax, cursor depth effect, mouse tracking parallax, interactive parallax, pointer parallax, mouse follow effect, cursor driven layers, mouse position parallax, hover parallax, floating layers mouse, depth cursor movement, layered mouse effect, mouse responsive layers, cursor depth layers, interactive depth, fluid movement, mouse reactive, cursor tracking layers, hero mouse parallax, interactive landing page, mouse hover depth, portfolio mouse effect, card hover parallax, product showcase mouse, interactive background, mouse driven hero, cursor interactive page, 마우스 패럴랙스, 커서 패럴랙스, 마우스 추적 효과, 마우스 깊이 효과, 커서 따라가기, 인터랙티브 패럴랙스, 마우스 반응형 레이어, 커서 기반 깊이, 마우스 움직임 효과, react-parallax-mouse, MouseParallaxContainer, MouseParallaxChild, factorX, factorY, mouse factor parallax, cursor offset layers, 마우스 움직이면 요소들이 따라오는, 커서에 반응해서 떠다니는, 마우스 따라 앞뒤가 다른 속도로 움직이는, 포인터 따라 레이어가 흔들리는, 마우스로 입체감 나는, 커서 움직이면 배경이 약간 밀리는
+
+### Install
+```bash
+bun add react-parallax-mouse
+```
+
+### Usage
+```tsx
+"use client";
+
+import {
+  MouseParallaxContainer,
+  MouseParallaxChild,
+} from "react-parallax-mouse";
+
+export default function MouseParallax() {
+  return (
+    <MouseParallaxContainer
+      globalFactorX={0.3}
+      globalFactorY={0.3}
+      className="relative w-full h-screen overflow-hidden"
+    >
+      {/* Background — moves slowly */}
+      <MouseParallaxChild factorX={0.03} factorY={0.03} className="absolute inset-0 flex items-center justify-center">
+        <div className="w-96 h-96 rounded-full bg-purple-500/15 blur-3xl" />
+      </MouseParallaxChild>
+
+      {/* Foreground — moves faster */}
+      <MouseParallaxChild factorX={0.1} factorY={0.1} className="absolute inset-0 flex items-center justify-center">
+        <h1 className="text-white text-4xl font-bold">Move your mouse</h1>
+      </MouseParallaxChild>
+    </MouseParallaxContainer>
+  );
+}
+```
+
+---
+
+## Swipe Parallax Transition
+
+- **Slug**: swipe-parallax-transition
+- **Category**: transition
+- **Description**: iOS-style page transition where foreground and background layers move at different speeds during swipe, creating a natural depth parallax effect. Powered by Motion.
+- **Library**: motion (motion)
+- **Library URL**: https://motion.dev
+- **Install type**: npm
+- **Bundle size**: 41.6 kB
+- **GitHub stars**: 31415
+- **Weekly downloads**: 9879561
+- **Last updated**: 2026-04
+- **Tags**: parallax, swipe, transition, page, animation, depth, gesture, interactive
+- **Keywords**: swipe parallax, page transition parallax, iOS transition, swipe page effect, parallax page transition, slide parallax, page swipe depth, transition depth effect, swipe animation, slide transition parallax, layered page transition, iOS page swipe, foreground background speed, layer speed difference, depth transition, sliding layers, parallax slide, differential scrolling, page slide depth, smooth page parallax, natural depth swipe, onboarding swipe, gallery transition, product carousel parallax, app intro parallax, walkthrough parallax, story swipe, card stack parallax, page navigation parallax, swipe gallery, mobile page transition, app screen transition, carousel parallax, 스와이프 패럴랙스, 페이지 전환 패럴랙스, iOS 전환 효과, 스와이프 전환, 패럴랙스 페이지 전환, 슬라이드 패럴랙스, 깊이감 전환, 레이어 속도차 전환, 아이폰 스와이프 효과, 패럴랙스 슬라이드, 화면 전환 깊이, 스와이프 깊이 효과, motion, AnimatePresence, drag gesture, swipe gesture, page transition animation, parallax offset, layer velocity, 넘기면 뒤에것도 같이 움직이는데 느리게, 화면 전환할때 배경이 따라오는, 스와이프하면 앞뒤 속도가 다른, 페이지 넘기면 뒤에가 천천히 따라오는, 아이폰처럼 옆으로 밀면 배경도 움직이는, 슬라이드할때 레이어별로 속도 다른
+
+### Install
+```bash
+bun add motion
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+
+const pages = [
+  { bg: "#1e1b4b", title: "Welcome" },
+  { bg: "#1a2e1a", title: "Features" },
+  { bg: "#2a1a1a", title: "Get Started" },
+];
+
+// Background moves at 40% of foreground speed — the parallax
+const BG_FACTOR = 0.4;
+
+export default function SwipeParallax() {
+  const [[current, direction], setCurrent] = useState([0, 0]);
+
+  const paginate = (dir: number) => {
+    setCurrent(([prev]) => {
+      const next = prev + dir;
+      if (next < 0 || next >= pages.length) return [prev, 0];
+      return [next, dir];
+    });
+  };
+
+  return (
+    <div className="relative w-full h-screen overflow-hidden">
+      <AnimatePresence initial={false} custom={direction} mode="popLayout">
+        {/* Background — moves slower (parallax) */}
+        <motion.div
+          key={`bg-${current}`}
+          custom={direction}
+          initial={(d: number) => ({ x: `${d * 100 * BG_FACTOR}%` })}
+          animate={{ x: "0%" }}
+          exit={(d: number) => ({ x: `${d * -100 * BG_FACTOR}%` })}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          className="absolute inset-0"
+          style={{ backgroundColor: pages[current].bg }}
+        />
+
+        {/* Foreground — moves at full speed */}
+        <motion.div
+          key={`fg-${current}`}
+          custom={direction}
+          initial={(d: number) => ({ x: `${d * 100}%` })}
+          animate={{ x: "0%" }}
+          exit={(d: number) => ({ x: `${d * -100}%` })}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.3}
+          onDragEnd={(_e, info) => {
+            if (info.offset.x < -50) paginate(1);
+            else if (info.offset.x > 50) paginate(-1);
+          }}
+          className="absolute inset-0 flex items-center justify-center"
+        >
+          <h1 className="text-white text-4xl font-bold">
+            {pages[current].title}
+          </h1>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
+```
+
+---
+
+## Floating Reactions
+
+- **Slug**: floating-reactions
+- **Category**: particle
+- **Description**: Live-stream style floating reactions — emojis rise from the bottom with a fade-in, gently bob in place, then quickly slide up and disappear. Seen in Instagram Live, TikTok, and chat apps.
+- **Library**: motion (motion)
+- **Library URL**: https://motion.dev
+- **Install type**: npm
+- **Bundle size**: 41.6 kB
+- **GitHub stars**: 31415
+- **Weekly downloads**: 9879561
+- **Last updated**: 2026-04
+- **Tags**: emoji, reaction, float, animation, particle, interactive, transition
+- **Keywords**: floating reactions, floating emoji, live reactions, rising emoji, bubble reactions, emoji float up, live stream reactions, floating hearts, emoji bubbles, reaction animation, emoji rise fade, float up animation, emojis rising from bottom, hearts floating up, bubbles going up, fade in float up, gentle bobbing emoji, emoji slide up exit, reactions floating upward, soft rising particles, emoji entrance exit, instagram live hearts, tiktok reactions, chat reactions, live stream emoji, social media reactions, real-time reactions, audience reactions, like button animation, engagement animation, celebration emoji, feedback animation, interactive reactions, 플로팅 리액션, 떠오르는 이모지, 라이브 리액션, 이모지 올라가는, 플로팅 하트, 반응 애니메이션, 이모지 버블, 실시간 리액션, 떠다니는 이모지, 이모지가 밑에서 위로 올라오는, 하트가 둥둥 떠다니는, 밑에서 올라오면서 페이드인되는, 이모지가 떠있다가 위로 사라지는, 인스타 라이브처럼 하트 올라가는, 틱톡처럼 이모지 둥둥 뜨는, 밑에서 살짝 올라와서 둥둥 떠있는, 반응 누르면 이모지가 올라가는, motion, AnimatePresence, float animation, staggered entrance, opacity transition, y-axis animation
+
+### Install
+```bash
+bun add motion
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState, useCallback } from "react";
+import { motion, AnimatePresence } from "motion/react";
+
+const EMOJIS = ["❤️", "🔥", "😂", "👏", "🎉", "✨"];
+
+interface Reaction {
+  id: number;
+  emoji: string;
+  x: number;
+}
+
+let nextId = 0;
+
+export default function FloatingReactions() {
+  const [reactions, setReactions] = useState<Reaction[]>([]);
+
+  const addReaction = useCallback((emoji?: string) => {
+    const picked = emoji || EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+    const x = 30 + Math.random() * 40;
+    const id = nextId++;
+
+    setReactions((prev) => [...prev, { id, emoji: picked, x }]);
+    setTimeout(() => {
+      setReactions((prev) => prev.filter((r) => r.id !== id));
+    }, 3000);
+  }, []);
+
+  return (
+    <div className="relative w-full h-96 overflow-hidden bg-black">
+      {/* Floating reactions */}
+      <AnimatePresence>
+        {reactions.map((r) => (
+          <motion.div
+            key={r.id}
+            initial={{ opacity: 0, y: 40, scale: 0.5 }}
+            animate={{
+              opacity: [0, 1, 1, 0],
+              y: [40, -20, -40, -120],
+              scale: [0.5, 1.2, 1, 0.8],
+              x: [0, Math.random() * 20 - 10, Math.random() * 16 - 8, 0],
+            }}
+            transition={{
+              duration: 2.8,
+              times: [0, 0.2, 0.7, 1],
+              ease: "easeOut",
+            }}
+            className="absolute text-3xl pointer-events-none"
+            style={{ left: `${r.x}%`, bottom: "20%" }}
+          >
+            {r.emoji}
+          </motion.div>
+        ))}
+      </AnimatePresence>
+
+      {/* Trigger buttons */}
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+        {EMOJIS.map((emoji) => (
+          <button
+            key={emoji}
+            onClick={() => addReaction(emoji)}
+            className="w-10 h-10 rounded-full bg-white/10 text-lg
+                       hover:bg-white/20 transition-colors"
+          >
+            {emoji}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

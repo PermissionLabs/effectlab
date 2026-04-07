@@ -57,6 +57,11 @@ import { lottiefilesDotlottieReact } from "./lottiefiles-dotlottie-react";
 import { granim } from "./granim";
 import { reactAnimatedNumbers } from "./react-animated-numbers";
 import { reactJustParallax } from "./react-just-parallax";
+import { simpleParallaxJs } from "./simple-parallax-js";
+import { reactParallax } from "./react-parallax";
+import { reactParallaxMouse } from "./react-parallax-mouse";
+import { swipeParallaxTransition } from "./swipe-parallax-transition";
+import { floatingReactions } from "./floating-reactions";
 import type { EffectDefinition } from "./types";
 
 export const effects: EffectDefinition[] = [
@@ -119,6 +124,11 @@ export const effects: EffectDefinition[] = [
   granim,
   reactAnimatedNumbers,
   reactJustParallax,
+  simpleParallaxJs,
+  reactParallax,
+  reactParallaxMouse,
+  swipeParallaxTransition,
+  floatingReactions,
 ];
 export const categories = [...new Set(effects.map((e) => e.category))];
 export const allTags = [...new Set(effects.flatMap((e) => e.tags))].sort();

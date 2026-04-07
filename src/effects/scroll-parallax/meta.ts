@@ -28,6 +28,10 @@ export const meta = {
     // Technical
     "react-scroll-parallax", "ParallaxProvider", "Parallax component",
     "parallax speed", "scroll offset", "parallax banner",
+    // Natural language — how people actually describe it
+    "스크롤하면 뒤에것도 움직이는", "배경이 느리게 따라오는",
+    "스크롤할때 겹겹이 움직이는", "위아래로 넘기면 뒤에가 느린",
+    "스크롤하면 앞뒤 속도가 다른", "배경이랑 앞에가 따로 움직이는",
   ],
   library: {
     name: "react-scroll-parallax",

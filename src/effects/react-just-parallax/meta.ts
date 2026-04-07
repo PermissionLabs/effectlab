@@ -23,6 +23,10 @@ export const meta = {
     // Technical
     "react-just-parallax", "npm react-just-parallax", "MouseParallax",
     "ScrollParallax", "react parallax library", "mouse move parallax react",
+    // Natural language — how people actually describe it
+    "마우스 움직이면 배경이 살짝 따라오는", "커서 따라 뒤에가 움직이는",
+    "마우스 대면 레이어가 둥둥 떠다니는", "포인터 따라 배경이 미세하게 반응하는",
+    "마우스로 화면이 약간씩 움직이는", "커서 위치에 따라 흔들리는",
   ],
   library: {
     name: "react-just-parallax",
