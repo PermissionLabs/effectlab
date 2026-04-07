@@ -45,6 +45,18 @@ import { partycles } from "./partycles";
 import { particleMorph } from "./particle-morph";
 import { reactMovingText } from "./react-moving-text";
 import { reactFlipToolkit } from "./react-flip-toolkit";
+import { useScramble } from "./use-scramble";
+import { flubber } from "./flubber";
+import { theatreCore } from "./theatre-core";
+import { riveAppReactCanvas } from "./rive-app-react-canvas";
+import { splinetoolReactSpline } from "./splinetool-react-spline";
+import { atropos } from "./atropos";
+import { reactConfettiExplosion } from "./react-confetti-explosion";
+import { vivus } from "./vivus";
+import { lottiefilesDotlottieReact } from "./lottiefiles-dotlottie-react";
+import { granim } from "./granim";
+import { reactAnimatedNumbers } from "./react-animated-numbers";
+import { reactJustParallax } from "./react-just-parallax";
 import type { EffectDefinition } from "./types";
 
 export const effects: EffectDefinition[] = [
@@ -95,6 +107,18 @@ export const effects: EffectDefinition[] = [
   particleMorph,
   reactMovingText,
   reactFlipToolkit,
+  useScramble,
+  flubber,
+  theatreCore,
+  riveAppReactCanvas,
+  splinetoolReactSpline,
+  atropos,
+  reactConfettiExplosion,
+  vivus,
+  lottiefilesDotlottieReact,
+  granim,
+  reactAnimatedNumbers,
+  reactJustParallax,
 ];
 export const categories = [...new Set(effects.map((e) => e.category))];
 export const allTags = [...new Set(effects.flatMap((e) => e.tags))].sort();

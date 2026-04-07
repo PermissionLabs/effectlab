@@ -2,7 +2,7 @@
 
 > A curated showcase of visual effects for React. Each effect links to its original library.
 
-> Total effects: 47
+> Total effects: 59
 
 ---
 
@@ -2673,6 +2673,794 @@ export default function FlipDemo() {
         ))}
       </div>
     </Flipper>
+  );
+}
+```
+
+---
+
+## Text Scramble
+
+- **Slug**: use-scramble
+- **Category**: text
+- **Description**: Matrix-style text scramble and decode animation. Characters randomize and resolve into the target string, creating a hacker/cyberpunk reveal effect. Powered by use-scramble.
+- **Library**: use-scramble (use-scramble)
+- **Library URL**: https://github.com/tol-is/use-scramble
+- **Install type**: npm
+- **Bundle size**: 1.5 kB
+- **GitHub stars**: 500
+- **Weekly downloads**: 10000
+- **Last updated**: 2024-06
+- **Tags**: text, scramble, decode, animation, matrix
+- **Keywords**: text scramble, scramble effect, decode animation, text decode, matrix text, hacker text, cyber text, glitch text, text reveal, character scramble, letter scramble, text shuffle, randomize text, text morph, cryptic text, cipher animation, characters randomizing, text resolving, letters shuffling, matrix rain text, terminal decode, cyberpunk text, encrypted text reveal, code breaking animation, hero text scramble, landing page effect, title animation, heading reveal, name reveal, tagline scramble, loading text scramble, hover scramble, interactive text, 텍스트 스크램블, 디코드 애니메이션, 해킹 텍스트, 매트릭스 효과, 글리치 텍스트, 문자 셔플, 텍스트 해독, 사이버펑크 텍스트, 암호 해독 애니메이션, 텍스트 변환, 글자 랜덤, 타이틀 효과, use-scramble, useScramble hook, npm use-scramble, react text scramble, react scramble hook
+
+### Install
+```bash
+npm install use-scramble
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useScramble } from "use-scramble";
+import { useEffect, useState } from "react";
+
+const phrases = ["HELLO WORLD", "WELCOME", "LET'S BUILD"];
+
+export default function ScrambleText() {
+  const [index, setIndex] = useState(0);
+
+  const { ref, replay } = useScramble({
+    text: phrases[index],
+    speed: 0.6,
+    tick: 1,
+    step: 1,
+    scramble: 4,
+    seed: 2,
+  });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % phrases.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    replay();
+  }, [index, replay]);
+
+  return (
+    <p
+      ref={ref}
+      style={{
+        fontSize: "2.5rem",
+        fontWeight: 700,
+        color: "#ffffff",
+        fontFamily: "monospace",
+      }}
+    />
+  );
+}
+```
+
+---
+
+## Flubber
+
+- **Slug**: flubber
+- **Category**: transition
+- **Description**: Organic SVG shape morphing with smooth interpolation between arbitrary paths — circles, stars, hearts, and more
+- **Library**: flubber (flubber)
+- **Library URL**: https://github.com/veltman/flubber
+- **Install type**: npm
+- **Bundle size**: 8.2 kB
+- **GitHub stars**: 6400
+- **Weekly downloads**: 18000
+- **Last updated**: 2022-05
+- **Tags**: morphing, svg, shape, interpolation, animation, transition
+- **Keywords**: shape morphing, SVG morph, path interpolation, shape transition, organic morphing, smooth morphing, fluid shape, shape animation, path animation, geometry transition, shape shifting, blob morph, circle to star, shape tween, vector morphing, path morph, shape interpolation, SVG path animation, morphing shapes, seamless shape transition, polygon morph, star morph, loading animation, hero animation, interactive shape, generative art, data visualization transition, logo morph, icon animation, creative transition, geometric animation, 모핑, 형태변환, SVG, 쉐이프, 보간, 도형 변환, 경로 애니메이션, 벡터 모핑, 유기적 모핑, 부드러운 전환, 형상 보간, flubber, flubber.js, SVG path interpolation, d3 shape morph, requestAnimationFrame SVG
+
+### Install
+```bash
+bun add flubber @types/flubber
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { interpolate } from "flubber";
+
+const circle = "M 50,0 A 50,50 0 1,1 50,100 A 50,50 0 1,1 50,0 Z";
+const star =
+  "M 50,0 L 61,35 L 98,35 L 68,57 L 79,91 L 50,70 L 21,91 L 32,57 L 2,35 L 39,35 Z";
+const triangle = "M 50,0 L 100,87 L 0,87 Z";
+const heart =
+  "M 50,90 C 25,70 0,50 0,30 A 25,25 0 0,1 50,30 A 25,25 0 0,1 100,30 C 100,50 75,70 50,90 Z";
+
+const shapes = [circle, star, triangle, heart];
+
+export default function FlubberDemo() {
+  const [shapeIndex, setShapeIndex] = useState(0);
+  const pathRef = useRef<SVGPathElement>(null);
+  const tRef = useRef(0);
+  const interpRef = useRef<((t: number) => string) | null>(null);
+
+  useEffect(() => {
+    const from = shapes[shapeIndex];
+    const to = shapes[(shapeIndex + 1) % shapes.length];
+    interpRef.current = interpolate(from, to, { maxSegmentLength: 2 });
+
+    let raf: number;
+    tRef.current = 0;
+
+    function tick() {
+      tRef.current += 0.015;
+      if (tRef.current >= 1) {
+        setShapeIndex((i) => (i + 1) % shapes.length);
+        return;
+      }
+      if (pathRef.current && interpRef.current) {
+        pathRef.current.setAttribute("d", interpRef.current(tRef.current));
+      }
+      raf = requestAnimationFrame(tick);
+    }
+
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [shapeIndex]);
+
+  return (
+    <svg viewBox="0 0 100 100" width={200} height={200}>
+      <defs>
+        <linearGradient id="morph-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#a855f7" />
+          <stop offset="100%" stopColor="#06b6d4" />
+        </linearGradient>
+      </defs>
+      <path ref={pathRef} d={shapes[0]} fill="url(#morph-grad)" />
+    </svg>
+  );
+}
+```
+
+---
+
+## Theatre.js
+
+- **Slug**: theatre-core
+- **Category**: transition
+- **Description**: Motion design editor and animation library for precise, timeline-based choreography — sequence complex multi-property animations with programmatic or visual control.
+- **Library**: @theatre/core (@theatre/core)
+- **Library URL**: https://www.theatrejs.com
+- **Install type**: npm
+- **Bundle size**: 48 kB
+- **GitHub stars**: 11600
+- **Weekly downloads**: 25000
+- **Last updated**: 2024-10
+- **Tags**: Theatre.js, timeline, sequencer, choreography, motion design, keyframe, animation
+- **Keywords**: Theatre.js, theatre, timeline animation, sequencer, keyframe animation, choreography, motion design, orchestrated animation, multi-element animation, coordinated motion, property animation, programmatic animation, cinematic animation, scene animation, complex sequence, staggered animation, entrance choreography, creative coding, animation editor, visual timeline, animation studio, interactive animation, production animation, animation tooling, 타임라인 애니메이션, 시퀀서, 키프레임, 모션 디자인, 안무, 오케스트레이션, 애니메이션 편집기, 장면 애니메이션, 프로그래밍 애니메이션, 시네마틱 애니메이션, @theatre/core, @theatre/react, getProject, sheet, sequence, object, onChange
+
+### Install
+```bash
+bun add @theatre/core @theatre/react
+```
+
+### Usage
+```tsx
+"use client";
+import { getProject, types } from "@theatre/core";
+import { useEffect, useRef, useState } from "react";
+
+// Create a Theatre.js project and sheet
+const project = getProject("My Project");
+const sheet = project.sheet("Scene");
+
+// Define animated objects with typed props
+const box1 = sheet.object("Box 1", {
+  x: types.number(0, { range: [-200, 200] }),
+  y: types.number(0, { range: [-200, 200] }),
+  rotation: types.number(0, { range: [0, 360] }),
+  scale: types.number(1, { range: [0, 2] }),
+  opacity: types.number(1, { range: [0, 1] }),
+});
+
+const box2 = sheet.object("Box 2", {
+  x: types.number(0, { range: [-200, 200] }),
+  y: types.number(0, { range: [-200, 200] }),
+  rotation: types.number(0, { range: [0, 360] }),
+  scale: types.number(1, { range: [0, 2] }),
+  opacity: types.number(1, { range: [0, 1] }),
+});
+
+export default function TheatreExample() {
+  const [vals1, setVals1] = useState({ x: 0, y: 0, rotation: 0, scale: 1, opacity: 1 });
+  const [vals2, setVals2] = useState({ x: 0, y: 0, rotation: 0, scale: 1, opacity: 1 });
+
+  useEffect(() => {
+    const unsub1 = box1.onValuesChange((v) => setVals1(v));
+    const unsub2 = box2.onValuesChange((v) => setVals2(v));
+
+    // Play the sequence (0 to 3 seconds, looping)
+    project.ready.then(() => {
+      sheet.sequence.play({ iterationCount: Infinity, range: [0, 3] });
+    });
+
+    return () => { unsub1(); unsub2(); };
+  }, []);
+
+  return (
+    <div style={{ position: "relative", width: "100%", height: 300 }}>
+      <div
+        style={{
+          position: "absolute",
+          left: "30%",
+          top: "50%",
+          width: 60,
+          height: 60,
+          borderRadius: 8,
+          backgroundColor: "#8b5cf6",
+          transform: `translate(${vals1.x}px, ${vals1.y}px) rotate(${vals1.rotation}deg) scale(${vals1.scale})`,
+          opacity: vals1.opacity,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          left: "60%",
+          top: "50%",
+          width: 60,
+          height: 60,
+          borderRadius: "50%",
+          backgroundColor: "#06b6d4",
+          transform: `translate(${vals2.x}px, ${vals2.y}px) rotate(${vals2.rotation}deg) scale(${vals2.scale})`,
+          opacity: vals2.opacity,
+        }}
+      />
+    </div>
+  );
+}
+```
+
+---
+
+## Rive Canvas
+
+- **Slug**: rive-app-react-canvas
+- **Category**: interaction
+- **Description**: Interactive state-machine-driven vector animations rendered via WebGL/Canvas — the next-gen Lottie alternative with built-in interactivity, physics, and 60fps GPU-accelerated playback
+- **Library**: @rive-app/react-canvas (@rive-app/react-canvas)
+- **Library URL**: https://github.com/rive-app/rive-react#readme
+- **Install type**: npm
+- **Bundle size**: 43.9 kB
+- **GitHub stars**: 1111
+- **Weekly downloads**: 693802
+- **Last updated**: 2026-04
+- **Tags**: rive, canvas, webgl, interactive, animation, state-machine, vector, gpu
+- **Keywords**: rive, rive animation, interactive animation, state machine animation, vector animation, canvas animation, webgl animation, gpu accelerated, lottie alternative, real-time animation, interactive vector, animation runtime, motion design, character animation, game animation, micro interaction, loading animation, onboarding animation, interactive illustration, animated icon, hero animation, scroll-triggered animation, hover animation, click animation, 리브, 인터랙티브 애니메이션, 벡터 애니메이션, 캔버스 애니메이션, 상태머신 애니메이션, GPU 가속, 실시간 애니메이션, react-canvas, rive-app, riv file, animation player
+
+### Install
+```bash
+bun add @rive-app/react-canvas
+```
+
+### Usage
+```tsx
+import { useRive, Layout, Fit, Alignment } from "@rive-app/react-canvas";
+
+export default function RiveAnimation() {
+  const { RiveComponent } = useRive({
+    src: "https://cdn.rive.app/animations/vehicles.riv",
+    stateMachines: "bumpy",
+    layout: new Layout({
+      fit: Fit.Contain,
+      alignment: Alignment.Center,
+    }),
+    autoplay: true,
+  });
+
+  return (
+    <div style={{ width: 500, height: 500 }}>
+      <RiveComponent />
+    </div>
+  );
+}
+```
+
+---
+
+## Spline 3D
+
+- **Slug**: splinetool-react-spline
+- **Category**: 3d
+- **Description**: Embed interactive 3D scenes built in Spline directly into React — full event system, variable control, and dynamic property updates with no Three.js knowledge required
+- **Library**: @splinetool/react-spline (@splinetool/react-spline)
+- **Library URL**: https://spline.design
+- **Install type**: npm
+- **Bundle size**: 1.9 kB
+- **GitHub stars**: 4500
+- **Weekly downloads**: 140800
+- **Last updated**: 2026-04
+- **Tags**: spline, 3d, interactive, webgl, scene, modeling, react
+- **Keywords**: spline, spline 3d, 3d scene, interactive 3d, 3d embed, webgl scene, 3d modeling, 3d viewer, 3d interactive, no-code 3d, 3d design, 3d animation, 3d web, product visualization, 3d product, hero 3d, landing page 3d, interactive scene, 3d experience, immersive 3d, mouse interaction 3d, scroll 3d, rotate 3d, 스플라인, 3D 씬, 인터랙티브 3D, 3D 임베드, 3D 모델링, 3D 뷰어, 웹GL, 3D 디자인, splinetool, react-spline, splinecode, 3d canvas
+
+### Install
+```bash
+bun add @splinetool/react-spline @splinetool/runtime
+```
+
+### Usage
+```tsx
+import Spline from "@splinetool/react-spline";
+
+export default function SplineScene() {
+  function onLoad(spline: any) {
+    // Access the Spline application instance
+    console.log("Spline scene loaded", spline);
+  }
+
+  return (
+    <div style={{ width: "100%", height: 500 }}>
+      <Spline
+        scene="https://prod.spline.design/YOUR_SCENE_ID/scene.splinecode"
+        onLoad={onLoad}
+      />
+    </div>
+  );
+}
+```
+
+---
+
+## Atropos
+
+- **Slug**: atropos
+- **Category**: hover
+- **Description**: Apple TV-style 3D parallax hover effects — multi-layer depth with touch support, only 2KB gzipped with zero dependencies
+- **Library**: atropos (atropos)
+- **Library URL**: https://atroposjs.com
+- **Install type**: npm
+- **Bundle size**: 2.5 kB
+- **GitHub stars**: 3575
+- **Weekly downloads**: 4097
+- **Last updated**: 2025-08
+- **Tags**: atropos, parallax, 3d, hover, tilt, depth, apple-tv, touch
+- **Keywords**: atropos, 3d parallax, parallax hover, apple tv effect, tilt effect, 3d card, depth effect, multi-layer parallax, hover effect, touch parallax, gyroscope effect, perspective effect, card hover, product card 3d, portfolio card, image parallax, hero card, pricing card 3d, testimonial card, mouse tracking, layered depth, floating elements, 패럴랙스, 3D 호버, 틸트 효과, 깊이감, 입체효과, 애플TV 효과, 카드 호버, 마우스 추적, 레이어 깊이, atropos-js, parallax-tilt, 3d-perspective, hover-depth
+
+### Install
+```bash
+bun add atropos
+```
+
+### Usage
+```tsx
+import Atropos from "atropos/react";
+import "atropos/css";
+
+export default function ParallaxCard() {
+  return (
+    <Atropos
+      className="my-atropos"
+      activeOffset={40}
+      shadowScale={1.05}
+      rotateXMax={15}
+      rotateYMax={15}
+    >
+      <div style={{ padding: 40, borderRadius: 16, background: "#111" }}>
+        {/* Background layer — furthest depth */}
+        <div data-atropos-offset="-5">
+          <div style={{ width: 100, height: 100, borderRadius: "50%", background: "rgba(139,92,246,0.3)", filter: "blur(20px)" }} />
+        </div>
+
+        {/* Middle layer */}
+        <div data-atropos-offset="5">
+          <h2 style={{ color: "white" }}>Hello World</h2>
+        </div>
+
+        {/* Front layer — closest to viewer */}
+        <div data-atropos-offset="10">
+          <button style={{ padding: "8px 16px", background: "#8b5cf6", color: "white", borderRadius: 8 }}>
+            Hover me
+          </button>
+        </div>
+      </div>
+    </Atropos>
+  );
+}
+```
+
+---
+
+## Confetti Explosion
+
+- **Slug**: react-confetti-explosion
+- **Category**: particle
+- **Description**: Lightweight CSS-animation based confetti explosion that fires on mount — perfect for celebratory moments
+- **Library**: react-confetti-explosion (react-confetti-explosion)
+- **Library URL**: https://github.com/herrethan/react-confetti-explosion
+- **Install type**: npm
+- **Bundle size**: 2.2 kB
+- **GitHub stars**: 251
+- **Weekly downloads**: 128063
+- **Last updated**: 2025-06
+- **Tags**: confetti, css animation, particles, celebration, burst
+- **Keywords**: confetti explosion, confetti burst, particle burst, confetti pop, celebration blast, confetti shower, colorful explosion, confetti spray, party popper, confetti rain, CSS confetti, lightweight confetti, confetti animation, sparkle explosion, festive burst, success animation, reward effect, checkout celebration, form submit reward, game win, achievement animation, user delight, onboarding success, purchase confirmation, level complete, milestone reached, 컨페티 폭발, 축하 효과, 꽃가루, 파티클 버스트, 폭발 애니메이션, 축하 폭죽, 보상 효과, CSS 애니메이션, 파티 효과, react-confetti-explosion, css-based confetti, mount-triggered confetti, zero-dependency confetti
+
+### Install
+```bash
+bun add react-confetti-explosion
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState } from "react";
+import ConfettiExplosion from "react-confetti-explosion";
+
+export default function ConfettiDemo() {
+  const [isExploding, setIsExploding] = useState(false);
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
+      <button
+        onClick={() => {
+          setIsExploding(false);
+          setTimeout(() => setIsExploding(true), 10);
+        }}
+        style={{
+          padding: "12px 24px",
+          borderRadius: 8,
+          background: "#6366f1",
+          color: "white",
+          border: "none",
+          cursor: "pointer",
+          fontSize: 16,
+        }}
+      >
+        Celebrate!
+      </button>
+      {isExploding && (
+        <ConfettiExplosion
+          force={0.8}
+          duration={3000}
+          particleCount={100}
+          width={400}
+        />
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## Vivus
+
+- **Slug**: vivus
+- **Category**: transition
+- **Description**: SVG drawing animation that progressively reveals strokes one by one — draw geometric patterns, logos, and illustrations
+- **Library**: vivus (vivus)
+- **Library URL**: https://github.com/maxwellito/vivus
+- **Install type**: npm
+- **Bundle size**: 4.2 kB
+- **GitHub stars**: 15469
+- **Weekly downloads**: 11521
+- **Last updated**: 2022-07
+- **Tags**: svg, drawing, stroke, animation, reveal, line-art
+- **Keywords**: SVG drawing, stroke animation, line drawing, path reveal, SVG line art, progressive drawing, stroke by stroke, draw animation, outline animation, SVG reveal, handwriting effect, sketch animation, pen draw effect, geometric drawing, wireframe animation, logo animation, icon reveal, hero illustration, loading animation, scroll reveal drawing, signature animation, onboarding illustration, landing page art, whiteboard effect, technical drawing, blueprint animation, SVG 드로잉, 스트로크 애니메이션, 선 그리기 효과, 경로 애니메이션, 로고 그리기, 아이콘 드로잉, 손 그림 효과, 윤곽선 애니메이션, 서명 애니메이션, vivus, vivus.js, stroke-dasharray animation, SVG stroke dashoffset, oneByOne animation
+
+### Install
+```bash
+bun add vivus
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useEffect, useRef } from "react";
+import Vivus from "vivus";
+
+export default function VivusDemo() {
+  const svgRef = useRef<SVGSVGElement>(null);
+
+  useEffect(() => {
+    if (!svgRef.current) return;
+
+    const vivus = new Vivus(svgRef.current, {
+      duration: 200,
+      type: "oneByOne",
+      animTimingFunction: Vivus.EASE_OUT,
+    });
+
+    vivus.play();
+
+    return () => vivus.destroy();
+  }, []);
+
+  return (
+    <svg
+      ref={svgRef}
+      viewBox="0 0 200 200"
+      width={200}
+      height={200}
+      fill="none"
+    >
+      <circle cx="100" cy="100" r="80" stroke="#06b6d4" strokeWidth="2" />
+      <polygon
+        points="100,30 160,75 140,145 60,145 40,75"
+        stroke="#a855f7"
+        strokeWidth="2"
+        fill="none"
+      />
+      <circle cx="100" cy="100" r="40" stroke="#22d3ee" strokeWidth="1.5" />
+    </svg>
+  );
+}
+```
+
+---
+
+## Dotlottie React
+
+- **Slug**: lottiefiles-dotlottie-react
+- **Category**: interaction
+- **Description**: High-performance Lottie animation player for React using the dotLottie format — play rich vector animations from LottieFiles
+- **Library**: @lottiefiles/dotlottie-react (@lottiefiles/dotlottie-react)
+- **Library URL**: https://github.com/LottieFiles/dotlottie-web#readme
+- **Install type**: npm
+- **Bundle size**: 33.9 kB
+- **GitHub stars**: 489
+- **Weekly downloads**: 725868
+- **Last updated**: 2026-04
+- **Tags**: lottie, dotlottie, animation, vector, player, lottiefiles, canvas
+- **Keywords**: Lottie animation, vector animation, dotLottie player, animated illustration, motion graphics, rich animation, smooth vector animation, After Effects animation, Bodymovin, JSON animation, lightweight animation, scalable animation, animation player, looping animation, interactive animation, loading animation, onboarding illustration, hero animation, empty state animation, success animation, error animation, splash screen, micro interaction, animated icon, marketing animation, landing page animation, 로티 애니메이션, 벡터 애니메이션, 모션 그래픽, 로딩 애니메이션, 일러스트 애니메이션, 인터랙티브 애니메이션, 로티파일, 애프터 이펙트, 캔버스 애니메이션, @lottiefiles/dotlottie-react, dotlottie-web, thorvg, LottieFiles, bodymovin, dotLottie format
+
+### Install
+```bash
+bun add @lottiefiles/dotlottie-react
+```
+
+### Usage
+```tsx
+"use client";
+
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+
+export default function LottieDemo() {
+  return (
+    <div style={{ width: 300, height: 300 }}>
+      <DotLottieReact
+        src="https://lottie.host/4db68bbd-31f6-4cd8-84eb-189de081159a/IGmMCqhzpt.lottie"
+        autoplay
+        loop
+        style={{ width: "100%", height: "100%" }}
+      />
+    </div>
+  );
+}
+```
+
+---
+
+## Granim
+
+- **Slug**: granim
+- **Category**: gradient
+- **Description**: Create fluid and interactive gradient animations with this small js library. Smooth color transitions morph between multiple gradient states on a canvas element.
+- **Library**: granim (granim)
+- **Library URL**: https://github.com/sarcadass/granim.js#readme
+- **Install type**: npm
+- **Bundle size**: 4.9 kB
+- **GitHub stars**: 5312
+- **Weekly downloads**: 4662
+- **Last updated**: 2022-12
+- **Tags**: gradient, animation, canvas, color, transition
+- **Keywords**: gradient animation, fluid gradient, morphing gradient, color transition, gradient morph, smooth gradient, animated gradient, gradient blend, color shift, gradient flow, canvas gradient, diagonal gradient, radial gradient, gradient loop, organic gradient, background animation, hero background, landing page gradient, website background effect, ambient background, dynamic background, gradient wallpaper, color cycling background, gradient overlay, gradient banner, section background, fullscreen gradient, 그라데이션 애니메이션, 유체 그라데이션, 색상 전환, 배경 애니메이션, 그라디언트 효과, 캔버스 그라데이션, 동적 배경, 색상 모핑, 부드러운 그라데이션, 그라데이션 루프, 배경 효과, granim, granim.js, npm granim, canvas gradient animation, javascript gradient, gradient library
+
+### Install
+```bash
+bun add granim
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useRef, useEffect } from "react";
+import Granim from "granim";
+
+export default function GradientBackground() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    if (!canvasRef.current) return;
+
+    const granimInstance = new Granim({
+      element: canvasRef.current,
+      direction: "diagonal",
+      isPausedWhenNotInView: true,
+      states: {
+        "default-state": {
+          gradients: [
+            ["#833ab4", "#fd1d1d"],
+            ["#fcb045", "#fd1d1d"],
+            ["#833ab4", "#fcb045"],
+          ],
+          transitionSpeed: 3000,
+        },
+      },
+    });
+
+    return () => {
+      granimInstance.destroy();
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{ width: "100%", height: "400px", display: "block" }}
+    />
+  );
+}
+```
+
+---
+
+## Animated Numbers
+
+- **Slug**: react-animated-numbers
+- **Category**: text
+- **Description**: Smoothly animate number changes with spring physics. Perfect for dashboards, stats counters, and live metrics that update in real time.
+- **Library**: react-animated-numbers (react-animated-numbers)
+- **Library URL**: https://optimistic-noyce-cf2473.netlify.app/
+- **Install type**: npm
+- **Bundle size**: 48.8 kB
+- **GitHub stars**: 304
+- **Weekly downloads**: 22681
+- **Last updated**: 2025-06
+- **Tags**: text, numbers, animation, counter, spring
+- **Keywords**: animated numbers, number animation, counting animation, number counter, rolling numbers, number transition, digit animation, number morph, animated counter, number ticker, digit roll, number flip, spring number animation, smooth counter, live counter, dashboard stats, statistics counter, metrics animation, KPI counter, download counter, star counter, user count animation, price animation, score animation, animated scoreboard, real-time stats, animated dashboard, number display, animated metric, 숫자 애니메이션, 카운터 애니메이션, 숫자 전환, 통계 카운터, 대시보드 숫자, 숫자 모핑, 숫자 롤링, 애니메이션 카운터, 실시간 통계, 숫자 효과, 스프링 애니메이션, react-animated-numbers, npm react-animated-numbers, react number animation, react counter component, animated number component, spring physics counter
+
+### Install
+```bash
+bun add react-animated-numbers
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useState, useEffect } from "react";
+import AnimatedNumbers from "react-animated-numbers";
+
+export default function StatsCounter() {
+  const [count, setCount] = useState(1000);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCount((prev) => prev + Math.floor(Math.random() * 100));
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+      <AnimatedNumbers
+        useThousandsSeparator
+        animateToNumber={count}
+        fontStyle={{
+          fontSize: "2.5rem",
+          fontWeight: 700,
+          color: "#ffffff",
+        }}
+        transitions={(index) => ({
+          type: "spring",
+          duration: index + 0.3,
+          damping: 15,
+          stiffness: 120,
+        })}
+      />
+      <span style={{ fontSize: "1rem", color: "#888" }}>users</span>
+    </div>
+  );
+}
+```
+
+---
+
+## Just Parallax
+
+- **Slug**: react-just-parallax
+- **Category**: scroll
+- **Description**: Lightweight React library for mouse-move and scroll parallax effects. Create layered depth compositions with elements that respond to cursor position at different speeds.
+- **Library**: react-just-parallax (react-just-parallax)
+- **Library URL**: https://react-just-parallax.michalzalobny.com/
+- **Install type**: npm
+- **Bundle size**: 4.3 kB
+- **GitHub stars**: 508
+- **Weekly downloads**: 1331
+- **Last updated**: 2023-03
+- **Tags**: parallax, scroll, mouse, animation, depth
+- **Keywords**: parallax effect, mouse parallax, scroll parallax, depth effect, layered parallax, floating elements, 3d depth, perspective effect, mouse tracking, cursor parallax, parallax layers, depth composition, floating shapes, mouse-driven animation, interactive depth, hero parallax, landing page parallax, parallax background, mouse follow effect, interactive background, parallax section, scroll animation, depth hover effect, layered hero, parallax portfolio, creative parallax, immersive parallax, 패럴랙스 효과, 마우스 패럴랙스, 스크롤 패럴랙스, 깊이 효과, 마우스 추적, 레이어 애니메이션, 인터랙티브 배경, 시차 효과, 마우스 반응 효과, 패럴랙스 레이어, 3D 깊이 효과, react-just-parallax, npm react-just-parallax, MouseParallax, ScrollParallax, react parallax library, mouse move parallax react
+
+### Install
+```bash
+bun add react-just-parallax
+```
+
+### Usage
+```tsx
+"use client";
+
+import { useRef } from "react";
+import { MouseParallax } from "react-just-parallax";
+
+export default function ParallaxScene() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "400px",
+        overflow: "hidden",
+        background: "#0a0a0a",
+      }}
+    >
+      {/* Slow background layer */}
+      <MouseParallax strength={0.02} parallaxContainerRef={containerRef}>
+        <div
+          style={{
+            width: "200px",
+            height: "200px",
+            borderRadius: "50%",
+            border: "1px solid rgba(139, 92, 246, 0.2)",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+        />
+      </MouseParallax>
+
+      {/* Medium speed layer */}
+      <MouseParallax strength={0.05} parallaxContainerRef={containerRef}>
+        <div
+          style={{
+            width: "12px",
+            height: "12px",
+            borderRadius: "50%",
+            background: "rgba(236, 72, 153, 0.6)",
+            position: "absolute",
+            top: "30%",
+            left: "25%",
+          }}
+        />
+      </MouseParallax>
+
+      {/* Fast foreground layer */}
+      <MouseParallax strength={0.1} parallaxContainerRef={containerRef}>
+        <div
+          style={{
+            width: "8px",
+            height: "8px",
+            background: "rgba(99, 102, 241, 0.7)",
+            position: "absolute",
+            top: "60%",
+            right: "30%",
+            transform: "rotate(45deg)",
+          }}
+        />
+      </MouseParallax>
+    </div>
   );
 }
 ```
