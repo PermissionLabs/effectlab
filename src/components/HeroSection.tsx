@@ -6,6 +6,15 @@ import { TypeAnimation } from "react-type-animation";
 import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 import Tilt from "react-parallax-tilt";
 
+const tiltStyle = { borderRadius: 16 } as const;
+const cardStyle = { boxShadow: "0 8px 40px rgba(139, 92, 246, 0.08)" } as const;
+
+const annotation = (type: "underline" | "circle", color: string, order: number) => (chunks: ReactNode) => (
+  <RoughNotation type={type} color={color} strokeWidth={2} order={order} padding={type === "circle" ? 6 : undefined}>
+    <span className="text-muted">{chunks}</span>
+  </RoughNotation>
+);
+
 export default function HeroSection() {
   const t = useTranslations("hero");
   const [show, setShow] = useState(false);
@@ -53,40 +62,26 @@ export default function HeroSection() {
           glareBorderRadius="16px"
           scale={1.02}
           transitionSpeed={1500}
-          style={{ borderRadius: 16 }}
+          style={tiltStyle}
         >
           <div
             className="rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-6 sm:p-8 max-w-lg space-y-3"
-            style={{ boxShadow: "0 8px 40px rgba(139, 92, 246, 0.08)" }}
+            style={cardStyle}
           >
             <RoughNotationGroup show={show}>
               <p className="text-[15px] sm:text-[16px] text-muted/70 leading-relaxed">
-                {t.rich("pain1", {
-                  accent: (chunks: ReactNode) => (
-                    <RoughNotation type="underline" color="#f59e0b" strokeWidth={2} order={1}>
-                      <span className="text-muted">{chunks}</span>
-                    </RoughNotation>
-                  ),
-                })}
+                {t.rich("pain1", { accent: annotation("underline", "#f59e0b", 1) })}
               </p>
               <p className="text-[15px] sm:text-[16px] text-muted/70 leading-relaxed">
-                {t.rich("pain2", {
-                  accent: (chunks: ReactNode) => (
-                    <RoughNotation type="underline" color="#f472b6" strokeWidth={2} order={2}>
-                      <span className="text-muted">{chunks}</span>
-                    </RoughNotation>
-                  ),
-                })}
+                {t.rich("pain2", { accent: annotation("circle", "#f472b6", 2) })}
               </p>
               <div className="h-px bg-white/[0.06]" />
               <p className="text-[15px] sm:text-[16px] text-fg/90 font-medium leading-relaxed">
                 {t.rich("cta", {
-                  mark: (chunks: ReactNode) => (
-                    <span className="relative">
-                      <RoughNotation type="highlight" color="rgba(52, 211, 153, 0.25)" order={3} multiline>
-                        <span className="text-fg">{chunks}</span>
-                      </RoughNotation>
-                    </span>
+                  hl: (chunks: ReactNode) => (
+                    <RoughNotation type="highlight" color="rgba(52, 211, 153, 0.25)" order={3} multiline>
+                      <span className="text-fg">{chunks}</span>
+                    </RoughNotation>
                   ),
                 })}
               </p>
