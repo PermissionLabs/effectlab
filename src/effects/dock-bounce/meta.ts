@@ -13,6 +13,7 @@ export const meta = {
     "notification",
     "dock",
   ],
+  motionTags: ["bounce", "spring", "hover", "scale"],
   keywords: [
     // English — primary
     "dock bounce", "attention bounce", "spring bounce",

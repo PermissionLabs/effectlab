@@ -13,6 +13,7 @@ export const meta = {
     "keyframe",
     "animation",
   ],
+  motionTags: ["timeline", "easing", "3d"],
   keywords: [
     // English — visual descriptions
     "Theatre.js",

@@ -5,6 +5,7 @@ export const meta = {
     "This package lets you easily add micro-interactions to your app and reward users with the rain of confetti, emoji or balloons.",
   category: "particle" as const,
   tags: ["react", "react-rewards", "confetti", "emoji", "balloons", "cannon", "microinteractions"],
+  motionTags: ["confetti", "particles"],
   keywords: [
     // English — visual descriptions
     "confetti burst", "emoji rain", "balloon animation",

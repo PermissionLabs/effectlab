@@ -5,6 +5,7 @@ export const meta = {
     "Interactive state-machine-driven vector animations rendered via WebGL/Canvas — the next-gen Lottie alternative with built-in interactivity, physics, and 60fps GPU-accelerated playback",
   category: "interaction" as const,
   tags: ["rive", "canvas", "webgl", "interactive", "animation", "state-machine", "vector", "gpu"],
+  motionTags: ["lottie", "gesture", "timeline"],
   keywords: [
     "rive", "rive animation", "interactive animation", "state machine animation",
     "vector animation", "canvas animation", "webgl animation", "gpu accelerated",

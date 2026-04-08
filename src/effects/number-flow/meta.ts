@@ -5,6 +5,7 @@ export const meta = {
     "Smoothly animated number transitions that morph digits in place. Perfect for dashboards, counters, and stats that update in real time.",
   category: "text" as const,
   tags: ["number", "counter", "animated", "transition", "digit", "morphing"],
+  motionTags: ["counter", "morph", "spring"],
   keywords: [
     // English — primary
     "number flow", "animated number", "number transition", "digit morphing",

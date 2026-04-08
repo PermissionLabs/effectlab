@@ -5,6 +5,7 @@ export const meta = {
     "Make beautiful, animated loading skeletons that automatically adapt to your app.",
   category: "interaction" as const,
   tags: ["react", "loading", "skeleton", "placeholder", "shimmer"],
+  motionTags: ["pulse", "fade"],
   keywords: [
     // English — visual descriptions
     "skeleton", "loading skeleton", "shimmer effect", "placeholder animation",

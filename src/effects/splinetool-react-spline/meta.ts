@@ -5,6 +5,7 @@ export const meta = {
     "Embed interactive 3D scenes built in Spline directly into React — full event system, variable control, and dynamic property updates with no Three.js knowledge required",
   category: "3d" as const,
   tags: ["spline", "3d", "interactive", "webgl", "scene", "modeling", "react"],
+  motionTags: ["3d", "gesture", "shader"],
   keywords: [
     "spline", "spline 3d", "3d scene", "interactive 3d", "3d embed",
     "webgl scene", "3d modeling", "3d viewer", "3d interactive",

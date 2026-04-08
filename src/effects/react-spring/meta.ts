@@ -5,6 +5,7 @@ export const meta = {
     "Physics-based spring animations that feel natural and alive. Stagger cards, bounce elements, and create fluid transitions powered by real spring dynamics.",
   category: "transition" as const,
   tags: ["spring", "physics", "animation", "transition", "gesture", "stagger"],
+  motionTags: ["spring", "physics", "stagger", "gesture", "easing"],
   keywords: [
     // English — primary
     "spring animation", "physics animation", "bounce animation",

@@ -5,6 +5,7 @@ export const meta = {
     "A lightweight carousel library with fluid motion and great swipe precision",
   category: "scroll" as const,
   tags: ["slider", "carousel", "slideshow", "gallery", "lightweight", "touch", "javascript"],
+  motionTags: ["slide", "drag", "gesture"],
   keywords: [
     // English — visual descriptions
     "carousel", "slider", "slideshow", "image gallery",

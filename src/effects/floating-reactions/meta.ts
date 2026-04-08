@@ -14,6 +14,7 @@ export const meta = {
     "interactive",
     "emoji",
   ],
+  motionTags: ["particles", "fade", "physics"],
   keywords: [
     // English — primary
     "floating elements", "float animation", "floating icons",

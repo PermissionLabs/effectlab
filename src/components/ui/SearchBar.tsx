@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 
 export default function SearchBar({ value, onChange }: { value: string; onChange: (v: string) => void }) {
   const inputRef = useRef<HTMLInputElement>(null);
+  const t = useTranslations("search");
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -27,7 +29,7 @@ export default function SearchBar({ value, onChange }: { value: string; onChange
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="Search effects, libraries, or categories..."
+        placeholder={t("placeholder")}
         className="w-full pl-11 pr-16 py-3 rounded-xl bg-surface border border-border text-[14px] text-fg placeholder:text-muted/40 focus:outline-none focus:border-fg/20 focus:ring-2 focus:ring-fg/5 transition-all"
       />
       {!value ? (

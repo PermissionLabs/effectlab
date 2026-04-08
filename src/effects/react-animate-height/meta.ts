@@ -5,6 +5,7 @@ export const meta = {
     "Lightweight React component for animating height using CSS transitions. Perfect for accordions, expandable panels, and collapsible content.",
   category: "transition" as const,
   tags: ["transition", "height", "accordion", "collapse", "expand", "animation"],
+  motionTags: ["collapse", "easing"],
   keywords: [
     // Visual descriptions
     "animate height", "height transition", "smooth expand", "smooth collapse",

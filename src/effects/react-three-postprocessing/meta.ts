@@ -5,6 +5,7 @@ export const meta = {
     "postprocessing wrapper for React and @react-three/fiber",
   category: "3d" as const,
   tags: ["postprocessing", "react", "three", "@react-three/fiber", "webgl", "3d"],
+  motionTags: ["shader", "blur", "glow", "3d"],
   keywords: [
     // English — visual descriptions
     "bloom effect", "glow effect", "noise filter", "post-processing",

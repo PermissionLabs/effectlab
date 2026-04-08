@@ -5,6 +5,7 @@ export const meta = {
     "Animated hamburger menu icons for React",
   category: "interaction" as const,
   tags: ["hamburger","burger","menu","react","icon","icons","toggle"],
+  motionTags: ["rotate", "morph", "hover"],
   keywords: [
     // English — visual descriptions
     "hamburger", "hamburger icon", "hamburger menu", "burger menu",

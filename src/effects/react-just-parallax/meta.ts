@@ -5,6 +5,7 @@ export const meta = {
     "Lightweight React library for mouse-move and scroll parallax effects. Create layered depth compositions with elements that respond to cursor position at different speeds.",
   category: "scroll" as const,
   tags: ["parallax", "scroll", "mouse", "animation", "depth"],
+  motionTags: ["parallax", "hover"],
   keywords: [
     // English — visual descriptions
     "parallax effect", "mouse parallax", "scroll parallax", "depth effect",

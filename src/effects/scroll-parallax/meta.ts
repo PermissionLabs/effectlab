@@ -5,6 +5,7 @@ export const meta = {
     "Multi-layer parallax scrolling effect where elements move at different speeds as you scroll, creating an immersive depth illusion. Powered by react-scroll-parallax.",
   category: "scroll" as const,
   tags: ["parallax", "scroll", "animation", "depth", "layer", "interactive"],
+  motionTags: ["parallax", "scroll-linked"],
   keywords: [
     // English — primary
     "scroll parallax", "parallax scrolling", "depth effect",

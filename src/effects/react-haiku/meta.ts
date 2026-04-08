@@ -5,6 +5,7 @@ export const meta = {
     "React Hook & Utility Library — custom cursor follower with glowing trail that tracks mouse position with smooth delay.",
   category: "hover" as const,
   tags: ["reactjs", "react", "utility", "components", "javascript", "hooks", "cursor", "mouse"],
+  motionTags: ["hover", "gesture"],
   keywords: [
     // English — visual descriptions
     "cursor follower", "glowing cursor", "custom cursor", "mouse trail",

@@ -5,6 +5,7 @@ export const meta = {
     "A collection of beautiful react loading spinners with smooth animations.",
   category: "interaction" as const,
   tags: ["react-spinners", "react-spinner", "react", "loader", "loading", "spinner"],
+  motionTags: ["rotate", "pulse"],
   keywords: [
     // English — visual descriptions
     "spinner", "loading spinner", "pulse loader", "beat loader", "clip loader",

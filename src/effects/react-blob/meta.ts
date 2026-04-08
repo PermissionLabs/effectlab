@@ -5,6 +5,7 @@ export const meta = {
     "React component that looks like liquid in space",
   category: "background" as const,
   tags: ["blob", "morphing", "organic", "liquid", "animation", "background"],
+  motionTags: ["morph", "generative", "noise"],
   keywords: [
     // English — visual descriptions
     "blob", "morphing blob", "organic shape", "liquid shape",

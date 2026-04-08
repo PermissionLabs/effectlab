@@ -5,6 +5,7 @@ export const meta = {
     "Mouse cursor-driven parallax layers where elements follow your cursor at different speeds, creating a fluid depth effect. Lightweight and easy to set up.",
   category: "interaction" as const,
   tags: ["parallax", "mouse", "cursor", "depth", "animation", "interactive", "hover"],
+  motionTags: ["parallax", "hover"],
   keywords: [
     // English — primary
     "mouse parallax", "cursor parallax", "parallax mouse movement",

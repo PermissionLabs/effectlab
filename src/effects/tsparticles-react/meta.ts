@@ -5,6 +5,7 @@ export const meta = {
     "Highly configurable particle animations with interactive links and physics",
   category: "background" as const,
   tags: ["particle", "background", "animation", "interactive", "canvas"],
+  motionTags: ["particles", "generative", "hover"],
   keywords: [
     // English — visual descriptions
     "particle animation",

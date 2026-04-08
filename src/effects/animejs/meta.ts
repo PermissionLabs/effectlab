@@ -5,6 +5,7 @@ export const meta = {
     "Lightweight JavaScript animation engine with stagger, timeline, and spring physics",
   category: "transition" as const,
   tags: ["anime", "animejs", "anime.js", "animation", "stagger", "timeline", "spring"],
+  motionTags: ["timeline", "stagger", "easing", "spring"],
   keywords: [
     // English — visual descriptions
     "stagger grid", "ripple animation", "wave effect", "dot matrix",

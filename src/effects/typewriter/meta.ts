@@ -5,6 +5,7 @@ export const meta = {
     "Typewriter animation that cycles through phrases with a blinking cursor. Powered by react-type-animation.",
   category: "text" as const,
   tags: ["text", "typewriter", "typing", "animation", "terminal"],
+  motionTags: ["typewriter"],
   keywords: [
     // English — primary
     "typewriter effect", "typing animation", "text typewriter", "type animation",

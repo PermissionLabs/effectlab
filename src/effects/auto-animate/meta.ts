@@ -5,6 +5,7 @@ export const meta = {
     "Zero-config automatic animations for adding, removing, and reordering list items. Drop-in smooth transitions with a single hook -- no keyframes or spring configs needed.",
   category: "layout" as const,
   tags: ["auto", "animate", "list", "transition", "layout", "reorder"],
+  motionTags: ["layout", "fade", "scale"],
   keywords: [
     // English — primary
     "automatic animation", "list animation", "add remove animate",

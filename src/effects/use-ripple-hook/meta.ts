@@ -5,6 +5,7 @@ export const meta = {
     "Customizable, lightweight React hook for implementing Google's Material UI style ripple effect",
   category: "interaction" as const,
   tags: ["useripple", "use-ripple", "material", "ripple", "react", "hook"],
+  motionTags: ["ripple", "scale", "fade"],
   keywords: [
     // English — visual descriptions
     "ripple effect", "click ripple", "material ripple", "button ripple",

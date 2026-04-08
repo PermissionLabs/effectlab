@@ -5,6 +5,7 @@ export const meta = {
     "Zero dependency React transition state machine. Toggle elements with enter/exit animations using a simple hook-based API.",
   category: "transition" as const,
   tags: ["react", "transition", "animation", "component", "hook", "state machine"],
+  motionTags: ["fade", "collapse", "scale"],
   keywords: [
     // English — visual descriptions
     "fade in", "fade out", "slide transition", "enter animation",

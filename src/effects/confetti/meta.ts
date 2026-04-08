@@ -5,6 +5,7 @@ export const meta = {
     "Colorful confetti particles rain down to celebrate actions and milestones. Contained within any element, not just full-screen.",
   category: "particle" as const,
   tags: ["confetti", "celebration", "party", "reward", "animation", "fun"],
+  motionTags: ["confetti", "particles", "physics"],
   keywords: [
     // English — primary
     "confetti", "confetti rain", "confetti animation", "celebration effect",

@@ -5,6 +5,7 @@ export const meta = {
     "High-performance Lottie animation player for React using the dotLottie format — play rich vector animations from LottieFiles",
   category: "interaction" as const,
   tags: ["lottie", "dotlottie", "animation", "vector", "player", "lottiefiles", "canvas"],
+  motionTags: ["lottie", "timeline"],
   keywords: [
     // English — visual descriptions
     "Lottie animation", "vector animation", "dotLottie player",

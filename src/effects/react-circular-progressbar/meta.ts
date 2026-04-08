@@ -5,6 +5,7 @@ export const meta = {
     "A circular progress indicator component with customizable styles, colors, and animations. Perfect for dashboards and stats displays.",
   category: "interaction" as const,
   tags: ["progressbar", "react", "react-component", "svg", "circular", "dashboard"],
+  motionTags: ["svg-draw", "easing"],
   keywords: [
     // English — visual descriptions
     "circular progress", "circular progressbar", "round progress",

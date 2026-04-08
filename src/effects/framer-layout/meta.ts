@@ -5,6 +5,7 @@ export const meta = {
     "Smooth layout animations powered by Motion (Framer). Cards expand, collapse, and reflow with spring-based transitions using layoutId and the layout prop.",
   category: "layout" as const,
   tags: ["layout", "animation", "transition", "framer", "motion", "gesture", "spring"],
+  motionTags: ["layout", "spring", "gesture", "fade"],
   keywords: [
     // English — primary
     "layout animation", "framer motion", "shared layout", "expand collapse",

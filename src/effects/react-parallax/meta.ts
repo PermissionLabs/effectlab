@@ -5,6 +5,7 @@ export const meta = {
     "Classic background parallax sections with configurable scroll strength, blur effects, and multi-layer support. Perfect for hero banners and landing pages.",
   category: "scroll" as const,
   tags: ["parallax", "scroll", "background", "hero", "animation", "section"],
+  motionTags: ["parallax", "scroll-linked"],
   keywords: [
     // English — primary
     "react parallax", "background parallax", "parallax hero",

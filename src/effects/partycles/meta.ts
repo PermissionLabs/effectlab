@@ -5,6 +5,7 @@ export const meta = {
     "Delightful particle reward animations for React — confetti, stars, hearts, fireworks and more via a simple hook",
   category: "particle" as const,
   tags: ["react", "animations", "effects", "rewards", "confetti", "sparkles", "particles"],
+  motionTags: ["confetti", "particles"],
   keywords: [
     // English — visual descriptions
     "confetti", "sparkles", "fireworks", "hearts", "stars", "bubbles",

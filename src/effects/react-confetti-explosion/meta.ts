@@ -5,6 +5,7 @@ export const meta = {
     "Lightweight CSS-animation based confetti explosion that fires on mount — perfect for celebratory moments",
   category: "particle" as const,
   tags: ["confetti", "css animation", "particles", "celebration", "burst"],
+  motionTags: ["confetti", "particles", "physics"],
   keywords: [
     // English — visual descriptions
     "confetti explosion", "confetti burst", "particle burst",

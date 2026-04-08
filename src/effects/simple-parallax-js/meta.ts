@@ -5,6 +5,7 @@ export const meta = {
     "Lightweight image parallax effect that applies smooth CSS transforms to images on scroll. Zero dependencies, works with any img element.",
   category: "scroll" as const,
   tags: ["parallax", "scroll", "image", "animation", "transform", "lightweight"],
+  motionTags: ["parallax", "scroll-linked"],
   keywords: [
     // English — primary
     "simple parallax", "image parallax", "scroll parallax image",

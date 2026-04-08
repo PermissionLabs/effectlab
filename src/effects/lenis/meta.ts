@@ -5,6 +5,7 @@ export const meta = {
     "How smooth scroll should be. Adds inertia-based smooth scrolling with natural momentum and buttery 60fps performance.",
   category: "scroll" as const,
   tags: ["scroll", "smooth", "lenis", "react", "inertia"],
+  motionTags: ["smooth-scroll", "inertia", "easing"],
   keywords: [
     // English — visual descriptions
     "smooth scroll", "smooth scrolling", "inertia scroll", "momentum scroll",

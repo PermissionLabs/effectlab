@@ -5,6 +5,7 @@ export const meta = {
     "The most popular React animation library — spring physics, layout animations, gestures, exit transitions, and scroll-triggered effects.",
   category: "transition" as const,
   tags: ["animation", "spring", "layout", "gesture", "transition", "exit"],
+  motionTags: ["spring", "layout", "gesture", "fade", "drag", "stagger"],
   keywords: [
     // Visual descriptions
     "spring animation", "bounce effect", "smooth transition", "layout morph",

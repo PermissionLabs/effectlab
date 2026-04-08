@@ -14,6 +14,7 @@ export const meta = {
     "gesture",
     "interactive",
   ],
+  motionTags: ["parallax", "slide", "gesture", "drag"],
   keywords: [
     // English — primary
     "swipe parallax", "page transition parallax", "iOS transition",

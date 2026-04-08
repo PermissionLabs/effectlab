@@ -5,6 +5,7 @@ export const meta = {
     "Interactive 3D tilt effect with glare on hover. Powered by react-parallax-tilt.",
   category: "3d" as const,
   tags: ["3d", "tilt", "parallax", "hover", "card", "interactive"],
+  motionTags: ["3d", "parallax", "hover"],
   keywords: [
     // English — primary
     "3d card", "tilt effect", "parallax card", "hover tilt", "card tilt",

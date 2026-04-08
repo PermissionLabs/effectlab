@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 interface FilterBarProps {
@@ -10,28 +11,30 @@ interface FilterBarProps {
 }
 
 export default function FilterBar({ tags, activeTags, onToggle, onClear }: FilterBarProps) {
+  const t = useTranslations("filter");
+
   return (
-    <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+    <div className="flex flex-wrap items-center gap-2">
       <button
         onClick={onClear}
         className={cn(
-          "shrink-0 px-3 py-1.5 rounded-lg text-sm font-medium transition-all",
+          "px-3 py-1.5 rounded-full text-[12px] font-medium transition-all border",
           activeTags.length === 0
-            ? "bg-accent text-white"
-            : "bg-surface border border-border text-muted hover:text-fg"
+            ? "bg-fg text-bg border-fg shadow-sm"
+            : "bg-transparent text-muted border-border hover:border-fg/20 hover:text-fg"
         )}
       >
-        All
+        {t("all")}
       </button>
       {tags.map((tag) => (
         <button
           key={tag}
           onClick={() => onToggle(tag)}
           className={cn(
-            "shrink-0 px-3 py-1.5 rounded-lg text-sm font-medium transition-all capitalize",
+            "px-3 py-1.5 rounded-full text-[12px] font-medium transition-all border",
             activeTags.includes(tag)
-              ? "bg-accent/20 text-accent border border-accent/30"
-              : "bg-surface border border-border text-muted hover:text-fg hover:border-border"
+              ? "bg-accent/15 text-accent border-accent/30"
+              : "bg-transparent text-muted/60 border-border hover:border-fg/20 hover:text-fg"
           )}
         >
           {tag}

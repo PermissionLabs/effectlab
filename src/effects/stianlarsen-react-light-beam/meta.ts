@@ -5,6 +5,7 @@ export const meta = {
     "A customizable React component that creates a light beam effect using conic gradients. Supports dark mode and various customization options.",
   category: "hover" as const,
   tags: ["react", "light beam", "conic gradient", "dark mode", "framer-motion", "animation"],
+  motionTags: ["beam", "glow", "gradient"],
   keywords: [
     // English — visual descriptions
     "light beam", "light ray", "beam effect", "conic gradient beam",

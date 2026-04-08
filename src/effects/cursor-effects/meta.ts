@@ -5,6 +5,7 @@ export const meta = {
     "Old-school cursor effects for your browser built in modern JavaScript.",
   category: "interaction" as const,
   tags: ["cursor", "trail", "mouse", "animation", "particle"],
+  motionTags: ["particles", "hover"],
   keywords: [
     // English — visual descriptions
     "cursor trail",

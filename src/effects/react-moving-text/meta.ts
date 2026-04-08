@@ -5,6 +5,7 @@ export const meta = {
     "CSS text motion presets for React — fade, bounce, slide, swing, jelly, and more with zero config.",
   category: "text" as const,
   tags: ["text", "animation", "motion", "css"],
+  motionTags: ["fade", "slide", "bounce", "kinetic-type"],
   keywords: [
     // English — visual descriptions
     "animated text",

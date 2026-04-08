@@ -5,6 +5,7 @@ export const meta = {
     "Matrix-style text scramble and decode animation. Characters randomize and resolve into the target string, creating a hacker/cyberpunk reveal effect. Powered by use-scramble.",
   category: "text" as const,
   tags: ["text", "scramble", "decode", "animation", "matrix"],
+  motionTags: ["scramble"],
   keywords: [
     // English — primary
     "text scramble", "scramble effect", "decode animation", "text decode",

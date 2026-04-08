@@ -1,5 +1,26 @@
 import type { ComponentType } from "react";
 
+export const MOTION_TAGS = [
+  // Easing & Physics
+  "spring", "bounce", "elastic", "easing", "inertia", "physics",
+  // Transition Types
+  "fade", "slide", "scale", "rotate", "flip", "morph", "reveal", "collapse",
+  // Scroll
+  "parallax", "scroll-linked", "scroll-triggered", "smooth-scroll", "sticky",
+  // Micro-interactions
+  "hover", "ripple", "pulse", "shake", "drag", "gesture",
+  // Text & Numbers
+  "typewriter", "scramble", "counter", "marquee", "kinetic-type",
+  // Particles & Generative
+  "particles", "confetti", "noise", "flow-field", "generative",
+  // Visual Effects
+  "glow", "gradient", "blur", "neon", "aurora", "beam", "glassmorphism", "shadow",
+  // Structural & Rendering
+  "layout", "stagger", "timeline", "lottie", "svg-draw", "3d", "shader",
+] as const;
+
+export type MotionTag = (typeof MOTION_TAGS)[number];
+
 export type Category =
   | "glow"
   | "orb"
@@ -41,6 +62,7 @@ export interface EffectDefinition {
   description: string;
   category: Category;
   tags: string[];
+  motionTags: (MotionTag | (string & {}))[];
   keywords: string[];
   library: LibraryInfo;
   packageMeta?: PackageMeta;

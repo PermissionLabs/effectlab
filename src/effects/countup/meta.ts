@@ -5,6 +5,7 @@ export const meta = {
     "Smooth count-up animations that bring numbers to life. Perfect for dashboards, statistics sections, and landing pages that showcase impressive metrics.",
   category: "text" as const,
   tags: ["counter", "number", "countup", "animation", "dashboard", "statistics"],
+  motionTags: ["counter", "easing"],
   keywords: [
     // English — primary
     "count up", "animated counter", "number animation", "dashboard metrics",

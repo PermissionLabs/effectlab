@@ -5,6 +5,7 @@ export const meta = {
     "Animate hand-drawn style annotations on text — underlines, circles, highlights, and brackets that feel sketchy and personal.",
   category: "text" as const,
   tags: ["annotation", "hand-drawn", "underline", "highlight", "circle", "sketch"],
+  motionTags: ["svg-draw", "reveal"],
   keywords: [
     // English — primary
     "rough notation", "hand-drawn annotation", "sketch annotation",

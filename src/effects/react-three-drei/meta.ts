@@ -5,6 +5,7 @@ export const meta = {
     "Useful helpers and abstractions for react-three-fiber: Stars, Float, MeshDistortMaterial, and more.",
   category: "3d" as const,
   tags: ["react", "three", "threejs", "react-three-fiber", "3d", "webgl"],
+  motionTags: ["3d", "shader", "particles"],
   keywords: [
     // English — visual descriptions
     "3d scene", "three.js", "3d sphere", "floating sphere", "distorted mesh",

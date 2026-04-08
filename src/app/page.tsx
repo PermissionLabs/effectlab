@@ -1,19 +1,13 @@
-import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
-import HowToUse from "@/components/HowToUse";
-import EffectGrid from "@/components/EffectGrid";
-import ScrollToTop from "@/components/ScrollToTop";
+"use client";
 
-export default function Home() {
-  return (
-    <div className="flex flex-col min-h-dvh bg-bg">
-      <Header />
-      <main className="flex-1 max-w-[1280px] mx-auto w-full px-6 pt-10 pb-16">
-        <HeroSection />
-        <HowToUse />
-        <EffectGrid />
-      </main>
-      <ScrollToTop />
-    </div>
-  );
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function RootPage() {
+  const router = useRouter();
+  useEffect(() => {
+    const lang = navigator.language?.startsWith("ko") ? "ko" : "en";
+    router.replace(`/${lang}`);
+  }, [router]);
+  return null;
 }

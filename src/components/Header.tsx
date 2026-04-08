@@ -1,19 +1,33 @@
 "use client";
 
-import Link from "next/link";
 import NumberFlow from "@number-flow/react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 import { effects } from "@/effects/registry";
 import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
+  const t = useTranslations();
+
   return (
     <header className="sticky top-0 z-50 flex items-center justify-between px-6 h-14 border-b border-border backdrop-blur-xl bg-bg/80">
-      <Link href="/" className="flex items-center gap-3">
-        <span className="text-[15px] font-semibold tracking-tight text-fg">effectlab</span>
-        <span className="text-[11px] text-muted font-mono tabular-nums">
-          <NumberFlow value={effects.length} />
-        </span>
-      </Link>
+      <div className="flex items-center gap-6">
+        <Link href="/" className="flex items-center gap-3">
+          <span className="text-[15px] font-semibold tracking-tight text-fg">{t("header.brand")}</span>
+          <span className="text-[11px] text-muted font-mono tabular-nums">
+            <NumberFlow value={effects.length} />
+          </span>
+        </Link>
+        <nav className="hidden sm:flex items-center gap-4">
+          <Link href="/" className="text-[13px] text-muted hover:text-fg transition-colors">
+            {t("nav.allEffects")}
+          </Link>
+          <Link href="/compare" className="text-[13px] text-muted hover:text-fg transition-colors">
+            {t("nav.compare")}
+          </Link>
+        </nav>
+      </div>
       <div className="flex items-center gap-3">
         <a
           href="https://permissionlabs.github.io/effectlab/llms-full.txt"
@@ -23,6 +37,7 @@ export default function Header() {
         >
           llms.txt
         </a>
+        <LanguageSwitcher />
         <ThemeToggle />
         <a
           href="https://github.com/PermissionLabs/effectlab"

@@ -5,6 +5,7 @@ export const meta = {
     "Customizable React typing animation component based on typical.",
   category: "text" as const,
   tags: ["react", "reactjs", "animation", "typing", "typewriter", "react typewriter", "typing animation"],
+  motionTags: ["typewriter"],
   keywords: [
     // English — visual descriptions
     "typing effect", "typewriter effect", "text typing", "cursor blinking",

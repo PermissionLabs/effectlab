@@ -5,6 +5,7 @@ export const meta = {
     "Smoothly animate number changes with spring physics. Perfect for dashboards, stats counters, and live metrics that update in real time.",
   category: "text" as const,
   tags: ["text", "numbers", "animation", "counter", "spring"],
+  motionTags: ["counter", "spring"],
   keywords: [
     // English — visual descriptions
     "animated numbers", "number animation", "counting animation", "number counter",

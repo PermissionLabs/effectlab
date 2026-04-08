@@ -5,6 +5,7 @@ export const meta = {
     "Apple TV-style 3D parallax hover effects — multi-layer depth with touch support, only 2KB gzipped with zero dependencies",
   category: "hover" as const,
   tags: ["atropos", "parallax", "3d", "hover", "tilt", "depth", "apple-tv", "touch"],
+  motionTags: ["3d", "parallax", "hover", "shadow"],
   keywords: [
     "atropos", "3d parallax", "parallax hover", "apple tv effect", "tilt effect",
     "3d card", "depth effect", "multi-layer parallax", "hover effect",

@@ -5,6 +5,7 @@ export const meta = {
     "Organic SVG shape morphing with smooth interpolation between arbitrary paths — circles, stars, hearts, and more",
   category: "transition" as const,
   tags: ["morphing", "svg", "shape", "interpolation", "animation", "transition"],
+  motionTags: ["morph", "svg-draw"],
   keywords: [
     // English — visual descriptions
     "shape morphing", "SVG morph", "path interpolation", "shape transition",

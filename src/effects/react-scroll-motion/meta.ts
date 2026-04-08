@@ -5,6 +5,7 @@ export const meta = {
     "Easy scroll-driven animations with React. Elements fade, slide, zoom, and stick as you scroll through pages.",
   category: "scroll" as const,
   tags: ["scroll", "animation", "react", "animator", "motion"],
+  motionTags: ["scroll-linked", "fade", "scale", "stagger"],
   keywords: [
     // English — visual descriptions
     "scroll animation", "scroll fade", "scroll zoom", "scroll slide",

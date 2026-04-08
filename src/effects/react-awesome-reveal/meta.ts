@@ -5,6 +5,7 @@ export const meta = {
     "React components to add reveal animations using the Intersection Observer API and CSS Animations.",
   category: "scroll" as const,
   tags: ["react", "reveal", "react-reveal", "scroll", "typescript", "intersection", "intersection-observer"],
+  motionTags: ["reveal", "fade", "scroll-triggered", "stagger"],
   keywords: [
     // English — visual descriptions
     "reveal animation", "fade in", "slide in", "zoom in", "bounce in",

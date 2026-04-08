@@ -5,6 +5,7 @@ export const meta = {
     "Floating, pulsing particles with glow halos rendered via PixiJS WebGL. High-performance 2D particle system with smooth animations.",
   category: "particle" as const,
   tags: ["particle", "glow", "webgl", "pixi", "animation", "ambient", "background"],
+  motionTags: ["particles", "glow", "generative"],
   keywords: [
     "floating particles", "glow particles", "particle field", "ambient particles",
     "constellation effect", "star field", "firefly effect", "floating lights",

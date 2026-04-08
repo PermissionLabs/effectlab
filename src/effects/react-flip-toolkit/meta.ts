@@ -5,6 +5,7 @@ export const meta = {
     "Configurable FLIP animation helpers for React",
   category: "transition" as const,
   tags: ["react-component", "FLIP", "transition", "animation"],
+  motionTags: ["layout", "spring", "scale"],
   keywords: [
     // English — visual descriptions
     "flip animation", "layout animation", "smooth transition",

@@ -3,13 +3,14 @@
 import { useState, useMemo, useDeferredValue, useEffect } from "react";
 import { animate } from "motion";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { useTranslations } from "next-intl";
 import NumberFlow from "@number-flow/react";
-import { effects } from "@/effects/registry";
+import { effects, allMotionTags } from "@/effects/registry";
 import { createSearch } from "@/lib/search";
 import type { EffectDefinition } from "@/effects/types";
 import SearchBar from "./ui/SearchBar";
+import FilterBar from "./ui/FilterBar";
 import EffectCard from "./EffectCard";
-import CompareView from "./CompareView";
 
 type SortKey = "default" | "stars" | "downloads" | "size";
 
@@ -53,10 +54,11 @@ const categoryMeta: Record<string, string> = {
 const categories = [...new Set(effects.map((e) => e.category))].sort();
 
 export default function EffectGrid() {
+  const t = useTranslations("grid");
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [activeMotionTags, setActiveMotionTags] = useState<string[]>([]);
   const [sortKey, setSortKey] = useState<SortKey>("default");
-  const [viewMode, setViewMode] = useState<"grid" | "compare">("grid");
   const [gridRef] = useAutoAnimate({ duration: 300 });
 
   const deferredQuery = useDeferredValue(query);
@@ -70,7 +72,6 @@ export default function EffectGrid() {
       const el = document.getElementById(hash);
       if (!el) return;
       el.scrollIntoView({ behavior: "smooth", block: "center" });
-      // Dock bounce after scroll settles
       setTimeout(() => {
         animate(
           el,
@@ -82,38 +83,30 @@ export default function EffectGrid() {
     return () => clearTimeout(timer);
   }, []);
 
+  const toggleMotionTag = (tag: string) => {
+    setActiveMotionTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    );
+  };
+
   const filtered = useMemo(() => {
     let results = effects;
     if (deferredQuery.trim()) results = fuse.search(deferredQuery).map((r) => r.item);
     if (activeCategory) results = results.filter((e) => e.category === activeCategory);
+    if (activeMotionTags.length > 0)
+      results = results.filter((e) =>
+        activeMotionTags.some((t) => e.motionTags.includes(t as any))
+      );
     return sortEffects(results, sortKey);
-  }, [deferredQuery, activeCategory, fuse, sortKey]);
+  }, [deferredQuery, activeCategory, activeMotionTags, fuse, sortKey]);
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Tabs row */}
+      {/* Header row */}
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => setViewMode("grid")}
-            className={`text-[14px] font-semibold flex items-center gap-1.5 transition-colors ${
-              viewMode === "grid" ? "text-fg" : "text-muted/50 hover:text-muted"
-            }`}
-          >
-            <span>🔥</span> All Effects
-          </button>
-          <button
-            onClick={() => setViewMode("compare")}
-            className={`text-[14px] font-semibold flex items-center gap-1.5 transition-colors ${
-              viewMode === "compare" ? "text-fg" : "text-muted/50 hover:text-muted"
-            }`}
-          >
-            <span>⚖️</span> Compare
-          </button>
-          <span className="text-[14px] text-muted/50 font-mono tabular-nums">
-            <NumberFlow value={filtered.length} /> libraries
-          </span>
-        </div>
+        <span className="text-[14px] text-muted/50 font-mono tabular-nums">
+          <NumberFlow value={filtered.length} /> {t("libraries")}
+        </span>
         <div className="hidden sm:flex items-center gap-1">
           {(["default", "stars", "downloads", "size"] as SortKey[]).map((k) => (
             <button
@@ -125,7 +118,7 @@ export default function EffectGrid() {
                   : "text-muted/50 hover:text-muted"
               }`}
             >
-              {k === "default" ? "Popular" : k === "stars" ? "Stars" : k === "downloads" ? "Downloads" : "Size"}
+              {t(k === "default" ? "popular" : k)}
             </button>
           ))}
         </div>
@@ -141,7 +134,7 @@ export default function EffectGrid() {
               : "bg-transparent text-muted border-border hover:border-fg/20 hover:text-fg"
           }`}
         >
-          All
+          {t("all")}
         </button>
         {categories.map((cat) => (
           <button
@@ -159,23 +152,27 @@ export default function EffectGrid() {
         ))}
       </div>
 
+      {/* Motion tags */}
+      <FilterBar
+        tags={allMotionTags}
+        activeTags={activeMotionTags}
+        onToggle={toggleMotionTag}
+        onClear={() => setActiveMotionTags([])}
+      />
+
       {/* Search */}
       <SearchBar value={query} onChange={setQuery} />
 
-      {/* Grid or Compare view */}
+      {/* Grid */}
       {filtered.length > 0 ? (
-        viewMode === "compare" ? (
-          <CompareView effects={filtered} />
-        ) : (
-          <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {filtered.map((effect) => (
-              <EffectCard key={effect.slug} effect={effect} />
-            ))}
-          </div>
-        )
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {filtered.map((effect) => (
+            <EffectCard key={effect.slug} effect={effect} />
+          ))}
+        </div>
       ) : (
         <div className="flex items-center justify-center py-32">
-          <p className="text-muted/30 text-sm">No effects found</p>
+          <p className="text-muted/30 text-sm">{t("noResults")}</p>
         </div>
       )}
     </div>

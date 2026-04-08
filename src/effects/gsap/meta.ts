@@ -5,6 +5,7 @@ export const meta = {
     "Professional-grade JavaScript animation library for high-performance tweens, timelines, and complex sequenced animations.",
   category: "transition" as const,
   tags: ["GSAP", "GreenSock", "animation", "timeline", "tween", "easing", "stagger"],
+  motionTags: ["timeline", "stagger", "easing", "scroll-triggered"],
   keywords: [
     // English — visual descriptions
     "GSAP", "GreenSock", "animation", "timeline", "tween",

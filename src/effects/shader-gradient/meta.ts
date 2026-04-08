@@ -5,6 +5,7 @@ export const meta = {
     "Stunning 3D mesh gradients powered by WebGL shaders. Create animated, interactive gradient backgrounds with water, plane, and sphere styles reminiscent of Apple's design language.",
   category: "gradient" as const,
   tags: ["gradient", "3d", "shader", "mesh", "webgl", "three.js", "background"],
+  motionTags: ["shader", "gradient", "3d"],
   keywords: [
     // English — primary
     "mesh gradient", "3d gradient", "shader gradient", "apple style gradient",

@@ -5,6 +5,7 @@ export const meta = {
     "SVG-Powered component to easily create placeholder loadings (like Facebook cards loading)",
   category: "interaction" as const,
   tags: ["react","react-native","skeleton","placeholder","loader","loading","content"],
+  motionTags: ["pulse", "fade"],
   keywords: [
     // English — visual descriptions
     "skeleton", "skeleton loader", "content loader", "placeholder loading",

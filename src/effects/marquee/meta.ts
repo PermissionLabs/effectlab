@@ -5,6 +5,7 @@ export const meta = {
     "Smoothly scrolling infinite marquee with pause-on-hover and gradient edges. Powered by react-fast-marquee.",
   category: "scroll" as const,
   tags: ["marquee", "scroll", "infinite", "loop", "ticker", "animation"],
+  motionTags: ["marquee"],
   keywords: [
     // English — primary
     "marquee", "infinite scroll", "scrolling text", "ticker", "logo ticker",

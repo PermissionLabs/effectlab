@@ -134,3 +134,4 @@ export const effects: EffectDefinition[] = [
 ];
 export const categories = [...new Set(effects.map((e) => e.category))];
 export const allTags = [...new Set(effects.flatMap((e) => e.tags))].sort();
+export const allMotionTags = [...new Set(effects.flatMap((e) => e.motionTags))].sort();

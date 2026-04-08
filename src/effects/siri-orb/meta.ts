@@ -5,6 +5,7 @@ export const meta = {
     "Animated Siri-style audio visualizer orb with reactive wave animations and glowing effects. Built with CSS conic-gradients and blend modes.",
   category: "orb" as const,
   tags: ["orb", "siri", "apple", "gradient", "conic", "animation", "glow", "glass"],
+  motionTags: ["glow", "gradient", "pulse", "aurora", "shader"],
   keywords: [
     "floating sphere", "glowing ball", "energy orb", "plasma ball",
     "layered gradient sphere", "glass orb", "luminous sphere",

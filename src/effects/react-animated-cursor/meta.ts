@@ -5,6 +5,7 @@ export const meta = {
     "An animated custom cursor component in React with a trailing dot and ring that scales on hover.",
   category: "interaction" as const,
   tags: ["react cursor", "custom cursor", "animated cursor", "trailing cursor"],
+  motionTags: ["hover", "scale", "spring"],
   keywords: [
     // English — visual descriptions
     "animated cursor",

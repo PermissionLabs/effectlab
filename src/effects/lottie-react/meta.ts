@@ -5,6 +5,7 @@ export const meta = {
     "Render After Effects animations natively in React using the Lottie format for lightweight, scalable vector animations.",
   category: "interaction" as const,
   tags: ["lottie", "animation", "after-effects", "motion", "vector"],
+  motionTags: ["lottie", "timeline"],
   keywords: [
     // English — visual descriptions
     "lottie animation", "lottie player", "vector animation", "json animation",

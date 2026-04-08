@@ -5,6 +5,7 @@ export const meta = {
     "Create fluid and interactive gradient animations with this small js library. Smooth color transitions morph between multiple gradient states on a canvas element.",
   category: "gradient" as const,
   tags: ["gradient", "animation", "canvas", "color", "transition"],
+  motionTags: ["gradient", "fade"],
   keywords: [
     // English — visual descriptions
     "gradient animation", "fluid gradient", "morphing gradient", "color transition",

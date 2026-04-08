@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect, memo } from "react";
+import { useTranslations } from "next-intl";
 import type { EffectDefinition } from "@/effects/types";
 import CodeViewer from "./CodeViewer";
 import { copyToClipboard } from "@/lib/utils";
@@ -30,6 +31,7 @@ Preview: https://permissionlabs.github.io/effectlab`;
 }
 
 export default memo(function EffectCard({ effect }: { effect: EffectDefinition }) {
+  const t = useTranslations("card");
   const [showCode, setShowCode] = useState(false);
   const [copiedAI, setCopiedAI] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -92,7 +94,7 @@ export default memo(function EffectCard({ effect }: { effect: EffectDefinition }
             )}
           </div>
 
-          {/* Library badge — bottom left on hover */}
+          {/* Library badge */}
           <div className="absolute bottom-2.5 left-2.5 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
             <a
               href={effect.library.url}
@@ -111,12 +113,12 @@ export default memo(function EffectCard({ effect }: { effect: EffectDefinition }
                 e.stopPropagation();
                 const url = `${window.location.origin}${window.location.pathname}#${effect.slug}`;
                 await copyToClipboard(url);
-                toast.success("Link copied", {
-                  description: "Share this effect with anyone",
+                toast.success(t("linkCopied"), {
+                  description: t("linkCopiedDesc"),
                 });
               }}
               className={`p-1.5 ${overlayBtnCls}`}
-              title="Copy link"
+              title={t("copyLink")}
             >
               <Link2 size={14} />
             </button>
@@ -132,7 +134,7 @@ export default memo(function EffectCard({ effect }: { effect: EffectDefinition }
                 }
               }}
               className={`p-1.5 ${overlayBtnCls}`}
-              title="Replay"
+              title={t("replay")}
             >
               <RotateCw ref={replayRef} size={14} onAnimationEnd={() => replayRef.current?.classList.remove("animate-spin-once")} />
             </button>
@@ -141,8 +143,8 @@ export default memo(function EffectCard({ effect }: { effect: EffectDefinition }
                 e.stopPropagation();
                 await copyToClipboard(buildAIPrompt(effect));
                 setCopiedAI(true);
-                toast.success(`Copied ${effect.name}`, {
-                  description: "Paste into Claude Code or your AI assistant",
+                toast.success(t("copiedEffect", { name: effect.name }), {
+                  description: t("copiedEffectDesc"),
                 });
                 setTimeout(() => setCopiedAI(false), 2000);
               }}
@@ -152,19 +154,19 @@ export default memo(function EffectCard({ effect }: { effect: EffectDefinition }
                   : "bg-black/50 text-white/60 hover:text-white border border-white/10"
               }`}
             >
-              {copiedAI ? "Copied!" : "Copy for AI"}
+              {copiedAI ? t("copied") : t("copyForAI")}
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); setShowCode(!showCode); }}
               className={overlayBtnCls}
             >
-              Code
+              {t("code")}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Label below card — like before.click's app name */}
+      {/* Label below card */}
       <div className="flex items-center justify-between px-0.5">
         <div className="min-w-0">
           <h3 className="text-[14px] font-semibold text-fg truncate">{effect.name}</h3>
@@ -182,7 +184,7 @@ export default memo(function EffectCard({ effect }: { effect: EffectDefinition }
           rel="noopener noreferrer"
           className="text-[11px] text-muted/50 hover:text-muted transition-colors shrink-0"
         >
-          docs →
+          {t("docs")} &rarr;
         </a>
       </div>
 

@@ -5,6 +5,7 @@ export const meta = {
     "SVG drawing animation that progressively reveals strokes one by one — draw geometric patterns, logos, and illustrations",
   category: "transition" as const,
   tags: ["svg", "drawing", "stroke", "animation", "reveal", "line-art"],
+  motionTags: ["svg-draw", "reveal", "easing"],
   keywords: [
     // English — visual descriptions
     "SVG drawing", "stroke animation", "line drawing", "path reveal",

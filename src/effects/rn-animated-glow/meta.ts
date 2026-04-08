@@ -5,6 +5,7 @@ export const meta = {
     "Rotating multi-color conic gradient border with layered glow. CSS-only implementation inspired by react-native-animated-glow (Skia). No external library required.",
   category: "glow" as const,
   tags: ["glow", "border", "gradient", "animation", "preset", "interactive"],
+  motionTags: ["glow", "gradient", "pulse"],
   keywords: [
     "animated glow", "multi-layer glow", "glow preset", "rainbow glow",
     "ocean sunset glow", "glow border", "rotating gradient border",

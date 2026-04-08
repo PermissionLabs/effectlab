@@ -5,6 +5,7 @@ export const meta = {
     "WebGL particle engine that morphs thousands of particles into text, images, and shapes with interactive mouse effects and smooth transitions.",
   category: "3d" as const,
   tags: ["particles", "morph", "webgl", "3d", "interactive", "canvas", "animation"],
+  motionTags: ["particles", "morph", "3d"],
   keywords: [
     // English - visual descriptions
     "particle morphing",

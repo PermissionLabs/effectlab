@@ -5,6 +5,7 @@ export const meta = {
     "Vertical timeline for React.js",
   category: "interaction" as const,
   tags: ["react","vertical-timeline","react-vertical-timeline-component","react-19","react-19-support"],
+  motionTags: ["scroll-triggered", "reveal", "layout"],
   keywords: [
     // English — visual descriptions
     "vertical timeline", "timeline", "timeline component", "event timeline",

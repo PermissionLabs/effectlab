@@ -5,6 +5,7 @@ export const meta = {
     "simplex-noise is a fast simplex noise implementation in Javascript. Works in node and in the browser.",
   category: "background" as const,
   tags: ["noise", "random", "simplex", "plasma", "procedural", "generation", "gfx"],
+  motionTags: ["noise", "generative"],
   keywords: [
     // English — visual descriptions
     "noise", "grain", "noise texture", "grain overlay", "static noise",
