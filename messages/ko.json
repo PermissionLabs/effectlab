@@ -15,9 +15,9 @@
     "subtitle5": "& 파티클 시스템.",
     "subtitle6": "& 텍스트 애니메이션.",
     "description": "100개 이상의 실제 npm 라이브러리에서 엄선한 효과를 탐색하세요. 라이브 미리보기, 번들 사이즈 비교, 코드 복사까지.",
-    "pain1": "<strike>머릿속 인터랙션을 말로 설명</strike>하느라 지치셨나요?",
-    "pain2": "<strike>레퍼런스 찾겠다고 이곳저곳</strike> 돌아다니며 설득하기 지치셨나요?",
-    "cta": "이펙트랩에서 한눈에 보고, <highlight>개발자든 AI든 한번에 전달</highlight>해보세요."
+    "pain1": "<accent>머릿속 인터랙션을 말로 설명</accent>하느라 지치셨나요?",
+    "pain2": "<accent>레퍼런스 찾겠다고 이곳저곳</accent> 돌아다니며 설득하기 지치셨나요?",
+    "cta": "이펙트랩에서 한눈에 보고, <mark>개발자든 AI든 한번에 전달</mark>해보세요."
   },
   "howToUse": {
     "step1Title": "Claude Code 플러그인 설치",

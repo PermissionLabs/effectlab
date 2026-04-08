@@ -62,7 +62,7 @@ export default function HeroSection() {
             <RoughNotationGroup show={show}>
               <p className="text-[15px] sm:text-[16px] text-muted/70 leading-relaxed">
                 {t.rich("pain1", {
-                  strike: (chunks: ReactNode) => (
+                  accent: (chunks: ReactNode) => (
                     <RoughNotation type="underline" color="#f59e0b" strokeWidth={2} order={1}>
                       <span className="text-muted">{chunks}</span>
                     </RoughNotation>
@@ -71,7 +71,7 @@ export default function HeroSection() {
               </p>
               <p className="text-[15px] sm:text-[16px] text-muted/70 leading-relaxed">
                 {t.rich("pain2", {
-                  strike: (chunks: ReactNode) => (
+                  accent: (chunks: ReactNode) => (
                     <RoughNotation type="underline" color="#f472b6" strokeWidth={2} order={2}>
                       <span className="text-muted">{chunks}</span>
                     </RoughNotation>
@@ -81,7 +81,7 @@ export default function HeroSection() {
               <div className="h-px bg-white/[0.06]" />
               <p className="text-[15px] sm:text-[16px] text-fg/90 font-medium leading-relaxed">
                 {t.rich("cta", {
-                  highlight: (chunks: ReactNode) => (
+                  mark: (chunks: ReactNode) => (
                     <span className="relative">
                       <RoughNotation type="highlight" color="rgba(52, 211, 153, 0.25)" order={3} multiline>
                         <span className="text-fg">{chunks}</span>
