@@ -14,7 +14,10 @@
     "subtitle4": "& 3D scenes.",
     "subtitle5": "& particle systems.",
     "subtitle6": "& text animations.",
-    "description": "Browse 100+ curated effects from real npm libraries. Preview live, compare bundle sizes, and copy code."
+    "description": "Browse 100+ curated effects from real npm libraries. Preview live, compare bundle sizes, and copy code.",
+    "pain1": "Tired of <accent>explaining animations in your head</accent> to AI or developers?",
+    "pain2": "Exhausted from <accent>hunting references everywhere</accent> just to get buy-in?",
+    "cta": "Browse EffectLab, get inspired, and <hl>deliver it so any developer or AI gets it instantly</hl>."
   },
   "howToUse": {
     "step1Title": "Install the Claude Code plugin",

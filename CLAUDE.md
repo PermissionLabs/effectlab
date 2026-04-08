@@ -49,6 +49,10 @@ This auto-scaffolds all files from npm/GitHub metadata. Then customize:
 3. `usage.ts` — write standalone copy-paste code
 4. `bun run build` → `bunx tsx scripts/generate-llms-txt.ts` → commit & push
 
+## i18n rich text tags (next-intl)
+
+When using `t.rich()` with custom tags in translation JSON, **never use real HTML tag names** (`strike`, `mark`, `b`, `i`, `s`, `em`, `strong`, `script`, …). `next-intl` falls back to rendering them as raw HTML elements on locale switch, causing React "script tag" warnings and broken markup. Always use custom non-HTML names like `<accent>`, `<hl>`, `<note>`, etc.
+
 ## Key conventions
 
 - Every effect MUST use a REAL npm library — no custom recreations
